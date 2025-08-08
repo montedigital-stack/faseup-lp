@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaseUp - Gestão de obra. Etapa por etapa.</title>
+    <meta name="description" content="Sistema de gestão de obras que substitui o WhatsApp bagunçado. Chat por etapa, capacetes coloridos, gamificação. Economize até 90% vs softwares internacionais.">
+    <meta name="keywords" content="gestão de obras, construção civil, chat por etapa, capacetes coloridos, gamificação, construtora, engenharia">
+    <meta name="author" content="FaseUp">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="FaseUp - Gestão de obra. Etapa por etapa.">
+    <meta property="og:description" content="Sistema de gestão de obras que substitui o WhatsApp bagunçado. Chat por etapa, capacetes coloridos, gamificação.">
+    <meta property="og:image" content="./Image72025-18_05_45.png">
+    <meta property="og:url" content="https://faseup.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FaseUp - Gestão de obra. Etapa por etapa.">
+    <meta name="twitter:description" content="Sistema de gestão de obras que substitui o WhatsApp bagunçado. Chat por etapa, capacetes coloridos, gamificação.">
+    <meta name="twitter:image" content="./Image72025-18_05_45.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                        accent: '#60A5FA'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        
+        .phone-mockup {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-card {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.4s; }
+        .feature-card:nth-child(4) { animation-delay: 0.6s; }
+        .feature-card:nth-child(5) { animation-delay: 0.8s; }
+        .feature-card:nth-child(6) { animation-delay: 1.0s; }
+
+        .hardhat-black { background: linear-gradient(135deg, #1f2937 0%, #111827 100%); }
+        .hardhat-white { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border: 2px solid #cbd5e1; }
+        .hardhat-blue { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
+        .hardhat-green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .hardhat-red { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+        .hardhat-orange { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .countdown-label {
+            color: #bfdbfe;
+            font-size: 0.875rem;
+        }
+
+        /* 
+        Background Hero personalizado:
+        - Imagem atual: Image72025-18_05_45.png (canteiro com profissionais usando capacetes coloridos)
+        - Opacidade: 50% para maior visibilidade da imagem
+        - Overlay: 75% para balancear contraste do texto
+        - Padding: aumentado para melhor espaçamento (px-6 py-20)
+        - Gap: 16 entre colunas para mais respiração
+        
+        Para trocar a imagem, substitua o caminho em background-image: url('./SUA_IMAGEM.jpg')
+        */
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 py-20">
+        <!-- Background Image - Canteiro de obras com profissionais usando capacetes coloridos -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50" 
+             style="background-image: url('./Image72025-18_05_45.png');">
+        </div>
+        
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-20 text-[200px] font-bold text-white/5 rotate-12">FASE</div>
+            <div class="absolute bottom-20 right-20 text-[180px] font-bold text-white/5 -rotate-12">UP</div>
+        </div>
+        
+        <!-- Overlay escuro para melhor legibilidade com imagem -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/75 via-blue-800/75 to-blue-600/75"></div>
+        
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="text-center lg:text-left px-4 lg:px-0">
+                    <div class="mb-8">
+                        <span class="inline-block px-6 py-3 bg-white/20 backdrop-blur-md rounded-full text-blue-100 text-sm font-medium mb-6">
+                            🚧 Lançamento em breve
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-bold gradient-text mb-8 leading-tight">
+                        Gestão de obra.
+                        <span class="block text-white">Etapa por etapa.</span>
+                    </h1>
+                    
+                    <p class="text-xl text-blue-100 mb-10 max-w-lg mx-auto lg:mx-0">
+                        Substitua o WhatsApp bagunçado por comunicação profissional organizada. 
+                        Chat contextual, capacetes coloridos e gamificação para sua construtora.
+                    </p>
+                    
+                    <!-- Countdown Timer -->
+                    <div class="countdown-timer">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">15</div>
+                            <div class="countdown-label">dias</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number">:</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">8</div>
+                            <div class="countdown-label">horas</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number">:</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">45</div>
+                            <div class="countdown-label">minutos</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start mb-12">
+                        <button onclick="openModal()" class="bg-white text-blue-900 px-8 py-4 rounded-2xl font-semibold hover:bg-blue-50 transition-all duration-300 flex items-center justify-center shadow-xl hover:shadow-2xl hover:scale-105">
+                            <i class="fas fa-calendar mr-2"></i>
+                            Agende uma Demo
+                        </button>
+                        <button onclick="scrollToSection('features')" class="border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-md">
+                            Ver Funcionalidades
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center justify-center lg:justify-start space-x-8 text-blue-100">
+                        <div class="flex items-center">
+                            <i class="fas fa-eye mr-2"></i>
+                            <span class="text-sm">ACOMPANHAR</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-comments mr-2"></i>
+                            <span class="text-sm">COMUNICAR</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span class="text-sm">APROVAR</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            <span class="text-sm">OTIMIZAR</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center">
+                    <div class="phone-mockup">
+                        <div class="w-80 h-96 bg-white/10 backdrop-blur-md rounded-[3rem] p-6 shadow-2xl">
+                            <div class="w-full h-full bg-gradient-to-br from-blue-50 to-white rounded-[2rem] p-6 flex flex-col">
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="font-bold text-blue-900">FaseUp</span>
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Acompanhe sua obra</h3>
+                                    <div class="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
+                                        <div class="w-3/4 h-full bg-gradient-to-r from-blue-500 to-blue-600"></div>
+                                    </div>
+                                    <span class="text-sm text-gray-600 mt-1 block">75% concluído</span>
+                                </div>
+                                
+                                <div class="space-y-3 flex-1">
+                                    <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-sm text-gray-700">Fundação concluída</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                        <i class="fas fa-clock text-blue-500 mr-3"></i>
+                                        <span class="text-sm text-gray-700">Estrutura em andamento</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-gray-50 rounded-lg opacity-60">
+                                        <i class="fas fa-clock text-gray-400 mr-3"></i>
+                                        <span class="text-sm text-gray-500">Cobertura pendente</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4 flex justify-between">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-building text-blue-600"></i>
+                                    </div>
+                                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-comments text-gray-600"></i>
+                                    </div>
+                                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-star text-gray-600"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                    Por que escolher o FaseUp?
+                </h2>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    Economize até 90% comparado aos softwares internacionais. 
+                    Desenvolvido especialmente para a realidade da construção civil brasileira.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                    <div class="mb-4 text-white">
+                        <i class="fas fa-eye text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Chat por Etapa da Obra</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        Conversas organizadas por fase: Fundação → Estrutura → Alvenaria → Cobertura → Instalações → Acabamento.
+                    </p>
+                </div>
+
+                <div class="feature-card bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                    <div class="mb-4 text-white">
+                        <i class="fas fa-comments text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Autenticação Simplificada</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        Login apenas com telefone + PIN de 4-6 dígitos. Ideal para equipes com diversos níveis de alfabetização digital.
+                    </p>
+                </div>
+
+                <div class="feature-card bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                    <div class="mb-4 text-white">
+                        <i class="fas fa-check-circle text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Gamificação com Medalhas</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        Sistema de medalhas e pontuação que incentiva produtividade, colaboração e qualidade entre trabalhadores.
+                    </p>
+                </div>
+
+                <div class="feature-card bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                    <div class="mb-4 text-white">
+                        <i class="fas fa-clock text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Capacetes Coloridos</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        Sistema visual intuitivo que identifica cada função na obra através de capacetes coloridos por permissão.
+                    </p>
+                </div>
+
+                <div class="feature-card bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                    <div class="mb-4 text-white">
+                        <i class="fas fa-shield-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Custo-Benefício Imbatível</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        Solução acessível financeiramente, desenvolvida para construtoras brasileiras de todos os tamanhos.
+                    </p>
+                </div>
+
+                <div class="feature-card bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                    <div class="mb-4 text-white">
+                        <i class="fas fa-chart-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Tecnologia Nacional</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        Desenvolvido no Brasil, para brasileiros, com suporte local e recursos adaptados à nossa realidade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hardhat Hierarchy Section -->
+    <section class="py-20 px-4 bg-white/5 backdrop-blur-md">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                    Hierarquia por Capacetes
+                </h2>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    Sistema visual intuitivo que identifica cada função na obra através de capacetes coloridos.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 hardhat-black rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hard-hat text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">⚫ Capacete Preto</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        <strong>Gestor/Proprietário</strong> - Todas as permissões, controle total da obra
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 hardhat-white rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hard-hat text-gray-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">⚪ Capacete Branco</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        <strong>Engenheiro/Arquiteto</strong> - Aprovar e validar etapas da construção
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 hardhat-blue rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hard-hat text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">🔵 Capacete Azul</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        <strong>Mestre de Obra</strong> - Executar e reportar progresso das atividades
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 hardhat-green rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hard-hat text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">🟢 Capacete Verde</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        <strong>Técnico/Operário</strong> - Executar sua fase específica da obra
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 hardhat-red rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hard-hat text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">🔴 Capacete Vermelho</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        <strong>Segurança do Trabalho</strong> - Apenas visualizar, monitorar conformidade
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 hardhat-orange rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hard-hat text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">🟠 Capacete Laranja</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        <strong>Cliente/Visitante</strong> - Apenas visualizar progresso e comunicar
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section id="pricing" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                    Planos que cabem no seu bolso
+                </h2>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    Economize até 90% comparado aos softwares internacionais. 
+                    Escolha o plano ideal para sua construtora.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Plano Básico -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Básico</h3>
+                        <div class="text-3xl font-bold text-blue-600 mb-4">
+                            R$ 49<span class="text-lg text-gray-500">/mês</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6">Ideal para pequenas obras</p>
+                        <ul class="text-left text-gray-600 text-sm space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>1 obra ativa</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Chat por etapa</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Sistema de capacetes</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Até 10 usuários</li>
+                        </ul>
+                        <button onclick="openWhatsApp('basico')" class="w-full bg-blue-100 text-blue-700 py-3 rounded-xl font-semibold hover:bg-blue-200 transition-colors">
+                            Contratar Plano
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Plano Profissional (Destaque) -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 relative border-2 border-blue-500">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold">Mais Popular</span>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Profissional</h3>
+                        <div class="text-3xl font-bold text-blue-600 mb-4">
+                            R$ 149<span class="text-lg text-gray-500">/obra</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6">Uma obra completa</p>
+                        <ul class="text-left text-gray-600 text-sm space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>1 obra completa</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Gamificação + medalhas</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Relatórios avançados</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Usuários ilimitados</li>
+                        </ul>
+                        <button onclick="openWhatsApp('profissional')" class="w-full bg-blue-500 text-white py-3 rounded-xl font-semibold hover:bg-blue-600 transition-colors">
+                            Contratar Agora
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Plano Empresarial -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Empresarial</h3>
+                        <div class="text-3xl font-bold text-blue-600 mb-4">
+                            R$ 299<span class="text-lg text-gray-500">/mês</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6">Múltiplas obras</p>
+                        <ul class="text-left text-gray-600 text-sm space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Até 5 obras</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Dashboard executivo</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>API integrations</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Suporte prioritário</li>
+                        </ul>
+                        <button onclick="openWhatsApp('empresarial')" class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors">
+                            Falar com Vendas
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Plano Corporativo -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Corporativo</h3>
+                        <div class="text-3xl font-bold text-blue-600 mb-4">
+                            R$ 599<span class="text-lg text-gray-500">/mês</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6">Construtoras grandes</p>
+                        <ul class="text-left text-gray-600 text-sm space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Obras ilimitadas</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Personalização total</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>White-label</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Suporte dedicado</li>
+                        </ul>
+                        <button onclick="openWhatsApp('corporativo')" class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors">
+                            Contato Corporativo
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-blue-200 text-lg mb-4">
+                    🚀 <strong>Condições especiais de lançamento:</strong> Desconto para os primeiros clientes!
+                </p>
+                <p class="text-blue-300 text-sm">
+                    Sem taxa de setup • Sem fidelização • Suporte completo incluso
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gamification -->
+    <section id="gamification" class="py-20 px-4 bg-white/5 backdrop-blur-md">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                    Gamificação que motiva
+                </h2>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    Sistema de medalhas e rankings que aumenta produtividade, colaboração 
+                    e qualidade entre os trabalhadores da obra.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Medalhas de Produtividade -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-3">⚡</div>
+                        <h3 class="text-lg font-semibold text-gray-800">Produtividade</h3>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-center"><span class="mr-2">⚡</span> Raio - Velocidade</li>
+                        <li class="flex items-center"><span class="mr-2">🔥</span> Sequência - Consistência</li>
+                        <li class="flex items-center"><span class="mr-2">🎯</span> Precisão - Sem retrabalho</li>
+                    </ul>
+                </div>
+
+                <!-- Medalhas de Colaboração -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-3">🤝</div>
+                        <h3 class="text-lg font-semibold text-gray-800">Colaboração</h3>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-center"><span class="mr-2">🤝</span> Parceiro - Ajuda colegas</li>
+                        <li class="flex items-center"><span class="mr-2">💬</span> Comunicador - Chat ativo</li>
+                        <li class="flex items-center"><span class="mr-2">👍</span> Aprovado - Reconhecimento</li>
+                    </ul>
+                </div>
+
+                <!-- Medalhas de Qualidade -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-3">📷</div>
+                        <h3 class="text-lg font-semibold text-gray-800">Qualidade</h3>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-center"><span class="mr-2">📷</span> Fotógrafo - Documentação</li>
+                        <li class="flex items-center"><span class="mr-2">🔍</span> Detalhista - Atenção</li>
+                        <li class="flex items-center"><span class="mr-2">⭐</span> 5 Estrelas - Excelência</li>
+                    </ul>
+                </div>
+
+                <!-- Medalhas de Liderança -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-3">👑</div>
+                        <h3 class="text-lg font-semibold text-gray-800">Liderança</h3>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-center"><span class="mr-2">👑</span> Mentor - Orientação</li>
+                        <li class="flex items-center"><span class="mr-2">🚀</span> Inovador - Melhorias</li>
+                        <li class="flex items-center"><span class="mr-2">🏅</span> Veterano - Experiência</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center">
+                <h3 class="text-2xl font-bold text-white mb-4">Sistema de Níveis</h3>
+                <div class="flex justify-center items-center space-x-8 flex-wrap">
+                    <div class="text-blue-200 text-sm">
+                        <div class="font-semibold">Aprendiz</div>
+                        <div>0-99 pts</div>
+                    </div>
+                    <div class="text-blue-200">→</div>
+                    <div class="text-blue-200 text-sm">
+                        <div class="font-semibold">Profissional</div>
+                        <div>100-299 pts</div>
+                    </div>
+                    <div class="text-blue-200">→</div>
+                    <div class="text-blue-200 text-sm">
+                        <div class="font-semibold">Especialista</div>
+                        <div>300-599 pts</div>
+                    </div>
+                    <div class="text-blue-200">→</div>
+                    <div class="text-yellow-400 text-sm">
+                        <div class="font-semibold">Mestre</div>
+                        <div>600-999 pts</div>
+                    </div>
+                    <div class="text-blue-200">→</div>
+                    <div class="text-yellow-400 text-sm">
+                        <div class="font-semibold">Lenda</div>
+                        <div>1000+ pts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                    O que nossos clientes dizem
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold text-lg">C</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800">Carlos Eduardo</h4>
+                            <p class="text-gray-600 text-sm">Engenheiro Civil</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm italic">
+                        "O FaseUp revolucionou nossa comunicação com os clientes. Agora eles acompanham tudo em tempo real e confiam mais no nosso trabalho."
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold text-lg">M</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800">Marina Silva</h4>
+                            <p class="text-gray-600 text-sm">Proprietária</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm italic">
+                        "Finalmente posso acompanhar minha obra do escritório! Recebo fotos diárias e sei exatamente quando cada etapa será concluída."
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold text-lg">R</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800">Roberto Mendes</h4>
+                            <p class="text-gray-600 text-sm">Diretor de Construtora</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm italic">
+                        "Implementamos em todas as nossas obras. A transparência aumentou nossa credibilidade e reduziu reclamações em 80%."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="cta" class="py-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-12 text-center">
+                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                    Pronto para transformar sua obra?
+                </h2>
+                <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                    Junte-se a centenas de construtoras que já usam o FaseUp para 
+                    criar relacionamentos mais transparentes e obras mais eficientes.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+                    <button onclick="openModal()" class="bg-white text-blue-900 px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center">
+                        <i class="fas fa-calendar mr-3"></i>
+                        Agende uma Demonstração
+                    </button>
+                    <button onclick="openWhatsApp('download')" class="border-2 border-white/30 text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-md flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-3"></i>
+                        Falar no WhatsApp
+                    </button>
+                </div>
+                
+                <p class="text-blue-200 text-sm">
+                    ✨ Ganhe produtividade e profissionalize sua obra com o FaseUp
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-white/10">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold text-white mb-2">FaseUp</h3>
+                    <p class="text-blue-200 text-sm">Conectando construtoras e clientes</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-blue-200 text-sm mb-2">© 2024 FaseUp. Todos os direitos reservados.</p>
+                    <p class="text-blue-300 text-xs">Acesse em faseup.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Contato -->
+    <div id="contactModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <h3 class="text-2xl font-bold text-gray-800 mb-6">Agende uma Demonstração</h3>
+            
+            <form id="contactForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
+                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Telefone</label>
+                    <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Empresa/Construtora</label>
+                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Mensagem (opcional)</label>
+                    <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                </div>
+                
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                    Agendar Demonstração
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // WhatsApp function
+        function openWhatsApp(plano) {
+            const mensagens = {
+                'basico': 'Olá! Gostaria de ter acesso ao app FaseUp versão *Básica* (R$ 49/mês).',
+                'profissional': 'Olá! Gostaria de ter acesso ao app FaseUp versão *Profissional* (R$ 149/obra).',
+                'empresarial': 'Olá! Gostaria de ter acesso ao app FaseUp versão *Empresarial* (R$ 299/mês).',
+                'corporativo': 'Olá! Gostaria de ter acesso ao app FaseUp versão *Corporativo* (R$ 599/mês).',
+                'download': 'Olá! Tenho interesse no FaseUp e gostaria de saber mais sobre os planos disponíveis.'
+            };
+            
+            const telefone = '5582993869090';
+            const mensagem = encodeURIComponent(mensagens[plano] || 'Olá! Gostaria de conhecer mais sobre o FaseUp.');
+            const url = `https://wa.me/${telefone}?text=${mensagem}`;
+            
+            window.open(url, '_blank');
+        }
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('contactModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Aqui você pode integrar com seu backend ou serviço de email
+            alert('Obrigado pelo interesse! Entraremos em contato em breve.');
+            closeModal();
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Countdown Timer
+        let timeLeft = {
+            days: 15,
+            hours: 8,
+            minutes: 45
+        };
+
+        function updateCountdown() {
+            document.getElementById('days').textContent = timeLeft.days;
+            document.getElementById('hours').textContent = timeLeft.hours;
+            document.getElementById('minutes').textContent = timeLeft.minutes;
+            
+            // Decrease minutes
+            if (timeLeft.minutes > 0) {
+                timeLeft.minutes--;
+            } else if (timeLeft.hours > 0) {
+                timeLeft.hours--;
+                timeLeft.minutes = 59;
+            } else if (timeLeft.days > 0) {
+                timeLeft.days--;
+                timeLeft.hours = 23;
+                timeLeft.minutes = 59;
+            }
+        }
+
+        // Update countdown every minute
+        setInterval(updateCountdown, 60000);
+        updateCountdown(); // Initial call
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.feature-card, .bg-white');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
