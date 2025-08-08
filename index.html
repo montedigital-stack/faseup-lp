@@ -31,7 +31,11 @@
                     colors: {
                         primary: '#3B82F6',
                         secondary: '#1E40AF',
-                        accent: '#60A5FA'
+                        accent: '#60A5FA',
+                        orange: '#F97316',
+                        emerald: '#10B981',
+                        purple: '#8B5CF6',
+                        amber: '#F59E0B'
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif']
@@ -64,7 +68,7 @@
         }
         
         .gradient-text {
-            background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #f97316 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -115,19 +119,46 @@
         Background Hero personalizado:
         - Imagem atual: Image72025-18_05_45.png (canteiro com profissionais usando capacetes coloridos)
         - Opacidade: 50% para maior visibilidade da imagem
-        - Overlay: 75% para balancear contraste do texto
-        - Padding: aumentado para melhor espaçamento (px-6 py-20)
-        - Gap: 16 entre colunas para mais respiração
-        
-        Para trocar a imagem, substitua o caminho em background-image: url('./SUA_IMAGEM.jpg')
+        - Overlay: gradiente azul-roxo para mais dinâmica
+        - Responsividade mobile otimizada para iPhone 13 Pro Max
         */
+
+        /* Otimizações para iPhone 13 Pro Max e similares */
+        @media screen and (max-width: 428px) and (max-height: 926px) {
+            .hero-mobile {
+                min-height: 100vh;
+                min-height: 100dvh; /* Dynamic viewport height */
+            }
+            
+            .hero-title-mobile {
+                font-size: 2.25rem !important; /* 36px */
+                line-height: 1.1 !important;
+                max-width: 90% !important;
+            }
+            
+            .background-image-mobile {
+                background-size: cover !important;
+                background-position: center center !important;
+            }
+        }
+
+        /* Melhorias para texto em 2 linhas */
+        .title-constrained {
+            max-width: 85%;
+        }
+        
+        @media (min-width: 1024px) {
+            .title-constrained {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 min-h-screen">
+<body class="bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800 min-h-screen">
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center px-6 py-20">
+    <section class="relative min-h-screen hero-mobile flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
         <!-- Background Image - Canteiro de obras com profissionais usando capacetes coloridos -->
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50" 
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 background-image-mobile" 
              style="background-image: url('./Image72025-18_05_45.png');">
         </div>
         
@@ -138,19 +169,19 @@
         </div>
         
         <!-- Overlay escuro para melhor legibilidade com imagem -->
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/75 via-blue-800/75 to-blue-600/75"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-purple-900/70 to-blue-800/70"></div>
         
         <div class="container mx-auto max-w-6xl relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="text-center lg:text-left px-4 lg:px-0">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[80vh] lg:min-h-0">
+                <div class="text-center lg:text-left px-2 sm:px-4 lg:px-0 flex flex-col justify-center">
                     <div class="mb-8">
-                        <span class="inline-block px-6 py-3 bg-white/20 backdrop-blur-md rounded-full text-blue-100 text-sm font-medium mb-6">
+                        <span class="inline-block px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 backdrop-blur-md rounded-full text-white text-sm font-medium mb-6 shadow-lg">
                             🚧 Lançamento em breve
                         </span>
                     </div>
                     
-                    <h1 class="text-5xl lg:text-7xl font-bold gradient-text mb-8 leading-tight">
-                        Gestão de obra.
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold gradient-text mb-8 leading-tight title-constrained hero-title-mobile mx-auto lg:mx-0">
+                        <span class="block">Gestão de obra.</span>
                         <span class="block text-white">Etapa por etapa.</span>
                     </h1>
                     
@@ -286,8 +317,8 @@
                     </p>
                 </div>
 
-                <div class="feature-card bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="mb-4 text-white">
+                <div class="feature-card bg-gradient-to-br from-emerald-500/10 to-emerald-600/10 backdrop-blur-md rounded-2xl p-6 hover:from-emerald-500/20 hover:to-emerald-600/20 transition-all duration-300 hover:scale-105 border border-emerald-500/20">
+                    <div class="mb-4 text-emerald-300">
                         <i class="fas fa-comments text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-2">Autenticação Simplificada</h3>
@@ -296,8 +327,8 @@
                     </p>
                 </div>
 
-                <div class="feature-card bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="mb-4 text-white">
+                <div class="feature-card bg-gradient-to-br from-purple-500/10 to-purple-600/10 backdrop-blur-md rounded-2xl p-6 hover:from-purple-500/20 hover:to-purple-600/20 transition-all duration-300 hover:scale-105 border border-purple-500/20">
+                    <div class="mb-4 text-purple-300">
                         <i class="fas fa-check-circle text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-2">Gamificação com Medalhas</h3>
@@ -306,8 +337,8 @@
                     </p>
                 </div>
 
-                <div class="feature-card bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="mb-4 text-white">
+                <div class="feature-card bg-gradient-to-br from-amber-500/10 to-amber-600/10 backdrop-blur-md rounded-2xl p-6 hover:from-amber-500/20 hover:to-amber-600/20 transition-all duration-300 hover:scale-105 border border-amber-500/20">
+                    <div class="mb-4 text-amber-300">
                         <i class="fas fa-clock text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-2">Capacetes Coloridos</h3>
@@ -316,8 +347,8 @@
                     </p>
                 </div>
 
-                <div class="feature-card bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div class="mb-4 text-white">
+                <div class="feature-card bg-gradient-to-br from-orange-500/10 to-orange-600/10 backdrop-blur-md rounded-2xl p-6 hover:from-orange-500/20 hover:to-orange-600/20 transition-all duration-300 hover:scale-105 border border-orange-500/20">
+                    <div class="mb-4 text-orange-300">
                         <i class="fas fa-shield-alt text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-2">Custo-Benefício Imbatível</h3>
@@ -733,7 +764,7 @@
                     </button>
                     <button onclick="openWhatsApp('download')" class="border-2 border-white/30 text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-md flex items-center justify-center">
                         <i class="fab fa-whatsapp mr-3"></i>
-                        Falar no WhatsApp
+                        Solicitar Acesso ao App
                     </button>
                 </div>
                 
@@ -821,7 +852,7 @@
                 'profissional': 'Olá! Gostaria de ter acesso ao app FaseUp versão *Profissional* (R$ 149/obra).',
                 'empresarial': 'Olá! Gostaria de ter acesso ao app FaseUp versão *Empresarial* (R$ 299/mês).',
                 'corporativo': 'Olá! Gostaria de ter acesso ao app FaseUp versão *Corporativo* (R$ 599/mês).',
-                'download': 'Olá! Tenho interesse no FaseUp e gostaria de saber mais sobre os planos disponíveis.'
+                'download': 'Olá! Tenho interesse no FaseUp e gostaria de receber o link de acesso ao aplicativo.'
             };
             
             const telefone = '5582993869090';
