@@ -22,7 +22,10 @@
     <meta name="twitter:image" content="./Image72025-18_05_45.png">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="./favicon_io/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -1004,26 +1007,34 @@
             this.reset();
         });
 
-        // Countdown Timer - Corrigido
+        // Countdown Timer - Funcionando dinamicamente
         function updateCountdown() {
-            // Data alvo: 30 dias a partir de agora
-            const targetDate = new Date();
-            targetDate.setDate(targetDate.getDate() + 30);
+            // Data alvo: 30 dias a partir de agora (você pode alterar esta data)
+            const targetDate = new Date('2025-02-08T00:00:00'); // Data de lançamento
             
             const now = new Date();
             const timeLeft = targetDate - now;
             
+            // Se o tempo acabou
+            if (timeLeft <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                return;
+            }
+            
             const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
             
             document.getElementById('days').textContent = days.toString().padStart(2, '0');
             document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
         }
 
-        // Update countdown every minute
-        setInterval(updateCountdown, 60000);
+        // Update countdown every second for real-time updates
+        setInterval(updateCountdown, 1000);
         updateCountdown(); // Initial call
 
         // Scroll animations
