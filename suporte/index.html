@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte - FaseUp</title>
+    <meta name="description" content="Suporte completo para o FaseUp - gestão de obras inteligente. Dúvidas, problemas técnicos e contato direto com nossa equipe.">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="../favicon_io/favicon.ico">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                        accent: '#60A5FA',
+                        orange: '#F97316',
+                        emerald: '#10B981',
+                        purple: '#8B5CF6',
+                        amber: '#F59E0B'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+        
+        .fade-in:nth-child(1) { animation-delay: 0s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.4s; }
+        .fade-in:nth-child(4) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800 min-h-screen">
+    <!-- Header -->
+    <header class="py-6 px-4 border-b border-white/10">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex items-center justify-between">
+                <a href="../" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">F</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">FaseUp</h1>
+                </a>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="../" class="text-blue-200 hover:text-white transition-colors">Início</a>
+                    <a href="../privacy/" class="text-blue-200 hover:text-white transition-colors">Privacidade</a>
+                    <a href="./" class="text-white font-medium">Suporte</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <!-- Hero Section -->
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-500/20 backdrop-blur-md rounded-2xl mb-6">
+                    <i class="fas fa-headset text-3xl text-blue-300"></i>
+                </div>
+                <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                    📞 Suporte FaseUp
+                </h1>
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+                    Nossa equipe está pronta para ajudar você a aproveitar ao máximo o FaseUp. 
+                    Escolha a melhor forma de contato:
+                </p>
+                
+                <div class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500/20 backdrop-blur-md rounded-full text-emerald-200 border border-emerald-400/30">
+                    <i class="fas fa-clock mr-2"></i>
+                    <strong>⏱️ Tempo de resposta: até 24 horas</strong>
+                </div>
+            </div>
+
+            <!-- Contact Methods -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="fade-in bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                    <div class="flex items-center justify-center w-16 h-16 bg-blue-500/20 rounded-xl mb-6">
+                        <i class="fas fa-envelope text-2xl text-blue-300"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-4">📧 Email de Suporte</h3>
+                    <p class="text-blue-200 text-sm mb-4">
+                        <strong>Para:</strong> Dúvidas gerais, problemas técnicos, sugestões
+                    </p>
+                    <p class="text-blue-200 text-sm mb-4">
+                        <strong>Contato:</strong> 
+                        <a href="mailto:ola@faseup.com" class="text-blue-300 hover:text-white transition-colors font-medium">
+                            ola@faseup.com
+                        </a>
+                    </p>
+                    <p class="text-blue-200 text-sm">
+                        <strong>Resposta:</strong> Até 24 horas
+                    </p>
+                </div>
+
+                <div class="fade-in bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                    <div class="flex items-center justify-center w-16 h-16 bg-purple-500/20 rounded-xl mb-6">
+                        <i class="fas fa-shield-alt text-2xl text-purple-300"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-4">🔒 Privacidade</h3>
+                    <p class="text-blue-200 text-sm mb-4">
+                        <strong>Para:</strong> Questões sobre dados e privacidade
+                    </p>
+                    <p class="text-blue-200 text-sm mb-4">
+                        <strong>Contato:</strong> 
+                        <a href="mailto:privacy@faseup.com" class="text-blue-300 hover:text-white transition-colors font-medium">
+                            privacy@faseup.com
+                        </a>
+                    </p>
+                    <p class="text-blue-200 text-sm">
+                        <strong>Resposta:</strong> Até 48 horas
+                    </p>
+                </div>
+
+                <div class="fade-in bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 md:col-span-2 lg:col-span-1">
+                    <div class="flex items-center justify-center w-16 h-16 bg-emerald-500/20 rounded-xl mb-6">
+                        <i class="fas fa-globe text-2xl text-emerald-300"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-4">🌐 Site Oficial</h3>
+                    <p class="text-blue-200 text-sm mb-4">
+                        <strong>Mais informações:</strong> 
+                        <a href="https://faseup.com" class="text-blue-300 hover:text-white transition-colors font-medium">
+                            www.faseup.com
+                        </a>
+                    </p>
+                    <p class="text-blue-200 text-sm">
+                        <strong>Política de Privacidade:</strong> 
+                        <a href="../privacy/" class="text-blue-300 hover:text-white transition-colors font-medium">
+                            faseup.com/privacy
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- App Info -->
+            <div class="fade-in bg-gradient-to-r from-emerald-500/20 to-blue-500/20 backdrop-blur-md rounded-2xl p-8 border border-emerald-400/30 mb-16">
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-emerald-500/20 rounded-xl mb-6">
+                        <i class="fas fa-mobile-alt text-2xl text-emerald-300"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">📱 Sobre o FaseUp</h3>
+                    <p class="text-blue-100 text-lg max-w-3xl mx-auto">
+                        <strong>FaseUp</strong> é o aplicativo de gestão de obras mais completo do Brasil. 
+                        Gerencie projetos, equipes, cronogramas e orçamentos de forma inteligente e eficiente.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="fade-in mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">❓ Perguntas Frequentes</h2>
+                    <p class="text-blue-200 text-lg">Encontre respostas rápidas para as dúvidas mais comuns</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                        <div class="font-semibold text-white text-lg mb-3">Como criar minha primeira obra no app?</div>
+                        <div class="text-blue-200">Após fazer login, toque no botão "+" na tela inicial e siga o assistente de criação de projeto.</div>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                        <div class="font-semibold text-white text-lg mb-3">Posso usar o FaseUp offline?</div>
+                        <div class="text-blue-200">Sim! O FaseUp funciona offline e sincroniza automaticamente quando você tem internet.</div>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                        <div class="font-semibold text-white text-lg mb-3">Como adicionar membros à minha equipe?</div>
+                        <div class="text-blue-200">Na tela do projeto, toque em "Equipe" e depois no botão "Adicionar Membro".</div>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                        <div class="font-semibold text-white text-lg mb-3">O app é gratuito?</div>
+                        <div class="text-blue-200">Sim, o FaseUp é gratuito com funcionalidades completas para pequenas equipes.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Link -->
+            <div class="text-center">
+                <a href="../" class="inline-flex items-center px-8 py-4 bg-white text-blue-900 rounded-2xl font-semibold hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105">
+                    <i class="fas fa-arrow-left mr-3"></i>
+                    Voltar ao site principal
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-white/10">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold text-white mb-2">FaseUp</h3>
+                    <p class="text-blue-200 text-sm">Conectando construtoras e clientes</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-blue-200 text-sm mb-2">© 2025 FaseUp. Todos os direitos reservados.</p>
+                    <div class="flex flex-col md:flex-row justify-center md:justify-end items-center gap-2 md:gap-4">
+                        <a href="../privacy/" class="text-blue-300 text-xs hover:text-white transition-colors underline">
+                            Política de Privacidade
+                        </a>
+                        <span class="text-blue-300 text-xs hidden md:inline">•</span>
+                        <a href="./" class="text-blue-300 text-xs hover:text-white transition-colors underline">
+                            Suporte
+                        </a>
+                        <span class="text-blue-300 text-xs hidden md:inline">•</span>
+                        <p class="text-blue-300 text-xs">Acesse em faseup.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.fade-in');
+            animatedElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                el.style.animationDelay = `${index * 0.2}s`;
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
