@@ -3,341 +3,567 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FaseUp - Gestão de obra. Etapa por etapa.</title>
-    <meta name="description" content="Sistema de gestão de obras que substitui o WhatsApp bagunçado. Chat por etapa, capacetes coloridos, gamificação. Economize até 90% vs softwares internacionais.">
-    <meta name="keywords" content="gestão de obras, construção civil, chat por etapa, capacetes coloridos, gamificação, construtora, engenharia">
+    <title>FaseUp - O Futuro da Gestão de Obras Chegou</title>
+    <meta name="description" content="Transparência total para construtoras, engenheiros e clientes. A única plataforma que permite ao cliente acompanhar sua obra em tempo real. Seja um Apoiador Fundador.">
+    <meta name="keywords" content="gestão de obras, construção civil, transparência, construtora, engenharia, apoiador fundador">
     <meta name="author" content="FaseUp">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="FaseUp - Gestão de obra. Etapa por etapa.">
-    <meta property="og:description" content="Sistema de gestão de obras que substitui o WhatsApp bagunçado. Chat por etapa, capacetes coloridos, gamificação.">
+    <meta property="og:title" content="FaseUp - O Futuro da Gestão de Obras Chegou">
+    <meta property="og:description" content="Transparência total que constrói confiança. Seja um dos primeiros Apoiadores Fundadores.">
     <meta property="og:image" content="./Image72025-18_05_45.png">
     <meta property="og:url" content="https://faseup.com">
     <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FaseUp - Gestão de obra. Etapa por etapa.">
-    <meta name="twitter:description" content="Sistema de gestão de obras que substitui o WhatsApp bagunçado. Chat por etapa, capacetes coloridos, gamificação.">
-    <meta name="twitter:image" content="./Image72025-18_05_45.png">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
     <link rel="icon" type="image/x-icon" href="./favicon_io/favicon.ico">
+    
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="./Assets/HeroSection-HeroVisual-Mockup-iPhone-Realism.png">
+    <link rel="preload" as="image" href="./Assets/Logo-FaseUp-without-background.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#3B82F6',
-                        secondary: '#1E40AF',
-                        accent: '#60A5FA',
-                        orange: '#F97316',
-                        emerald: '#10B981',
-                        purple: '#8B5CF6',
-                        amber: '#F59E0B'
+                        // FaseUp Brand Colors (SuperDesign.dev pattern)
+                        primary: '#E7CFA9',
+                        primaryLight: '#F0D9B8',
+                        secondary: '#09455B',
+                        secondaryDark: '#073A47',
+                        tertiary: '#F4A261',
+                        accent: '#E76F51',
+                        background: '#0F1419',
+                        surface: '#232A31',
+                        textPrimary: '#FFFFFF',
+                        textSecondary: '#CBD5E0',
+                        success: '#48BB78',
+                        warning: '#ED8936',
+                        error: '#F56565',
+                        info: '#4299E1'
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    borderRadius: {
+                        'xs': '4px',
+                        'sm': '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '24px',
+                        '2xl': '32px'
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(231, 207, 169, 0.1)',
+                        'medium': '0 8px 30px rgba(231, 207, 169, 0.15)',
+                        'strong': '0 12px 40px rgba(231, 207, 169, 0.2)'
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="./feedback-api.js"></script>
+    
     <style>
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(1deg); }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
-        .phone-mockup {
-            animation: float 6s ease-in-out infinite;
+        .animate-fade-up { animation: fadeInUp 0.8s ease-out both; }
+        .animate-pulse-slow { animation: pulse 2s ease-in-out infinite; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0F1419 0%, #232A31 50%, #09455B 100%);
         }
         
         .gradient-text {
-            background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #f97316 100%);
+            background: linear-gradient(135deg, #E7CFA9 0%, #F4A261 50%, #E76F51 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        .feature-card {
-            animation: fadeInUp 0.8s ease-out both;
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(231, 207, 169, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(244, 162, 97, 0.1) 0%, transparent 50%);
         }
-
-        .feature-card:nth-child(1) { animation-delay: 0s; }
-        .feature-card:nth-child(2) { animation-delay: 0.2s; }
-        .feature-card:nth-child(3) { animation-delay: 0.4s; }
-        .feature-card:nth-child(4) { animation-delay: 0.6s; }
-        .feature-card:nth-child(5) { animation-delay: 0.8s; }
-        .feature-card:nth-child(6) { animation-delay: 1.0s; }
-
-        .hardhat-black { background: linear-gradient(135deg, #1f2937 0%, #111827 100%); }
-        .hardhat-white { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border: 2px solid #cbd5e1; }
-        .hardhat-blue { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
-        .hardhat-green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
-        .hardhat-red { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
-        .hardhat-orange { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); }
-
-        .countdown-timer {
+        
+        .countdown-digit {
+            background: linear-gradient(135deg, #E7CFA9 0%, #F4A261 100%);
+            color: #09455B;
+            font-weight: 800;
+            min-width: 3rem;
+        }
+        
+        /* Image optimization styles */
+        img[loading="lazy"] {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        img[loading="lazy"].fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        img[loading="eager"] {
+            opacity: 1;
+        }
+        
+        /* Logo optimization */
+        img[alt*="Logotipo"] {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            transition: transform 0.2s ease;
+            vertical-align: middle;
+        }
+        
+        img[alt*="Logotipo"]:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Logo + Text alignment */
+        .logo-text-combo {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            align-items: center;
+            gap: 0.75rem;
         }
-
-        .countdown-item {
-            text-align: center;
+        
+        .logo-text-combo .gradient-text {
+            line-height: 1;
+            margin: 0;
         }
-
-        .countdown-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 0.25rem;
+        
+        /* Hero iPhone optimization */
+        .hero-iphone-container img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            max-width: 100%;
+            height: auto;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
-
-        .countdown-label {
-            color: #bfdbfe;
-            font-size: 0.875rem;
-        }
-
-        /* 
-        Background Hero personalizado:
-        - Imagem atual: Image72025-18_05_45.png (canteiro com profissionais usando capacetes coloridos)
-        - Opacidade: 50% para maior visibilidade da imagem
-        - Overlay: gradiente azul-roxo para mais dinâmica
-        - Responsividade mobile otimizada para iPhone 13 Pro Max
-        */
-
-        /* Responsividade Mobile Corrigida */
-        @media (max-width: 768px) {
-            .hero-section-mobile {
-                min-height: 100vh;
-                min-height: 100svh; /* Small viewport height - mais compatível */
-                padding: 1rem 0.5rem !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
-            
-            .hero-content-mobile {
-                padding: 1rem !important;
-                text-align: center !important;
-                width: 100% !important;
-                max-width: 100% !important;
-            }
-            
-            .hero-title-mobile {
-                font-size: 2rem !important; /* 32px */
-                line-height: 1.2 !important;
-                max-width: 100% !important;
-                margin-bottom: 1.5rem !important;
-            }
-            
-            .hero-subtitle-mobile {
-                font-size: 1rem !important; /* 16px */
-                line-height: 1.5 !important;
-                max-width: 100% !important;
-                margin-bottom: 2rem !important;
-            }
-            
-            .hero-buttons-mobile {
-                flex-direction: column !important;
-                gap: 1rem !important;
-                width: 100% !important;
-            }
-            
-            .hero-buttons-mobile button {
-                width: 100% !important;
-                justify-content: center !important;
-            }
-            
-            .hero-features-mobile {
-                flex-wrap: wrap !important;
-                gap: 0.5rem !important;
-                justify-content: center !important;
-            }
-            
-            .hero-features-mobile > div {
-                font-size: 0.75rem !important;
-            }
-        }
-
-        /* iPhone específico */
-        @media (max-width: 428px) {
-            .hero-title-mobile {
-                font-size: 1.875rem !important; /* 30px */
-            }
-        }
-
-        /* Melhorias para texto em 2 linhas */
-        @media (max-width: 768px) {
-            .title-constrained {
-                max-width: 100% !important;
+        
+        @media (max-width: 640px) {
+            .hero-iphone-container {
+                max-width: 256px;
             }
         }
         
-        @media (min-width: 769px) {
-            .title-constrained {
-                max-width: 85%;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .title-constrained {
-                max-width: 100%;
+        @media (min-width: 640px) and (max-width: 768px) {
+            .hero-iphone-container {
+                max-width: 288px;
             }
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800 min-h-screen">
+<body class="gradient-bg min-h-screen text-textPrimary">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-primary/20">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="logo-text-combo">
+                        <img 
+                            src="./Assets/Logo-FaseUp-without-background.png" 
+                            alt="FaseUp - Logotipo oficial"
+                            class="h-8 md:h-10 w-auto"
+                            loading="eager"
+                        />
+                        <div class="text-2xl md:text-3xl font-black gradient-text">FaseUp</div>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1 bg-accent/10 px-3 py-1 rounded-full border border-accent/20">
+                        <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+                        <span class="text-accent text-sm font-medium">Pré-lançamento</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <button onclick="scrollToSection('demo')" class="hidden md:block text-textSecondary hover:text-primary transition-colors">Demo</button>
+                    <button onclick="scrollToSection('pricing')" class="hidden md:block text-textSecondary hover:text-primary transition-colors">Planos</button>
+                    <button onclick="scrollToSection('testimonials')" class="hidden md:block text-textSecondary hover:text-primary transition-colors">Depoimentos</button>
+                    <button onclick="scrollToFeedback()" class="hidden lg:block text-textSecondary hover:text-info transition-colors">
+                        <i class="fas fa-comments mr-1"></i>Feedback
+                    </button>
+                    <button onclick="openApoiador()" class="bg-accent hover:bg-accent/90 text-white px-6 py-2 rounded-xl font-semibold transition-colors animate-pulse-slow">
+                        Ser Apoiador
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="relative min-h-screen hero-section-mobile flex items-center justify-center px-4 sm:px-6 py-8 sm:py-16">
-        <!-- Background Image - Canteiro de obras com profissionais usando capacetes coloridos -->
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50" 
-             style="background-image: url('./Image72025-18_05_45.png');">
-        </div>
-        
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-20 left-20 text-[200px] font-bold text-white/5 rotate-12">FASE</div>
-            <div class="absolute bottom-20 right-20 text-[180px] font-bold text-white/5 -rotate-12">UP</div>
-        </div>
-        
-        <!-- Overlay escuro para melhor legibilidade com imagem -->
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-purple-900/70 to-blue-800/70"></div>
-        
-        <div class="container mx-auto max-w-6xl relative z-10">
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                <div class="text-center lg:text-left px-2 sm:px-4 lg:px-0 flex flex-col justify-center hero-content-mobile">
-                    <div class="mb-8">
-                        <span class="inline-block px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 backdrop-blur-md rounded-full text-white text-sm font-medium mb-6 shadow-lg">
-                            🚧 Lançamento em breve
-                        </span>
+    <section class="hero-pattern pt-32 pb-20 px-6 min-h-screen flex items-center">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="animate-fade-up mb-6">
+                        <div class="inline-flex items-center bg-success/10 border border-success/20 rounded-full px-4 py-2 mb-6">
+                            <span class="w-2 h-2 bg-success rounded-full animate-pulse mr-2"></span>
+                            <span class="text-success font-medium">Já somos +500 engenheiros testando</span>
+                        </div>
+                        <h1 class="text-5xl lg:text-7xl font-black gradient-text mb-6 leading-tight">
+                            O Futuro da Gestão de Obras Chegou
+                        </h1>
+                        <p class="text-xl lg:text-2xl text-textSecondary max-w-2xl mb-8 leading-relaxed">
+                            <strong class="text-primary">Transparência total</strong> para construtoras, engenheiros e clientes. 
+                            Gerencie obras com tecnologia que <strong class="text-tertiary">constrói confiança</strong>.
+                        </p>
                     </div>
-                    
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold gradient-text mb-8 leading-tight title-constrained hero-title-mobile mx-auto lg:mx-0">
-                        <span class="block">Gestão de obra.</span>
-                        <span class="block text-white">Etapa por etapa.</span>
-                    </h1>
-                    
-                    <p class="text-lg sm:text-xl text-blue-100 mb-10 max-w-lg mx-auto lg:mx-0 hero-subtitle-mobile">
-                        Substitua o WhatsApp bagunçado por comunicação profissional organizada. 
-                        Chat contextual, capacetes coloridos e gamificação para sua construtora.
-                    </p>
-                    
-                    <!-- Countdown Timer -->
-                    <div class="countdown-timer">
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="days">15</div>
-                            <div class="countdown-label">dias</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number">:</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="hours">8</div>
-                            <div class="countdown-label">horas</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number">:</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="minutes">45</div>
-                            <div class="countdown-label">minutos</div>
+
+                    <div class="animate-fade-up mb-8" style="animation-delay: 0.2s">
+                        <div class="bg-gradient-to-r from-secondary/20 via-primary/20 to-tertiary/20 backdrop-blur-md rounded-2xl p-6 border border-primary/20 mb-8">
+                            <p class="text-lg font-semibold text-primary text-center">
+                                "A única plataforma que permite ao cliente acompanhar sua obra em tempo real, 
+                                <span class="text-tertiary">reduzindo ansiedade</span> e <span class="text-success">aumentando a satisfação</span>"
+                            </p>
                         </div>
                     </div>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start mb-8 sm:mb-12 hero-buttons-mobile">
-                        <button onclick="openModal()" class="bg-white text-blue-900 px-8 py-4 rounded-2xl font-semibold hover:bg-blue-50 transition-all duration-300 flex items-center justify-center shadow-xl hover:shadow-2xl hover:scale-105">
-                            <i class="fas fa-calendar mr-2"></i>
-                            Agende uma Demo
+
+                    <div class="animate-fade-up space-y-4" style="animation-delay: 0.4s">
+                        <button onclick="openApoiador()" class="w-full lg:w-auto bg-accent hover:bg-accent/90 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 shadow-strong hover:shadow-2xl hover:scale-105 flex items-center justify-center">
+                            <i class="fas fa-rocket mr-3"></i>
+                            QUERO SER APOIADOR FUNDADOR
                         </button>
-                        <button onclick="scrollToSection('features')" class="border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-md">
-                            Ver Funcionalidades
-                        </button>
+                        <p class="text-center lg:text-left text-sm text-textSecondary">
+                            Apenas 1.000 vagas • R$ 49/mês por 12 meses • <span class="text-warning font-semibold">Restam 724 vagas</span>
+                        </p>
+                        
+                        <div class="flex flex-col lg:flex-row items-center gap-4 pt-4">
+                            <button onclick="scrollToSection('demo')" class="w-full lg:w-auto border-2 border-primary/30 text-primary hover:bg-primary/10 px-8 py-4 rounded-xl font-semibold transition-colors backdrop-blur-md">
+                                <i class="fas fa-play mr-2"></i>
+                                Ver Demonstração
+                            </button>
+                            <button onclick="openTeste()" class="w-full lg:w-auto text-textSecondary hover:text-primary underline transition-colors">
+                                Prefiro testar grátis primeiro
+                            </button>
+                        </div>
                     </div>
-                    
-                    <div class="flex items-center justify-center lg:justify-start space-x-3 sm:space-x-8 text-blue-100 hero-features-mobile text-sm sm:text-base">
-                        <div class="flex items-center">
-                            <i class="fas fa-eye mr-2"></i>
-                            <span class="text-sm">ACOMPANHAR</span>
+
+                    <div class="animate-fade-up mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-6 text-sm" style="animation-delay: 0.6s">
+                        <div class="flex items-center text-textSecondary">
+                            <i class="fas fa-star text-warning mr-2"></i>
+                            <span>4.8/5 na avaliação dos beta users</span>
                         </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-comments mr-2"></i>
-                            <span class="text-sm">COMUNICAR</span>
+                        <div class="flex items-center text-textSecondary">
+                            <i class="fas fa-shield-alt text-success mr-2"></i>
+                            <span>Dados protegidos</span>
                         </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle mr-2"></i>
-                            <span class="text-sm">APROVAR</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-chart-line mr-2"></i>
-                            <span class="text-sm">OTIMIZAR</span>
+                        <div class="flex items-center text-textSecondary">
+                            <i class="fas fa-mobile-alt text-info mr-2"></i>
+                            <span>iOS e Android</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="flex justify-center">
-                    <div class="phone-mockup">
-                        <div class="w-80 h-96 bg-white/10 backdrop-blur-md rounded-[3rem] p-6 shadow-2xl">
-                            <div class="w-full h-full bg-gradient-to-br from-blue-50 to-white rounded-[2rem] p-6 flex flex-col">
-                                <div class="flex items-center justify-between mb-6">
-                                    <span class="font-bold text-blue-900">FaseUp</span>
-                                    <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
+                <!-- Hero Visual -->
+                <div class="animate-fade-up" style="animation-delay: 0.3s">
+                    <div class="relative">
+                        <!-- Real iPhone Mockup -->
+                        <div class="hero-iphone-container mx-auto w-64 sm:w-72 md:w-80 lg:w-96 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                            <img 
+                                src="./Assets/HeroSection-HeroVisual-Mockup-iPhone-Realism.png" 
+                                alt="FaseUp App em iPhone - Interface real mostrando transparência total na gestão de obras"
+                                class="w-full h-auto shadow-strong rounded-[56px] border border-primary/20"
+                                loading="eager"
+                            />
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-4 -left-4 bg-success/20 backdrop-blur-md rounded-xl p-3 border border-success/30 animate-pulse">
+                            <i class="fas fa-eye text-success mr-2"></i>
+                            <span class="text-success text-sm font-medium">Cliente vendo ao vivo</span>
+                        </div>
+                        
+                        <div class="absolute -bottom-4 -right-4 bg-primary/20 backdrop-blur-md rounded-xl p-3 border border-primary/30 animate-pulse">
+                            <i class="fas fa-heart text-primary mr-2"></i>
+                            <span class="text-primary text-sm font-medium">100% transparente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="py-20 px-6 bg-surface/30">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-textPrimary mb-6">
+                    Cansado Destes Problemas na Gestão de Obras?
+                </h2>
+                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
+                    Sabemos exatamente o que você enfrenta no dia a dia. Estes problemas acabam HOJE:
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-error/10 border border-error/30 rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 bg-error/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-phone-slash text-error text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-error mb-4">CLIENTES ANSIOSOS</h3>
+                    <div class="space-y-2 text-textSecondary">
+                        <p>"Quando ficará pronta?"</p>
+                        <p>"Como está o progresso?"</p>
+                        <p>"Posso confiar no prazo?"</p>
+                    </div>
+                </div>
+
+                <div class="bg-warning/10 border border-warning/30 rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 bg-warning/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-phone-volume text-warning text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-warning mb-4">LIGAÇÕES CONSTANTES</h3>
+                    <div class="space-y-2 text-textSecondary">
+                        <p><strong class="text-warning">50+ ligações</strong> por semana</p>
+                        <p>Interrupções no canteiro</p>
+                        <p>Perda de produtividade</p>
+                    </div>
+                </div>
+
+                <div class="bg-info/10 border border-info/30 rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 bg-info/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line-down text-info text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-info mb-4">FALTA DE CONTROLE</h3>
+                    <div class="space-y-2 text-textSecondary">
+                        <p>Orçamentos desatualizados</p>
+                        <p>Cronogramas irreais</p>
+                        <p>Comunicação fragmentada</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="inline-flex items-center bg-gradient-to-r from-accent/20 to-primary/20 backdrop-blur-md rounded-2xl p-6 border border-accent/30">
+                    <i class="fas fa-exclamation-triangle text-accent text-2xl mr-4"></i>
+                    <p class="text-xl text-textPrimary">
+                        <strong>Resultado:</strong> Clientes insatisfeitos, equipe estressada, projetos atrasados
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold gradient-text mb-6">
+                    FaseUp: A Solução Completa que Você Sempre Quis
+                </h2>
+                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
+                    Transforme seus maiores problemas em suas maiores vantagens competitivas
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="bg-success/10 border border-success/30 rounded-2xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-success/20 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-eye text-success text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-success">TRANSPARÊNCIA TOTAL</h3>
+                    </div>
+                    <div class="space-y-3 text-textSecondary">
+                        <p><i class="fas fa-check text-success mr-2"></i>Cliente acompanha 24/7</p>
+                        <p><i class="fas fa-check text-success mr-2"></i>Fotos em tempo real</p>
+                        <p><i class="fas fa-check text-success mr-2"></i>Progress tracking visual</p>
+                        <p><i class="fas fa-check text-success mr-2"></i>Notificações automáticas</p>
+                    </div>
+                </div>
+
+                <div class="bg-info/10 border border-info/30 rounded-2xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-info/20 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-comments text-info text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-info">COMUNICAÇÃO UNIFICADA</h3>
+                    </div>
+                    <div class="space-y-3 text-textSecondary">
+                        <p><i class="fas fa-check text-info mr-2"></i>Chat integrado por projeto</p>
+                        <p><i class="fas fa-check text-info mr-2"></i>Notificações automáticas</p>
+                        <p><i class="fas fa-check text-info mr-2"></i>WhatsApp nativo</p>
+                        <p><i class="fas fa-check text-info mr-2"></i>Canal direto cliente-gestor</p>
+                    </div>
+                </div>
+
+                <div class="bg-primary/10 border border-primary/30 rounded-2xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-bar text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary">CONTROLE COMPLETO</h3>
+                    </div>
+                    <div class="space-y-3 text-textSecondary">
+                        <p><i class="fas fa-check text-primary mr-2"></i>Dashboards inteligentes</p>
+                        <p><i class="fas fa-check text-primary mr-2"></i>Orçamentos atualizados</p>
+                        <p><i class="fas fa-check text-primary mr-2"></i>Relatórios automáticos</p>
+                        <p><i class="fas fa-check text-primary mr-2"></i>Cronogramas realistas</p>
+                    </div>
+                </div>
+
+                <div class="bg-tertiary/10 border border-tertiary/30 rounded-2xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-tertiary/20 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-rocket text-tertiary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-tertiary">PRODUTIVIDADE +30%</h3>
+                    </div>
+                    <div class="space-y-3 text-textSecondary">
+                        <p><i class="fas fa-check text-tertiary mr-2"></i>Menos ligações</p>
+                        <p><i class="fas fa-check text-tertiary mr-2"></i>Equipe motivada (XP/medalhas)</p>
+                        <p><i class="fas fa-check text-tertiary mr-2"></i>Offline funcionando</p>
+                        <p><i class="fas fa-check text-tertiary mr-2"></i>Redução de retrabalho</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-secondary/20 via-primary/20 to-tertiary/20 backdrop-blur-md rounded-2xl p-8 border border-primary/20 text-center">
+                <h3 class="text-2xl font-bold text-primary mb-4">O Diferencial que Faltava no Seu Negócio</h3>
+                <p class="text-lg text-textSecondary max-w-4xl mx-auto">
+                    <strong class="text-primary">Transforme sua construtora no destaque do mercado</strong> oferecendo transparência total aos clientes. 
+                    Engenheiros ganham <strong class="text-tertiary">vantagem competitiva massiva</strong> para promover seus serviços nas redes sociais 
+                    mostrando que seus clientes podem <strong class="text-success">acompanhar a obra 24/7</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 px-6 bg-surface/30">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-textPrimary mb-6">
+                    Veja o FaseUp em Ação
+                </h2>
+                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
+                    Interface intuitiva para cada tipo de usuário. Simplicidade que funciona.
+                </p>
+            </div>
+
+            <!-- Demo Tabs -->
+            <div class="mb-12">
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button onclick="showDemo('gestor')" id="demo-gestor" class="demo-tab-active px-6 py-3 rounded-xl font-semibold transition-colors">
+                        <i class="fas fa-user-tie mr-2"></i>Visão do Gestor
+                    </button>
+                    <button onclick="showDemo('operario')" id="demo-operario" class="demo-tab px-6 py-3 rounded-xl font-semibold transition-colors">
+                        <i class="fas fa-hard-hat mr-2"></i>Visão do Operário
+                    </button>
+                    <button onclick="showDemo('cliente')" id="demo-cliente" class="demo-tab px-6 py-3 rounded-xl font-semibold transition-colors">
+                        <i class="fas fa-user mr-2"></i>Visão do Cliente
+                    </button>
+                    <button onclick="showDemo('relatorios')" id="demo-relatorios" class="demo-tab px-6 py-3 rounded-xl font-semibold transition-colors">
+                        <i class="fas fa-chart-line mr-2"></i>Relatórios
+                    </button>
+                </div>
+
+                <!-- Demo Content -->
+                <div class="bg-background rounded-2xl p-8 border border-primary/20">
+                    <div id="demo-gestor-content" class="demo-content">
+                        <div class="grid lg:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary mb-4">Dashboard Completo do Gestor</h3>
+                                <div class="space-y-4 text-textSecondary">
+                                    <p><i class="fas fa-check text-success mr-2"></i>Visão completa de todas as obras</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Criação e gestão de projetos</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Controle de equipes e permissões</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Relatórios financeiros detalhados</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Comunicação direta com clientes</p>
                                 </div>
-                                
-                                <div class="mb-4">
-                                    <h3 class="font-semibold text-gray-800 mb-2">Acompanhe sua obra</h3>
-                                    <div class="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
-                                        <div class="w-3/4 h-full bg-gradient-to-r from-blue-500 to-blue-600"></div>
-                                    </div>
-                                    <span class="text-sm text-gray-600 mt-1 block">75% concluído</span>
+                            </div>
+                            <div class="bg-surface rounded-xl p-6 overflow-hidden">
+                                <img 
+                                    src="./Assets/DemoSection-01-screenshot-da-interface-do-gestor.jpg" 
+                                    alt="Interface completa do gestor FaseUp - Dashboard com visão de todas as obras"
+                                    class="w-full h-auto rounded-lg border border-primary/20 shadow-medium"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="demo-operario-content" class="demo-content hidden">
+                        <div class="grid lg:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-2xl font-bold text-tertiary mb-4">Interface Simplificada para Operários</h3>
+                                <div class="space-y-4 text-textSecondary">
+                                    <p><i class="fas fa-check text-success mr-2"></i>Tarefas claras e objetivas</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Captura de fotos com geolocalização</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Sistema XP e medalhas motivacionais</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Chat direto com supervisores</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Funcionamento offline</p>
                                 </div>
-                                
-                                <div class="space-y-3 flex-1">
-                                    <div class="flex items-center p-3 bg-green-50 rounded-lg">
-                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                                        <span class="text-sm text-gray-700">Fundação concluída</span>
-                                    </div>
-                                    <div class="flex items-center p-3 bg-blue-50 rounded-lg">
-                                        <i class="fas fa-clock text-blue-500 mr-3"></i>
-                                        <span class="text-sm text-gray-700">Estrutura em andamento</span>
-                                    </div>
-                                    <div class="flex items-center p-3 bg-gray-50 rounded-lg opacity-60">
-                                        <i class="fas fa-clock text-gray-400 mr-3"></i>
-                                        <span class="text-sm text-gray-500">Cobertura pendente</span>
-                                    </div>
+                            </div>
+                            <div class="bg-surface rounded-xl p-6 overflow-hidden">
+                                <img 
+                                    src="./Assets/DemoSection-02-screenshot-da-interface-mobile-otimizada.jpg" 
+                                    alt="Interface mobile otimizada para operários - Tarefas claras e captura de fotos"
+                                    class="w-full h-auto rounded-lg border border-tertiary/20 shadow-medium"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="demo-cliente-content" class="demo-content hidden">
+                        <div class="grid lg:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-2xl font-bold text-success mb-4">Transparência Total para Clientes</h3>
+                                <div class="space-y-4 text-textSecondary">
+                                    <p><i class="fas fa-check text-success mr-2"></i>Acompanhamento em tempo real</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Galeria de fotos da obra</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Progress tracking visual</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Chat direto com responsável</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Notificações de progresso</p>
                                 </div>
-                                
-                                <div class="mt-4 flex justify-between">
-                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-building text-blue-600"></i>
-                                    </div>
-                                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-comments text-gray-600"></i>
-                                    </div>
-                                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-star text-gray-600"></i>
-                                    </div>
+                            </div>
+                            <div class="bg-surface rounded-xl p-6 overflow-hidden">
+                                <img 
+                                    src="./Assets/DemoSection-03-screenshot-da-interface-app-dedicado-para-clientes.jpg" 
+                                    alt="App dedicado para clientes - Transparência total com acompanhamento em tempo real"
+                                    class="w-full h-auto rounded-lg border border-success/20 shadow-medium"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="demo-relatorios-content" class="demo-content hidden">
+                        <div class="grid lg:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-2xl font-bold text-info mb-4">Analytics e Insights Inteligentes</h3>
+                                <div class="space-y-4 text-textSecondary">
+                                    <p><i class="fas fa-check text-success mr-2"></i>Métricas de produtividade</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Análise de custos por fase</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Previsões de prazo automáticas</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Relatórios para clientes</p>
+                                    <p><i class="fas fa-check text-success mr-2"></i>Exportação em PDF/Excel</p>
                                 </div>
+                            </div>
+                            <div class="bg-surface rounded-xl p-6 overflow-hidden">
+                                <img 
+                                    src="./Assets/DemoSection-04-screenshot-da-interface-dashboard-de-analytics.jpg" 
+                                    alt="Dashboard de analytics e insights - Métricas inteligentes e relatórios avançados"
+                                    class="w-full h-auto rounded-lg border border-info/20 shadow-medium"
+                                    loading="lazy"
+                                />
                             </div>
                         </div>
                     </div>
@@ -346,617 +572,609 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-20 px-4">
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-6">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16">
-                <div class="flex items-center justify-center mb-4">
-                    <div class="bg-orange-500/20 p-3 rounded-full mr-4">
-                        <i class="fas fa-user-tie text-2xl text-white"></i>
-                    </div>
-                    <span class="bg-gradient-to-r from-orange-400 to-amber-400 px-4 py-2 rounded-full text-sm font-semibold text-white shadow-lg">
-                        👷‍♂️ Para Engenheiros Como Você
-                    </span>
-                </div>
-                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-                    Cansado de gerenciar obra no <span class="text-red-400">WhatsApp?</span>
+                <h2 class="text-4xl lg:text-5xl font-bold gradient-text mb-6">
+                    Seja um dos Primeiros Apoiadores
                 </h2>
-                <p class="text-xl text-white max-w-4xl mx-auto leading-relaxed">
-                    <strong>Sabemos como é!</strong> 📱💬 Grupos bagunçados, informações perdidas, cliente ligando toda hora... <br>
-                    <em>O FaseUp organiza tudo isso de forma profissional.</em> <strong>90% mais barato</strong> que softwares gringos! 🇧🇷
+                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
+                    Programa exclusivo para visionários que querem transformar a construção civil brasileira
                 </p>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="feature-card bg-gradient-to-br from-blue-500/20 to-cyan-600/20 backdrop-blur-md rounded-2xl p-6 hover:from-blue-500/30 hover:to-cyan-600/30 transition-all duration-300 hover:scale-105 border border-blue-400/30 shadow-lg">
-                    <div class="mb-4 flex items-center justify-between">
-                        <div class="bg-blue-500/20 p-3 rounded-xl">
-                            <i class="fas fa-comments text-2xl text-blue-300"></i>
+
+            <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+                <!-- Plano Gratuito -->
+                <div class="bg-surface border border-textSecondary/20 rounded-2xl p-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-textPrimary mb-2">GRATUITO</h3>
+                        <p class="text-textSecondary">Para conhecer o FaseUp</p>
+                        <div class="text-4xl font-black text-textPrimary mt-4">R$ 0<span class="text-lg font-normal text-textSecondary">/mês</span></div>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-success mr-3"></i>
+                            <span class="text-textSecondary">1 projeto</span>
                         </div>
-                        <div class="text-xs bg-blue-500/30 px-2 py-1 rounded-full text-blue-200">
-                            🏗️ Organizado
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-success mr-3"></i>
+                            <span class="text-textSecondary">2 pessoas</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-times text-error mr-3"></i>
+                            <span class="text-textSecondary">Transparência Cliente</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-times text-error mr-3"></i>
+                            <span class="text-textSecondary">Chat Ilimitado</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-times text-error mr-3"></i>
+                            <span class="text-textSecondary">Relatórios Avançados</span>
                         </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Chat por Etapa da Obra</h3>
-                    <p class="text-blue-100 text-sm leading-relaxed">
-                        <strong>Chega de WhatsApp bagunçado!</strong> Conversas organizadas por fase: Fundação → Estrutura → Alvenaria → Cobertura → Instalações → Acabamento.
-                    </p>
+                    
+                    <button onclick="openTeste()" class="w-full border-2 border-primary/30 text-primary hover:bg-primary/10 py-4 rounded-xl font-semibold transition-colors">
+                        Testar Grátis
+                    </button>
                 </div>
 
-                <div class="feature-card bg-gradient-to-br from-emerald-500/20 to-teal-600/20 backdrop-blur-md rounded-2xl p-6 hover:from-emerald-500/30 hover:to-teal-600/30 transition-all duration-300 hover:scale-105 border border-emerald-400/30 shadow-lg">
-                    <div class="mb-4 flex items-center justify-between">
-                        <div class="bg-emerald-500/20 p-3 rounded-xl">
-                            <i class="fas fa-mobile-alt text-2xl text-emerald-300"></i>
+                <!-- Plano Apoiador Fundador -->
+                <div class="bg-gradient-to-br from-accent/20 to-primary/20 border-2 border-accent rounded-2xl p-8 relative overflow-hidden">
+                    <div class="absolute -top-2 -right-2 bg-accent text-white px-4 py-1 rounded-bl-xl font-bold text-sm">
+                        LIMITADO
+                    </div>
+                    
+                    <div class="text-center mb-8">
+                        <div class="flex items-center justify-center mb-2">
+                            <i class="fas fa-crown text-accent mr-2"></i>
+                            <h3 class="text-2xl font-bold text-accent">APOIADOR FUNDADOR</h3>
                         </div>
-                        <div class="text-xs bg-emerald-500/30 px-2 py-1 rounded-full text-emerald-200">
-                            📱 Simples
+                        <p class="text-textSecondary">Apenas 1.000 visionários</p>
+                        <div class="text-4xl font-black text-accent mt-4">
+                            R$ 49<span class="text-lg font-normal text-textSecondary">/mês</span>
+                        </div>
+                        <p class="text-sm text-warning">Por 12 meses • Valor futuro: R$ 69/mês</p>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-success mr-3"></i>
+                            <span class="text-textPrimary font-medium">7 projetos</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-success mr-3"></i>
+                            <span class="text-textPrimary font-medium">14 pessoas</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-success mr-3"></i>
+                            <span class="text-textPrimary font-medium">Transparência Cliente</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-success mr-3"></i>
+                            <span class="text-textPrimary font-medium">Chat Ilimitado</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-success mr-3"></i>
+                            <span class="text-textPrimary font-medium">Relatórios Avançados</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-crown text-accent mr-3"></i>
+                            <span class="text-accent font-medium">Badge Fundador 2025</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-headset text-tertiary mr-3"></i>
+                            <span class="text-tertiary font-medium">Suporte VIP (2h resposta)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-flask text-primary mr-3"></i>
+                            <span class="text-primary font-medium">Beta Access Prioritário</span>
                         </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Autenticação Simplificada</h3>
-                    <p class="text-blue-100 text-sm leading-relaxed">
-                        <strong>Sem complicação!</strong> Login apenas com telefone + PIN de 4-6 dígitos. <em>Perfeito para pedreiros, mestres e engenheiros.</em>
-                    </p>
-                </div>
-
-                <div class="feature-card bg-gradient-to-br from-purple-500/20 to-pink-600/20 backdrop-blur-md rounded-2xl p-6 hover:from-purple-500/30 hover:to-pink-600/30 transition-all duration-300 hover:scale-105 border border-purple-400/30 shadow-lg">
-                    <div class="mb-4 flex items-center justify-between">
-                        <div class="bg-purple-500/20 p-3 rounded-xl">
-                            <i class="fas fa-trophy text-2xl text-purple-300"></i>
-                        </div>
-                        <div class="text-xs bg-purple-500/30 px-2 py-1 rounded-full text-purple-200">
-                            🏆 Motiva
-                        </div>
+                    
+                    <button onclick="openApoiador()" class="w-full bg-accent hover:bg-accent/90 text-white py-4 rounded-xl font-bold transition-colors animate-pulse-slow">
+                        GARANTIR VAGA DE FUNDADOR
+                    </button>
+                    
+                    <div class="text-center mt-4">
+                        <p class="text-sm text-warning">
+                            <i class="fas fa-clock mr-1"></i>
+                            Restam apenas <span id="vagas-restantes" class="font-bold">724</span> vagas
+                        </p>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Gamificação com Medalhas</h3>
-                    <p class="text-blue-100 text-sm leading-relaxed">
-                        <strong>Equipe motivada trabalha melhor!</strong> Sistema de medalhas ⚡🔥🎯 que incentiva produtividade, colaboração e qualidade. <em>Seus pedreiros vão competir para ser o melhor!</em>
-                    </p>
-                </div>
-
-                <div class="feature-card bg-gradient-to-br from-amber-500/20 to-orange-600/20 backdrop-blur-md rounded-2xl p-6 hover:from-amber-500/30 hover:to-orange-600/30 transition-all duration-300 hover:scale-105 border border-amber-400/30 shadow-lg">
-                    <div class="mb-4 flex items-center justify-between">
-                        <div class="bg-amber-500/20 p-3 rounded-xl">
-                            <i class="fas fa-hard-hat text-2xl text-amber-300"></i>
-                        </div>
-                        <div class="text-xs bg-amber-500/30 px-2 py-1 rounded-full text-amber-200">
-                            🧢 Visual
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Capacetes Coloridos</h3>
-                    <p class="text-blue-100 text-sm leading-relaxed">
-                        <strong>Hierarquia clara!</strong> ⚫⚪🔵🟢🔴🟠 Sistema visual que identifica cada função: <em>Gestor, Engenheiro, Mestre, Operário, Segurança, Cliente.</em>
-                    </p>
-                </div>
-
-                <div class="feature-card bg-gradient-to-br from-orange-500/20 to-red-600/20 backdrop-blur-md rounded-2xl p-6 hover:from-orange-500/30 hover:to-red-600/30 transition-all duration-300 hover:scale-105 border border-orange-400/30 shadow-lg">
-                    <div class="mb-4 flex items-center justify-between">
-                        <div class="bg-orange-500/20 p-3 rounded-xl">
-                            <i class="fas fa-dollar-sign text-2xl text-orange-300"></i>
-                        </div>
-                        <div class="text-xs bg-orange-500/30 px-2 py-1 rounded-full text-orange-200">
-                            💰 90% Economia
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Custo-Benefício Imbatível</h3>
-                    <p class="text-blue-100 text-sm leading-relaxed">
-                        <strong>Por que pagar caro em software importado?</strong> Economize até 90% com solução nacional. <em>Feito por brasileiros, para brasileiros!</em>
-                    </p>
-                </div>
-
-                <div class="feature-card bg-gradient-to-br from-green-500/20 to-emerald-600/20 backdrop-blur-md rounded-2xl p-6 hover:from-green-500/30 hover:to-emerald-600/30 transition-all duration-300 hover:scale-105 border border-green-400/30 shadow-lg">
-                    <div class="mb-4 flex items-center justify-between">
-                        <div class="bg-green-500/20 p-3 rounded-xl">
-                            <i class="fas fa-flag text-2xl text-green-300"></i>
-                        </div>
-                        <div class="text-xs bg-green-500/30 px-2 py-1 rounded-full text-green-200">
-                            🇧🇷 Nacional
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Tecnologia Brasileira</h3>
-                    <p class="text-blue-100 text-sm leading-relaxed">
-                        <strong>Suporte que fala nossa língua!</strong> 🇧🇷 Desenvolvido no Brasil, para brasileiros. <em>Atendimento via WhatsApp, sem call center internacional!</em>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hardhat Hierarchy Section -->
-    <section class="py-20 px-4 bg-white/5 backdrop-blur-md">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-                    Hierarquia por Capacetes
-                </h2>
-                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
-                    Sistema visual intuitivo que identifica cada função na obra através de capacetes coloridos.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 hardhat-black rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-hard-hat text-white"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-800">⚫ Capacete Preto</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        <strong>Gestor/Proprietário</strong> - Todas as permissões, controle total da obra
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 hardhat-white rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-hard-hat text-gray-600"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-800">⚪ Capacete Branco</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        <strong>Engenheiro/Arquiteto</strong> - Aprovar e validar etapas da construção
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 hardhat-blue rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-hard-hat text-white"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-800">🔵 Capacete Azul</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        <strong>Mestre de Obra</strong> - Executar e reportar progresso das atividades
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 hardhat-green rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-hard-hat text-white"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-800">🟢 Capacete Verde</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        <strong>Técnico/Operário</strong> - Executar sua fase específica da obra
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 hardhat-red rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-hard-hat text-white"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-800">🔴 Capacete Vermelho</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        <strong>Segurança do Trabalho</strong> - Apenas visualizar, monitorar conformidade
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 hardhat-orange rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-hard-hat text-white"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-800">🟠 Capacete Laranja</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        <strong>Cliente/Visitante</strong> - Apenas visualizar progresso e comunicar
-                    </p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Pricing Plans -->
-    <section id="pricing" class="py-20 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-                    Planos que cabem no seu bolso
-                </h2>
-                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
-                    Economize até 90% comparado aos softwares internacionais. 
-                    Escolha o plano ideal para sua construtora.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Plano Básico -->
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+            <!-- Urgency Section -->
+            <div class="bg-gradient-to-r from-warning/20 to-accent/20 backdrop-blur-md rounded-2xl p-8 border border-warning/30 text-center">
+                <div class="flex flex-wrap justify-center items-center gap-8 mb-6">
                     <div class="text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Básico</h3>
-                        <div class="text-3xl font-bold text-blue-600 mb-4">
-                            R$ 49<span class="text-lg text-gray-500">/mês</span>
-                        </div>
-                        <p class="text-gray-600 text-sm mb-6">Ideal para pequenas obras</p>
-                        <ul class="text-left text-gray-600 text-sm space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>1 obra ativa</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Chat por etapa</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Sistema de capacetes</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Até 10 usuários</li>
-                        </ul>
-                        <button onclick="openWhatsApp('basico')" class="w-full bg-blue-100 text-blue-700 py-3 rounded-xl font-semibold hover:bg-blue-200 transition-colors">
-                            Contratar Plano
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Plano Profissional (Destaque) -->
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 relative border-2 border-blue-500">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold">Mais Popular</span>
+                        <div class="countdown-digit text-3xl p-4 rounded-xl mb-2" id="dias">23</div>
+                        <div class="text-textSecondary">DIAS</div>
                     </div>
                     <div class="text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Profissional</h3>
-                        <div class="text-3xl font-bold text-blue-600 mb-4">
-                            R$ 149<span class="text-lg text-gray-500">/obra</span>
-                        </div>
-                        <p class="text-gray-600 text-sm mb-6">Uma obra completa</p>
-                        <ul class="text-left text-gray-600 text-sm space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>1 obra completa</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Gamificação + medalhas</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Relatórios avançados</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Usuários ilimitados</li>
-                        </ul>
-                        <button onclick="openWhatsApp('profissional')" class="w-full bg-blue-500 text-white py-3 rounded-xl font-semibold hover:bg-blue-600 transition-colors">
-                            Contratar Agora
-                        </button>
+                        <div class="countdown-digit text-3xl p-4 rounded-xl mb-2" id="horas">14</div>
+                        <div class="text-textSecondary">HORAS</div>
                     </div>
-                </div>
-
-                <!-- Plano Empresarial -->
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
                     <div class="text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Empresarial</h3>
-                        <div class="text-3xl font-bold text-blue-600 mb-4">
-                            R$ 299<span class="text-lg text-gray-500">/mês</span>
-                        </div>
-                        <p class="text-gray-600 text-sm mb-6">Múltiplas obras</p>
-                        <ul class="text-left text-gray-600 text-sm space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Até 5 obras</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Dashboard executivo</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>API integrations</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Suporte prioritário</li>
-                        </ul>
-                        <button onclick="openWhatsApp('empresarial')" class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors">
-                            Falar com Vendas
-                        </button>
+                        <div class="countdown-digit text-3xl p-4 rounded-xl mb-2" id="minutos">37</div>
+                        <div class="text-textSecondary">MINUTOS</div>
                     </div>
                 </div>
-
-                <!-- Plano Corporativo -->
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <div class="text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Corporativo</h3>
-                        <div class="text-3xl font-bold text-blue-600 mb-4">
-                            R$ 599<span class="text-lg text-gray-500">/mês</span>
-                        </div>
-                        <p class="text-gray-600 text-sm mb-6">Construtoras grandes</p>
-                        <ul class="text-left text-gray-600 text-sm space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Obras ilimitadas</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Personalização total</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>White-label</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Suporte dedicado</li>
-                        </ul>
-                        <button onclick="openWhatsApp('corporativo')" class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors">
-                            Contato Corporativo
-                        </button>
+                
+                <h3 class="text-2xl font-bold text-warning mb-4">Oferta Limitada de Pré-Lançamento</h3>
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-textSecondary">
+                    <div class="flex items-center">
+                        <i class="fas fa-users text-info mr-2"></i>
+                        <span>+127 engenheiros se inscreveram ontem</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-target text-accent mr-2"></i>
+                        <span>Meta: Esgotar vagas em 30 dias</span>
                     </div>
                 </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <p class="text-blue-200 text-lg mb-4">
-                    🚀 <strong>Condições especiais de lançamento:</strong> Desconto para os primeiros clientes!
-                </p>
-                <p class="text-blue-300 text-sm">
-                    Sem taxa de setup • Sem fidelização • Suporte completo incluso
-                </p>
             </div>
         </div>
     </section>
 
-    <!-- Gamification -->
-    <section id="gamification" class="py-20 px-4 bg-white/5 backdrop-blur-md">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-6 bg-surface/30">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16">
-                <div class="flex items-center justify-center mb-6">
-                    <div class="flex space-x-2 mr-4">
-                        <div class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center animate-bounce">⚡</div>
-                        <div class="w-8 h-8 bg-red-400 rounded-full flex items-center justify-center animate-bounce" style="animation-delay: 0.1s">🔥</div>
-                        <div class="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center animate-bounce" style="animation-delay: 0.2s">🎯</div>
-                        <div class="w-8 h-8 bg-purple-400 rounded-full flex items-center justify-center animate-bounce" style="animation-delay: 0.3s">👑</div>
-                    </div>
-                    <span class="bg-gradient-to-r from-purple-400 to-pink-400 px-4 py-2 rounded-full text-sm font-semibold text-white shadow-lg">
-                        🏆 Sistema de Reconhecimento
-                    </span>
-                </div>
-                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-                    Sua equipe <span class="text-yellow-400">motivada</span> produz mais!
+                <h2 class="text-4xl lg:text-5xl font-bold text-textPrimary mb-6">
+                    Engenheiros Já Estão Transformando Suas Obras
                 </h2>
-                <p class="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-                    <strong>Funciona mesmo!</strong> 🚀 Sistema de medalhas e rankings que <em>transforma</em> sua equipe. <br>
-                    <strong>Pedreiro quer ganhar medalha? Vai caprichar no serviço!</strong> 😄
+                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
+                    Depoimentos reais de profissionais que já viveram a revolução do FaseUp
                 </p>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Medalhas de Produtividade -->
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <div class="text-center mb-4">
-                        <div class="text-4xl mb-3">⚡</div>
-                        <h3 class="text-lg font-semibold text-gray-800">Produtividade</h3>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-background rounded-2xl p-8 border border-primary/20">
+                    <div class="flex items-center mb-6">
+                        <img 
+                            src="./Assets/TestimonialsSection-01-Carlos-Silva-Engenheiro-Civil-SP.png" 
+                            alt="Carlos Silva - Engenheiro Civil de São Paulo"
+                            class="w-12 h-12 rounded-full object-cover border-2 border-primary/20 mr-4"
+                            loading="lazy"
+                        />
+                        <div>
+                            <div class="font-semibold text-textPrimary">Carlos Silva</div>
+                            <div class="text-sm text-textSecondary">Engenheiro Civil - SP</div>
+                        </div>
                     </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-center"><span class="mr-2">⚡</span> Raio - Velocidade</li>
-                        <li class="flex items-center"><span class="mr-2">🔥</span> Sequência - Consistência</li>
-                        <li class="flex items-center"><span class="mr-2">🎯</span> Precisão - Sem retrabalho</li>
-                    </ul>
+                    <div class="mb-4">
+                        <div class="flex text-warning mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <blockquote class="text-textSecondary italic">
+                        "Meus clientes pararam de ligar 10x por dia. Agora eles acompanham tudo pelo app! 
+                        Virei referência na cidade mostrando transparência total."
+                    </blockquote>
                 </div>
 
-                <!-- Medalhas de Colaboração -->
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <div class="text-center mb-4">
-                        <div class="text-4xl mb-3">🤝</div>
-                        <h3 class="text-lg font-semibold text-gray-800">Colaboração</h3>
+                <div class="bg-background rounded-2xl p-8 border border-tertiary/20">
+                    <div class="flex items-center mb-6">
+                        <img 
+                            src="./Assets/TestimonialsSection-02-Ana-Costa-Gestora-de-Obras-RJ.jpg" 
+                            alt="Ana Costa - Gestora de Obras do Rio de Janeiro"
+                            class="w-12 h-12 rounded-full object-cover border-2 border-tertiary/20 mr-4"
+                            loading="lazy"
+                        />
+                        <div>
+                            <div class="font-semibold text-textPrimary">Ana Costa</div>
+                            <div class="text-sm text-textSecondary">Gestora de Obras - RJ</div>
+                        </div>
                     </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-center"><span class="mr-2">🤝</span> Parceiro - Ajuda colegas</li>
-                        <li class="flex items-center"><span class="mr-2">💬</span> Comunicador - Chat ativo</li>
-                        <li class="flex items-center"><span class="mr-2">👍</span> Aprovado - Reconhecimento</li>
-                    </ul>
+                    <div class="mb-4">
+                        <div class="flex text-warning mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <blockquote class="text-textSecondary italic">
+                        "A gamificação motivou minha equipe de forma incrível. Produtividade aumentou 35% em 2 meses. 
+                        Os operários disputam para ver quem faz mais fotos!"
+                    </blockquote>
                 </div>
 
-                <!-- Medalhas de Qualidade -->
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <div class="text-center mb-4">
-                        <div class="text-4xl mb-3">📷</div>
-                        <h3 class="text-lg font-semibold text-gray-800">Qualidade</h3>
+                <div class="bg-background rounded-2xl p-8 border border-success/20">
+                    <div class="flex items-center mb-6">
+                        <img 
+                            src="./Assets/TestimonialsSection-03-Roberto-Santos-Cliente-BH.jpg" 
+                            alt="Roberto Santos - Cliente de Belo Horizonte"
+                            class="w-12 h-12 rounded-full object-cover border-2 border-success/20 mr-4"
+                            loading="lazy"
+                        />
+                        <div>
+                            <div class="font-semibold text-textPrimary">Roberto Santos</div>
+                            <div class="text-sm text-textSecondary">Cliente - BH</div>
+                        </div>
                     </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-center"><span class="mr-2">📷</span> Fotógrafo - Documentação</li>
-                        <li class="flex items-center"><span class="mr-2">🔍</span> Detalhista - Atenção</li>
-                        <li class="flex items-center"><span class="mr-2">⭐</span> 5 Estrelas - Excelência</li>
-                    </ul>
-                </div>
-
-                <!-- Medalhas de Liderança -->
-                <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <div class="text-center mb-4">
-                        <div class="text-4xl mb-3">👑</div>
-                        <h3 class="text-lg font-semibold text-gray-800">Liderança</h3>
+                    <div class="mb-4">
+                        <div class="flex text-warning mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-center"><span class="mr-2">👑</span> Mentor - Orientação</li>
-                        <li class="flex items-center"><span class="mr-2">🚀</span> Inovador - Melhorias</li>
-                        <li class="flex items-center"><span class="mr-2">🏅</span> Veterano - Experiência</li>
-                    </ul>
+                    <blockquote class="text-textSecondary italic">
+                        "Finalmente posso acompanhar minha casa sendo construída sem sair do escritório. 
+                        Indico para todos os meus amigos - transparência que realmente funciona!"
+                    </blockquote>
                 </div>
             </div>
-            
-            <div class="mt-12 bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center">
-                <h3 class="text-2xl font-bold text-white mb-4">Sistema de Níveis</h3>
-                <div class="flex justify-center items-center space-x-8 flex-wrap">
-                    <div class="text-blue-200 text-sm">
-                        <div class="font-semibold">Aprendiz</div>
-                        <div>0-99 pts</div>
-                    </div>
-                    <div class="text-blue-200">→</div>
-                    <div class="text-blue-200 text-sm">
-                        <div class="font-semibold">Profissional</div>
-                        <div>100-299 pts</div>
-                    </div>
-                    <div class="text-blue-200">→</div>
-                    <div class="text-blue-200 text-sm">
-                        <div class="font-semibold">Especialista</div>
-                        <div>300-599 pts</div>
-                    </div>
-                    <div class="text-blue-200">→</div>
-                    <div class="text-yellow-400 text-sm">
-                        <div class="font-semibold">Mestre</div>
-                        <div>600-999 pts</div>
-                    </div>
-                    <div class="text-blue-200">→</div>
-                    <div class="text-yellow-400 text-sm">
-                        <div class="font-semibold">Lenda</div>
-                        <div>1000+ pts</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="py-20 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-                    O que nossos clientes dizem
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl p-6 shadow-xl">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                            <span class="text-white font-semibold text-lg">C</span>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-semibold text-gray-800">Carlos Eduardo</h4>
-                            <p class="text-gray-600 text-sm">Engenheiro Civil</p>
-                        </div>
-                    </div>
-                    <div class="flex mb-3">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </div>
-                    <p class="text-gray-700 text-sm italic">
-                        "O FaseUp revolucionou nossa comunicação com os clientes. Agora eles acompanham tudo em tempo real e confiam mais no nosso trabalho."
-                    </p>
+            <div class="flex flex-wrap justify-center items-center gap-8 text-sm text-textSecondary">
+                <div class="flex items-center">
+                    <i class="fas fa-users text-primary mr-2"></i>
+                    <span>Testado por 500+ engenheiros</span>
                 </div>
-
-                <div class="bg-white rounded-2xl p-6 shadow-xl">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                            <span class="text-white font-semibold text-lg">M</span>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-semibold text-gray-800">Marina Silva</h4>
-                            <p class="text-gray-600 text-sm">Proprietária</p>
-                        </div>
-                    </div>
-                    <div class="flex mb-3">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </div>
-                    <p class="text-gray-700 text-sm italic">
-                        "Finalmente posso acompanhar minha obra do escritório! Recebo fotos diárias e sei exatamente quando cada etapa será concluída."
-                    </p>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-warning mr-2"></i>
+                    <span>4.8/5 avaliação média</span>
                 </div>
-
-                <div class="bg-white rounded-2xl p-6 shadow-xl">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                            <span class="text-white font-semibold text-lg">R</span>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-semibold text-gray-800">Roberto Mendes</h4>
-                            <p class="text-gray-600 text-sm">Diretor de Construtora</p>
-                        </div>
-                    </div>
-                    <div class="flex mb-3">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </div>
-                    <p class="text-gray-700 text-sm italic">
-                        "Implementamos em todas as nossas obras. A transparência aumentou nossa credibilidade e reduziu reclamações em 80%."
-                    </p>
+                <div class="flex items-center">
+                    <i class="fas fa-mobile-alt text-info mr-2"></i>
+                    <span>Disponível iOS e Android</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section id="cta" class="py-20 px-4">
+    <!-- FAQ Section -->
+    <section class="py-20 px-6">
         <div class="container mx-auto max-w-4xl">
-            <div class="bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-3xl p-12 text-center border border-blue-400/30 shadow-2xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-textPrimary mb-6">
+                    Perguntas Frequentes
+                </h2>
+                <p class="text-xl text-textSecondary">
+                    Esclarecemos suas dúvidas sobre o programa Apoiadores Fundadores
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-surface/50 backdrop-blur-md rounded-2xl p-6 border border-primary/20">
+                    <div class="font-semibold text-textPrimary text-lg mb-3 flex items-center">
+                        <i class="fas fa-question-circle text-primary mr-3"></i>
+                        O que acontece se eu não gostar?
+                    </div>
+                    <div class="text-textSecondary">
+                        <i class="fas fa-check text-success mr-2"></i>
+                        Garantia de 30 dias. Cancelamento imediato sem perguntas.
+                    </div>
+                </div>
+
+                <div class="bg-surface/50 backdrop-blur-md rounded-2xl p-6 border border-primary/20">
+                    <div class="font-semibold text-textPrimary text-lg mb-3 flex items-center">
+                        <i class="fas fa-question-circle text-primary mr-3"></i>
+                        Meus dados ficam seguros?
+                    </div>
+                    <div class="text-textSecondary">
+                        <i class="fas fa-check text-success mr-2"></i>
+                        Criptografia bancária + LGPD compliance. Seus dados jamais são vendidos.
+                    </div>
+                </div>
+
+                <div class="bg-surface/50 backdrop-blur-md rounded-2xl p-6 border border-primary/20">
+                    <div class="font-semibold text-textPrimary text-lg mb-3 flex items-center">
+                        <i class="fas fa-question-circle text-primary mr-3"></i>
+                        Funciona offline no canteiro?
+                    </div>
+                    <div class="text-textSecondary">
+                        <i class="fas fa-check text-success mr-2"></i>
+                        95% das funcionalidades disponíveis offline. Sincroniza automaticamente.
+                    </div>
+                </div>
+
+                <div class="bg-surface/50 backdrop-blur-md rounded-2xl p-6 border border-primary/20">
+                    <div class="font-semibold text-textPrimary text-lg mb-3 flex items-center">
+                        <i class="fas fa-question-circle text-primary mr-3"></i>
+                        Como sei que vocês não vão sumir?
+                    </div>
+                    <div class="text-textSecondary">
+                        <i class="fas fa-check text-success mr-2"></i>
+                        Time experiente + validação com 500+ engenheiros + roadmap público transparente.
+                    </div>
+                </div>
+
+                <div class="bg-surface/50 backdrop-blur-md rounded-2xl p-6 border border-primary/20">
+                    <div class="font-semibold text-textPrimary text-lg mb-3 flex items-center">
+                        <i class="fas fa-question-circle text-primary mr-3"></i>
+                        O programa Fundador é para sempre?
+                    </div>
+                    <div class="text-textSecondary">
+                        <i class="fas fa-check text-success mr-2"></i>
+                        R$ 49/mês por 12 meses consecutivos. Após isso, valor normal ou renovação com desconto especial.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-5xl">
+            <div class="bg-gradient-to-r from-secondary/20 via-primary/20 to-accent/20 backdrop-blur-md rounded-2xl p-12 text-center border border-primary/20 shadow-strong">
                 <div class="flex justify-center mb-6">
-                    <div class="flex space-x-4">
-                        <div class="bg-green-500/20 p-4 rounded-full">
-                            <i class="fas fa-chart-line text-2xl text-green-300"></i>
+                    <div class="bg-accent/20 p-6 rounded-2xl">
+                        <i class="fas fa-rocket text-4xl text-accent"></i>
+                    </div>
+                </div>
+                
+                <h2 class="text-4xl lg:text-5xl font-bold text-textPrimary mb-6">
+                    Não Perca Esta Oportunidade Única
+                </h2>
+                
+                <div class="max-w-4xl mx-auto mb-8">
+                    <p class="text-lg lg:text-xl text-textSecondary leading-relaxed">
+                        Você tem duas opções: continuar gerenciando obras como sempre fez, ou ser parte da 
+                        <strong class="text-primary">revolução que está transformando a construção civil brasileira</strong>. 
+                        Os primeiros <strong class="text-accent">1.000 apoiadores</strong> terão seus nomes na história do FaseUp. 
+                        <strong class="text-tertiary">Seja um deles.</strong>
+                    </p>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row gap-6 justify-center mb-8">
+                    <button onclick="openApoiador()" class="bg-accent hover:bg-accent/90 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all duration-300 shadow-medium hover:shadow-strong hover:scale-105 flex items-center justify-center">
+                        <i class="fas fa-crown mr-3"></i>
+                        SIM, QUERO SER APOIADOR FUNDADOR
+                    </button>
+                </div>
+                
+                <div class="text-center text-sm text-textSecondary mb-6">
+                    <p><strong class="text-accent">R$ 49/mês por 12 meses</strong> • Preço promocional • <strong class="text-warning">Apenas 724 vagas restantes</strong></p>
+                </div>
+                
+                <div class="border-t border-primary/20 pt-6">
+                    <button onclick="openTeste()" class="text-textSecondary hover:text-primary underline transition-colors">
+                        Prefiro testar grátis por 7 dias primeiro
+                    </button>
+                    <p class="text-xs text-textSecondary mt-2">Sem cartão • Acesso imediato • Sem compromisso</p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-textSecondary mt-8 pt-6 border-t border-primary/20">
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt mr-2 text-success"></i>
+                        <span>Dados protegidos</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-mobile-alt mr-2 text-info"></i>
+                        <span>iOS e Android</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-headset mr-2 text-tertiary"></i>
+                        <span>Suporte em português</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-undo mr-2 text-warning"></i>
+                        <span>Garantia 30 dias</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Transparency Section -->
+    <section id="feedback" class="feedback-section py-20 px-6 bg-surface/30">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-info/20 p-4 rounded-2xl">
+                        <i class="fas fa-comments-dots text-4xl text-info"></i>
+                    </div>
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-textPrimary mb-6">
+                    Central de Feedback - Transparência Total
+                </h2>
+                <p class="text-xl text-textSecondary max-w-4xl mx-auto mb-8">
+                    <strong class="text-primary">Desenvolvimento transparente</strong> com nossa comunidade de testadores. 
+                    Veja bugs reportados, sugestões implementadas e o progresso em tempo real.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-textSecondary">
+                    <div class="flex items-center">
+                        <i class="fas fa-users text-success mr-2"></i>
+                        <span data-stat="testadores">500+ testadores ativos</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-bug text-warning mr-2"></i>
+                        <span data-stat="bugs-corrigidos">127 bugs corrigidos</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-lightbulb text-info mr-2"></i>
+                        <span data-stat="sugestoes-implementadas">43 sugestões implementadas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Dashboard -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <!-- Recent Bugs -->
+                <div class="bg-background rounded-2xl p-8 border border-primary/20">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-textPrimary flex items-center">
+                            <i class="fas fa-bug text-warning mr-3"></i>
+                            Bugs Reportados
+                        </h3>
+                        <div class="bg-warning/20 px-3 py-1 rounded-full border border-warning/30">
+                            <span class="text-warning text-sm font-medium">3 em análise</span>
                         </div>
-                        <div class="bg-blue-500/20 p-4 rounded-full">
-                            <i class="fas fa-handshake text-2xl text-blue-300"></i>
+                    </div>
+                    
+                    <div class="space-y-4" data-bugs-container>
+                        <!-- Bugs will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Recent Suggestions -->
+                <div class="bg-background rounded-2xl p-8 border border-primary/20">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-textPrimary flex items-center">
+                            <i class="fas fa-lightbulb text-tertiary mr-3"></i>
+                            Sugestões dos Usuários
+                        </h3>
+                        <div class="bg-tertiary/20 px-3 py-1 rounded-full border border-tertiary/30">
+                            <span class="text-tertiary text-sm font-medium">2 implementadas</span>
                         </div>
-                        <div class="bg-purple-500/20 p-4 rounded-full">
-                            <i class="fas fa-rocket text-2xl text-purple-300"></i>
+                    </div>
+                    
+                    <div class="space-y-4" data-suggestions-container>
+                        <!-- Suggestions will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Feedback Form -->
+            <div class="bg-gradient-to-r from-secondary/20 via-primary/20 to-tertiary/20 backdrop-blur-md rounded-2xl p-8 border border-primary/20">
+                <div class="text-center mb-8">
+                    <h3 class="text-3xl font-bold text-textPrimary mb-4">
+                        Ajude-nos a Melhorar o FaseUp
+                    </h3>
+                    <p class="text-lg text-textSecondary max-w-3xl mx-auto">
+                        Sua opinião é fundamental para construirmos a melhor plataforma de gestão de obras do Brasil
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Quick Report -->
+                    <div class="bg-background/50 rounded-xl p-6">
+                        <h4 class="text-xl font-semibold text-textPrimary mb-4 flex items-center">
+                            <i class="fas fa-zap text-warning mr-3"></i>
+                            Feedback Rápido
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <a href="./feedback/" class="flex-1 bg-error/20 hover:bg-error/30 text-error border border-error/30 px-4 py-3 rounded-lg font-semibold transition-colors text-center">
+                                    <i class="fas fa-bug mr-2"></i>
+                                    Reportar Bug
+                                </a>
+                                <a href="./feedback/" class="flex-1 bg-info/20 hover:bg-info/30 text-info border border-info/30 px-4 py-3 rounded-lg font-semibold transition-colors text-center">
+                                    <i class="fas fa-lightbulb mr-2"></i>
+                                    Dar Sugestão
+                                </a>
+                            </div>
+                            <a href="./feedback/" class="block w-full bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30 px-6 py-3 rounded-lg font-semibold transition-colors text-center">
+                                <i class="fas fa-clipboard-list mr-2"></i>
+                                Formulário Completo de Feedback
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Community Stats -->
+                    <div class="bg-background/50 rounded-xl p-6">
+                        <h4 class="text-xl font-semibold text-textPrimary mb-4 flex items-center">
+                            <i class="fas fa-users text-success mr-3"></i>
+                            Comunidade de Testadores
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-textSecondary">Testadores ativos</span>
+                                <span class="text-success font-bold">500+</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-textSecondary">Bugs corrigidos</span>
+                                <span class="text-warning font-bold">127</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-textSecondary">Sugestões implementadas</span>
+                                <span class="text-info font-bold">43</span>
+                            </div>
+                            <div class="border-t border-primary/20 pt-4 mt-4">
+                                <button onclick="openWhatsAppSuporte()" class="w-full bg-tertiary/20 hover:bg-tertiary/30 text-tertiary border border-tertiary/30 px-4 py-2 rounded-lg font-medium transition-colors text-sm">
+                                    <i class="fab fa-whatsapp mr-2"></i>
+                                    Grupo WhatsApp de Testadores
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-                    Chega de <span class="text-red-400">perrengue</span> com obra! 🏗️
-                </h2>
-                <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                    <strong>👷‍♂️ Já imaginou:</strong> Cliente satisfeito, equipe organizada, sem stress com WhatsApp bagunçado? <br>
-                    <em>É isso que centenas de engenheiros já conquistaram!</em> 🚀
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                    <button onclick="openModal()" class="bg-white text-blue-900 px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center">
-                        <i class="fas fa-calendar mr-3"></i>
-                        Agende uma Demonstração
-                    </button>
-                    <button onclick="openWhatsApp('download')" class="border-2 border-white/30 text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-md flex items-center justify-center">
-                        <i class="fab fa-whatsapp mr-3"></i>
-                        Solicitar Acesso ao App
-                    </button>
+
+                <div class="text-center mt-8">
+                    <div class="inline-flex items-center bg-success/20 border border-success/30 rounded-xl px-6 py-3">
+                        <i class="fas fa-heart text-success mr-3"></i>
+                        <span class="text-success font-medium">Transparência que constrói confiança - Este é nosso compromisso</span>
+                    </div>
                 </div>
-                
-                <p class="text-blue-200 text-sm">
-                    ✨ Ganhe produtividade e profissionalize sua obra com o FaseUp
-                </p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 border-t border-white/10">
+    <footer class="py-12 px-6 border-t border-primary/20">
         <div class="container mx-auto max-w-6xl">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="text-center md:text-left mb-4 md:mb-0">
-                    <h3 class="text-2xl font-bold text-white mb-2">FaseUp</h3>
-                    <p class="text-blue-200 text-sm">Conectando construtoras e clientes</p>
+            <div class="grid lg:grid-cols-4 gap-8 mb-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="logo-text-combo">
+                            <img 
+                                src="./Assets/Logo-FaseUp-without-background.png" 
+                                alt="FaseUp - Logotipo oficial"
+                                class="h-10 md:h-12 w-auto"
+                                loading="lazy"
+                            />
+                            <h3 class="text-2xl md:text-3xl font-black gradient-text">FaseUp</h3>
+                        </div>
+                        <div class="bg-accent/20 px-2 py-1 rounded text-accent text-xs font-medium">BETA</div>
+                    </div>
+                    <p class="text-textSecondary text-lg mb-4">
+                        Transparência que constrói confiança
+                    </p>
+                    <p class="text-textSecondary text-sm max-w-md">
+                        Revolucionando a gestão de obras no Brasil através da tecnologia e transparência total.
+                    </p>
                 </div>
-                <div class="text-center md:text-right">
-                    <p class="text-blue-200 text-sm mb-2">© 2025 FaseUp. Todos os direitos reservados.</p>
-                    <div class="flex flex-col md:flex-row justify-center md:justify-end items-center gap-2 md:gap-4">
-                        <a href="privacy/" class="text-blue-300 text-xs hover:text-white transition-colors underline">
-                            Política de Privacidade
-                        </a>
-                        <span class="text-blue-300 text-xs hidden md:inline">•</span>
-                        <a href="suporte/" class="text-blue-300 text-xs hover:text-white transition-colors underline">
-                            Suporte
-                        </a>
-                        <span class="text-blue-300 text-xs hidden md:inline">•</span>
-                        <p class="text-blue-300 text-xs">Acesse em faseup.com</p>
+                
+                <div>
+                    <h4 class="font-bold text-textPrimary mb-4">Produto</h4>
+                    <ul class="space-y-2 text-textSecondary text-sm">
+                        <li><button onclick="scrollToSection('demo')" class="hover:text-primary transition-colors">Demonstração</button></li>
+                        <li><button onclick="scrollToSection('pricing')" class="hover:text-primary transition-colors">Planos</button></li>
+                        <li><a href="design-system.html" class="hover:text-primary transition-colors">Design System</a></li>
+                        <li><button onclick="openTeste()" class="hover:text-primary transition-colors">Teste Grátis</button></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-textPrimary mb-4">Suporte</h4>
+                    <ul class="space-y-2 text-textSecondary text-sm">
+                        <li><a href="suporte/" class="hover:text-primary transition-colors">Central de Ajuda</a></li>
+                        <li><button onclick="scrollToFeedback()" class="hover:text-info transition-colors">Central de Feedback</button></li>
+                        <li><a href="privacy/" class="hover:text-primary transition-colors">Política de Privacidade</a></li>
+                        <li><a href="mailto:ola@faseup.com" class="hover:text-primary transition-colors">Contato</a></li>
+                        <li><button onclick="openWhatsApp()" class="hover:text-primary transition-colors">WhatsApp</button></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-primary/20 pt-6">
+                <div class="flex flex-col lg:flex-row justify-between items-center">
+                    <div class="text-center lg:text-left mb-4 lg:mb-0">
+                        <p class="text-textSecondary text-sm">
+                            © 2025 FaseUp. Todos os direitos reservados.
+                        </p>
+                    </div>
+                    <div class="text-center lg:text-right">
+                        <p class="text-textSecondary text-xs">
+                            Desenvolvido com transparência e tecnologia • Brasil 🇧🇷
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- Modal de Contato -->
-    <div id="contactModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-                <i class="fas fa-times text-xl"></i>
-            </button>
-            
-            <h3 class="text-2xl font-bold text-gray-800 mb-6">Agende uma Demonstração</h3>
-            
-            <form id="contactForm" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
-                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                </div>
-                
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                    <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                </div>
-                
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Telefone</label>
-                    <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                </div>
-                
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Empresa/Construtora</label>
-                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                </div>
-                
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Mensagem (opcional)</label>
-                    <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
-                </div>
-                
-                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
-                    Agendar Demonstração
-                </button>
-            </form>
-        </div>
-    </div>
 
     <script>
         // Smooth scroll function
@@ -970,82 +1188,116 @@
             }
         }
 
-        // WhatsApp function
-        function openWhatsApp(plano) {
-            const mensagens = {
-                'basico': 'Olá! Gostaria de ter acesso ao app FaseUp versão *Básica* (R$ 49/mês).',
-                'profissional': 'Olá! Gostaria de ter acesso ao app FaseUp versão *Profissional* (R$ 149/obra).',
-                'empresarial': 'Olá! Gostaria de ter acesso ao app FaseUp versão *Empresarial* (R$ 299/mês).',
-                'corporativo': 'Olá! Gostaria de ter acesso ao app FaseUp versão *Corporativo* (R$ 599/mês).',
-                'download': 'Olá! Tenho interesse no FaseUp e gostaria de receber o link de acesso ao aplicativo.'
-            };
+        function scrollToFeedback() {
+            scrollToSection('feedback');
+        }
+
+        // Demo tabs functionality
+        function showDemo(type) {
+            // Hide all demo contents
+            const contents = document.querySelectorAll('.demo-content');
+            contents.forEach(content => content.classList.add('hidden'));
             
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('[id^="demo-"]');
+            tabs.forEach(tab => {
+                if (tab.tagName === 'BUTTON') {
+                    tab.className = 'demo-tab bg-surface/50 text-textSecondary border border-primary/20 hover:bg-surface px-6 py-3 rounded-xl font-semibold transition-colors';
+                }
+            });
+            
+            // Show selected content
+            const selectedContent = document.getElementById(`demo-${type}-content`);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+            }
+            
+            // Add active class to selected tab
+            const selectedTab = document.getElementById(`demo-${type}`);
+            if (selectedTab) {
+                selectedTab.className = 'demo-tab-active bg-primary text-secondary px-6 py-3 rounded-xl font-semibold transition-colors';
+            }
+        }
+
+        // CTA Functions
+        function openApoiador() {
             const telefone = '5582993869090';
-            const mensagem = encodeURIComponent(mensagens[plano] || 'Olá! Gostaria de conhecer mais sobre o FaseUp.');
+            const mensagem = encodeURIComponent('Olá! Quero me tornar um Apoiador Fundador do FaseUp por R$ 49/mês. Vamos revolucionar a construção civil juntos!');
             const url = `https://wa.me/${telefone}?text=${mensagem}`;
-            
             window.open(url, '_blank');
         }
 
-        // Modal functions
-        function openModal() {
-            document.getElementById('contactModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+        function openTeste() {
+            const telefone = '5582993869090';
+            const mensagem = encodeURIComponent('Olá! Gostaria de testar o FaseUp gratuitamente por 7 dias antes de decidir sobre o programa Apoiadores Fundadores.');
+            const url = `https://wa.me/${telefone}?text=${mensagem}`;
+            window.open(url, '_blank');
         }
 
-        function closeModal() {
-            document.getElementById('contactModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
+        function openWhatsApp() {
+            const telefone = '5582993869090';
+            const mensagem = encodeURIComponent('Olá! Vi o site do FaseUp e gostaria de mais informações sobre a plataforma de gestão de obras.');
+            const url = `https://wa.me/${telefone}?text=${mensagem}`;
+            window.open(url, '_blank');
         }
 
-        // Close modal when clicking outside
-        document.getElementById('contactModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
+        // Feedback System Functions
+        function openFeedbackRapido(tipo) {
+            const telefone = '5582993869090';
+            let mensagem = '';
+            
+            if (tipo === 'bug') {
+                mensagem = encodeURIComponent('🐛 REPORTAR BUG - FaseUp\n\nDescreva o problema encontrado:\n- O que aconteceu?\n- Quando aconteceu?\n- Como reproduzir?\n\nSou testador do FaseUp e gostaria de reportar este bug.');
+            } else if (tipo === 'sugestao') {
+                mensagem = encodeURIComponent('💡 SUGESTÃO - FaseUp\n\nMinha sugestão de melhoria:\n- Funcionalidade sugerida:\n- Por que seria útil?\n- Como deveria funcionar?\n\nSou testador do FaseUp e gostaria de contribuir com esta sugestão.');
             }
-        });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
             
-            // Aqui você pode integrar com seu backend ou serviço de email
-            alert('Obrigado pelo interesse! Entraremos em contato em breve.');
-            closeModal();
-            
-            // Reset form
-            this.reset();
-        });
+            const url = `https://wa.me/${telefone}?text=${mensagem}`;
+            window.open(url, '_blank');
+        }
 
-        // Countdown Timer - Funcionando dinamicamente
+        function openFeedbackCompleto() {
+            // URL do Google Forms estruturado (será criado posteriormente)
+            const telefone = '5582993869090';
+            const mensagem = encodeURIComponent('📋 TESTE COMPLETO - FaseUp\n\nGostaria de participar como Beta Tester oficial e fazer o teste completo do FaseUp seguindo o formulário estruturado.\n\nPor favor, me envie o link do formulário de teste completo.');
+            const url = `https://wa.me/${telefone}?text=${mensagem}`;
+            window.open(url, '_blank');
+        }
+
+        function openWhatsAppSuporte() {
+            const telefone = '5582993869090';
+            const mensagem = encodeURIComponent('👥 GRUPO DE TESTADORES - FaseUp\n\nGostaria de entrar no grupo WhatsApp oficial dos testadores do FaseUp para:\n\n• Receber atualizações em tempo real\n• Trocar experiências com outros testadores\n• Ter acesso prioritário a novas funcionalidades\n• Participar do desenvolvimento transparente\n\nPor favor, me adicione ao grupo!');
+            const url = `https://wa.me/${telefone}?text=${mensagem}`;
+            window.open(url, '_blank');
+        }
+
+        // Countdown Timer (demo)
         function updateCountdown() {
-            // Data alvo: 30 dias a partir de agora (você pode alterar esta data)
-            const targetDate = new Date('2025-02-08T00:00:00'); // Data de lançamento
-            
-            const now = new Date();
-            const timeLeft = targetDate - now;
-            
-            // Se o tempo acabou
-            if (timeLeft <= 0) {
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                return;
-            }
-            
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            const targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 23);
+            targetDate.setHours(14, 37, 0);
+
+            const now = new Date().getTime();
+            const distance = targetDate.getTime() - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            if (document.getElementById('dias')) document.getElementById('dias').textContent = days;
+            if (document.getElementById('horas')) document.getElementById('horas').textContent = hours;
+            if (document.getElementById('minutos')) document.getElementById('minutos').textContent = minutes;
         }
 
-        // Update countdown every second for real-time updates
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
+        // Update vagas restantes (demo)
+        function updateVagas() {
+            const baseVagas = 724;
+            const randomDecrease = Math.floor(Math.random() * 3);
+            const vagasElements = document.querySelectorAll('#vagas-restantes');
+            vagasElements.forEach(element => {
+                element.textContent = baseVagas - randomDecrease;
+            });
+        }
 
         // Scroll animations
         const observerOptions = {
@@ -1056,21 +1308,55 @@
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('animate-fade-up');
                 }
             });
         }, observerOptions);
 
-        // Observe elements when page loads
+        // Lazy loading for images
+        function initLazyLoading() {
+            if ('IntersectionObserver' in window) {
+                const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+                const imageObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.classList.add('fade-in');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px 0px',
+                    threshold: 0.1
+                });
+
+                lazyImages.forEach(function(img) {
+                    imageObserver.observe(img);
+                });
+            }
+        }
+
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.feature-card, .bg-white');
+            // Start countdown
+            updateCountdown();
+            setInterval(updateCountdown, 60000); // Update every minute
+            
+            // Update vagas occasionally
+            updateVagas();
+            setInterval(updateVagas, 300000); // Update every 5 minutes
+            
+            // Initialize demo tabs
+            showDemo('gestor');
+            
+            // Initialize scroll animations
+            const animatedElements = document.querySelectorAll('.animate-fade-up');
             animatedElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(el);
             });
+            
+            // Initialize lazy loading
+            initLazyLoading();
         });
     </script>
 </body>

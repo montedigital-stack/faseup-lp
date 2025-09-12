@@ -4,7 +4,9 @@
       "Bash(python3:*)",
       "Bash(rm:*)",
       "Bash(git add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(open index.html)",
+      "Bash(open:*)"
     ],
     "deny": []
   }

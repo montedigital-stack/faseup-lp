@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidade - FaseUp</title>
-    <meta name="description" content="Política de Privacidade do FaseUp - gestão de obras inteligente. Saiba como protegemos seus dados e informações.">
+    <title>Política de Privacidade - FaseUp | Transparência que Constrói Confiança</title>
+    <meta name="description" content="Política de Privacidade do FaseUp. Transparência total sobre como protegemos seus dados. LGPD compliance e segurança bancária.">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
@@ -18,22 +18,43 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#3B82F6',
-                        secondary: '#1E40AF',
-                        accent: '#60A5FA',
-                        orange: '#F97316',
-                        emerald: '#10B981',
-                        purple: '#8B5CF6',
-                        amber: '#F59E0B'
+                        // FaseUp Brand Colors (SuperDesign.dev pattern)
+                        primary: '#E7CFA9',
+                        primaryLight: '#F0D9B8',
+                        secondary: '#09455B',
+                        secondaryDark: '#073A47',
+                        tertiary: '#F4A261',
+                        accent: '#E76F51',
+                        background: '#0F1419',
+                        surface: '#232A31',
+                        textPrimary: '#FFFFFF',
+                        textSecondary: '#CBD5E0',
+                        success: '#48BB78',
+                        warning: '#ED8936',
+                        error: '#F56565',
+                        info: '#4299E1'
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    borderRadius: {
+                        'xs': '4px',
+                        'sm': '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '24px',
+                        '2xl': '32px'
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(231, 207, 169, 0.1)',
+                        'medium': '0 8px 30px rgba(231, 207, 169, 0.15)',
+                        'strong': '0 12px 40px rgba(231, 207, 169, 0.2)'
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
@@ -51,23 +72,33 @@
         .fade-in {
             animation: fadeInUp 0.8s ease-out both;
         }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0F1419 0%, #232A31 50%, #09455B 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #E7CFA9 0%, #F4A261 50%, #E76F51 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800 min-h-screen">
+<body class="gradient-bg min-h-screen text-textPrimary">
     <!-- Header -->
-    <header class="py-6 px-4 border-b border-white/10">
+    <header class="py-6 px-4 border-b border-primary/20">
         <div class="container mx-auto max-w-6xl">
             <div class="flex items-center justify-between">
-                <a href="../" class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">F</span>
-                    </div>
-                    <h1 class="text-2xl font-bold text-white">FaseUp</h1>
+                <a href="../" class="flex items-center space-x-3">
+                    <div class="text-3xl font-black gradient-text">FaseUp</div>
+                    <div class="bg-accent/20 px-2 py-1 rounded text-accent text-xs font-medium">BETA</div>
                 </a>
                 <nav class="hidden md:flex items-center space-x-6">
-                    <a href="../" class="text-blue-200 hover:text-white transition-colors">Início</a>
-                    <a href="./" class="text-white font-medium">Privacidade</a>
-                    <a href="../suporte/" class="text-blue-200 hover:text-white transition-colors">Suporte</a>
+                    <a href="../" class="text-textSecondary hover:text-primary transition-colors">Início</a>
+                    <a href="./" class="text-primary font-medium">Privacidade</a>
+                    <a href="../suporte/" class="text-textSecondary hover:text-primary transition-colors">Suporte</a>
+                    <a href="../design-system.html" class="text-textSecondary hover:text-primary transition-colors">Design System</a>
                 </nav>
             </div>
         </div>
@@ -76,48 +107,62 @@
     <!-- Main Content -->
     <main class="py-16 px-4">
         <div class="container mx-auto max-w-4xl">
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-white/20 shadow-2xl">
+            <div class="bg-surface/50 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-primary/20 shadow-strong">
                 <div class="text-center mb-12 fade-in">
-                    <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-500/20 backdrop-blur-md rounded-2xl mb-6">
-                        <i class="fas fa-shield-alt text-3xl text-blue-300"></i>
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-primary/20 backdrop-blur-md rounded-2xl mb-6">
+                        <i class="fas fa-shield-alt text-3xl text-primary"></i>
                     </div>
-                    <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6">🔒 Política de Privacidade</h1>
-                    <p class="text-blue-200 mb-8"><strong>Última atualização:</strong> 4 de setembro de 2025</p>
+                    <h1 class="text-4xl lg:text-5xl font-bold gradient-text mb-6">Política de Privacidade</h1>
+                    <p class="text-textSecondary mb-4"><strong>Última atualização:</strong> 11 de setembro de 2025</p>
+                    <div class="inline-flex items-center bg-success/20 border border-success/30 rounded-full px-4 py-2">
+                        <i class="fas fa-check-circle text-success mr-2"></i>
+                        <span class="text-success font-medium">100% Transparente - Como nossa tecnologia</span>
+                    </div>
                 </div>
 
-                <div class="space-y-12 text-white">
+                <div class="space-y-12 text-textPrimary">
                     <!-- Introdução -->
                     <div class="fade-in">
-                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-mobile-alt mr-3 text-blue-300"></i>
-                            Introdução
+                        <h2 class="text-2xl font-bold text-textPrimary mb-6 flex items-center">
+                            <i class="fas fa-rocket mr-3 text-primary"></i>
+                            Nossa Missão: Transparência Total
                         </h2>
-                        <p class="text-blue-100 leading-relaxed text-lg">
-                            O FaseUp está comprometido em proteger sua privacidade. Esta política descreve como coletamos, usamos e protegemos suas informações.
-                        </p>
+                        <div class="bg-primary/10 border border-primary/30 rounded-xl p-6">
+                            <p class="text-textSecondary leading-relaxed text-lg">
+                                Assim como <strong class="text-primary">revolucionamos a transparência na construção civil</strong>, 
+                                somos totalmente transparentes sobre seus dados. Esta política é clara, direta e honesta - 
+                                exatamente como nossa plataforma.
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Dados Coletados -->
                     <div class="fade-in">
-                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-database mr-3 text-blue-300"></i>
+                        <h2 class="text-2xl font-bold text-textPrimary mb-6 flex items-center">
+                            <i class="fas fa-database mr-3 text-info"></i>
                             Informações que Coletamos
                         </h2>
                         <div class="grid md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-                                <h3 class="text-lg font-semibold text-white mb-4">Dados de Conta</h3>
-                                <ul class="space-y-2 text-blue-100">
-                                    <li>• Nome e email para criação de conta</li>
-                                    <li>• Informações de perfil profissional</li>
-                                    <li>• Função na obra</li>
+                            <div class="bg-info/10 p-6 rounded-xl border border-info/20">
+                                <h3 class="text-lg font-semibold text-textPrimary mb-4 flex items-center">
+                                    <i class="fas fa-user-circle text-info mr-2"></i>
+                                    Dados de Conta
+                                </h3>
+                                <ul class="space-y-2 text-textSecondary">
+                                    <li class="flex items-center"><i class="fas fa-check text-success mr-2"></i>Nome e email para autenticação</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-success mr-2"></i>Informações profissionais (cargo, empresa)</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-success mr-2"></i>Configurações de preferência</li>
                                 </ul>
                             </div>
-                            <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-                                <h3 class="text-lg font-semibold text-white mb-4">Dados dos Projetos</h3>
-                                <ul class="space-y-2 text-blue-100">
-                                    <li>• Fotos de obras enviadas</li>
-                                    <li>• Informações de projetos</li>
-                                    <li>• Comunicações do projeto</li>
+                            <div class="bg-tertiary/10 p-6 rounded-xl border border-tertiary/20">
+                                <h3 class="text-lg font-semibold text-textPrimary mb-4 flex items-center">
+                                    <i class="fas fa-building text-tertiary mr-2"></i>
+                                    Dados dos Projetos
+                                </h3>
+                                <ul class="space-y-2 text-textSecondary">
+                                    <li class="flex items-center"><i class="fas fa-check text-success mr-2"></i>Fotos geolocalizadas das obras</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-success mr-2"></i>Cronogramas e orçamentos</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-success mr-2"></i>Mensagens do chat por projeto</li>
                                 </ul>
                             </div>
                         </div>
@@ -125,23 +170,31 @@
 
                     <!-- Como Usamos -->
                     <div class="fade-in">
-                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-cog mr-3 text-blue-300"></i>
+                        <h2 class="text-2xl font-bold text-textPrimary mb-6 flex items-center">
+                            <i class="fas fa-cog mr-3 text-primary"></i>
                             Como Usamos seus Dados
                         </h2>
-                        <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-                            <ul class="space-y-4 text-blue-100">
+                        <div class="bg-primary/10 p-6 rounded-xl border border-primary/20">
+                            <ul class="space-y-4 text-textSecondary">
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-emerald-400 mr-3 mt-1"></i>
-                                    <div><strong>Funcionalidade do aplicativo</strong> - Prover os serviços principais</div>
+                                    <i class="fas fa-check text-success mr-3 mt-1"></i>
+                                    <div><strong class="text-textPrimary">Transparência para clientes</strong> - Permitir que clientes acompanhem obras em tempo real</div>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-emerald-400 mr-3 mt-1"></i>
-                                    <div><strong>Suporte ao cliente</strong> - Ajudar com problemas e dúvidas</div>
+                                    <i class="fas fa-check text-success mr-3 mt-1"></i>
+                                    <div><strong class="text-textPrimary">Funcionalidades do app</strong> - Chat, fotos, cronogramas e relatórios</div>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-emerald-400 mr-3 mt-1"></i>
-                                    <div><strong>Backup e sincronização</strong> - Manter seus dados seguros</div>
+                                    <i class="fas fa-check text-success mr-3 mt-1"></i>
+                                    <div><strong class="text-textPrimary">Suporte especializado</strong> - VIP para Apoiadores Fundadores (2h) e padrão (24h)</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-success mr-3 mt-1"></i>
+                                    <div><strong class="text-textPrimary">Backup seguro</strong> - Sincronização automática e recuperação de dados</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-success mr-3 mt-1"></i>
+                                    <div><strong class="text-textPrimary">Melhorias do produto</strong> - Feedback anônimo para evoluir a plataforma</div>
                                 </li>
                             </ul>
                         </div>
@@ -149,49 +202,73 @@
 
                     <!-- Compartilhamento -->
                     <div class="fade-in">
-                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-users mr-3 text-blue-300"></i>
+                        <h2 class="text-2xl font-bold text-textPrimary mb-6 flex items-center">
+                            <i class="fas fa-users mr-3 text-accent"></i>
                             Compartilhamento de Dados
                         </h2>
-                        <div class="bg-emerald-500/10 border border-emerald-400/30 rounded-xl p-6 mb-6">
-                            <p class="text-emerald-100 text-lg font-semibold text-center">
+                        <div class="bg-accent/20 border border-accent/30 rounded-xl p-6 mb-6">
+                            <p class="text-accent text-xl font-bold text-center mb-4">
                                 <i class="fas fa-shield-alt mr-2"></i>
-                                Seus dados não são vendidos
+                                PROMESSA FASEUP: Seus dados JAMAIS são vendidos
+                            </p>
+                            <p class="text-textSecondary text-center">
+                                Nossa receita vem das assinaturas, não da venda de dados. Transparência total.
                             </p>
                         </div>
-                        <p class="text-blue-100 leading-relaxed">
-                            Compartilhamos apenas com membros da sua organização no app, conforme sua configuração de projeto.
-                        </p>
+                        <div class="bg-surface/50 p-6 rounded-xl border border-primary/20">
+                            <h3 class="text-lg font-semibold text-textPrimary mb-4">Compartilhamento Controlado por Você:</h3>
+                            <ul class="space-y-2 text-textSecondary">
+                                <li class="flex items-center"><i class="fas fa-user-friends text-primary mr-2"></i><strong>Com sua equipe:</strong> Conforme você adiciona membros ao projeto</li>
+                                <li class="flex items-center"><i class="fas fa-eye text-tertiary mr-2"></i><strong>Com clientes:</strong> Apenas o que você autoriza a ser visível</li>
+                                <li class="flex items-center"><i class="fas fa-cog text-info mr-2"></i><strong>Controle total:</strong> Você define quem vê o quê</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <!-- Segurança -->
                     <div class="fade-in">
-                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-lock mr-3 text-blue-300"></i>
+                        <h2 class="text-2xl font-bold text-textPrimary mb-6 flex items-center">
+                            <i class="fas fa-lock mr-3 text-success"></i>
                             Segurança e Proteção
                         </h2>
+                        <div class="bg-success/10 border border-success/30 rounded-xl p-6 mb-6">
+                            <h3 class="text-lg font-bold text-success mb-4 text-center">
+                                <i class="fas fa-university mr-2"></i>
+                                Nível de Segurança Bancária
+                            </h3>
+                        </div>
                         <div class="grid md:grid-cols-2 gap-6">
-                            <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-                                <ul class="space-y-3 text-blue-100">
+                            <div class="bg-surface/50 p-6 rounded-xl border border-success/20">
+                                <h4 class="font-semibold text-textPrimary mb-4">Criptografia e Transporte:</h4>
+                                <ul class="space-y-3 text-textSecondary">
                                     <li class="flex items-center">
-                                        <i class="fas fa-shield-alt text-blue-300 mr-3"></i>
-                                        Dados criptografados
+                                        <i class="fas fa-shield-alt text-success mr-3"></i>
+                                        Criptografia AES-256 (padrão militar)
                                     </li>
                                     <li class="flex items-center">
-                                        <i class="fas fa-globe text-blue-300 mr-3"></i>
-                                        Conexões HTTPS seguras
+                                        <i class="fas fa-lock text-success mr-3"></i>
+                                        TLS 1.3 em todas as conexões
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-key text-success mr-3"></i>
+                                        Autenticação de dois fatores (2FA)
                                     </li>
                                 </ul>
                             </div>
-                            <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-                                <ul class="space-y-3 text-blue-100">
+                            <div class="bg-surface/50 p-6 rounded-xl border border-info/20">
+                                <h4 class="font-semibold text-textPrimary mb-4">Backup e Recuperação:</h4>
+                                <ul class="space-y-3 text-textSecondary">
                                     <li class="flex items-center">
-                                        <i class="fas fa-cloud text-blue-300 mr-3"></i>
-                                        Backup regular e seguro
+                                        <i class="fas fa-cloud text-info mr-3"></i>
+                                        Backup automático tri-replicado
                                     </li>
                                     <li class="flex items-center">
-                                        <i class="fas fa-key text-blue-300 mr-3"></i>
-                                        Controle de acesso rigoroso
+                                        <i class="fas fa-history text-info mr-3"></i>
+                                        Recuperação point-in-time
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-sync text-info mr-3"></i>
+                                        Sincronização offline/online
                                     </li>
                                 </ul>
                             </div>
@@ -200,69 +277,126 @@
 
                     <!-- Conformidade LGPD -->
                     <div class="fade-in">
-                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-flag text-emerald-300 mr-3"></i>
-                            🇧🇷 Conformidade com LGPD
+                        <h2 class="text-2xl font-bold text-textPrimary mb-6 flex items-center">
+                            <i class="fas fa-flag text-warning mr-3"></i>
+                            Conformidade com LGPD - Brasil
                         </h2>
-                        <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-                            <p class="text-blue-100 mb-4">Você tem direito a:</p>
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <ul class="space-y-2 text-blue-100">
-                                    <li>• Acessar seus dados</li>
-                                    <li>• Corrigir informações</li>
-                                </ul>
-                                <ul class="space-y-2 text-blue-100">
-                                    <li>• Excluir sua conta</li>
-                                    <li>• Portabilidade de dados</li>
-                                </ul>
+                        <div class="bg-warning/10 border border-warning/30 rounded-xl p-6">
+                            <div class="text-center mb-6">
+                                <div class="inline-flex items-center bg-warning/20 px-4 py-2 rounded-full">
+                                    <span class="text-2xl mr-2">🇧🇷</span>
+                                    <span class="text-warning font-bold">100% Compliance LGPD</span>
+                                </div>
+                            </div>
+                            <p class="text-textSecondary mb-6 text-center">Todos os seus direitos garantidos pela Lei Geral de Proteção de Dados:</p>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-eye text-info mr-3"></i>
+                                        <span class="text-textSecondary"><strong>Acesso:</strong> Veja todos os seus dados</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-edit text-tertiary mr-3"></i>
+                                        <span class="text-textSecondary"><strong>Correção:</strong> Altere informações incorretas</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-download text-primary mr-3"></i>
+                                        <span class="text-textSecondary"><strong>Portabilidade:</strong> Exporte seus dados</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-trash text-error mr-3"></i>
+                                        <span class="text-textSecondary"><strong>Exclusão:</strong> Delete sua conta e dados</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-ban text-warning mr-3"></i>
+                                        <span class="text-textSecondary"><strong>Oposição:</strong> Conteste o uso dos dados</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-info-circle text-success mr-3"></i>
+                                        <span class="text-textSecondary"><strong>Informação:</strong> Saiba como usamos</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Contato -->
                     <div class="fade-in">
-                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-envelope mr-3 text-blue-300"></i>
-                            Contato
+                        <h2 class="text-2xl font-bold text-textPrimary mb-6 flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            Fale com Nosso Time de Privacidade
                         </h2>
-                        <div class="bg-blue-500/10 border border-blue-400/30 rounded-xl p-6">
-                            <p class="text-blue-100 mb-4">Para questões sobre privacidade:</p>
-                            <div class="space-y-2">
-                                <p class="text-white">
-                                    <strong>Email:</strong> 
-                                    <a href="mailto:privacy@faseup.com" class="text-blue-300 hover:text-white transition-colors">
+                        <div class="bg-primary/10 border border-primary/30 rounded-xl p-6">
+                            <p class="text-textSecondary mb-6 text-center">Nossa equipe especializada responde questões sobre privacidade com <strong class="text-primary">transparência total</strong>:</p>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="text-center">
+                                    <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-shield-alt text-primary text-xl"></i>
+                                    </div>
+                                    <p class="text-textPrimary font-semibold mb-2">Email Especializado:</p>
+                                    <a href="mailto:privacy@faseup.com" class="text-primary hover:text-primaryLight transition-colors font-medium">
                                         privacy@faseup.com
                                     </a>
-                                </p>
-                                <p class="text-white">
-                                    <strong>Website:</strong> 
-                                    <a href="https://faseup.com" class="text-blue-300 hover:text-white transition-colors">
-                                        www.faseup.com
+                                    <p class="text-textSecondary text-sm mt-2">Resposta em até 48 horas</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-12 h-12 bg-info/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-headset text-info text-xl"></i>
+                                    </div>
+                                    <p class="text-textPrimary font-semibold mb-2">Suporte Geral:</p>
+                                    <a href="../suporte/" class="text-info hover:text-info/80 transition-colors font-medium">
+                                        Central de Suporte
                                     </a>
-                                </p>
+                                    <p class="text-textSecondary text-sm mt-2">Para outras questões</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Alterações -->
                     <div class="fade-in">
-                        <div class="bg-amber-500/10 border border-amber-400/30 rounded-xl p-6 text-center">
-                            <p class="text-amber-100 text-lg">
-                                <i class="fas fa-info-circle mr-2"></i>
-                                <strong>Ao usar o FaseUp, você concorda com esta política de privacidade.</strong>
-                            </p>
-                            <p class="text-amber-200 text-sm mt-2">
-                                Esta política pode ser atualizada. Notificaremos sobre mudanças significativas.
-                            </p>
+                        <div class="bg-accent/10 border border-accent/30 rounded-xl p-6">
+                            <div class="text-center mb-6">
+                                <h3 class="text-xl font-bold text-accent mb-2">
+                                    <i class="fas fa-handshake mr-2"></i>
+                                    Compromisso FaseUp
+                                </h3>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="text-center">
+                                    <i class="fas fa-heart text-accent text-2xl mb-2"></i>
+                                    <p class="text-textSecondary">
+                                        <strong class="text-accent">Ao usar o FaseUp</strong>, você faz parte da revolução da transparência na construção civil.
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-bell text-warning text-2xl mb-2"></i>
+                                    <p class="text-textSecondary">
+                                        <strong class="text-warning">Mudanças importantes</strong> sempre serão comunicadas com antecedência e transparência.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Back Link -->
+                    <!-- CTA Section -->
                     <div class="text-center fade-in">
-                        <a href="../" class="inline-flex items-center px-8 py-4 bg-white text-blue-900 rounded-2xl font-semibold hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105">
-                            <i class="fas fa-arrow-left mr-3"></i>
-                            Voltar ao site principal
-                        </a>
+                        <div class="bg-gradient-to-r from-primary/20 to-tertiary/20 backdrop-blur-md rounded-2xl p-8 border border-primary/30 mb-8">
+                            <h3 class="text-2xl font-bold text-primary mb-4">Dados Protegidos, Obras Transparentes</h3>
+                            <p class="text-textSecondary mb-6">Junte-se aos engenheiros que confiam no FaseUp para revolucionar a construção civil</p>
+                            <div class="flex flex-col lg:flex-row gap-4 justify-center">
+                                <button onclick="openApoiador()" class="bg-accent hover:bg-accent/90 text-white px-8 py-4 rounded-xl font-semibold transition-colors">
+                                    <i class="fas fa-crown mr-2"></i>
+                                    Ser Apoiador Fundador
+                                </button>
+                                <a href="../" class="border-2 border-primary/30 text-primary hover:bg-primary/10 px-8 py-4 rounded-xl font-semibold transition-colors backdrop-blur-md">
+                                    <i class="fas fa-arrow-left mr-2"></i>
+                                    Voltar ao Site Principal
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -270,25 +404,30 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 border-t border-white/10">
+    <footer class="py-8 px-4 border-t border-primary/20">
         <div class="container mx-auto max-w-6xl">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="text-center md:text-left mb-4 md:mb-0">
-                    <h3 class="text-2xl font-bold text-white mb-2">FaseUp</h3>
-                    <p class="text-blue-200 text-sm">Conectando construtoras e clientes</p>
+                    <div class="flex items-center justify-center md:justify-start space-x-3 mb-2">
+                        <h3 class="text-2xl font-black gradient-text">FaseUp</h3>
+                        <div class="bg-accent/20 px-2 py-1 rounded text-accent text-xs font-medium">BETA</div>
+                    </div>
+                    <p class="text-textSecondary text-sm">Transparência que constrói confiança</p>
                 </div>
                 <div class="text-center md:text-right">
-                    <p class="text-blue-200 text-sm mb-2">© 2025 FaseUp. Todos os direitos reservados.</p>
+                    <p class="text-textSecondary text-sm mb-2">© 2025 FaseUp. Todos os direitos reservados.</p>
                     <div class="flex flex-col md:flex-row justify-center md:justify-end items-center gap-2 md:gap-4">
-                        <a href="./" class="text-blue-300 text-xs hover:text-white transition-colors underline">
+                        <a href="./" class="text-primary text-xs hover:text-primaryLight transition-colors underline">
                             Política de Privacidade
                         </a>
-                        <span class="text-blue-300 text-xs hidden md:inline">•</span>
-                        <a href="../suporte/" class="text-blue-300 text-xs hover:text-white transition-colors underline">
+                        <span class="text-primary text-xs hidden md:inline">•</span>
+                        <a href="../suporte/" class="text-primary text-xs hover:text-primaryLight transition-colors underline">
                             Suporte
                         </a>
-                        <span class="text-blue-300 text-xs hidden md:inline">•</span>
-                        <p class="text-blue-300 text-xs">Acesse em faseup.com</p>
+                        <span class="text-primary text-xs hidden md:inline">•</span>
+                        <a href="../design-system.html" class="text-primary text-xs hover:text-primaryLight transition-colors underline">
+                            Design System
+                        </a>
                     </div>
                 </div>
             </div>
@@ -296,6 +435,14 @@
     </footer>
 
     <script>
+        // CTA Functions
+        function openApoiador() {
+            const telefone = '5582993869090';
+            const mensagem = encodeURIComponent('Olá! Li a política de privacidade e quero me tornar um Apoiador Fundador do FaseUp. Confio na transparência!');
+            const url = `https://wa.me/${telefone}?text=${mensagem}`;
+            window.open(url, '_blank');
+        }
+
         // Scroll animations
         const observerOptions = {
             threshold: 0.1,
@@ -305,8 +452,7 @@
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('fade-in');
                 }
             });
         }, observerOptions);
@@ -315,10 +461,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             const animatedElements = document.querySelectorAll('.fade-in');
             animatedElements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                el.style.animationDelay = `${index * 0.2}s`;
                 observer.observe(el);
             });
         });

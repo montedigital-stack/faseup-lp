@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaseUp - Dashboard Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E7CFA9',
+                        secondary: '#09455B',
+                        tertiary: '#F4A261',
+                        accent: '#E76F51',
+                        background: '#0F1419',
+                        surface: '#232A31',
+                        textPrimary: '#FFFFFF',
+                        textSecondary: '#CBD5E0',
+                        success: '#48BB78',
+                        warning: '#ED8936',
+                        error: '#F56565',
+                        info: '#4299E1'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #0F1419 0%, #232A31 50%, #09455B 100%); }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen text-textPrimary">
+    
+    <!-- Login Screen -->
+    <div id="login-screen" class="min-h-screen flex items-center justify-center px-6">
+        <div class="bg-surface rounded-2xl p-8 w-full max-w-md border border-primary/20">
+            <div class="text-center mb-8">
+                <div class="flex justify-center mb-4">
+                    <div class="bg-accent/20 p-4 rounded-2xl">
+                        <i class="fas fa-shield-alt text-3xl text-accent"></i>
+                    </div>
+                </div>
+                <h1 class="text-3xl font-bold text-textPrimary mb-2">Dashboard Admin</h1>
+                <p class="text-textSecondary">Gerencie o feedback do FaseUp</p>
+            </div>
+            
+            <form onsubmit="login(event)" class="space-y-6">
+                <div>
+                    <label class="block text-textSecondary mb-2">Senha de Administrador</label>
+                    <input 
+                        type="password" 
+                        id="admin-password"
+                        class="w-full bg-background border border-primary/20 rounded-lg px-4 py-3 text-textPrimary focus:border-primary focus:outline-none"
+                        placeholder="Digite a senha..."
+                        required
+                    />
+                </div>
+                <button type="submit" class="w-full bg-accent hover:bg-accent/90 text-white py-3 rounded-lg font-semibold transition-colors">
+                    <i class="fas fa-sign-in-alt mr-2"></i>
+                    Entrar no Dashboard
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div id="dashboard-screen" class="hidden min-h-screen">
+        <!-- Header -->
+        <header class="bg-surface/50 backdrop-blur-md border-b border-primary/20 px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <h1 class="text-2xl font-bold text-textPrimary">
+                        <i class="fas fa-tachometer-alt text-accent mr-2"></i>
+                        Dashboard FaseUp
+                    </h1>
+                    <div class="bg-success/20 px-3 py-1 rounded-full border border-success/30">
+                        <span class="text-success text-sm font-medium">Logado</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="exportData()" class="bg-info/20 hover:bg-info/30 text-info px-4 py-2 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-download mr-2"></i>Exportar
+                    </button>
+                    <button onclick="logout()" class="bg-error/20 hover:bg-error/30 text-error px-4 py-2 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Sair
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex">
+            <!-- Sidebar -->
+            <aside class="w-64 bg-surface border-r border-primary/20 min-h-screen">
+                <nav class="p-6 space-y-2">
+                    <button onclick="showSection('overview')" id="nav-overview" class="nav-item w-full text-left flex items-center px-4 py-3 rounded-lg transition-colors text-textSecondary hover:bg-primary/10 hover:text-primary">
+                        <i class="fas fa-chart-bar mr-3"></i>Visão Geral
+                    </button>
+                    <button onclick="showSection('bugs')" id="nav-bugs" class="nav-item w-full text-left flex items-center px-4 py-3 rounded-lg transition-colors text-textSecondary hover:bg-primary/10 hover:text-primary">
+                        <i class="fas fa-bug mr-3"></i>Bugs
+                    </button>
+                    <button onclick="showSection('suggestions')" id="nav-suggestions" class="nav-item w-full text-left flex items-center px-4 py-3 rounded-lg transition-colors text-textSecondary hover:bg-primary/10 hover:text-primary">
+                        <i class="fas fa-lightbulb mr-3"></i>Sugestões
+                    </button>
+                    <button onclick="showSection('add-item')" id="nav-add-item" class="nav-item w-full text-left flex items-center px-4 py-3 rounded-lg transition-colors text-textSecondary hover:bg-primary/10 hover:text-primary">
+                        <i class="fas fa-plus mr-3"></i>Adicionar Item
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-8">
+                <!-- Overview Section -->
+                <div id="overview-section" class="section">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-textPrimary mb-2">Visão Geral</h2>
+                        <p class="text-textSecondary">Estatísticas do sistema de feedback</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-surface rounded-xl p-6 border border-primary/20">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-textSecondary mb-1">Total de Itens</p>
+                                    <p class="text-2xl font-bold text-textPrimary" id="stat-total">0</p>
+                                </div>
+                                <i class="fas fa-list text-2xl text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="bg-surface rounded-xl p-6 border border-error/20">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-textSecondary mb-1">Bugs</p>
+                                    <p class="text-2xl font-bold text-error" id="stat-bugs">0</p>
+                                </div>
+                                <i class="fas fa-bug text-2xl text-error"></i>
+                            </div>
+                        </div>
+                        <div class="bg-surface rounded-xl p-6 border border-info/20">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-textSecondary mb-1">Sugestões</p>
+                                    <p class="text-2xl font-bold text-info" id="stat-suggestions">0</p>
+                                </div>
+                                <i class="fas fa-lightbulb text-2xl text-info"></i>
+                            </div>
+                        </div>
+                        <div class="bg-surface rounded-xl p-6 border border-success/20">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-textSecondary mb-1">Resolvidos</p>
+                                    <p class="text-2xl font-bold text-success" id="stat-resolved">0</p>
+                                </div>
+                                <i class="fas fa-check-circle text-2xl text-success"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-surface rounded-xl p-6 border border-primary/20">
+                        <h3 class="text-xl font-bold text-textPrimary mb-4">Itens Recentes</h3>
+                        <div id="recent-items" class="space-y-4">
+                            <!-- Items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bugs Section -->
+                <div id="bugs-section" class="section hidden">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-textPrimary mb-2">Gerenciar Bugs</h2>
+                        <p class="text-textSecondary">Lista de bugs reportados</p>
+                    </div>
+                    <div id="bugs-list" class="space-y-4">
+                        <!-- Bug items will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Suggestions Section -->
+                <div id="suggestions-section" class="section hidden">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-textPrimary mb-2">Gerenciar Sugestões</h2>
+                        <p class="text-textSecondary">Lista de sugestões dos usuários</p>
+                    </div>
+                    <div id="suggestions-list" class="space-y-4">
+                        <!-- Suggestion items will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Add Item Section -->
+                <div id="add-item-section" class="section hidden">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-textPrimary mb-2">Adicionar Item</h2>
+                        <p class="text-textSecondary">Adicione bugs ou sugestões manualmente</p>
+                    </div>
+
+                    <div class="bg-surface rounded-xl p-8 border border-primary/20 max-w-2xl">
+                        <form onsubmit="addItem(event)" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-textSecondary mb-2">Tipo</label>
+                                    <select id="item-type" class="w-full bg-background border border-primary/20 rounded-lg px-4 py-3 text-textPrimary focus:border-primary focus:outline-none" required>
+                                        <option value="">Selecionar...</option>
+                                        <option value="bug">🐛 Bug</option>
+                                        <option value="suggestion">💡 Sugestão</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-textSecondary mb-2">Categoria</label>
+                                    <select id="item-category" class="w-full bg-background border border-primary/20 rounded-lg px-4 py-3 text-textPrimary focus:border-primary focus:outline-none" required>
+                                        <option value="">Selecionar...</option>
+                                        <option value="acesso">🔐 Acesso & Login</option>
+                                        <option value="interface">📱 Interface Mobile</option>
+                                        <option value="orcamento">💰 Orçamento & Finanças</option>
+                                        <option value="relatorios">📊 Relatórios & Analytics</option>
+                                        <option value="chat">💬 Chat & Notificações</option>
+                                        <option value="gamificacao">🏆 Gamificação & Medalhas</option>
+                                        <option value="arquivos">📁 Arquivos & Documentos</option>
+                                        <option value="performance">⚡ Performance & Bugs Gerais</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-textSecondary mb-2">Título</label>
+                                <input 
+                                    type="text" 
+                                    id="item-title"
+                                    class="w-full bg-background border border-primary/20 rounded-lg px-4 py-3 text-textPrimary focus:border-primary focus:outline-none"
+                                    placeholder="Ex: Chat não carrega em obras grandes"
+                                    required
+                                />
+                            </div>
+
+                            <div>
+                                <label class="block text-textSecondary mb-2">Descrição</label>
+                                <textarea 
+                                    id="item-description"
+                                    rows="4"
+                                    class="w-full bg-background border border-primary/20 rounded-lg px-4 py-3 text-textPrimary focus:border-primary focus:outline-none"
+                                    placeholder="Descreva o bug ou sugestão em detalhes..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-textSecondary mb-2">Status</label>
+                                    <select id="item-status" class="w-full bg-background border border-primary/20 rounded-lg px-4 py-3 text-textPrimary focus:border-primary focus:outline-none" required>
+                                        <option value="pendente">⏳ Pendente</option>
+                                        <option value="em-analise">🔍 Em Análise</option>
+                                        <option value="em-desenvolvimento">⚙️ Em Desenvolvimento</option>
+                                        <option value="resolvido">✅ Resolvido</option>
+                                        <option value="implementado">🚀 Implementado</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-textSecondary mb-2">Prioridade</label>
+                                    <select id="item-priority" class="w-full bg-background border border-primary/20 rounded-lg px-4 py-3 text-textPrimary focus:border-primary focus:outline-none" required>
+                                        <option value="baixa">🟢 Baixa</option>
+                                        <option value="media">🟡 Média</option>
+                                        <option value="alta">🔴 Alta</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-accent hover:bg-accent/90 text-white py-3 rounded-lg font-semibold transition-colors">
+                                <i class="fas fa-plus mr-2"></i>Adicionar Item
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const ADMIN_PASSWORD = 'faseup2025'; // Change this password!
+        
+        // Data storage
+        let feedbackData = {
+            items: [],
+            stats: { total: 0, bugs: 0, suggestions: 0, resolved: 0 }
+        };
+
+        // Authentication
+        function login(event) {
+            event.preventDefault();
+            const password = document.getElementById('admin-password').value;
+            
+            if (password === ADMIN_PASSWORD) {
+                document.getElementById('login-screen').classList.add('hidden');
+                document.getElementById('dashboard-screen').classList.remove('hidden');
+                loadData();
+                showSection('overview');
+            } else {
+                alert('Senha incorreta! Tente novamente.');
+                document.getElementById('admin-password').value = '';
+            }
+        }
+
+        function logout() {
+            document.getElementById('login-screen').classList.remove('hidden');
+            document.getElementById('dashboard-screen').classList.add('hidden');
+            document.getElementById('admin-password').value = '';
+        }
+
+        // Navigation
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+            
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(n => {
+                n.classList.remove('bg-primary/20', 'text-primary');
+                n.classList.add('text-textSecondary');
+            });
+            
+            // Show selected section
+            document.getElementById(section + '-section').classList.remove('hidden');
+            
+            // Add active class to selected nav item
+            const navItem = document.getElementById('nav-' + section);
+            navItem.classList.add('bg-primary/20', 'text-primary');
+            navItem.classList.remove('text-textSecondary');
+            
+            // Load section data
+            if (section === 'bugs') loadBugsList();
+            if (section === 'suggestions') loadSuggestionsList();
+        }
+
+        // Data management
+        function loadData() {
+            // Try to load from localStorage
+            const stored = localStorage.getItem('faseup-feedback-data');
+            if (stored) {
+                feedbackData = JSON.parse(stored);
+            } else {
+                // Initialize with sample data
+                feedbackData = {
+                    items: [
+                        {
+                            id: 1,
+                            type: 'bug',
+                            title: 'Sincronização offline melhorada',
+                            description: 'Fotos agora sincronizam automaticamente ao reconectar',
+                            category: 'performance',
+                            status: 'resolvido',
+                            priority: 'alta',
+                            date: '2025-09-10',
+                            resolvedDate: '2025-09-12'
+                        },
+                        {
+                            id: 2,
+                            type: 'bug',
+                            title: 'Chat não carrega em obras grandes',
+                            description: 'Performance lenta em projetos com +50 participantes',
+                            category: 'chat',
+                            status: 'em-analise',
+                            priority: 'alta',
+                            date: '2025-09-11'
+                        },
+                        {
+                            id: 3,
+                            type: 'suggestion',
+                            title: 'Sistema de medalhas por milestone',
+                            description: 'Gamificação com conquistas por etapas da obra',
+                            category: 'gamificacao',
+                            status: 'implementado',
+                            priority: 'media',
+                            date: '2025-09-02',
+                            resolvedDate: '2025-09-09'
+                        }
+                    ],
+                    stats: { total: 3, bugs: 2, suggestions: 1, resolved: 2 }
+                };
+                saveData();
+            }
+            updateStats();
+            loadRecentItems();
+        }
+
+        function saveData() {
+            localStorage.setItem('faseup-feedback-data', JSON.stringify(feedbackData));
+        }
+
+        function updateStats() {
+            const stats = {
+                total: feedbackData.items.length,
+                bugs: feedbackData.items.filter(item => item.type === 'bug').length,
+                suggestions: feedbackData.items.filter(item => item.type === 'suggestion').length,
+                resolved: feedbackData.items.filter(item => 
+                    item.status === 'resolvido' || item.status === 'implementado'
+                ).length
+            };
+            
+            feedbackData.stats = stats;
+            
+            document.getElementById('stat-total').textContent = stats.total;
+            document.getElementById('stat-bugs').textContent = stats.bugs;
+            document.getElementById('stat-suggestions').textContent = stats.suggestions;
+            document.getElementById('stat-resolved').textContent = stats.resolved;
+        }
+
+        function loadRecentItems() {
+            const recent = feedbackData.items
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .slice(0, 5);
+            
+            const container = document.getElementById('recent-items');
+            container.innerHTML = recent.map(item => `
+                <div class="flex items-center justify-between p-4 bg-background rounded-lg border border-primary/20">
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 mb-1">
+                            <span class="text-lg">${item.type === 'bug' ? '🐛' : '💡'}</span>
+                            <h4 class="font-medium text-textPrimary">${item.title}</h4>
+                        </div>
+                        <p class="text-textSecondary text-sm">${item.description.substring(0, 100)}...</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-textSecondary mb-1">${formatDate(item.date)}</div>
+                        <span class="px-2 py-1 text-xs rounded-full ${getStatusColor(item.status)}">${getStatusLabel(item.status)}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadBugsList() {
+            const bugs = feedbackData.items.filter(item => item.type === 'bug');
+            renderItemsList(bugs, 'bugs-list');
+        }
+
+        function loadSuggestionsList() {
+            const suggestions = feedbackData.items.filter(item => item.type === 'suggestion');
+            renderItemsList(suggestions, 'suggestions-list');
+        }
+
+        function renderItemsList(items, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = items.map(item => `
+                <div class="bg-surface rounded-xl p-6 border border-primary/20">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex-1">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <span class="text-2xl">${item.type === 'bug' ? '🐛' : '💡'}</span>
+                                <h3 class="text-xl font-semibold text-textPrimary">${item.title}</h3>
+                                <span class="px-2 py-1 text-xs rounded-full ${getPriorityColor(item.priority)}">${getPriorityLabel(item.priority)}</span>
+                            </div>
+                            <p class="text-textSecondary mb-3">${item.description}</p>
+                            <div class="flex items-center space-x-4 text-sm text-textSecondary">
+                                <span><i class="fas fa-tag mr-1"></i>${getCategoryLabel(item.category)}</span>
+                                <span><i class="fas fa-calendar mr-1"></i>${formatDate(item.date)}</span>
+                                ${item.resolvedDate ? `<span><i class="fas fa-check mr-1"></i>Resolvido: ${formatDate(item.resolvedDate)}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <select onchange="updateItemStatus(${item.id}, this.value)" class="bg-background border border-primary/20 rounded px-3 py-1 text-textPrimary text-sm">
+                                <option value="pendente" ${item.status === 'pendente' ? 'selected' : ''}>⏳ Pendente</option>
+                                <option value="em-analise" ${item.status === 'em-analise' ? 'selected' : ''}>🔍 Em Análise</option>
+                                <option value="em-desenvolvimento" ${item.status === 'em-desenvolvimento' ? 'selected' : ''}>⚙️ Em Desenvolvimento</option>
+                                <option value="resolvido" ${item.status === 'resolvido' ? 'selected' : ''}>✅ Resolvido</option>
+                                <option value="implementado" ${item.status === 'implementado' ? 'selected' : ''}>🚀 Implementado</option>
+                            </select>
+                            <button onclick="deleteItem(${item.id})" class="bg-error/20 hover:bg-error/30 text-error px-3 py-1 rounded text-sm transition-colors">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Item management
+        function addItem(event) {
+            event.preventDefault();
+            
+            const newItem = {
+                id: Date.now(),
+                type: document.getElementById('item-type').value,
+                title: document.getElementById('item-title').value,
+                description: document.getElementById('item-description').value,
+                category: document.getElementById('item-category').value,
+                status: document.getElementById('item-status').value,
+                priority: document.getElementById('item-priority').value,
+                date: new Date().toISOString().split('T')[0]
+            };
+            
+            if (newItem.status === 'resolvido' || newItem.status === 'implementado') {
+                newItem.resolvedDate = newItem.date;
+            }
+            
+            feedbackData.items.push(newItem);
+            saveData();
+            updateStats();
+            loadRecentItems();
+            
+            // Reset form
+            event.target.reset();
+            
+            alert('Item adicionado com sucesso!');
+        }
+
+        function updateItemStatus(itemId, newStatus) {
+            const item = feedbackData.items.find(i => i.id === itemId);
+            if (item) {
+                item.status = newStatus;
+                if (newStatus === 'resolvido' || newStatus === 'implementado') {
+                    item.resolvedDate = new Date().toISOString().split('T')[0];
+                } else {
+                    delete item.resolvedDate;
+                }
+                saveData();
+                updateStats();
+                loadRecentItems();
+            }
+        }
+
+        function deleteItem(itemId) {
+            if (confirm('Tem certeza que deseja deletar este item?')) {
+                feedbackData.items = feedbackData.items.filter(item => item.id !== itemId);
+                saveData();
+                updateStats();
+                loadRecentItems();
+                
+                // Reload current section
+                const activeNav = document.querySelector('.nav-item.bg-primary\\/20');
+                if (activeNav) {
+                    const section = activeNav.id.replace('nav-', '');
+                    if (section === 'bugs') loadBugsList();
+                    if (section === 'suggestions') loadSuggestionsList();
+                }
+            }
+        }
+
+        function exportData() {
+            const dataStr = JSON.stringify(feedbackData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `faseup-feedback-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+        }
+
+        // Utility functions
+        function formatDate(dateStr) {
+            return new Date(dateStr).toLocaleDateString('pt-BR');
+        }
+
+        function getStatusColor(status) {
+            const colors = {
+                'pendente': 'bg-warning/20 text-warning',
+                'em-analise': 'bg-info/20 text-info',
+                'em-desenvolvimento': 'bg-primary/20 text-primary',
+                'resolvido': 'bg-success/20 text-success',
+                'implementado': 'bg-success/20 text-success'
+            };
+            return colors[status] || 'bg-gray-500/20 text-gray-500';
+        }
+
+        function getStatusLabel(status) {
+            const labels = {
+                'pendente': 'Pendente',
+                'em-analise': 'Em Análise',
+                'em-desenvolvimento': 'Em Desenvolvimento',
+                'resolvido': 'Resolvido',
+                'implementado': 'Implementado'
+            };
+            return labels[status] || status;
+        }
+
+        function getPriorityColor(priority) {
+            const colors = {
+                'baixa': 'bg-success/20 text-success',
+                'media': 'bg-warning/20 text-warning',
+                'alta': 'bg-error/20 text-error'
+            };
+            return colors[priority] || 'bg-gray-500/20 text-gray-500';
+        }
+
+        function getPriorityLabel(priority) {
+            const labels = {
+                'baixa': 'Baixa',
+                'media': 'Média',
+                'alta': 'Alta'
+            };
+            return labels[priority] || priority;
+        }
+
+        function getCategoryLabel(category) {
+            const labels = {
+                'acesso': 'Acesso & Login',
+                'interface': 'Interface Mobile',
+                'orcamento': 'Orçamento & Finanças',
+                'relatorios': 'Relatórios & Analytics',
+                'chat': 'Chat & Notificações',
+                'gamificacao': 'Gamificação & Medalhas',
+                'arquivos': 'Arquivos & Documentos',
+                'performance': 'Performance & Bugs Gerais'
+            };
+            return labels[category] || category;
+        }
+    </script>
+</body>
+</html>
