@@ -10,20 +10,91 @@
     
     <!-- Open Graph -->
     <meta property="og:title" content="FaseUp - O Futuro da Gestão de Obras Chegou">
-    <meta property="og:description" content="Transparência total que constrói confiança. Seja um dos primeiros Apoiadores Fundadores.">
-    <meta property="og:image" content="./Image72025-18_05_45.png">
+    <meta property="og:description" content="Transparência total para construtoras, engenheiros e clientes. Única plataforma que permite ao cliente acompanhar sua obra em tempo real. Seja Apoiador Fundador por R$ 49/mês.">
+    <meta property="og:image" content="./Assets/HeroSection-HeroVisual-Mockup-iPhone-Realism.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://faseup.com">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="FaseUp">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FaseUp - O Futuro da Gestão de Obras Chegou">
+    <meta name="twitter:description" content="Transparência total que constrói confiança. Seja Apoiador Fundador por R$ 49/mês.">
+    <meta name="twitter:image" content="./Assets/HeroSection-HeroVisual-Mockup-iPhone-Realism.png">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#E7CFA9">
+    <meta name="msapplication-TileColor" content="#E7CFA9">
+    <meta name="application-name" content="FaseUp">
+    <meta name="apple-mobile-web-app-title" content="FaseUp">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
     <link rel="icon" type="image/x-icon" href="./favicon_io/favicon.ico">
+    <link rel="manifest" href="./manifest.json">
     
     <!-- Preload critical images -->
     <link rel="preload" as="image" href="./Assets/HeroSection-HeroVisual-Mockup-iPhone-Realism.png">
     <link rel="preload" as="image" href="./Assets/Logo-FaseUp-without-background.png">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        // Initialize GA4 - Replace GA_MEASUREMENT_ID with your actual ID
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            page_title: 'FaseUp - O Futuro da Gestão de Obras',
+            page_location: window.location.href
+        });
+        
+        // Custom events for conversion tracking
+        function trackEvent(eventName, parameters = {}) {
+            gtag('event', eventName, parameters);
+        }
+        
+        // Track page sections viewed
+        function trackSectionView(sectionName) {
+            trackEvent('section_view', {
+                section_name: sectionName,
+                page_title: 'FaseUp Homepage'
+            });
+        }
+        
+        // Track CTA clicks
+        function trackCTAClick(ctaName, location) {
+            trackEvent('cta_click', {
+                cta_name: ctaName,
+                cta_location: location,
+                value: ctaName === 'apoiador_fundador' ? 49 : 0
+            });
+        }
+        
+        // Track form submissions
+        function trackFormSubmission(formType) {
+            trackEvent('form_submit', {
+                form_type: formType
+            });
+        }
+        
+        // Track conversion goal - Apoiador Fundador
+        function trackApoiadorConversion() {
+            trackEvent('conversion', {
+                currency: 'BRL',
+                value: 49.00,
+                conversion_type: 'apoiador_fundador'
+            });
+        }
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -134,6 +205,35 @@
         
         img[alt*="Logotipo"]:hover {
             transform: scale(1.05);
+        }
+        
+        /* Performance optimizations */
+        * {
+            box-sizing: border-box;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+        }
+        
+        /* Font optimization */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        /* Critical CSS inlined, non-critical deferred */
+        .defer-css {
+            font-display: swap;
+        }
+        
+        /* Optimize animations */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
         
         /* Logo + Text alignment */
@@ -1221,6 +1321,10 @@
 
         // CTA Functions
         function openApoiador() {
+            // Track conversion event
+            trackCTAClick('apoiador_fundador', 'primary_cta');
+            trackApoiadorConversion();
+            
             const telefone = '5582993869090';
             const mensagem = encodeURIComponent('Olá! Quero me tornar um Apoiador Fundador do FaseUp por R$ 49/mês. Vamos revolucionar a construção civil juntos!');
             const url = `https://wa.me/${telefone}?text=${mensagem}`;
@@ -1228,6 +1332,8 @@
         }
 
         function openTeste() {
+            trackCTAClick('teste_gratis', 'secondary_cta');
+            
             const telefone = '5582993869090';
             const mensagem = encodeURIComponent('Olá! Gostaria de testar o FaseUp gratuitamente por 7 dias antes de decidir sobre o programa Apoiadores Fundadores.');
             const url = `https://wa.me/${telefone}?text=${mensagem}`;
@@ -1336,6 +1442,41 @@
             }
         }
 
+        // Section visibility tracking
+        function initSectionTracking() {
+            const sections = [
+                { id: 'hero', name: 'hero_section' },
+                { id: 'demo', name: 'demo_section' },
+                { id: 'pricing', name: 'pricing_section' },
+                { id: 'testimonials', name: 'testimonials_section' },
+                { id: 'feedback', name: 'feedback_section' }
+            ];
+            
+            const sectionObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionName = entry.target.dataset.section;
+                        if (sectionName) {
+                            trackSectionView(sectionName);
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            // Add data attributes and observe sections
+            sections.forEach(section => {
+                const element = document.getElementById(section.id) || 
+                               document.querySelector(`[id="${section.id}"]`);
+                if (element) {
+                    element.dataset.section = section.name;
+                    sectionObserver.observe(element);
+                }
+            });
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             // Start countdown
@@ -1357,6 +1498,15 @@
             
             // Initialize lazy loading
             initLazyLoading();
+            
+            // Initialize section tracking
+            initSectionTracking();
+            
+            // Track page load
+            trackEvent('page_view', {
+                page_title: 'FaseUp Homepage',
+                page_location: window.location.href
+            });
         });
     </script>
 </body>

@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# Páginas importantes para indexar
+Allow: /
+Allow: /feedback/
+Allow: /design-system.html
+Allow: /privacy/
+Allow: /suporte/
+
+# Assets permitidos
+Allow: /Assets/
+Allow: /favicon_io/
+
+# Bloquear admin dashboard (privado)
+Disallow: /admin/
+
+# Bloquear arquivos de sistema
+Disallow: /.claude/
+Disallow: /.git/
+Disallow: /feedback-api.js
+
+# Arquivos de configuração
+Disallow: /*.json$
+Disallow: /*.md$
+
+# Sitemap
+Sitemap: https://faseup.com/sitemap.xml
+
+# Crawl-delay para não sobrecarregar servidor
+Crawl-delay: 1
