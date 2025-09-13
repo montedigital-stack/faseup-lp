@@ -6,7 +6,10 @@
       "Bash(git add:*)",
       "Bash(git push:*)",
       "Bash(open index.html)",
-      "Bash(open:*)"
+      "Bash(open:*)",
+      "Bash(git commit:*)",
+      "Bash(vercel:*)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }
