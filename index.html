@@ -254,10 +254,129 @@
             align-items: center;
             gap: 0.75rem;
         }
-        
+
         .logo-text-combo .gradient-text {
             line-height: 1;
             margin: 0;
+        }
+
+        /* Image Viewer Styles */
+        .image-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .image-viewer.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .image-viewer-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-viewer-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-viewer-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: rgba(231, 207, 169, 0.2);
+            border: 2px solid rgba(231, 207, 169, 0.3);
+            color: #E7CFA9;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .image-viewer-close:hover {
+            background: rgba(231, 207, 169, 0.3);
+            border-color: rgba(231, 207, 169, 0.5);
+            transform: scale(1.1);
+        }
+
+        .expand-icon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(15, 20, 25, 0.8);
+            border: 2px solid rgba(231, 207, 169, 0.3);
+            color: #E7CFA9;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            opacity: 0;
+        }
+
+        .demo-image-container {
+            position: relative;
+        }
+
+        .demo-image-container:hover .expand-icon {
+            opacity: 1;
+        }
+
+        .expand-icon:hover {
+            background: rgba(231, 207, 169, 0.2);
+            border-color: rgba(231, 207, 169, 0.5);
+            transform: scale(1.1);
+        }
+
+        /* Language Dropdown Styles */
+        .language-option {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        .language-option:hover {
+            color: #E7CFA9;
+        }
+
+        .language-option i {
+            width: 16px;
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .expand-icon {
+                opacity: 1;
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
         }
         
         /* Hero iPhone optimization */
@@ -304,13 +423,32 @@
                     </div>
                 </div>
                 <div class="flex items-center space-x-6">
-                    <button onclick="scrollToSection('demo')" class="hidden md:block text-textSecondary hover:text-primary transition-colors">Demo</button>
-                    <button onclick="scrollToSection('pricing')" class="hidden md:block text-textSecondary hover:text-primary transition-colors">Planos</button>
-                    <button onclick="scrollToSection('testimonials')" class="hidden md:block text-textSecondary hover:text-primary transition-colors">Depoimentos</button>
+                    <!-- Language Selector -->
+                    <div class="relative">
+                        <button id="languageDropdown" onclick="toggleLanguageDropdown()" class="hidden sm:flex items-center text-textSecondary hover:text-primary transition-colors px-3 py-1 rounded-lg border border-primary/20 bg-surface/50">
+                            <i class="fas fa-globe mr-2"></i>
+                            <span id="currentLanguage">PT</span>
+                            <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </button>
+                        <div id="languageMenu" class="absolute right-0 top-full mt-2 bg-surface border border-primary/20 rounded-xl shadow-strong z-50 min-w-[140px] opacity-0 invisible transform translate-y-2 transition-all duration-200">
+                            <button onclick="changeLanguage('pt')" class="language-option w-full text-left px-4 py-2 hover:bg-primary/10 transition-colors border-b border-primary/10 rounded-t-xl">
+                                <i class="fas fa-flag mr-2"></i>Português
+                            </button>
+                            <button onclick="changeLanguage('en')" class="language-option w-full text-left px-4 py-2 hover:bg-primary/10 transition-colors border-b border-primary/10">
+                                <i class="fas fa-flag mr-2"></i>English
+                            </button>
+                            <button onclick="changeLanguage('es')" class="language-option w-full text-left px-4 py-2 hover:bg-primary/10 transition-colors rounded-b-xl">
+                                <i class="fas fa-flag mr-2"></i>Español
+                            </button>
+                        </div>
+                    </div>
+                    <button onclick="scrollToSection('demo')" class="hidden md:block text-textSecondary hover:text-primary transition-colors" data-translate="nav.demo">Demo</button>
+                    <button onclick="scrollToSection('pricing')" class="hidden md:block text-textSecondary hover:text-primary transition-colors" data-translate="nav.pricing">Planos</button>
+                    <button onclick="scrollToSection('testimonials')" class="hidden md:block text-textSecondary hover:text-primary transition-colors" data-translate="nav.testimonials">Depoimentos</button>
                     <button onclick="scrollToFeedback()" class="hidden lg:block text-textSecondary hover:text-info transition-colors">
-                        <i class="fas fa-comments mr-1"></i>Feedback
+                        <i class="fas fa-comments mr-1"></i><span data-translate="nav.feedback">Feedback</span>
                     </button>
-                    <button onclick="openApoiador()" class="bg-accent hover:bg-accent/90 text-white px-6 py-2 rounded-xl font-semibold transition-colors animate-pulse-slow">
+                    <button onclick="openApoiador()" class="bg-accent hover:bg-accent/90 text-white px-6 py-2 rounded-xl font-semibold transition-colors animate-pulse-slow" data-translate="nav.supporter">
                         Ser Apoiador
                     </button>
                 </div>
@@ -328,11 +466,11 @@
                             <span class="w-2 h-2 bg-success rounded-full animate-pulse mr-2"></span>
                             <span class="text-success font-medium">Já somos +500 engenheiros testando</span>
                         </div>
-                        <h1 class="text-5xl lg:text-7xl font-black gradient-text mb-6 leading-tight">
+                        <h1 class="text-5xl lg:text-7xl font-black gradient-text mb-6 leading-tight" data-translate="hero.title">
                             O Futuro da Gestão de Obras Chegou
                         </h1>
-                        <p class="text-xl lg:text-2xl text-textSecondary max-w-2xl mb-8 leading-relaxed">
-                            <strong class="text-primary">Transparência total</strong> para construtoras, engenheiros e clientes. 
+                        <p class="text-xl lg:text-2xl text-textSecondary max-w-2xl mb-8 leading-relaxed" data-translate="hero.subtitle">
+                            <strong class="text-primary">Transparência total</strong> para construtoras, engenheiros e clientes.
                             Gerencie obras com tecnologia que <strong class="text-tertiary">constrói confiança</strong>.
                         </p>
                     </div>
@@ -349,7 +487,7 @@
                     <div class="animate-fade-up space-y-4" style="animation-delay: 0.4s">
                         <button onclick="openApoiador()" class="w-full lg:w-auto bg-accent hover:bg-accent/90 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 shadow-strong hover:shadow-2xl hover:scale-105 flex items-center justify-center">
                             <i class="fas fa-rocket mr-3"></i>
-                            QUERO SER APOIADOR FUNDADOR
+                            <span data-translate="hero.cta">QUERO SER APOIADOR FUNDADOR</span>
                         </button>
                         <p class="text-center lg:text-left text-sm text-textSecondary">
                             Apenas 1.000 vagas • R$ 49/mês por 12 meses • <span class="text-warning font-semibold">Restam 724 vagas</span>
@@ -358,9 +496,9 @@
                         <div class="flex flex-col lg:flex-row items-center gap-4 pt-4">
                             <button onclick="scrollToSection('demo')" class="w-full lg:w-auto border-2 border-primary/30 text-primary hover:bg-primary/10 px-8 py-4 rounded-xl font-semibold transition-colors backdrop-blur-md">
                                 <i class="fas fa-play mr-2"></i>
-                                Ver Demonstração
+                                <span data-translate="hero.demo">Ver Demonstração</span>
                             </button>
-                            <button onclick="openTeste()" class="w-full lg:w-auto text-textSecondary hover:text-primary underline transition-colors">
+                            <button onclick="openTeste()" class="w-full lg:w-auto text-textSecondary hover:text-primary underline transition-colors" data-translate="hero.test">
                                 Prefiro testar grátis primeiro
                             </button>
                         </div>
@@ -564,10 +702,10 @@
     <section id="demo" class="py-20 px-6 bg-surface/30">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold text-textPrimary mb-6">
+                <h2 class="text-4xl lg:text-5xl font-bold text-textPrimary mb-6" data-translate="demo.title">
                     Veja o FaseUp em Ação
                 </h2>
-                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
+                <p class="text-xl text-textSecondary max-w-3xl mx-auto" data-translate="demo.subtitle">
                     Interface intuitiva para cada tipo de usuário. Simplicidade que funciona.
                 </p>
             </div>
@@ -604,15 +742,21 @@
                                 </div>
                             </div>
                             <div class="bg-surface rounded-xl p-6 overflow-hidden">
-                                <img 
-                                    src="./Assets/DemoSection-01-screenshot-da-interface-do-gestor.jpg" 
-                                    alt="Interface completa do gestor FaseUp - Dashboard com visão de todas as obras"
-                                    class="w-full h-auto rounded-lg border border-primary/20 shadow-medium"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width="600"
-                                    height="400"
-                                />
+                                <div class="demo-image-container">
+                                    <img
+                                        src="./Assets/DemoSection-01-screenshot-da-interface-do-gestor.jpg"
+                                        alt="Interface completa do gestor FaseUp - Dashboard com visão de todas as obras"
+                                        class="w-full h-auto rounded-lg border border-primary/20 shadow-medium cursor-pointer"
+                                        loading="lazy"
+                                        decoding="async"
+                                        width="600"
+                                        height="400"
+                                        onclick="openImageViewer(this)"
+                                    />
+                                    <button class="expand-icon" onclick="openImageViewer(this.previousElementSibling)" title="Expandir imagem">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -630,15 +774,21 @@
                                 </div>
                             </div>
                             <div class="bg-surface rounded-xl p-6 overflow-hidden">
-                                <img 
-                                    src="./Assets/DemoSection-02-screenshot-da-interface-mobile-otimizada.jpg" 
-                                    alt="Interface mobile otimizada para operários - Tarefas claras e captura de fotos"
-                                    class="w-full h-auto rounded-lg border border-tertiary/20 shadow-medium"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width="600"
-                                    height="400"
-                                />
+                                <div class="demo-image-container">
+                                    <img
+                                        src="./Assets/DemoSection-02-screenshot-da-interface-mobile-otimizada.jpg"
+                                        alt="Interface mobile otimizada para operários - Tarefas claras e captura de fotos"
+                                        class="w-full h-auto rounded-lg border border-tertiary/20 shadow-medium cursor-pointer"
+                                        loading="lazy"
+                                        decoding="async"
+                                        width="600"
+                                        height="400"
+                                        onclick="openImageViewer(this)"
+                                    />
+                                    <button class="expand-icon" onclick="openImageViewer(this.previousElementSibling)" title="Expandir imagem">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -656,15 +806,21 @@
                                 </div>
                             </div>
                             <div class="bg-surface rounded-xl p-6 overflow-hidden">
-                                <img 
-                                    src="./Assets/DemoSection-03-screenshot-da-interface-app-dedicado-para-clientes.jpg" 
-                                    alt="App dedicado para clientes - Transparência total com acompanhamento em tempo real"
-                                    class="w-full h-auto rounded-lg border border-success/20 shadow-medium"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width="600"
-                                    height="400"
-                                />
+                                <div class="demo-image-container">
+                                    <img
+                                        src="./Assets/DemoSection-03-screenshot-da-interface-app-dedicado-para-clientes.jpg"
+                                        alt="App dedicado para clientes - Transparência total com acompanhamento em tempo real"
+                                        class="w-full h-auto rounded-lg border border-success/20 shadow-medium cursor-pointer"
+                                        loading="lazy"
+                                        decoding="async"
+                                        width="600"
+                                        height="400"
+                                        onclick="openImageViewer(this)"
+                                    />
+                                    <button class="expand-icon" onclick="openImageViewer(this.previousElementSibling)" title="Expandir imagem">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -682,12 +838,21 @@
                                 </div>
                             </div>
                             <div class="bg-surface rounded-xl p-6 overflow-hidden">
-                                <img 
-                                    src="./Assets/DemoSection-04-screenshot-da-interface-dashboard-de-analytics.jpg" 
-                                    alt="Dashboard de analytics e insights - Métricas inteligentes e relatórios avançados"
-                                    class="w-full h-auto rounded-lg border border-info/20 shadow-medium"
-                                    loading="lazy"
-                                />
+                                <div class="demo-image-container">
+                                    <img
+                                        src="./Assets/DemoSection-04-screenshot-da-interface-dashboard-de-analytics.jpg"
+                                        alt="Dashboard de analytics e insights - Métricas inteligentes e relatórios avançados"
+                                        class="w-full h-auto rounded-lg border border-info/20 shadow-medium cursor-pointer"
+                                        loading="lazy"
+                                        decoding="async"
+                                        width="600"
+                                        height="400"
+                                        onclick="openImageViewer(this)"
+                                    />
+                                    <button class="expand-icon" onclick="openImageViewer(this.previousElementSibling)" title="Expandir imagem">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -700,10 +865,10 @@
     <section id="pricing" class="py-20 px-6">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold gradient-text mb-6">
+                <h2 class="text-4xl lg:text-5xl font-bold gradient-text mb-6" data-translate="pricing.title">
                     Seja um dos Primeiros Apoiadores
                 </h2>
-                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
+                <p class="text-xl text-textSecondary max-w-3xl mx-auto" data-translate="pricing.subtitle">
                     Programa exclusivo para visionários que querem transformar a construção civil brasileira
                 </p>
             </div>
@@ -1296,7 +1461,124 @@
         </div>
     </footer>
 
+    <!-- Image Viewer Modal -->
+    <div id="imageViewer" class="image-viewer">
+        <div class="image-viewer-content">
+            <img id="viewerImage" src="" alt="">
+            <button class="image-viewer-close" onclick="closeImageViewer()" title="Fechar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
     <script>
+        // Translations object
+        const translations = {
+            pt: {
+                'nav.demo': 'Demo',
+                'nav.pricing': 'Planos',
+                'nav.testimonials': 'Depoimentos',
+                'nav.feedback': 'Feedback',
+                'nav.supporter': 'Ser Apoiador',
+                'hero.title': 'O Futuro da Gestão de Obras Chegou',
+                'hero.subtitle': 'Transparência total para construtoras, engenheiros e clientes. Gerencie obras com tecnologia que constrói confiança.',
+                'hero.cta': 'QUERO SER APOIADOR FUNDADOR',
+                'hero.demo': 'Ver Demonstração',
+                'hero.test': 'Prefiro testar grátis primeiro',
+                'demo.title': 'Veja o FaseUp em Ação',
+                'demo.subtitle': 'Interface intuitiva para cada tipo de usuário. Simplicidade que funciona.',
+                'pricing.title': 'Seja um dos Primeiros Apoiadores',
+                'pricing.subtitle': 'Programa exclusivo para visionários que querem transformar a construção civil brasileira'
+            },
+            en: {
+                'nav.demo': 'Demo',
+                'nav.pricing': 'Plans',
+                'nav.testimonials': 'Testimonials',
+                'nav.feedback': 'Feedback',
+                'nav.supporter': 'Become Supporter',
+                'hero.title': 'The Future of Construction Management Has Arrived',
+                'hero.subtitle': 'Total transparency for construction companies, engineers and clients. Manage projects with technology that builds trust.',
+                'hero.cta': 'I WANT TO BE A FOUNDING SUPPORTER',
+                'hero.demo': 'See Demo',
+                'hero.test': 'I prefer to test for free first',
+                'demo.title': 'See FaseUp in Action',
+                'demo.subtitle': 'Intuitive interface for each type of user. Simplicity that works.',
+                'pricing.title': 'Be One of the First Supporters',
+                'pricing.subtitle': 'Exclusive program for visionaries who want to transform Brazilian construction'
+            },
+            es: {
+                'nav.demo': 'Demo',
+                'nav.pricing': 'Planes',
+                'nav.testimonials': 'Testimonios',
+                'nav.feedback': 'Feedback',
+                'nav.supporter': 'Ser Apoiador',
+                'hero.title': 'El Futuro de la Gestión de Obras Ha Llegado',
+                'hero.subtitle': 'Transparencia total para constructoras, ingenieros y clientes. Gestiona obras con tecnología que construye confianza.',
+                'hero.cta': 'QUIERO SER APOIADOR FUNDADOR',
+                'hero.demo': 'Ver Demostración',
+                'hero.test': 'Prefiero probar gratis primero',
+                'demo.title': 'Ve FaseUp en Acción',
+                'demo.subtitle': 'Interfaz intuitiva para cada tipo de usuario. Simplicidad que funciona.',
+                'pricing.title': 'Sé Uno de los Primeros Apoiadores',
+                'pricing.subtitle': 'Programa exclusivo para visionarios que quieren transformar la construcción brasileña'
+            }
+        };
+
+        // Current language state
+        let currentLang = localStorage.getItem('faseup-language') || 'pt';
+
+        // Language functions
+        function toggleLanguageDropdown() {
+            const menu = document.getElementById('languageMenu');
+            const isVisible = !menu.classList.contains('opacity-0');
+
+            if (isVisible) {
+                menu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+            } else {
+                menu.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+            }
+        }
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('faseup-language', lang);
+            updateLanguageDisplay();
+            translatePage();
+            toggleLanguageDropdown();
+        }
+
+        function updateLanguageDisplay() {
+            const currentLanguageEl = document.getElementById('currentLanguage');
+            const langMap = { pt: 'PT', en: 'EN', es: 'ES' };
+            if (currentLanguageEl) {
+                currentLanguageEl.textContent = langMap[currentLang] || 'PT';
+            }
+
+            // Update html lang attribute
+            const langMap2 = { pt: 'pt-BR', en: 'en-US', es: 'es-ES' };
+            document.documentElement.lang = langMap2[currentLang] || 'pt-BR';
+        }
+
+        function translatePage() {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Close language dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('languageDropdown');
+            const menu = document.getElementById('languageMenu');
+
+            if (dropdown && menu && !dropdown.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+            }
+        });
+
         // Smooth scroll function
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
@@ -1311,6 +1593,51 @@
         function scrollToFeedback() {
             scrollToSection('feedback');
         }
+
+        // Image Viewer functionality
+        function openImageViewer(imgElement) {
+            const viewer = document.getElementById('imageViewer');
+            const viewerImg = document.getElementById('viewerImage');
+
+            viewerImg.src = imgElement.src;
+            viewerImg.alt = imgElement.alt;
+            viewer.classList.add('active');
+
+            // Prevent body scroll when viewer is open
+            document.body.style.overflow = 'hidden';
+
+            // Close on escape key
+            document.addEventListener('keydown', handleEscapeKey);
+        }
+
+        function closeImageViewer() {
+            const viewer = document.getElementById('imageViewer');
+            viewer.classList.remove('active');
+
+            // Restore body scroll
+            document.body.style.overflow = '';
+
+            // Remove escape key listener
+            document.removeEventListener('keydown', handleEscapeKey);
+        }
+
+        function handleEscapeKey(event) {
+            if (event.key === 'Escape') {
+                closeImageViewer();
+            }
+        }
+
+        // Close viewer when clicking outside the image
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewer = document.getElementById('imageViewer');
+            if (viewer) {
+                viewer.addEventListener('click', function(event) {
+                    if (event.target === viewer) {
+                        closeImageViewer();
+                    }
+                });
+            }
+        });
 
         // Demo tabs functionality
         function showDemo(type) {
@@ -1499,25 +1826,29 @@
 
         // Optimized initialization with requestIdleCallback
         function initializeApp() {
+            // Critical: Initialize language system
+            updateLanguageDisplay();
+            translatePage();
+
             // Critical: Start countdown immediately
             updateCountdown();
             setInterval(updateCountdown, 60000);
-            
+
             // Critical: Initialize demo tabs
             showDemo('gestor');
-            
+
             // Defer non-critical operations
             if ('requestIdleCallback' in window) {
                 requestIdleCallback(() => {
                     updateVagas();
                     setInterval(updateVagas, 300000);
-                    
+
                     const animatedElements = document.querySelectorAll('.animate-fade-up');
                     animatedElements.forEach(el => observer.observe(el));
-                    
+
                     initLazyLoading();
                     initSectionTracking();
-                    
+
                     trackEvent('page_view', {
                         page_title: 'FaseUp Homepage',
                         page_location: window.location.href
@@ -1528,13 +1859,13 @@
                 setTimeout(() => {
                     updateVagas();
                     setInterval(updateVagas, 300000);
-                    
+
                     const animatedElements = document.querySelectorAll('.animate-fade-up');
                     animatedElements.forEach(el => observer.observe(el));
-                    
+
                     initLazyLoading();
                     initSectionTracking();
-                    
+
                     trackEvent('page_view', {
                         page_title: 'FaseUp Homepage',
                         page_location: window.location.href
