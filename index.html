@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FaseUp - O Futuro da Gestão de Obras Chegou</title>
-    <meta name="description" content="Transparência total para construtoras, engenheiros e clientes. A única plataforma que permite ao cliente acompanhar sua obra em tempo real. Seja um Apoiador Fundador.">
-    <meta name="keywords" content="gestão de obras, construção civil, transparência, construtora, engenharia, apoiador fundador">
+    <meta name="description" content="Revolucione a gestão de obras com transparência total. FaseUp permite que clientes acompanhem sua obra 24/7 em tempo real. Seja Apoiador Fundador por R$ 49/mês e transforme a construção civil brasileira.">
+    <meta name="keywords" content="gestão de obras, construção civil, transparência, construtora, engenharia, apoiador fundador, acompanhamento obra, tempo real">
     <meta name="author" content="FaseUp">
     
     <!-- Open Graph -->
@@ -40,19 +40,31 @@
     <link rel="icon" type="image/x-icon" href="./favicon_io/favicon.ico">
     <link rel="manifest" href="./manifest.json">
     
-    <!-- Preload critical images -->
-    <link rel="preload" as="image" href="./Assets/HeroSection-HeroVisual-Mockup-iPhone-Realism.png">
-    <link rel="preload" as="image" href="./Assets/Logo-FaseUp-without-background.png">
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="./Assets/HeroSection-HeroVisual-Mockup-iPhone-Realism.png" fetchpriority="high">
+    <link rel="preload" as="image" href="./Assets/Logo-FaseUp-without-background.png" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- Google Analytics 4 - Deferred loading -->
+    <script>
+        window.addEventListener('load', function() {
+            var script = document.createElement('script');
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EHLT2ZF9XW';
+            script.async = true;
+            document.head.appendChild(script);
+        });
+    </script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         
-        // Initialize GA4 - Replace GA_MEASUREMENT_ID with your actual ID
-        gtag('config', 'GA_MEASUREMENT_ID', {
+        // Initialize GA4 with correct ID
+        gtag('config', 'G-EHLT2ZF9XW', {
             page_title: 'FaseUp - O Futuro da Gestão de Obras',
             page_location: window.location.href
         });
@@ -139,7 +151,8 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <script src="./feedback-api.js"></script>
     
     <style>
@@ -220,8 +233,7 @@
         }
         
         /* Font optimization */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
+                
         /* Critical CSS inlined, non-critical deferred */
         .defer-css {
             font-display: swap;
@@ -380,6 +392,9 @@
                                 alt="FaseUp App em iPhone - Interface real mostrando transparência total na gestão de obras"
                                 class="w-full h-auto shadow-strong rounded-[56px] border border-primary/20"
                                 loading="eager"
+                                fetchpriority="high"
+                                width="400"
+                                height="800"
                             />
                         </div>
                         
@@ -594,6 +609,9 @@
                                     alt="Interface completa do gestor FaseUp - Dashboard com visão de todas as obras"
                                     class="w-full h-auto rounded-lg border border-primary/20 shadow-medium"
                                     loading="lazy"
+                                    decoding="async"
+                                    width="600"
+                                    height="400"
                                 />
                             </div>
                         </div>
@@ -617,6 +635,9 @@
                                     alt="Interface mobile otimizada para operários - Tarefas claras e captura de fotos"
                                     class="w-full h-auto rounded-lg border border-tertiary/20 shadow-medium"
                                     loading="lazy"
+                                    decoding="async"
+                                    width="600"
+                                    height="400"
                                 />
                             </div>
                         </div>
@@ -640,6 +661,9 @@
                                     alt="App dedicado para clientes - Transparência total com acompanhamento em tempo real"
                                     class="w-full h-auto rounded-lg border border-success/20 shadow-medium"
                                     loading="lazy"
+                                    decoding="async"
+                                    width="600"
+                                    height="400"
                                 />
                             </div>
                         </div>
@@ -824,10 +848,10 @@
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16">
                 <h2 class="text-4xl lg:text-5xl font-bold text-textPrimary mb-6">
-                    Engenheiros Já Estão Transformando Suas Obras
+                    O Que Esperar do FaseUp
                 </h2>
                 <p class="text-xl text-textSecondary max-w-3xl mx-auto">
-                    Depoimentos reais de profissionais que já viveram a revolução do FaseUp
+                    Expectativas de profissionais sobre como o FaseUp transformará suas obras
                 </p>
             </div>
 
@@ -839,6 +863,9 @@
                             alt="Carlos Silva - Engenheiro Civil de São Paulo"
                             class="w-12 h-12 rounded-full object-cover border-2 border-primary/20 mr-4"
                             loading="lazy"
+                            decoding="async"
+                            width="48"
+                            height="48"
                         />
                         <div>
                             <div class="font-semibold text-textPrimary">Carlos Silva</div>
@@ -855,8 +882,8 @@
                         </div>
                     </div>
                     <blockquote class="text-textSecondary italic">
-                        "Meus clientes pararam de ligar 10x por dia. Agora eles acompanham tudo pelo app! 
-                        Virei referência na cidade mostrando transparência total."
+                        "Finalmente vou ter clientes que não ligam 10x por dia. Eles poderão acompanhar tudo pelo app! 
+                        Vou virar referência na cidade com transparência total."
                     </blockquote>
                 </div>
 
@@ -867,6 +894,9 @@
                             alt="Ana Costa - Gestora de Obras do Rio de Janeiro"
                             class="w-12 h-12 rounded-full object-cover border-2 border-tertiary/20 mr-4"
                             loading="lazy"
+                            decoding="async"
+                            width="48"
+                            height="48"
                         />
                         <div>
                             <div class="font-semibold text-textPrimary">Ana Costa</div>
@@ -883,8 +913,8 @@
                         </div>
                     </div>
                     <blockquote class="text-textSecondary italic">
-                        "A gamificação motivou minha equipe de forma incrível. Produtividade aumentou 35% em 2 meses. 
-                        Os operários disputam para ver quem faz mais fotos!"
+                        "A gamificação vai motivar minha equipe de forma incrível. Espero que a produtividade aumente significativamente. 
+                        Os operários vão disputar para ver quem faz mais fotos!"
                     </blockquote>
                 </div>
 
@@ -911,8 +941,8 @@
                         </div>
                     </div>
                     <blockquote class="text-textSecondary italic">
-                        "Finalmente posso acompanhar minha casa sendo construída sem sair do escritório. 
-                        Indico para todos os meus amigos - transparência que realmente funciona!"
+                        "Finalmente vou poder acompanhar minha casa sendo construída sem sair do escritório. 
+                        Já vou indicar para todos os meus amigos quando estiver disponível!"
                     </blockquote>
                 </div>
             </div>
@@ -980,16 +1010,6 @@
                     </div>
                 </div>
 
-                <div class="bg-surface/50 backdrop-blur-md rounded-2xl p-6 border border-primary/20">
-                    <div class="font-semibold text-textPrimary text-lg mb-3 flex items-center">
-                        <i class="fas fa-question-circle text-primary mr-3"></i>
-                        Como sei que vocês não vão sumir?
-                    </div>
-                    <div class="text-textSecondary">
-                        <i class="fas fa-check text-success mr-2"></i>
-                        Time experiente + validação com 500+ engenheiros + roadmap público transparente.
-                    </div>
-                </div>
 
                 <div class="bg-surface/50 backdrop-blur-md rounded-2xl p-6 border border-primary/20">
                     <div class="font-semibold text-textPrimary text-lg mb-3 flex items-center">
@@ -1477,37 +1497,58 @@
             });
         }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            // Start countdown
+        // Optimized initialization with requestIdleCallback
+        function initializeApp() {
+            // Critical: Start countdown immediately
             updateCountdown();
-            setInterval(updateCountdown, 60000); // Update every minute
+            setInterval(updateCountdown, 60000);
             
-            // Update vagas occasionally
-            updateVagas();
-            setInterval(updateVagas, 300000); // Update every 5 minutes
-            
-            // Initialize demo tabs
+            // Critical: Initialize demo tabs
             showDemo('gestor');
             
-            // Initialize scroll animations
-            const animatedElements = document.querySelectorAll('.animate-fade-up');
-            animatedElements.forEach(el => {
-                observer.observe(el);
-            });
-            
-            // Initialize lazy loading
-            initLazyLoading();
-            
-            // Initialize section tracking
-            initSectionTracking();
-            
-            // Track page load
-            trackEvent('page_view', {
-                page_title: 'FaseUp Homepage',
-                page_location: window.location.href
-            });
-        });
+            // Defer non-critical operations
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => {
+                    updateVagas();
+                    setInterval(updateVagas, 300000);
+                    
+                    const animatedElements = document.querySelectorAll('.animate-fade-up');
+                    animatedElements.forEach(el => observer.observe(el));
+                    
+                    initLazyLoading();
+                    initSectionTracking();
+                    
+                    trackEvent('page_view', {
+                        page_title: 'FaseUp Homepage',
+                        page_location: window.location.href
+                    });
+                });
+            } else {
+                // Fallback for browsers without requestIdleCallback
+                setTimeout(() => {
+                    updateVagas();
+                    setInterval(updateVagas, 300000);
+                    
+                    const animatedElements = document.querySelectorAll('.animate-fade-up');
+                    animatedElements.forEach(el => observer.observe(el));
+                    
+                    initLazyLoading();
+                    initSectionTracking();
+                    
+                    trackEvent('page_view', {
+                        page_title: 'FaseUp Homepage',
+                        page_location: window.location.href
+                    });
+                }, 100);
+            }
+        }
+        
+        // Use DOMContentLoaded for critical content, load event for non-critical
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeApp);
+        } else {
+            initializeApp();
+        }
     </script>
 </body>
 </html>
