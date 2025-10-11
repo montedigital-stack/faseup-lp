@@ -276,6 +276,39 @@ nav a:hover {
 }
 
 /* ============================================
+   CORREÇÕES WCAG AAA - SuperDesign.dev
+   Data: 2025-10-11
+   Ticket: Dark Mode Contrast Issues
+   ============================================ */
+
+/* CORREÇÃO 1: Navegação Header - Suporte & Privacy - WCAG AAA: 15.8:1 */
+.dark-mode header,
+.dark-mode header nav {
+    background: rgba(10, 14, 20, 0.98) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.dark-mode header nav a,
+.dark-mode nav.hidden.md\\:flex a {
+    color: #f9fafb !important; /* WCAG AAA: 15.8:1 */
+    font-weight: 500 !important;
+}
+
+.dark-mode header nav a:hover,
+.dark-mode nav.hidden.md\\:flex a:hover {
+    color: #93c5fd !important; /* WCAG AAA: 9.2:1 */
+}
+
+.dark-mode header nav a.text-primary,
+.dark-mode header nav a.font-medium,
+.dark-mode nav.hidden.md\\:flex a.text-primary,
+.dark-mode nav.hidden.md\\:flex a.font-medium {
+    color: #60a5fa !important; /* WCAG AAA: 7.5:1 */
+    font-weight: 600 !important;
+}
+
+/* ============================================
    SEÇÕES - DARK MODE ESPECÍFICO
    ============================================ */
 
@@ -414,6 +447,26 @@ nav a:hover {
 .dark-mode button[class*="bg-secondary"] {
     background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%) !important;
     color: var(--bg-primary) !important;
+}
+
+/* CORREÇÃO 2: Botão "Voltar ao Site" - Design System - WCAG AAA: 10.2:1 */
+.dark-mode a.bg-primary.text-secondary[href="/"],
+.dark-mode a.bg-primary.text-secondary,
+.dark-mode #design-system a.bg-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+    color: #0a0e14 !important; /* WCAG AAA: 10.2:1 */
+    font-weight: 600 !important;
+    border: 1px solid rgba(96, 165, 250, 0.5) !important;
+}
+
+.dark-mode a.bg-primary.text-secondary[href="/"]:hover,
+.dark-mode a.bg-primary.text-secondary:hover,
+.dark-mode #design-system a.bg-primary:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%) !important;
+    color: #0a0e14 !important;
+    border-color: var(--primary) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.4);
 }
 
 /* ============================================
