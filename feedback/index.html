@@ -12,10 +12,10 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#E7CFA9',
-                        secondary: '#09455B',
-                        tertiary: '#F4A261',
-                        accent: '#E76F51',
+                        primary: '#2563eb',
+                        secondary: '#10b981',
+                        tertiary: '#f59e0b',
+                        accent: '#fbbf24',
                         background: '#0F1419',
                         surface: '#232A31',
                         textPrimary: '#FFFFFF',
@@ -32,23 +32,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="../feedback-api.js"></script>
+
+    <!-- Theme System -->
+    <link rel="stylesheet" href="../theme-styles.css">
+    <script src="../theme-toggle.js"></script>
     
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #0F1419 0%, #232A31 50%, #09455B 100%); }
-        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Light Mode (Padrão) */
+        body {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e5e5e5 100%);
+        }
+
+        /* Dark Mode */
+        .dark-mode body {
+            background: linear-gradient(135deg, #0F1419 0%, #1a1f2e 50%, #232a31 100%);
+        }
+
         .form-step {
             transition: all 0.3s ease-in-out;
         }
-        
+
         .form-step.hidden {
             opacity: 0;
             transform: translateX(20px);
         }
-        
+
         .form-step.active {
             opacity: 1;
             transform: translateX(0);
+        }
+
+        /* Ajustes de componentes específicos */
+        header {
+            background-color: var(--bg-secondary);
+            border-color: var(--border-light);
+        }
+
+        .bg-surface {
+            background-color: var(--bg-secondary) !important;
+        }
+
+        .bg-background {
+            background-color: var(--bg-tertiary) !important;
+        }
+
+        /* Formulários em dark mode */
+        .dark-mode input,
+        .dark-mode textarea,
+        .dark-mode select {
+            background-color: var(--bg-tertiary);
+            border-color: var(--border-light);
+            color: var(--text-primary);
+        }
+
+        .dark-mode input::placeholder,
+        .dark-mode textarea::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        /* Botões de ação rápida */
+        button[onclick^="setFeedbackType"] {
+            transition: all 0.3s ease;
+        }
+
+        /* Ajustes de transições */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
     </style>
 </head>

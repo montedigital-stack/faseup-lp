@@ -18,21 +18,22 @@
             theme: {
                 extend: {
                     colors: {
-                        // FaseUp Brand Colors (SuperDesign.dev pattern)
-                        primary: '#E7CFA9',
-                        primaryLight: '#F0D9B8',
-                        secondary: '#09455B',
-                        secondaryDark: '#073A47',
-                        tertiary: '#F4A261',
-                        accent: '#E76F51',
-                        background: '#0F1419',
-                        surface: '#232A31',
-                        textPrimary: '#FFFFFF',
-                        textSecondary: '#CBD5E0',
-                        success: '#48BB78',
-                        warning: '#ED8936',
-                        error: '#F56565',
-                        info: '#4299E1'
+                        // FaseUp Brand Colors - Nova Paleta Oficial
+                        primary: '#2563eb',
+                        primaryLight: '#3b82f6',
+                        primaryDark: '#1d4ed8',
+                        secondary: '#10b981',
+                        secondaryLight: '#34d399',
+                        tertiary: '#f59e0b',
+                        accent: '#fbbf24',
+                        background: '#ffffff',
+                        surface: '#fafafa',
+                        textPrimary: '#171717',
+                        textSecondary: '#525252',
+                        success: '#22c55e',
+                        warning: '#f59e0b',
+                        error: '#ef4444',
+                        info: '#3b82f6'
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif']
@@ -46,9 +47,9 @@
                         '2xl': '32px'
                     },
                     boxShadow: {
-                        'soft': '0 4px 20px rgba(231, 207, 169, 0.1)',
-                        'medium': '0 8px 30px rgba(231, 207, 169, 0.15)',
-                        'strong': '0 12px 40px rgba(231, 207, 169, 0.2)'
+                        'soft': '0 4px 20px rgba(37, 99, 235, 0.08)',
+                        'medium': '0 8px 30px rgba(37, 99, 235, 0.12)',
+                        'strong': '0 12px 40px rgba(37, 99, 235, 0.16)'
                     }
                 }
             }
@@ -56,6 +57,10 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Theme System -->
+    <link rel="stylesheet" href="../theme-styles.css">
+    <script src="../theme-toggle.js"></script>
     
     <style>
         @keyframes fadeInUp {
@@ -68,20 +73,52 @@
                 transform: translateY(0);
             }
         }
-        
+
         .fade-in {
             animation: fadeInUp 0.8s ease-out both;
         }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #0F1419 0%, #232A31 50%, #09455B 100%);
+
+        /* Light Mode (Padrão) */
+        body {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e5e5e5 100%);
         }
-        
+
         .gradient-text {
-            background: linear-gradient(135deg, #E7CFA9 0%, #F4A261 50%, #E76F51 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #10b981 50%, #f59e0b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        /* Dark Mode */
+        .dark-mode body {
+            background: linear-gradient(135deg, #0F1419 0%, #1a1f2e 50%, #232a31 100%);
+        }
+
+        .dark-mode .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #34d399 50%, #fbbf24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Ajustes de componentes específicos */
+        header, footer {
+            background-color: var(--bg-secondary);
+            border-color: var(--border-light);
+        }
+
+        .bg-surface {
+            background-color: var(--bg-secondary) !important;
+        }
+
+        .bg-background {
+            background-color: var(--bg-tertiary) !important;
+        }
+
+        /* Ajustes de transições */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
     </style>
 </head>

@@ -19,12 +19,12 @@
                 extend: {
                     colors: {
                         // FaseUp Brand Colors (SuperDesign.dev pattern)
-                        primary: '#E7CFA9',
-                        primaryLight: '#F0D9B8',
-                        secondary: '#09455B',
-                        secondaryDark: '#073A47',
-                        tertiary: '#F4A261',
-                        accent: '#E76F51',
+                        primary: '#2563eb',
+                        primaryLight: '#3b82f6',
+                        secondary: '#10b981',
+                        secondaryDark: '#059669',
+                        tertiary: '#f59e0b',
+                        accent: '#fbbf24',
                         background: '#0F1419',
                         surface: '#232A31',
                         textPrimary: '#FFFFFF',
@@ -56,6 +56,10 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Theme System -->
+    <link rel="stylesheet" href="../theme-styles.css">
+    <script src="../theme-toggle.js"></script>
     
     <style>
         @keyframes fadeInUp {
@@ -68,25 +72,62 @@
                 transform: translateY(0);
             }
         }
-        
+
         .fade-in {
             animation: fadeInUp 0.8s ease-out both;
         }
-        
+
         .fade-in:nth-child(1) { animation-delay: 0s; }
         .fade-in:nth-child(2) { animation-delay: 0.2s; }
         .fade-in:nth-child(3) { animation-delay: 0.4s; }
         .fade-in:nth-child(4) { animation-delay: 0.6s; }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #0F1419 0%, #232A31 50%, #09455B 100%);
+
+        /* Light Mode (Padrão) */
+        body {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e5e5e5 100%);
         }
-        
+
         .gradient-text {
-            background: linear-gradient(135deg, #E7CFA9 0%, #F4A261 50%, #E76F51 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #10b981 50%, #f59e0b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        /* Dark Mode */
+        .dark-mode body {
+            background: linear-gradient(135deg, #0F1419 0%, #1a1f2e 50%, #232a31 100%);
+        }
+
+        .dark-mode .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #34d399 50%, #fbbf24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Ajustes de componentes específicos */
+        header, footer {
+            background-color: var(--bg-secondary);
+            border-color: var(--border-light);
+        }
+
+        .bg-surface {
+            background-color: var(--bg-secondary) !important;
+        }
+
+        .bg-background {
+            background-color: var(--bg-tertiary) !important;
+        }
+
+        /* Cards e FAQs */
+        .fade-in.bg-surface {
+            backdrop-filter: blur(12px);
+        }
+
+        /* Ajustes de transições */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
     </style>
 </head>
