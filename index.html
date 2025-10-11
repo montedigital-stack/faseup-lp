@@ -179,7 +179,11 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <script src="./feedback-api.js"></script>
-    
+
+    <!-- Theme System - Dark Mode Support -->
+    <link rel="stylesheet" href="./theme-styles.css">
+    <script src="./theme-toggle.js"></script>
+
     <style>
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -194,28 +198,174 @@
         .animate-fade-up { animation: fadeInUp 0.8s ease-out both; }
         .animate-pulse-slow { animation: pulse 2s ease-in-out infinite; }
         
+        /* Light Mode */
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
         .gradient-bg {
-            background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, var(--bg-secondary) 100%);
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero-pattern {
-            background: linear-gradient(to bottom, #eff6ff 0%, #ffffff 100%);
+            background: linear-gradient(to bottom, var(--primary-50) 0%, var(--bg-primary) 100%);
         }
-        
+
         .countdown-digit {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--text-inverse);
             font-weight: 800;
             min-width: 3rem;
         }
-        
+
+        /* Dark Mode Overrides */
+        .dark-mode {
+            background: var(--bg-primary);
+        }
+
+        .dark-mode .gradient-bg {
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .dark-mode .hero-pattern {
+            background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .dark-mode nav {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .dark-mode .card,
+        .dark-mode .bg-white {
+            background: var(--bg-secondary) !important;
+            border-color: var(--border-light) !important;
+        }
+
+        .dark-mode .text-neutral-600,
+        .dark-mode .text-neutral-700,
+        .dark-mode .text-textSecondary {
+            color: var(--text-secondary) !important;
+        }
+
+        .dark-mode .text-neutral-900,
+        .dark-mode .text-textPrimary {
+            color: var(--text-primary) !important;
+        }
+
+        .dark-mode .border-neutral-200,
+        .dark-mode .border-neutral-300 {
+            border-color: var(--border-light) !important;
+        }
+
+        .dark-mode footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Dark Mode - Complete Coverage */
+        .dark-mode h1,
+        .dark-mode h2,
+        .dark-mode h3,
+        .dark-mode h4,
+        .dark-mode h5,
+        .dark-mode h6 {
+            color: var(--text-primary) !important;
+        }
+
+        .dark-mode p,
+        .dark-mode li,
+        .dark-mode span {
+            color: var(--text-secondary);
+        }
+
+        .dark-mode .bg-surface,
+        .dark-mode .bg-background {
+            background: var(--bg-secondary) !important;
+        }
+
+        .dark-mode input,
+        .dark-mode textarea,
+        .dark-mode select {
+            background: var(--bg-tertiary) !important;
+            color: var(--text-primary) !important;
+            border-color: var(--border-medium) !important;
+        }
+
+        .dark-mode input::placeholder,
+        .dark-mode textarea::placeholder {
+            color: var(--text-tertiary) !important;
+        }
+
+        .dark-mode .modal-content,
+        .dark-mode .modal-overlay > div {
+            background: var(--bg-elevated) !important;
+            color: var(--text-primary) !important;
+        }
+
+        .dark-mode .btn-secondary {
+            border-color: var(--border-medium) !important;
+            color: var(--text-primary) !important;
+        }
+
+        .dark-mode .btn-secondary:hover {
+            background: var(--bg-tertiary) !important;
+        }
+
+        /* Tailwind overrides for dark mode */
+        .dark-mode .bg-white,
+        .dark-mode .bg-gray-50,
+        .dark-mode .bg-neutral-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+
+        .dark-mode .bg-gray-100,
+        .dark-mode .bg-neutral-100 {
+            background-color: var(--bg-tertiary) !important;
+        }
+
+        .dark-mode .text-gray-900,
+        .dark-mode .text-neutral-900 {
+            color: var(--text-primary) !important;
+        }
+
+        .dark-mode .text-gray-600,
+        .dark-mode .text-neutral-600 {
+            color: var(--text-secondary) !important;
+        }
+
+        .dark-mode .text-gray-500,
+        .dark-mode .text-neutral-500 {
+            color: var(--text-tertiary) !important;
+        }
+
+        .dark-mode .border-gray-200,
+        .dark-mode .border-neutral-200 {
+            border-color: var(--border-light) !important;
+        }
+
+        .dark-mode .border-gray-300,
+        .dark-mode .border-neutral-300 {
+            border-color: var(--border-medium) !important;
+        }
+
+        /* Links and interactive elements */
+        .dark-mode a:not(.btn):not(.button) {
+            color: var(--primary);
+        }
+
+        .dark-mode a:not(.btn):not(.button):hover {
+            color: var(--primary-light);
+        }
+
         /* Image optimization styles */
         img[loading="lazy"] {
             opacity: 0;
