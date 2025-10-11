@@ -1,7 +1,7 @@
 /**
  * FaseUp Theme System
  * Dark Mode Toggle with localStorage persistence
- * Version: 1.0.0
+ * Version: 2.0.0 - Navbar Integration
  */
 
 (function() {
@@ -44,6 +44,14 @@
             ? THEME_DARK
             : THEME_LIGHT;
         const newTheme = current === THEME_DARK ? THEME_LIGHT : THEME_DARK;
+        
+        // Add rotation animation
+        const btn = document.getElementById('theme-toggle');
+        if (btn) {
+            btn.classList.add('rotating');
+            setTimeout(() => btn.classList.remove('rotating'), 500);
+        }
+        
         setTheme(newTheme);
     }
 
@@ -61,26 +69,76 @@
         btn.setAttribute('title', isDark ? 'Modo Claro' : 'Modo Escuro');
     }
 
-    // Create toggle button
+    // Create toggle button in navbar
     function createToggleButton() {
         // Check if button already exists
         if (document.getElementById('theme-toggle')) return;
 
+        // Try to find navbar container
+        const navbarContainers = [
+            document.querySelector('nav .flex.items-center.space-x-6'), // index.html pattern
+            document.querySelector('nav .flex.items-center.space-x-4'),
+            document.querySelector('nav .flex.items-center'),
+            document.querySelector('nav .nav-right'),
+            document.querySelector('.navbar .nav-actions')
+        ];
+
+        let navbar = null;
+        for (const container of navbarContainers) {
+            if (container) {
+                navbar = container;
+                break;
+            }
+        }
+
         const button = document.createElement('button');
         button.id = 'theme-toggle';
-        button.className = 'theme-toggle-btn';
         button.setAttribute('aria-label', 'Alternar tema');
         button.innerHTML = '<i class="fas fa-moon"></i>';
-
         button.addEventListener('click', toggleTheme);
 
-        // Add to body when DOM is ready
-        if (document.body) {
-            document.body.appendChild(button);
+        if (navbar) {
+            // Navbar found - insert toggle before last button (CTA)
+            button.className = 'theme-toggle-nav';
+
+            // Find the CTA button (usually the last button in navbar)
+            const ctaSelectors = [
+                'button.bg-accent',
+                'button.bg-primary',
+                'button[onclick*="openApoiador"]',
+                'button[onclick*="Apoiador"]',
+                'a.bg-accent',
+                'a.bg-primary'
+            ];
+
+            let ctaButton = null;
+            for (const selector of ctaSelectors) {
+                ctaButton = navbar.querySelector(selector);
+                if (ctaButton) break;
+            }
+
+            if (ctaButton) {
+                // Insert before CTA button
+                navbar.insertBefore(button, ctaButton);
+            } else {
+                // No CTA found, append to end
+                navbar.appendChild(button);
+            }
+
+            console.log('✓ Theme toggle added to navbar');
         } else {
-            document.addEventListener('DOMContentLoaded', () => {
+            // Fallback: Create floating button
+            button.className = 'theme-toggle-floating';
+
+            if (document.body) {
                 document.body.appendChild(button);
-            });
+            } else {
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.body.appendChild(button);
+                });
+            }
+
+            console.warn('⚠ Navbar not found - using floating toggle');
         }
     }
 
