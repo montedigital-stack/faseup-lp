@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaseUp - Pitch Deck Investidores | Seed Round</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* GLOBAL RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --neutral-50: #fafafa;
+            --neutral-100: #f5f5f5;
+            --neutral-200: #e5e5e5;
+            --neutral-300: #d4d4d4;
+            --neutral-700: #404040;
+            --neutral-900: #171717;
+            --bg: #ffffff;
+        }
+
+        /* FULL SCREEN BASE */
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* NO SCROLL */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--neutral-900);
+        }
+
+        /* SLIDE CONTAINER - OCUPA 100% DA VIEWPORT */
+        .pitch-deck-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* LOGO FASEUP - CANTO SUPERIOR ESQUERDO */
+        .pitch-logo {
+            position: fixed;
+            top: 30px;
+            left: 40px;
+            z-index: 1000;
+            opacity: 0.9;
+        }
+
+        .pitch-logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        /* SLIDE ÚNICO - FULL SCREEN */
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1400px;
+            height: 85vh;
+            padding: 60px 80px;
+            position: relative;
+            animation: fadeInSlide 0.6s ease-out;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* NAVEGAÇÃO INFERIOR - BARRA FIXA */
+        .pitch-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--neutral-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 1000;
+        }
+
+        /* BOTÕES DE NAVEGAÇÃO */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--neutral-300);
+            color: var(--neutral-700);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: var(--neutral-100);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* CONTADOR DE SLIDES */
+        .slide-counter {
+            font-weight: 600;
+            color: var(--neutral-700);
+            font-size: 14px;
+            padding: 10px 20px;
+            background: var(--neutral-100);
+            border-radius: 8px;
+        }
+
+        /* BOTÃO MENU HAMBURGER */
+        .menu-btn {
+            background: transparent;
+            border: 1px solid var(--neutral-300);
+            color: var(--neutral-700);
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .menu-btn:hover {
+            background: var(--neutral-100);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hamburger {
+            width: 20px;
+            height: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* MODAL DE MENU */
+        .menu-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-modal.active {
+            display: flex;
+        }
+
+        .menu-content {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .menu-content h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--neutral-900);
+        }
+
+        .menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-link {
+            padding: 12px 16px;
+            background: var(--neutral-50);
+            border: 1px solid var(--neutral-200);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--neutral-900);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .menu-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .menu-close {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: var(--neutral-200);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .menu-close:hover {
+            background: var(--neutral-300);
+        }
+
+        /* TIPOGRAFIA DE SLIDES */
+        .slide h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--neutral-900);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .slide h2 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--neutral-900);
+            margin-bottom: 30px;
+            word-break: keep-all;
+            letter-spacing: -0.01em;
+            word-break: keep-all;
+            overflow-wrap: normal;
+        }
+
+        /* Ajuste para Slide 5 - título longo */
+        #slide5 h2 {
+            font-size: 40px;
+        }
+
+        .slide h3 {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .slide p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--neutral-700);
+            margin-bottom: 16px;
+        }
+
+        .slide ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .slide li {
+            font-size: 18px;
+            color: var(--neutral-700);
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .slide li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* SLIDE CAPA */
+        .slide-cover {
+            text-align: center;
+        }
+
+        .slide-cover h1 {
+            font-size: 72px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+        }
+
+        .slide-cover .subtitle {
+            font-size: 28px;
+            color: var(--neutral-700);
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        .slide-cover .metadata {
+            font-size: 16px;
+            color: var(--neutral-700);
+            margin-top: 60px;
+        }
+
+        /* GRIDS GENÉRICOS */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--neutral-50);
+            border: 1px solid var(--neutral-200);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            color: var(--neutral-900);
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: var(--neutral-700);
+        }
+
+        .card img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        /* IMAGEM DE DESTAQUE */
+        .slide-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 16px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* STATS BOX */
+        .stats-highlight {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .stats-highlight h3 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .stats-highlight p {
+            font-size: 20px;
+            opacity: 0.95;
+            color: white;
+        }
+
+        /* QUOTE BOX */
+        .quote-box {
+            background: var(--neutral-100);
+            border-left: 4px solid var(--primary);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .quote-box p {
+            font-size: 22px;
+            font-style: italic;
+            color: var(--neutral-900);
+            margin-bottom: 10px;
+        }
+
+        .quote-box cite {
+            font-size: 16px;
+            color: var(--neutral-700);
+            font-style: normal;
+        }
+
+        /* CLASSES AUXILIARES PARA SLIDES DENSOS */
+        .slide.dense {
+            padding: 40px 60px;
+        }
+
+        .slide.dense .grid-3 {
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .slide.dense .card {
+            padding: 20px;
+        }
+
+        .slide.dense h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .slide.dense p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        /* Ajustes específicos para slides com muito conteúdo */
+        #slide2 .card,
+        #slide4 .card {
+            padding: 24px;
+        }
+
+        #slide2 .card img,
+        #slide4 .card img {
+            width: 60px;
+            height: 60px;
+        }
+
+        #slide2 .card h3,
+        #slide4 .card h3 {
+            font-size: 20px;
+        }
+
+        #slide17 .team-photo {
+            width: 100px !important;
+            height: 100px !important;
+            font-size: 36px !important;
+        }
+
+        #slide17 .card p {
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .slide {
+                width: 95%;
+                padding: 40px 30px;
+                height: 80vh;
+            }
+
+            .slide h1 {
+                font-size: 36px;
+            }
+
+            .slide h2 {
+                font-size: 28px;
+            }
+
+            #slide5 h2 {
+                font-size: 26px;
+            }
+
+            .slide-cover h1 {
+                font-size: 40px;
+            }
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .pitch-logo {
+                top: 20px;
+                left: 20px;
+            }
+
+            .pitch-logo img {
+                height: 28px;
+            }
+
+            .pitch-nav {
+                padding: 0 20px;
+            }
+
+            .nav-controls {
+                gap: 10px;
+            }
+
+            .nav-btn,
+            .menu-btn {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .slide-counter {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--
+╔════════════════════════════════════════════════════════════════╗
+║  VERSÕES DO PITCH DECK FASEUP                                  ║
+╠════════════════════════════════════════════════════════════════╣
+║                                                                ║
+║  📊 VERSÃO INVESTIDORES: Slides 1-19 (COMPLETO)               ║
+║     - Foco: ROI, escalabilidade, market fit                   ║
+║     - Inclui: Mercado, financeiro, projeções, pedido          ║
+║                                                                ║
+║  🏛️  VERSÃO PREFEITURAS: Slides 1-6 + 14 + 19 (SELEÇÃO)     ║
+║     - Slides recomendados:                                     ║
+║       1. Capa                                                  ║
+║       2. Problema (foco em transparência pública)             ║
+║       3. Solução (economia + transparência)                   ║
+║       4. Produto (visão geral funcionalidades)                ║
+║       5. Agentic Flow Técnico (diferencial tecnológico)       ║
+║       6. Exemplo Real (caso prático)                          ║
+║       14. Plano Municipal (FOCO PRINCIPAL)                    ║
+║       19. Contato                                             ║
+║                                                                ║
+║  ❌ OMITIR PARA PREFEITURAS:                                  ║
+║     - Slide 7: Mercado TAM/SAM/SOM (dados de investimento)   ║
+║     - Slide 8: Modelo de Negócio (pricing detalhado)         ║
+║     - Slide 9: Tração e Crescimento (timeline investidores)  ║
+║     - Slide 10-13: Competição, GTM, Roadmap (estratégia)     ║
+║     - Slide 15: Time Fundador (não relevante)                ║
+║     - Slide 16: Financeiro (projeções investidores)          ║
+║     - Slide 17: Ask (pedido de investimento)                 ║
+║     - Slide 18: Visão 10 anos (exit strategy)                ║
+║                                                                ║
+║  💡 DICA: Use o Menu (botão inferior direito) para navegar   ║
+║     diretamente aos slides relevantes para cada público.      ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+-->
+    <!-- Logo FaseUp - Fixo no canto superior -->
+    <div class="pitch-logo">
+        <img src="./Assets/Logo-FaseUp-without-background.png" alt="FaseUp">
+    </div>
+
+    <!-- Container Principal - Full Screen -->
+    <div class="pitch-deck-container">
+
+        <!-- SLIDE 1: CAPA -->
+        <div class="slide active" id="slide1">
+            <div class="slide-cover">
+                <h1>FaseUp</h1>
+                <p class="subtitle">Gestão Inteligente de Obras com IA</p>
+                <p style="font-size: 22px; color: var(--neutral-700); max-width: 800px; margin: 0 auto;">
+                    Transformando a construção civil com transparência, dados e agentes autônomos
+                </p>
+                <div class="metadata">
+                    <p><strong>Contato:</strong> contato@faseup.com | www.faseup.com</p>
+                    <p><strong>Data:</strong> Outubro 2025</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: PROBLEMA -->
+        <div class="slide" id="slide2">
+            <h2>A Construção Civil Está Quebrada</h2>
+
+            <div class="grid-3">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/6694543/pexels-photo-6694543.jpeg" alt="Desperdício">
+                    <h3>Desperdício de Recursos</h3>
+                    <ul>
+                        <li>20-30% de retrabalho (CBIC)</li>
+                        <li>40% acima do orçamento</li>
+                        <li><strong>R$ 50 bi/ano desperdiçados</strong></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg" alt="Comunicação">
+                    <h3>Comunicação Fragmentada</h3>
+                    <ul>
+                        <li>WhatsApp + ligações</li>
+                        <li>Informação perdida</li>
+                        <li>Cliente sem visibilidade</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/3760514/pexels-photo-3760514.jpeg" alt="Transparência">
+                    <h3>Falta de Transparência</h3>
+                    <ul>
+                        <li>Cliente não confia</li>
+                        <li>Obras sem prestação de contas</li>
+                        <li>Desvios e superfaturamento</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <p>"Não sei se minha obra está atrasada ou se é mentira do mestre de obras"</p>
+                <cite>- Cliente Real de Construtora</cite>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: SOLUÇÃO -->
+        <div class="slide" id="slide3">
+            <h2>Uma Plataforma. Todo o Ciclo da Obra.</h2>
+            <p style="font-size: 20px; color: var(--neutral-700); max-width: 900px; margin: 20px auto 40px;">
+                App móvel + IA autônoma que organiza, transparentiza e economiza recursos em cada etapa da construção.
+            </p>
+
+            <div class="grid-2" style="gap: 60px; align-items: center;">
+                <!-- Esquerda: Imagem -->
+                <div>
+                    <img src="https://images.pexels.com/photos/3862379/pexels-photo-3862379.jpeg"
+                         alt="Obra moderna em progresso"
+                         style="width: 100%; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+                </div>
+
+                <!-- Direita: 4 Benefícios -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="card" style="padding: 24px;">
+                        <h3 style="font-size: 20px; margin-bottom: 8px;">📋 Organização Total</h3>
+                        <p style="font-size: 16px; margin: 0;">Fases, tarefas, materiais e equipe em um só lugar</p>
+                    </div>
+
+                    <div class="card" style="padding: 24px;">
+                        <h3 style="font-size: 20px; margin-bottom: 8px;">👁️ Transparência Real</h3>
+                        <p style="font-size: 16px; margin: 0;">Cliente acompanha progresso 24/7 em tempo real</p>
+                    </div>
+
+                    <div class="card" style="padding: 24px;">
+                        <h3 style="font-size: 20px; margin-bottom: 8px;">🤖 Inteligência Artificial</h3>
+                        <p style="font-size: 16px; margin: 0;">IA detecta problemas e sugere soluções automaticamente</p>
+                    </div>
+
+                    <div class="card" style="padding: 24px; background: linear-gradient(135deg, var(--secondary), #059669); border: none;">
+                        <h3 style="font-size: 20px; margin-bottom: 8px; color: white;">💰 Economia Comprovada</h3>
+                        <p style="font-size: 16px; margin: 0; color: white; opacity: 0.95;">Reduz retrabalho em 40% e custos em 25%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: PRODUTO -->
+        <div class="slide" id="slide4">
+            <h2>Produto: Visão Geral</h2>
+
+            <div class="grid-3">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg" alt="Gestão">
+                    <h3>Gestão de Obras</h3>
+                    <p>Cronograma, tarefas e marcos visuais</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/259209/pexels-photo-259209.jpeg" alt="Financeiro">
+                    <h3>Controle Financeiro</h3>
+                    <p>Orçamento vs Realizado com gráficos</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/1194713/pexels-photo-1194713.jpeg" alt="Diário">
+                    <h3>Diário de Obra</h3>
+                    <p>Fotos diárias com geolocalização</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg" alt="IA">
+                    <h3>Agentes de IA</h3>
+                    <p>Análise automática de progresso e riscos</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg" alt="Portal">
+                    <h3>Portal do Cliente</h3>
+                    <p>Dashboard público com transparência total</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg" alt="Relatórios">
+                    <h3>Relatórios Inteligentes</h3>
+                    <p>PDFs gerados automaticamente pela IA</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: AGENTIC FLOW -->
+        <div class="slide" id="slide5">
+            <h2>Agentic Flow: 4 Agentes Autônomos</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>1. Classificador de Contexto</h3>
+                    <p><strong>Modelo:</strong> Claude 3.5 Haiku</p>
+                    <p>Analisa perguntas e roteia para especialista</p>
+                    <p><strong>Custo:</strong> $0.002/resposta</p>
+                </div>
+
+                <div class="card">
+                    <h3>2. Análise de Dados</h3>
+                    <p><strong>Modelo:</strong> GPT-4o-mini</p>
+                    <p>Consulta BD, calcula métricas, gera insights</p>
+                    <p><strong>Custo:</strong> $0.004/resposta</p>
+                </div>
+
+                <div class="card">
+                    <h3>3. Visão Computacional</h3>
+                    <p><strong>Modelo:</strong> GPT-4o Vision</p>
+                    <p>Analisa fotos, identifica problemas</p>
+                    <p><strong>Custo:</strong> $0.015/resposta</p>
+                </div>
+
+                <div class="card">
+                    <h3>4. Gerador de Relatórios</h3>
+                    <p><strong>Modelo:</strong> Claude 3.5 Sonnet</p>
+                    <p>Compila análises, gera PDF executivo</p>
+                    <p><strong>Custo:</strong> $0.008/resposta</p>
+                </div>
+            </div>
+
+            <div class="stats-highlight">
+                <h3>$0.029 por interação</h3>
+                <p>1000 análises/mês = R$ 150 | Margem de 95% no plano Professional</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: EXEMPLO AGENTIC FLOW -->
+        <div class="slide" id="slide6">
+            <h2>Agentic Flow: Exemplo Real</h2>
+
+            <div class="card" style="background: #f8fafc;">
+                <h3 style="color: var(--primary);">Pergunta do usuário:</h3>
+                <p style="font-size: 18px; margin-bottom: 20px;">"Como está o progresso da fundação da Obra Residencial Jardins?"</p>
+
+                <h3 style="color: var(--secondary); font-size: 20px;">Resposta em 1.2 segundos:</h3>
+                <p style="font-size: 16px; line-height: 1.8;">
+                    <strong>Progresso:</strong> 67% concluído (8 de 12 pilares)<br>
+                    <strong>Prazo:</strong> No cronograma (12 de 15 dias)<br>
+                    <strong>Alerta:</strong> 3 pilares com armação exposta - Recomendo cobrir com lona antes da chuva prevista
+                </p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Agente 2 (Dados)</h3>
+                    <p>Consultou banco de dados, verificou cronograma e última atualização</p>
+                </div>
+                <div class="card">
+                    <h3>Agente 3 (Visão)</h3>
+                    <p>Analisou foto, contou pilares, identificou risco de corrosão</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: QUEM ATENDEMOS - PIRÂMIDE DE MERCADO -->
+        <div class="slide" id="slide7">
+            <h2>Quem Atendemos: Pirâmide de Mercado</h2>
+            <p style="font-size: 18px; color: var(--neutral-700); max-width: 900px; margin: 0 0 30px;">
+                5 segmentos com necessidades e tickets diferentes. Estratégia bottom-up com foco em prefeituras no longo prazo.
+            </p>
+
+            <div style="display: grid; grid-template-rows: auto auto auto auto auto; gap: 14px; max-width: 900px; margin: 0 auto;">
+
+                <!-- TOPO: PREFEITURAS -->
+                <div class="card" style="background: linear-gradient(135deg, var(--accent), #d97706); border: none; padding: 20px; display: grid; grid-template-columns: 70px 1fr 130px 130px; gap: 16px; align-items: center;">
+                    <div style="font-size: 44px; text-align: center;">🏛️</div>
+                    <div>
+                        <h3 style="color: white; font-size: 20px; margin: 0 0 4px;">Prefeituras</h3>
+                        <p style="color: white; opacity: 0.95; font-size: 13px; margin: 0;">Portal Cidadão + Compliance</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: white; font-size: 15px; font-weight: 700; margin: 0;">5.568</p>
+                        <p style="color: white; opacity: 0.85; font-size: 11px; margin: 0;">municípios</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: white; font-size: 15px; font-weight: 700; margin: 0;">R$ 1.999</p>
+                        <p style="color: white; opacity: 0.85; font-size: 11px; margin: 0;">a R$ 29.999/mês</p>
+                    </div>
+                </div>
+
+                <!-- NÍVEL 4: GRANDES CONSTRUTORAS -->
+                <div class="card" style="padding: 18px; display: grid; grid-template-columns: 60px 1fr 130px 130px; gap: 16px; align-items: center;">
+                    <div style="font-size: 40px; text-align: center;">🏗️</div>
+                    <div>
+                        <h3 style="color: var(--neutral-900); font-size: 18px; margin: 0 0 4px;">Grandes Construtoras</h3>
+                        <p style="color: var(--neutral-700); font-size: 12px; margin: 0;">Enterprise + API + BI avançado</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: var(--neutral-900); font-size: 15px; font-weight: 700; margin: 0;">2.000</p>
+                        <p style="color: var(--neutral-700); font-size: 11px; margin: 0;">empresas</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: var(--neutral-900); font-size: 15px; font-weight: 700; margin: 0;">R$ 4.999</p>
+                        <p style="color: var(--neutral-700); font-size: 11px; margin: 0;">a R$ 9.999/mês</p>
+                    </div>
+                </div>
+
+                <!-- NÍVEL 3: MÉDIAS CONSTRUTORAS -->
+                <div class="card" style="padding: 16px; display: grid; grid-template-columns: 50px 1fr 130px 130px; gap: 16px; align-items: center;">
+                    <div style="font-size: 36px; text-align: center;">🏢</div>
+                    <div>
+                        <h3 style="color: var(--neutral-900); font-size: 17px; margin: 0 0 4px;">Médias Construtoras</h3>
+                        <p style="color: var(--neutral-700); font-size: 12px; margin: 0;">Professional + IA + Integrações</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: var(--neutral-900); font-size: 14px; font-weight: 700; margin: 0;">15.000</p>
+                        <p style="color: var(--neutral-700); font-size: 11px; margin: 0;">empresas</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: var(--neutral-900); font-size: 14px; font-weight: 700; margin: 0;">R$ 999</p>
+                        <p style="color: var(--neutral-700); font-size: 11px; margin: 0;">a R$ 1.999/mês</p>
+                    </div>
+                </div>
+
+                <!-- NÍVEL 2: PEQUENAS CONSTRUTORAS -->
+                <div class="card" style="padding: 14px; display: grid; grid-template-columns: 45px 1fr 130px 130px; gap: 16px; align-items: center;">
+                    <div style="font-size: 32px; text-align: center;">🏠</div>
+                    <div>
+                        <h3 style="color: var(--neutral-900); font-size: 16px; margin: 0 0 4px;">Pequenas Construtoras</h3>
+                        <p style="color: var(--neutral-700); font-size: 11px; margin: 0;">Starter + Controle básico</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: var(--neutral-900); font-size: 14px; font-weight: 700; margin: 0;">80.000</p>
+                        <p style="color: var(--neutral-700); font-size: 10px; margin: 0;">empresas</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: var(--neutral-900); font-size: 14px; font-weight: 700; margin: 0;">R$ 199</p>
+                        <p style="color: var(--neutral-700); font-size: 10px; margin: 0;">a R$ 499/mês</p>
+                    </div>
+                </div>
+
+                <!-- BASE: PROFISSIONAIS AUTÔNOMOS -->
+                <div class="card" style="padding: 12px; display: grid; grid-template-columns: 40px 1fr 130px 130px; gap: 16px; align-items: center;">
+                    <div style="font-size: 28px; text-align: center;">👷</div>
+                    <div>
+                        <h3 style="color: var(--neutral-900); font-size: 15px; margin: 0 0 4px;">Profissionais Autônomos</h3>
+                        <p style="color: var(--neutral-700); font-size: 11px; margin: 0;">Freemium + Upsell</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: var(--neutral-900); font-size: 13px; font-weight: 700; margin: 0;">500.000</p>
+                        <p style="color: var(--neutral-700); font-size: 10px; margin: 0;">profissionais</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: var(--neutral-900); font-size: 13px; font-weight: 700; margin: 0;">R$ 49</p>
+                        <p style="color: var(--neutral-700); font-size: 10px; margin: 0;">a R$ 99/mês</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="stats-highlight" style="margin-top: 24px; padding: 24px;">
+                <h3 style="font-size: 42px;">602.568 potenciais clientes no Brasil</h3>
+                <p style="font-size: 16px;">Estratégia: PMF com autônomos → Escala com pequenas → Captura enterprise + govtech</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: MERCADO TAM/SAM/SOM (antigo slide 7) -->
+        <div class="slide" id="slide8">
+            <h2>Mercado de R$ 1,2 Bilhão no Brasil</h2>
+
+            <div class="grid-3">
+                <div class="stats-highlight">
+                    <h3>R$ 1,2 bi</h3>
+                    <p>TAM - Mercado Total Brasil</p>
+                </div>
+                <div class="stats-highlight" style="background: linear-gradient(135deg, var(--secondary), #059669);">
+                    <h3>R$ 180 mi</h3>
+                    <p>SAM - Nordeste (Foco)</p>
+                </div>
+                <div class="stats-highlight" style="background: linear-gradient(135deg, var(--accent), #d97706);">
+                    <h3>R$ 15 mi</h3>
+                    <p>SOM - 3 anos (Meta)</p>
+                </div>
+            </div>
+
+            <div class="grid-2" style="margin-top: 50px;">
+                <div class="card">
+                    <h3>Privado: 300 mil construtoras</h3>
+                    <p>Ticket médio R$ 300/mês</p>
+                </div>
+                <div class="card">
+                    <h3>Público: 102 prefeituras (AL)</h3>
+                    <p>Ticket médio R$ 3.000/mês</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: MODELO DE NEGÓCIO (antigo slide 8) -->
+        <div class="slide" id="slide9">
+            <h2>Modelo de Negócio: SaaS Multi-tier</h2>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Starter</h3>
+                    <p style="font-size: 36px; font-weight: 900; color: var(--primary); margin: 20px 0;">R$ 99</p>
+                    <ul style="font-size: 14px;">
+                        <li>Até 3 obras</li>
+                        <li>1 usuário</li>
+                        <li>Básico</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border: 2px solid var(--primary); background: linear-gradient(135deg, #eff6ff, #dbeafe);">
+                    <h3>Professional</h3>
+                    <p style="font-size: 36px; font-weight: 900; color: var(--primary); margin: 20px 0;">R$ 299</p>
+                    <ul style="font-size: 14px;">
+                        <li>Até 10 obras</li>
+                        <li>Agentes de IA</li>
+                        <li>Portal Cliente</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Enterprise</h3>
+                    <p style="font-size: 36px; font-weight: 900; color: var(--primary); margin: 20px 0;">R$ 999</p>
+                    <ul style="font-size: 14px;">
+                        <li>Ilimitado</li>
+                        <li>IA avançada</li>
+                        <li>API + Integrações</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stats-highlight">
+                <h3>LTV/CAC: 9.0x</h3>
+                <p>LTV: R$ 10.788 | CAC: R$ 1.200 | Churn: 5%/ano</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: POTENCIAL DE RECEITA - EVOLUÇÃO 3 ANOS -->
+        <div class="slide" id="slide10">
+            <h2>Potencial de Receita: Evolução 3 Anos</h2>
+            <p style="font-size: 17px; color: var(--neutral-700); max-width: 900px; margin: 0 0 30px;">
+                Projeção conservadora baseada em adoção progressiva de cada segmento. Prefeituras entram no Ano 3.
+            </p>
+
+            <div class="grid-3" style="gap: 24px;">
+
+                <!-- ANO 1 -->
+                <div class="card" style="border: 2px solid var(--neutral-300); padding: 24px;">
+                    <h3 style="color: var(--primary); font-size: 26px; margin-bottom: 16px;">Ano 1</h3>
+
+                    <div style="margin-bottom: 16px;">
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px;"><strong>👷 Autônomos:</strong> 500 × R$ 79/mês</p>
+                        <p style="font-size: 12px; color: var(--secondary); margin: 0 0 12px; font-weight: 600;">= R$ 245K/ano</p>
+
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px;"><strong>🏠 Pequenas:</strong> 100 × R$ 299/mês</p>
+                        <p style="font-size: 12px; color: var(--secondary); margin: 0 0 12px; font-weight: 600;">= R$ 358K/ano</p>
+
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px;"><strong>🏢 Médias:</strong> 3 × R$ 1.499/mês</p>
+                        <p style="font-size: 12px; color: var(--secondary); margin: 0; font-weight: 600;">= R$ 54K/ano</p>
+                    </div>
+
+                    <div style="background: var(--neutral-100); padding: 14px; border-radius: 8px; margin-top: 16px;">
+                        <p style="font-size: 14px; font-weight: 700; color: var(--neutral-900); margin: 0 0 4px;">Total ARR</p>
+                        <p style="font-size: 30px; font-weight: 900; color: var(--primary); margin: 0;">R$ 657K</p>
+                    </div>
+                </div>
+
+                <!-- ANO 2 -->
+                <div class="card" style="border: 2px solid var(--secondary); padding: 24px;">
+                    <h3 style="color: var(--secondary); font-size: 26px; margin-bottom: 16px;">Ano 2</h3>
+
+                    <div style="margin-bottom: 16px;">
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px;"><strong>👷 Autônomos:</strong> 2.000 × R$ 79/mês</p>
+                        <p style="font-size: 12px; color: var(--secondary); margin: 0 0 12px; font-weight: 600;">= R$ 948K/ano</p>
+
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px;"><strong>🏠 Pequenas:</strong> 500 × R$ 299/mês</p>
+                        <p style="font-size: 12px; color: var(--secondary); margin: 0 0 12px; font-weight: 600;">= R$ 1,79M/ano</p>
+
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px;"><strong>🏢 Médias:</strong> 50 × R$ 1.499/mês</p>
+                        <p style="font-size: 12px; color: var(--secondary); margin: 0 0 12px; font-weight: 600;">= R$ 899K/ano</p>
+
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px;"><strong>🏗️ Grandes:</strong> 2 × R$ 7.999/mês</p>
+                        <p style="font-size: 12px; color: var(--secondary); margin: 0; font-weight: 600;">= R$ 192K/ano</p>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 14px; border-radius: 8px; margin-top: 16px;">
+                        <p style="font-size: 14px; font-weight: 700; color: var(--neutral-900); margin: 0 0 4px;">Total ARR</p>
+                        <p style="font-size: 30px; font-weight: 900; color: var(--secondary); margin: 0;">R$ 3,83M</p>
+                    </div>
+                </div>
+
+                <!-- ANO 3 -->
+                <div class="card" style="border: 2px solid var(--accent); background: linear-gradient(to bottom, #fffbeb, white); padding: 24px;">
+                    <h3 style="color: var(--accent); font-size: 26px; margin-bottom: 16px;">Ano 3</h3>
+
+                    <div style="margin-bottom: 16px;">
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px;"><strong>👷 Autônomos:</strong> 5.000 × R$ 79/mês</p>
+                        <p style="font-size: 12px; color: var(--accent); margin: 0 0 12px; font-weight: 600;">= R$ 2,37M/ano</p>
+
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px;"><strong>🏠 Pequenas:</strong> 1.500 × R$ 299/mês</p>
+                        <p style="font-size: 12px; color: var(--accent); margin: 0 0 12px; font-weight: 600;">= R$ 5,38M/ano</p>
+
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px;"><strong>🏢 Médias:</strong> 200 × R$ 1.499/mês</p>
+                        <p style="font-size: 12px; color: var(--accent); margin: 0 0 12px; font-weight: 600;">= R$ 3,59M/ano</p>
+
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px;"><strong>🏗️ Grandes:</strong> 20 × R$ 7.999/mês</p>
+                        <p style="font-size: 12px; color: var(--accent); margin: 0 0 12px; font-weight: 600;">= R$ 1,92M/ano</p>
+
+                        <p style="font-size: 13px; color: var(--neutral-700); margin: 0 0 6px; background: linear-gradient(135deg, #fef3c7, transparent); padding: 6px; border-radius: 4px;"><strong>🏛️ Prefeituras:</strong> 50 × R$ 4.999/mês</p>
+                        <p style="font-size: 12px; color: var(--accent); margin: 0; font-weight: 700;">= R$ 2,99M/ano</p>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, var(--accent), #d97706); padding: 14px; border-radius: 8px; margin-top: 16px;">
+                        <p style="font-size: 14px; font-weight: 700; color: white; margin: 0 0 4px;">Total ARR</p>
+                        <p style="font-size: 30px; font-weight: 900; color: white; margin: 0;">R$ 16,25M</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="quote-box" style="margin-top: 24px; background: linear-gradient(135deg, #f0fdf4, white); border-left: 4px solid var(--secondary);">
+                <p style="font-size: 16px; margin-bottom: 6px;">
+                    <strong>Churn estimado:</strong> 8% ano 1 → 5% ano 2 → 4% ano 3 | LTV médio: R$ 10.788 | CAC: R$ 1.200 | Ratio: 9x
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: TRAÇÃO (antigo slide 9) -->
+        <div class="slide" id="slide11">
+            <h2>Tração e Crescimento</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Q3 2025 - MVP em Testes</h3>
+                    <p>3 construtoras beta (8 obras piloto)</p>
+                    <p>Lançamento oficial: Q1 2026</p>
+                </div>
+
+                <div class="card">
+                    <h3>Q1 2026 - Lançamento Oficial</h3>
+                    <p>Meta: 20 clientes pagantes</p>
+                    <p>MRR: R$ 6k</p>
+                </div>
+
+                <div class="card">
+                    <h3>2026 - Escala Regional</h3>
+                    <p>200 clientes</p>
+                    <p>MRR: R$ 60k</p>
+                </div>
+
+                <div class="card">
+                    <h3>2027 - Expansão Nacional</h3>
+                    <p>Meta: 1.500 clientes</p>
+                    <p>MRR: R$ 450k</p>
+                </div>
+            </div>
+
+            <div class="stats-highlight">
+                <h3>2028: R$ 18M ARR</h3>
+                <p>5.000 clientes ativos | Marketplace consolidado</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: VANTAGEM COMPETITIVA (antigo slide 10) -->
+        <div class="slide" id="slide12">
+            <h2>Por Que Somos Diferentes</h2>
+
+            <div class="card" style="margin-bottom: 20px;">
+                <h3>1. Agentic AI de Verdade</h3>
+                <p>4 agentes especializados que tomam decisões autônomas. Concorrentes só têm OCR básico.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 20px;">
+                <h3>2. Transparência Como Core Value</h3>
+                <p>Portal público nativo, 100% das obras visíveis 24/7. Concorrentes escondem dados.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 20px;">
+                <h3>3. Network Effects Regionais</h3>
+                <p>Prefeitura adota → Construtoras parceiras seguem → Fornecedores integram. Efeito cascata natural no ecossistema local.</p>
+            </div>
+
+            <div class="card">
+                <h3>4. Dados Proprietários</h3>
+                <p>Maior dataset de construção civil do Brasil em 3 anos. Impossível replicar.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: CONCORRÊNCIA (antigo slide 11) -->
+        <div class="slide" id="slide13">
+            <h2>Análise de Concorrência</h2>
+
+            <div class="grid-2">
+                <div class="card" style="border: 2px solid var(--secondary);">
+                    <h3 style="color: var(--secondary);">FaseUp</h3>
+                    <ul>
+                        <li>4 Agentes de IA</li>
+                        <li>Portal Cliente Nativo</li>
+                        <li>Plano Municipal + Auditoria</li>
+                        <li>R$ 299/mês</li>
+                        <li>Setup em 24h</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Sienge (Líder Atual)</h3>
+                    <ul>
+                        <li>Sem IA</li>
+                        <li>Sem portal público</li>
+                        <li>Sem plano municipal</li>
+                        <li>R$ 800/mês</li>
+                        <li>Setup em 2-3 semanas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stats-highlight">
+                <h3>Blue Ocean em IA + Transparência</h3>
+                <p>Sienge tem 3.000 clientes mas é legado. Oportunidade de leapfrog.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: GO-TO-MARKET (antigo slide 12) -->
+        <div class="slide" id="slide14">
+            <h2>Estratégia Go-to-Market</h2>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Inbound + SEO</h3>
+                    <p><strong>CAC:</strong> R$ 600</p>
+                    <p>Blog técnico, YouTube, calculadora ROI viral</p>
+                </div>
+
+                <div class="card">
+                    <h3>Parcerias</h3>
+                    <p><strong>CAC:</strong> R$ 300</p>
+                    <p>SINDUSCON, revendas de materiais, contadores</p>
+                </div>
+
+                <div class="card">
+                    <h3>Licitações</h3>
+                    <p><strong>CAC:</strong> R$ 5.000</p>
+                    <p><strong>LTV:</strong> R$ 180.000</p>
+                    <p>Pregões municipais, compliance Lei 14.133</p>
+                </div>
+            </div>
+
+            <div class="stats-highlight">
+                <h3>Meta 2025</h3>
+                <p>60% Inbound | 30% Parcerias | 10% Licitações</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 15: ROADMAP (antigo slide 13) -->
+        <div class="slide" id="slide15">
+            <h2>Roadmap de Produto</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Q4 2025 - Q1 2026: Foundation</h3>
+                    <ul>
+                        <li>Plataforma web oficial</li>
+                        <li>Agentic Flow MVP</li>
+                        <li>Primeiros 20 clientes</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Q2-Q3 2026: Mobile & Scale</h3>
+                    <ul>
+                        <li>App iOS/Android nativo</li>
+                        <li>Integração com ERPs</li>
+                        <li>200 clientes ativos</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Q4 2026 - Q2 2027: Marketplace</h3>
+                    <ul>
+                        <li>Marketplace de fornecedores</li>
+                        <li>Cotações automáticas</li>
+                        <li>1.000+ clientes ativos</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>2028+: Ecosystem Completo</h3>
+                    <ul>
+                        <li>Agentes de design IA</li>
+                        <li>BIM simplificado</li>
+                        <li>Expansão LATAM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 16: PLANO MUNICIPAL (antigo slide 14) -->
+        <div class="slide" id="slide16">
+            <h2>Plano Municipal: Transparência Pública</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Registro Seguro e Rastreável</h3>
+                    <p>Cada foto, nota fiscal e medição fica registrada com timestamp e autoria. Sistema de log completo para auditoria.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Portal Cidadão</h3>
+                    <p>Qualquer cidadão acompanha obras públicas em tempo real. Reduz denúncias.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Compliance Lei 14.133</h3>
+                    <p>Relatórios automáticos TCE/TCU. Reduz 80% do trabalho burocrático.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Análise Inteligente de Dados</h3>
+                    <p>IA auxilia na identificação de padrões incomuns (ex: notas duplicadas, variações atípicas). Suporte à tomada de decisão informada.</p>
+                </div>
+            </div>
+
+            <div class="stats-highlight">
+                <h3>Meta: 100 prefeituras em 5 anos</h3>
+                <p>R$ 77M em ARR do canal público | Setup: R$ 50k | Mensalidade: R$ 15k</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 17: TIME (antigo slide 15) -->
+        <div class="slide" id="slide17">
+            <h2>Time Fundador</h2>
+            <p style="font-size: 18px; color: var(--neutral-700); max-width: 900px; margin: 20px auto 40px;">
+                Equipe multidisciplinar combinando expertise em produto, tecnologia, construção civil e IA autônoma.
+            </p>
+
+            <div class="grid-2" style="gap: 40px;">
+                <!-- Card 1: Rômulo Monte -->
+                <div class="card" style="padding: 32px;">
+                    <div class="team-photo" style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 42px; font-weight: 700;">
+                        RM
+                    </div>
+                    <h3 style="text-align: center; font-size: 22px; margin-bottom: 8px; color: var(--neutral-900);">Rômulo Monte</h3>
+                    <p style="text-align: center; color: var(--primary); font-weight: 600; font-size: 16px; margin-bottom: 16px;">CEO & Product Designer</p>
+                    <p style="font-size: 15px; color: var(--neutral-700); line-height: 1.6; margin-bottom: 12px;">
+                        Designer de Produto especializado em UX/UI e pesquisa de experiência, com histórico de criar soluções digitais para o <strong>Bradesco</strong> (cash management internacional), <strong>ExpressCtb</strong> e <strong>DocIt</strong>.
+                    </p>
+                    <p style="font-size: 15px; color: var(--neutral-700); line-height: 1.6; margin-bottom: 12px;">
+                        Fundador do FaseUp, lidera a visão estratégica, o design e a validação de produto com foco em eficiência operacional para obras públicas e privadas. Combina experiência em metodologias ágeis, Lean UX e Design Sprint com um olhar prático sobre o dia a dia de canteiros de obra e gestão pública.
+                    </p>
+                    <div style="background: var(--primary-50); padding: 16px; border-radius: 8px; border-left: 4px solid var(--primary); margin-top: 16px;">
+                        <p style="font-size: 14px; color: var(--primary-dark); font-style: italic; margin: 0;">
+                            "Transformar a construção civil em um ecossistema digital, transparente e colaborativo."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Dielson Salles -->
+                <div class="card" style="padding: 32px;">
+                    <div class="team-photo" style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--secondary), #059669); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 42px; font-weight: 700;">
+                        DS
+                    </div>
+                    <h3 style="text-align: center; font-size: 22px; margin-bottom: 8px; color: var(--neutral-900);">Dielson Salles</h3>
+                    <p style="text-align: center; color: var(--secondary); font-weight: 600; font-size: 16px; margin-bottom: 16px;">CTO (Chief Technology Officer)</p>
+                    <p style="font-size: 15px; color: var(--neutral-700); line-height: 1.6; margin-bottom: 12px;">
+                        Engenheiro de software com sólida experiência em desenvolvimento backend e arquitetura de sistemas escaláveis.
+                    </p>
+                    <p style="font-size: 15px; color: var(--neutral-700); line-height: 1.6; margin-bottom: 12px;">
+                        Atua na liderança técnica e na integração entre IA e Supabase, garantindo segurança, automação e alta disponibilidade da plataforma.
+                    </p>
+                    <p style="font-size: 15px; color: var(--neutral-700); line-height: 1.6;">
+                        <strong>Especialista em:</strong> Construir infraestruturas robustas para SaaS e integrações de dados em tempo real.
+                    </p>
+                </div>
+
+                <!-- Card 3: David Oliveira -->
+                <div class="card" style="padding: 32px;">
+                    <div class="team-photo" style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--accent), #d97706); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 42px; font-weight: 700;">
+                        DO
+                    </div>
+                    <h3 style="text-align: center; font-size: 22px; margin-bottom: 8px; color: var(--neutral-900);">David Oliveira</h3>
+                    <p style="text-align: center; color: var(--accent); font-weight: 600; font-size: 16px; margin-bottom: 16px;">Consultor de Construção Civil</p>
+                    <p style="font-size: 15px; color: var(--neutral-700); line-height: 1.6; margin-bottom: 12px;">
+                        <strong>8 anos em construtoras</strong> como <strong>Tenda</strong> e <strong>MRV</strong>. Ex-gestor de mais de <strong>50 obras simultâneas</strong>.
+                    </p>
+                    <p style="font-size: 15px; color: var(--neutral-700); line-height: 1.6; margin-bottom: 12px;">
+                        <strong>MBA em Gestão de Projetos (FGV)</strong>.
+                    </p>
+                    <p style="font-size: 15px; color: var(--neutral-700); line-height: 1.6; margin-bottom: 12px;">
+                        Traz a visão prática do canteiro e dos desafios reais da execução, sendo <strong>ponte entre a tecnologia e as necessidades do setor</strong>.
+                    </p>
+                    <p style="font-size: 15px; color: var(--neutral-700); line-height: 1.6;">
+                        Traduz a realidade das obras em requisitos de produto e processos de sucesso.
+                    </p>
+                </div>
+
+                <!-- Card 4: Melvin Menezes -->
+                <div class="card" style="padding: 32px;">
+                    <div class="team-photo" style="width: 120px; height: 120px; background: linear-gradient(135deg, #8b5cf6, #6d28d9); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 42px; font-weight: 700;">
+                        MM
+                    </div>
+                    <h3 style="text-align: center; font-size: 22px; margin-bottom: 8px; color: var(--neutral-900);">Melvin Menezes</h3>
+                    <p style="text-align: center; color: #8b5cf6; font-weight: 600; font-size: 16px; margin-bottom: 16px;">Especialista em Agentic AI</p>
+                    <p style="font-size: 15px; color: var(--neutral-700); line-height: 1.6; margin-bottom: 12px;">
+                        Desenvolvedor backend com <strong>5 anos de experiência</strong> em <strong>Python e Node.js</strong>, atuando com IA autônoma e pipelines de agentes inteligentes.
+                    </p>
+                    <p style="font-size: 15px; color: var(--neutral-700); line-height: 1.6;">
+                        Responsável pelo <strong>"Agentic Flow"</strong>, motor de IA que dá vida aos agentes autônomos do FaseUp.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 18: FINANCEIRO (antigo slide 16) -->
+        <div class="slide" id="slide18">
+            <h2>Projeções Financeiras: 2026-2028</h2>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h3>2026</h3>
+                    <p><strong>Clientes:</strong> 150</p>
+                    <p><strong>ARR:</strong> R$ 540k</p>
+                    <p><strong>Churn:</strong> 8%/mês</p>
+                </div>
+
+                <div class="card" style="border: 2px solid var(--secondary);">
+                    <h3>2027</h3>
+                    <p><strong>Clientes:</strong> 1.500</p>
+                    <p><strong>ARR:</strong> R$ 5.4M</p>
+                    <p><strong>Churn:</strong> 5%/mês</p>
+                </div>
+
+                <div class="card">
+                    <h3>2028</h3>
+                    <p><strong>Clientes:</strong> 5.000</p>
+                    <p><strong>ARR:</strong> R$ 18M</p>
+                    <p><strong>Churn:</strong> 4%/mês</p>
+                </div>
+            </div>
+
+            <div class="stats-highlight">
+                <h3>Unit Economics Saudável</h3>
+                <p>LTV: R$ 10.788 | CAC: R$ 1.200 | LTV/CAC: 9x | Payback: 4 meses</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 19: INVESTIMENTO (antigo slide 17) -->
+        <div class="slide" id="slide19">
+            <h2>The Ask: Série Seed</h2>
+
+            <div class="grid-3">
+                <div class="stats-highlight">
+                    <h3>R$ 2M</h3>
+                    <p>Investimento Seed</p>
+                </div>
+                <div class="stats-highlight" style="background: linear-gradient(135deg, var(--secondary), #059669);">
+                    <h3>12-15%</h3>
+                    <p>Equity</p>
+                </div>
+                <div class="stats-highlight" style="background: linear-gradient(135deg, var(--accent), #d97706);">
+                    <h3>18 meses</h3>
+                    <p>Runway</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px; margin-bottom: 20px;">Uso do Investimento</h3>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Produto & Tech (40%)</h3>
+                    <p>Time + infraestrutura</p>
+                </div>
+                <div class="card">
+                    <h3>Marketing & Vendas (35%)</h3>
+                    <p>CAC + parcerias</p>
+                </div>
+                <div class="card">
+                    <h3>Contratações (20%)</h3>
+                    <p>5 pessoas-chave</p>
+                </div>
+                <div class="card">
+                    <h3>Jurídico & Compliance (5%)</h3>
+                    <p>Licitações</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 20: VISÃO DE LONGO PRAZO (antigo slide 18) -->
+        <div class="slide" id="slide20">
+            <h2>Visão de Longo Prazo: 10 Anos</h2>
+
+            <div class="stats-highlight">
+                <h3>Nossa Missão</h3>
+                <p>Tornar toda obra 100% transparente e eficiente através de IA, reduzindo desperdícios, corrupção e assimetria de informação.</p>
+            </div>
+
+            <div class="grid-3" style="margin-top: 40px;">
+                <div class="card">
+                    <h3 style="font-size: 48px; color: var(--primary);">50.000</h3>
+                    <p>Obras ativas simultâneas</p>
+                </div>
+                <div class="card">
+                    <h3 style="font-size: 48px; color: var(--primary);">500</h3>
+                    <p>Municípios usando FaseUp</p>
+                </div>
+                <div class="card">
+                    <h3 style="font-size: 48px; color: var(--primary);">R$ 5 bi</h3>
+                    <p>Economizados em desperdícios</p>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <p>"Toda grande empresa começa resolvendo um problema óbvio que todos ignoram."</p>
+                <cite>- Paul Graham, Y Combinator</cite>
+            </div>
+        </div>
+
+        <!-- SLIDE 21: CONTATO (antigo slide 19) -->
+        <div class="slide" id="slide21">
+            <h2>Vamos Construir o Futuro Juntos?</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>FaseUp - Gestão Inteligente de Obras</h3>
+
+                    <p style="font-size: 18px; font-weight: 600; color: var(--neutral-900); margin: 24px 0 16px;">Rômulo Monte (CEO)</p>
+
+                    <p style="margin-bottom: 12px;">
+                        📧 <a href="mailto:romulomonte01@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">romulomonte01@gmail.com</a>
+                    </p>
+
+                    <p style="margin-bottom: 24px;">
+                        📱 <a href="https://wa.me/5582999764117" style="color: var(--primary); text-decoration: none; font-weight: 600;">WhatsApp: +55 82 99976-4117</a>
+                    </p>
+                    <div style="padding-top: 20px; border-top: 1px solid var(--neutral-200);">
+                        <p style="margin-bottom: 8px;">📍 Maceió, Alagoas, Brasil</p>
+                        <p>🌐 <a href="https://www.faseup.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">www.faseup.com</a></p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Próximos Passos</h3>
+                    <ul>
+                        <li>Agendar reunião (30min)</li>
+                        <li>Demo ao vivo da plataforma</li>
+                        <li>Data room (métricas, contratos)</li>
+                        <li>Diligência com clientes</li>
+                        <li>Term sheet e fechamento</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stats-highlight" style="margin-top: 40px;">
+                <h3>Por Que Investir Agora?</h3>
+                <p>IA mainstream + mercado digital + regulação favorável + Valuation acessível (R$ 11M pré-money) + Tração inicial comprovada + Time A+ em execução</p>
+            </div>
+
+            <div class="quote-box">
+                <p>A construção civil vai se digitalizar. A única pergunta é: quem vai liderar?</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navegação Inferior Fixa -->
+    <nav class="pitch-nav">
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+                ← Anterior
+            </button>
+            <div class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">21</span>
+            </div>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+                Próximo →
+            </button>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            Menu
+        </button>
+    </nav>
+
+    <!-- Modal de Menu -->
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <h3>Menu</h3>
+            <div class="menu-links">
+                <a href="/" class="menu-link">← Voltar ao Site</a>
+
+                <!-- Separador -->
+                <div style="border-top: 1px solid var(--neutral-200); margin: 12px 0; padding-top: 12px;">
+                    <p style="font-size: 12px; color: var(--neutral-700); margin-bottom: 8px; font-weight: 600;">NAVEGAÇÃO RÁPIDA:</p>
+                </div>
+
+                <a class="menu-link" onclick="goToSlide(1)">Capa</a>
+                <a class="menu-link" onclick="goToSlide(2)">Problema</a>
+                <a class="menu-link" onclick="goToSlide(3)">Solução</a>
+                <a class="menu-link" onclick="goToSlide(7)">🎯 Quem Atendemos</a>
+                <a class="menu-link" onclick="goToSlide(10)">📊 Potencial de Receita</a>
+                <a class="menu-link" onclick="goToSlide(16)">🏛️ Plano Municipal</a>
+                <a class="menu-link" onclick="goToSlide(18)">Financeiro</a>
+                <a class="menu-link" onclick="goToSlide(19)">💰 Investimento</a>
+                <a class="menu-link" onclick="goToSlide(21)">Contato</a>
+
+                <!-- Separador -->
+                <div style="border-top: 1px solid var(--neutral-200); margin: 12px 0; padding-top: 12px;">
+                    <p style="font-size: 12px; color: var(--neutral-700); margin-bottom: 8px; font-weight: 600;">ATALHOS:</p>
+                </div>
+
+                <a href="pitch-deck-prefeituras.html" class="menu-link" style="background: var(--primary); color: white; border-color: var(--primary);">
+                    Versão Prefeituras (8 slides)
+                </a>
+            </div>
+            <button class="menu-close" onclick="toggleMenu()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Navegação de Slides
+        let currentSlide = 1;
+        const totalSlides = 21;
+
+        // Slides relevantes por público
+        const slidesInvestidores = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
+        const slidesPrefeituras = [1,2,3,4,5,6,7,10,16,21];
+
+        let currentMode = 'investidores';
+        let allowedSlides = slidesInvestidores;
+
+        function presentationMode(mode) {
+            currentMode = mode;
+
+            if (mode === 'prefeituras') {
+                allowedSlides = slidesPrefeituras;
+                alert('Modo Prefeituras ativado!\n\nApenas slides relevantes:\n1. Capa\n2. Problema\n3. Solução\n4. Produto\n5. Agentic Flow\n6. Exemplo Real\n14. Plano Municipal\n19. Contato');
+            } else {
+                allowedSlides = slidesInvestidores;
+                alert('Modo Investidores ativado!\n\nTodos os 19 slides disponíveis.');
+            }
+
+            goToSlide(1);
+            toggleMenu();
+        }
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide;
+
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === totalSlides;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+            toggleMenu();
+        }
+
+        // Navegação por teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                changeSlide(-1);
+            }
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            }
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('menuModal');
+                if (modal.classList.contains('active')) {
+                    toggleMenu();
+                }
+            }
+        });
+
+        // Toggle Menu
+        function toggleMenu() {
+            document.getElementById('menuModal').classList.toggle('active');
+        }
+
+        // Fechar menu ao clicar fora
+        document.getElementById('menuModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                toggleMenu();
+            }
+        });
+
+        // Inicializar
+        document.getElementById('totalSlides').textContent = totalSlides;
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
