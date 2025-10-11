@@ -614,6 +614,169 @@
                 rgba(252, 211, 77, 0.1) 100%) !important;
         }
 
+        /* ============================================
+           CORREÇÕES ESPECÍFICAS POR SEÇÃO
+           ============================================ */
+
+        /* 1. EXEMPLO REAL EM AÇÃO - Melhorar contraste */
+        .dark-mode .bg-gradient-to-br.from-primary-50.via-white.to-warning-50 {
+            background: linear-gradient(135deg,
+                rgba(96, 165, 250, 0.15) 0%,
+                var(--bg-secondary) 50%,
+                rgba(252, 211, 77, 0.15) 100%) !important;
+        }
+
+        .dark-mode .bg-white\/80 {
+            background: rgba(31, 41, 55, 0.8) !important;
+        }
+
+        .dark-mode .border-primary-500 {
+            border-color: var(--primary) !important;
+        }
+
+        /* 2. SOLUÇÃO COMPLETA - Padronizar backgrounds e borders dos cards */
+        .dark-mode .bg-success\/10 {
+            background: rgba(110, 231, 183, 0.15) !important;
+        }
+
+        .dark-mode .border-success\/30 {
+            border-color: rgba(110, 231, 183, 0.4) !important;
+        }
+
+        .dark-mode .bg-info\/10 {
+            background: rgba(147, 197, 253, 0.15) !important;
+        }
+
+        .dark-mode .border-info\/30 {
+            border-color: rgba(147, 197, 253, 0.4) !important;
+        }
+
+        .dark-mode .bg-primary\/10 {
+            background: rgba(96, 165, 250, 0.15) !important;
+        }
+
+        .dark-mode .border-primary\/30 {
+            border-color: rgba(96, 165, 250, 0.4) !important;
+        }
+
+        .dark-mode .bg-tertiary\/10 {
+            background: rgba(252, 211, 77, 0.15) !important;
+        }
+
+        .dark-mode .border-tertiary\/30 {
+            border-color: rgba(252, 211, 77, 0.4) !important;
+        }
+
+        /* Card com gradient no final da seção Solução */
+        .dark-mode .bg-gradient-to-r.from-secondary\/20.via-primary\/20.to-tertiary\/20 {
+            background: linear-gradient(to right,
+                rgba(110, 231, 183, 0.15) 0%,
+                rgba(96, 165, 250, 0.15) 50%,
+                rgba(252, 211, 77, 0.15) 100%) !important;
+        }
+
+        .dark-mode .border-primary\/20 {
+            border-color: rgba(96, 165, 250, 0.3) !important;
+        }
+
+        /* 3. VEJA O FASEUP EM AÇÃO - Cores específicas por visão */
+
+        /* Visão do Gestor - BEGE (#E7CFA9 adaptado) */
+        .dark-mode #demo-gestor.demo-tab-active,
+        .dark-mode #demo-gestor-content h3 {
+            color: #d4b896 !important;
+        }
+
+        .dark-mode #demo-gestor.demo-tab-active {
+            background: rgba(212, 184, 150, 0.2) !important;
+            border: 1px solid rgba(212, 184, 150, 0.4) !important;
+        }
+
+        /* Visão do Operário - LARANJA (#f59e0b - accent) */
+        .dark-mode #demo-operario.demo-tab-active {
+            background: rgba(252, 211, 77, 0.2) !important;
+            border: 1px solid rgba(252, 211, 77, 0.4) !important;
+            color: var(--accent) !important;
+        }
+
+        .dark-mode #demo-operario-content h3 {
+            color: var(--accent) !important;
+        }
+
+        .dark-mode #demo-operario-content .border-tertiary\/20 {
+            border-color: rgba(252, 211, 77, 0.4) !important;
+        }
+
+        /* Visão do Cliente - VERDE (#10b981 - secondary) */
+        .dark-mode #demo-cliente.demo-tab-active {
+            background: rgba(110, 231, 183, 0.2) !important;
+            border: 1px solid rgba(110, 231, 183, 0.4) !important;
+            color: var(--secondary) !important;
+        }
+
+        .dark-mode #demo-cliente-content h3 {
+            color: var(--secondary) !important;
+        }
+
+        /* Relatórios - AZUL (primary) - Já está correto */
+        .dark-mode #demo-relatorios.demo-tab-active {
+            background: rgba(96, 165, 250, 0.2) !important;
+            border: 1px solid rgba(96, 165, 250, 0.4) !important;
+            color: var(--primary) !important;
+        }
+
+        /* Border do container de demo */
+        .dark-mode .border-primary\/20 {
+            border-color: rgba(96, 165, 250, 0.3) !important;
+        }
+
+        /* 4. TECNOLOGIA E SEGURANÇA - Padronizar borders dos cards */
+        .dark-mode section:has([class*="Tecnologia"]) .bg-background,
+        .dark-mode section:has([class*="Segurança"]) .bg-background {
+            background: var(--bg-secondary) !important;
+            border: 1px solid var(--border-medium) !important;
+        }
+
+        .dark-mode section:has([class*="Tecnologia"]) .border-primary,
+        .dark-mode section:has([class*="Segurança"]) .border-primary {
+            border-color: var(--primary) !important;
+        }
+
+        /* 5. BOTÃO "SIM, QUERO SER APOIADOR FUNDADOR" - Corrigir contraste */
+        .dark-mode button.bg-accent.text-white,
+        .dark-mode button[onclick*="openApoiador"] {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%) !important;
+            color: #0a0e14 !important;
+            font-weight: 800 !important;
+        }
+
+        .dark-mode button.bg-accent.text-white:hover,
+        .dark-mode button[onclick*="openApoiador"]:hover {
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%) !important;
+            color: #0a0e14 !important;
+        }
+
+        /* 6. CENTRAL DE FEEDBACK - Remover componente desnecessário acima do título */
+        .dark-mode #feedback .bg-info\/20 {
+            background: rgba(147, 197, 253, 0.2) !important;
+        }
+
+        /* 7. FOOTER - Padronizar cores dos links */
+        .dark-mode footer a,
+        .dark-mode footer button {
+            color: var(--text-secondary) !important;
+        }
+
+        .dark-mode footer a:hover,
+        .dark-mode footer button:hover {
+            color: var(--primary) !important;
+        }
+
+        /* Exceção: Central de Feedback mantém cor info */
+        .dark-mode footer button[onclick*="scrollToFeedback"]:hover {
+            color: var(--info) !important;
+        }
+
         /* Image optimization styles */
         img[loading="lazy"] {
             opacity: 0;
@@ -2639,11 +2802,6 @@
     <section id="feedback" class="feedback-section py-20 px-6 bg-surface/30">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16">
-                <div class="flex justify-center mb-6">
-                    <div class="bg-info/20 p-4 rounded-2xl">
-                        <i class="fas fa-comments-dots text-4xl text-info"></i>
-                    </div>
-                </div>
                 <h2 class="text-4xl lg:text-5xl font-bold text-textPrimary mb-6" data-translate="feedback.title">
                     Central de Feedback - Transparência Total
                 </h2>
