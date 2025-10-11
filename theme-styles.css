@@ -228,3 +228,588 @@ select {
 .dark-mode {
     color-scheme: dark;
 }
+
+/* ============================================
+   NAVBAR - PADRÃO UNIVERSAL PARA TODAS AS PÁGINAS
+   ============================================ */
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(229, 229, 229, 0.8);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all var(--transition-normal);
+}
+
+nav a {
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* Dark Mode - Navbar */
+.dark-mode nav {
+    background: rgba(10, 14, 20, 0.95) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(55, 65, 81, 0.8) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-mode nav a {
+    color: var(--text-secondary) !important;
+}
+
+.dark-mode nav a:hover {
+    color: var(--primary) !important;
+}
+
+.dark-mode nav button {
+    color: var(--text-secondary) !important;
+}
+
+.dark-mode nav button:hover {
+    color: var(--primary) !important;
+}
+
+/* ============================================
+   SEÇÕES - DARK MODE ESPECÍFICO
+   ============================================ */
+
+/* Hero Section */
+.dark-mode .hero-pattern {
+    background: linear-gradient(135deg, #0a0e14 0%, #151922 100%) !important;
+}
+
+.dark-mode .hero-section {
+    background: linear-gradient(135deg, #0a0e14 0%, #151922 100%) !important;
+}
+
+/* Para Quem é Section */
+.dark-mode section:has(.feature-card) {
+    background: var(--bg-primary) !important;
+}
+
+/* Como Funciona Section */
+.dark-mode section:has(.step-card) {
+    background: var(--bg-secondary) !important;
+}
+
+/* Funcionalidades Section */
+.dark-mode #demo,
+.dark-mode section:has(#demo) {
+    background: var(--bg-secondary) !important;
+}
+
+/* Pricing Section */
+.dark-mode #pricing,
+.dark-mode section:has(#pricing) {
+    background: var(--bg-primary) !important;
+}
+
+/* Testimonials Section */
+.dark-mode #testimonials,
+.dark-mode section:has(#testimonials) {
+    background: var(--bg-secondary) !important;
+}
+
+/* Feedback Section */
+.dark-mode #feedback,
+.dark-mode .feedback-section {
+    background: var(--bg-primary) !important;
+}
+
+/* CTA Final Section */
+.dark-mode .cta-final {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%) !important;
+    border-top: 1px solid var(--border-light) !important;
+}
+
+/* Tecnologia e Segurança Section */
+.dark-mode section:has(.bg-background.border-primary) {
+    background: var(--bg-secondary) !important;
+}
+
+/* ============================================
+   COMPONENTES - CARDS
+   ============================================ */
+.dark-mode .card,
+.dark-mode .feature-card {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-light) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-mode .card:hover,
+.dark-mode .feature-card:hover {
+    border-color: var(--border-medium) !important;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Price Cards */
+.dark-mode .price-card,
+.dark-mode #pricing .bg-surface {
+    background: var(--bg-secondary) !important;
+    border-color: var(--border-light) !important;
+}
+
+.dark-mode #pricing .bg-gradient-to-br {
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(96, 165, 250, 0.05) 100%) !important;
+    border-color: var(--primary) !important;
+}
+
+/* Testimonial Cards */
+.dark-mode .testimonial-card,
+.dark-mode #testimonials .bg-background {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-light) !important;
+}
+
+/* Feedback Cards */
+.dark-mode .feedback-card,
+.dark-mode #feedback .bg-background {
+    background: var(--bg-secondary) !important;
+    border-color: var(--border-light) !important;
+}
+
+/* ============================================
+   COMPONENTES - BOTÕES
+   ============================================ */
+.dark-mode .btn-primary,
+.dark-mode button.bg-primary-600,
+.dark-mode button[class*="bg-primary"] {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+    color: var(--text-inverse) !important;
+}
+
+.dark-mode .btn-primary:hover,
+.dark-mode button.bg-primary-600:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%) !important;
+}
+
+.dark-mode .btn-secondary,
+.dark-mode button[class*="border-2"][class*="border-primary"] {
+    background: transparent !important;
+    border-color: var(--border-medium) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-mode .btn-secondary:hover,
+.dark-mode button[class*="border-2"][class*="border-primary"]:hover {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--primary) !important;
+}
+
+/* CTA Buttons especiais */
+.dark-mode button.bg-accent,
+.dark-mode button[class*="bg-accent"] {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%) !important;
+    color: var(--bg-primary) !important;
+}
+
+.dark-mode button.bg-secondary,
+.dark-mode button[class*="bg-secondary"] {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%) !important;
+    color: var(--bg-primary) !important;
+}
+
+/* ============================================
+   COMPONENTES - BADGES E TAGS
+   ============================================ */
+.dark-mode .badge,
+.dark-mode .tag,
+.dark-mode [class*="bg-primary/20"],
+.dark-mode [class*="bg-info/20"],
+.dark-mode [class*="bg-success/20"],
+.dark-mode [class*="bg-warning/20"],
+.dark-mode [class*="bg-tertiary/20"],
+.dark-mode [class*="bg-accent/20"] {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-medium) !important;
+}
+
+.dark-mode .bg-primary-100,
+.dark-mode [class*="bg-primary-100"] {
+    background: rgba(96, 165, 250, 0.2) !important;
+    color: var(--primary) !important;
+}
+
+/* ============================================
+   TAILWIND OVERRIDES - BACKGROUNDS
+   ============================================ */
+.dark-mode .bg-white,
+.dark-mode [class*="bg-white"] {
+    background-color: var(--bg-secondary) !important;
+}
+
+.dark-mode .bg-gray-50,
+.dark-mode .bg-neutral-50,
+.dark-mode [class*="bg-gray-50"],
+.dark-mode [class*="bg-neutral-50"] {
+    background-color: var(--bg-secondary) !important;
+}
+
+.dark-mode .bg-gray-100,
+.dark-mode .bg-neutral-100,
+.dark-mode [class*="bg-gray-100"],
+.dark-mode [class*="bg-neutral-100"] {
+    background-color: var(--bg-tertiary) !important;
+}
+
+.dark-mode .bg-surface,
+.dark-mode [class*="bg-surface"] {
+    background-color: var(--bg-secondary) !important;
+}
+
+.dark-mode .bg-background,
+.dark-mode [class*="bg-background"] {
+    background-color: var(--bg-primary) !important;
+}
+
+.dark-mode .bg-blue-50,
+.dark-mode [class*="bg-blue-50"] {
+    background-color: rgba(96, 165, 250, 0.1) !important;
+}
+
+.dark-mode .bg-gradient-to-b {
+    background: linear-gradient(to bottom, var(--bg-primary) 0%, var(--bg-secondary) 100%) !important;
+}
+
+.dark-mode .bg-gradient-to-r {
+    background: linear-gradient(to right,
+        rgba(96, 165, 250, 0.1) 0%,
+        rgba(110, 231, 183, 0.1) 50%,
+        rgba(252, 211, 77, 0.1) 100%) !important;
+}
+
+/* ============================================
+   TAILWIND OVERRIDES - TEXT COLORS
+   ============================================ */
+.dark-mode .text-gray-900,
+.dark-mode .text-neutral-900,
+.dark-mode .text-textPrimary,
+.dark-mode [class*="text-gray-900"],
+.dark-mode [class*="text-neutral-900"] {
+    color: var(--text-primary) !important;
+}
+
+.dark-mode .text-gray-800,
+.dark-mode .text-neutral-800,
+.dark-mode [class*="text-gray-800"],
+.dark-mode [class*="text-neutral-800"] {
+    color: var(--text-primary) !important;
+}
+
+.dark-mode .text-gray-700,
+.dark-mode .text-neutral-700,
+.dark-mode [class*="text-gray-700"],
+.dark-mode [class*="text-neutral-700"] {
+    color: var(--text-secondary) !important;
+}
+
+.dark-mode .text-gray-600,
+.dark-mode .text-neutral-600,
+.dark-mode .text-textSecondary,
+.dark-mode [class*="text-gray-600"],
+.dark-mode [class*="text-neutral-600"] {
+    color: var(--text-secondary) !important;
+}
+
+.dark-mode .text-gray-500,
+.dark-mode .text-neutral-500,
+.dark-mode [class*="text-gray-500"],
+.dark-mode [class*="text-neutral-500"] {
+    color: var(--text-tertiary) !important;
+}
+
+/* Cores de marca - manter vibrantes */
+.dark-mode .text-primary,
+.dark-mode .text-primary-600,
+.dark-mode [class*="text-primary-600"] {
+    color: var(--primary) !important;
+}
+
+.dark-mode .text-primary-700,
+.dark-mode [class*="text-primary-700"] {
+    color: var(--primary) !important;
+}
+
+.dark-mode .text-info,
+.dark-mode [class*="text-info"] {
+    color: var(--info) !important;
+}
+
+.dark-mode .text-success,
+.dark-mode .text-success-600,
+.dark-mode [class*="text-success-600"] {
+    color: var(--success) !important;
+}
+
+.dark-mode .text-warning,
+.dark-mode .text-warning-600,
+.dark-mode [class*="text-warning-600"] {
+    color: var(--warning) !important;
+}
+
+.dark-mode .text-error,
+.dark-mode [class*="text-error"] {
+    color: var(--error) !important;
+}
+
+.dark-mode .text-secondary,
+.dark-mode [class*="text-secondary"] {
+    color: var(--secondary) !important;
+}
+
+.dark-mode .text-tertiary,
+.dark-mode .text-accent,
+.dark-mode [class*="text-tertiary"],
+.dark-mode [class*="text-accent"] {
+    color: var(--accent) !important;
+}
+
+/* ============================================
+   TAILWIND OVERRIDES - BORDERS
+   ============================================ */
+.dark-mode .border-gray-200,
+.dark-mode .border-neutral-200,
+.dark-mode [class*="border-gray-200"],
+.dark-mode [class*="border-neutral-200"] {
+    border-color: var(--border-light) !important;
+}
+
+.dark-mode .border-gray-300,
+.dark-mode .border-neutral-300,
+.dark-mode [class*="border-gray-300"],
+.dark-mode [class*="border-neutral-300"] {
+    border-color: var(--border-medium) !important;
+}
+
+.dark-mode .border-primary\/20,
+.dark-mode [class*="border-primary/20"] {
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+.dark-mode .border-primary\/30,
+.dark-mode [class*="border-primary/30"] {
+    border-color: rgba(96, 165, 250, 0.4) !important;
+}
+
+.dark-mode .border-success\/20,
+.dark-mode [class*="border-success/20"] {
+    border-color: rgba(110, 231, 183, 0.3) !important;
+}
+
+.dark-mode .border-warning\/30,
+.dark-mode [class*="border-warning/30"] {
+    border-color: rgba(252, 211, 77, 0.4) !important;
+}
+
+.dark-mode .border-info\/30,
+.dark-mode [class*="border-info/30"] {
+    border-color: rgba(147, 197, 253, 0.4) !important;
+}
+
+/* ============================================
+   IMAGENS E SCREENSHOTS
+   ============================================ */
+.dark-mode img:not(.logo):not([alt*="Logotipo"]):not([class*="avatar"]) {
+    opacity: 0.92;
+    filter: brightness(0.95) contrast(1.05);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.dark-mode img:not(.logo):not([alt*="Logotipo"]):hover {
+    opacity: 1;
+    filter: brightness(1) contrast(1);
+}
+
+/* Screenshots e mockups */
+.dark-mode .screenshot,
+.dark-mode .mockup,
+.dark-mode [class*="hero-iphone"],
+.dark-mode img[alt*="iPhone"],
+.dark-mode img[alt*="Mockup"] {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid var(--border-light) !important;
+}
+
+/* Feature images */
+.dark-mode .feature-image img {
+    opacity: 0.88;
+    border-radius: 12px;
+}
+
+/* ============================================
+   FORMS E INPUTS
+   ============================================ */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-medium) !important;
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus {
+    border-color: var(--primary) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2) !important;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: var(--text-tertiary) !important;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.dark-mode footer {
+    background: var(--bg-secondary) !important;
+    border-top: 1px solid var(--border-light) !important;
+}
+
+.dark-mode footer a {
+    color: var(--text-secondary);
+}
+
+.dark-mode footer a:hover {
+    color: var(--primary);
+}
+
+.dark-mode footer button {
+    color: var(--text-secondary);
+}
+
+.dark-mode footer button:hover {
+    color: var(--primary);
+}
+
+/* ============================================
+   SPECIAL ELEMENTS
+   ============================================ */
+
+/* Floating elements */
+.dark-mode [class*="absolute"][class*="bg-success"] {
+    background: rgba(110, 231, 183, 0.2) !important;
+    border-color: rgba(110, 231, 183, 0.3) !important;
+    backdrop-filter: blur(10px);
+}
+
+.dark-mode [class*="absolute"][class*="bg-primary"] {
+    background: rgba(96, 165, 250, 0.2) !important;
+    border-color: rgba(96, 165, 250, 0.3) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Modals */
+.dark-mode .modal-content,
+.dark-mode .modal-overlay > div {
+    background: var(--bg-elevated) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-light) !important;
+}
+
+/* Image viewer */
+.dark-mode .image-viewer {
+    background: rgba(10, 14, 20, 0.98) !important;
+}
+
+/* Countdown */
+.dark-mode .countdown-digit {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%) !important;
+    color: var(--bg-primary) !important;
+}
+
+/* ============================================
+   ACCESSIBILITY - WCAG AAA COMPLIANCE
+   ============================================ */
+
+/* Ensure all text meets WCAG AAA contrast */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+    color: var(--text-primary) !important;
+}
+
+.dark-mode p,
+.dark-mode li,
+.dark-mode span:not([class*="text-primary"]):not([class*="text-success"]):not([class*="text-warning"]):not([class*="text-info"]) {
+    color: var(--text-secondary);
+}
+
+.dark-mode blockquote {
+    color: var(--text-secondary);
+    border-left: 3px solid var(--border-medium);
+}
+
+/* Focus states for accessibility */
+.dark-mode *:focus-visible {
+    outline: 2px solid var(--primary) !important;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   SCROLLBAR - DARK MODE
+   ============================================ */
+.dark-mode ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.dark-mode ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+    border: 2px solid var(--bg-primary);
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: var(--border-dark);
+}
+
+/* Firefox */
+.dark-mode * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-tertiary) var(--bg-primary);
+}
+
+/* ============================================
+   PERFORMANCE & TRANSITIONS
+   ============================================ */
+.dark-mode * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+/* Prevent transition on theme toggle */
+.dark-mode.no-transition * {
+    transition: none !important;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+    .dark-mode nav {
+        background: rgba(10, 14, 20, 0.98) !important;
+    }
+
+    .dark-mode .card,
+    .dark-mode .feature-card {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    }
+}

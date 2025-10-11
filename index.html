@@ -366,6 +366,254 @@
             color: var(--primary-light);
         }
 
+        /* ============================================
+           SECTION-SPECIFIC DARK MODE STYLES
+           ============================================ */
+
+        /* Hero Section - Dark gradient */
+        .dark-mode section:first-of-type,
+        .dark-mode .hero-section {
+            background: linear-gradient(135deg, #0a0e14 0%, #151922 100%) !important;
+        }
+
+        /* Problems Section */
+        .dark-mode section:has([class*="Principais Problemas"]),
+        .dark-mode section:has([class*="problema"]) {
+            background: var(--bg-secondary) !important;
+        }
+
+        /* Solution Section */
+        .dark-mode section:has([class*="Solução"]),
+        .dark-mode section:has([class*="solution"]) {
+            background: var(--bg-primary) !important;
+        }
+
+        /* Demo/Features Section */
+        .dark-mode #demo,
+        .dark-mode section:has(#demo),
+        .dark-mode section:has([class*="Funcionalidade"]) {
+            background: var(--bg-secondary) !important;
+        }
+
+        .dark-mode #demo .card,
+        .dark-mode section:has(#demo) .card {
+            background: var(--bg-tertiary) !important;
+            border: 1px solid var(--border-medium) !important;
+        }
+
+        /* Pricing Section */
+        .dark-mode #pricing,
+        .dark-mode section:has(#pricing) {
+            background: var(--bg-primary) !important;
+        }
+
+        .dark-mode #pricing .bg-gradient-to-br {
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(96, 165, 250, 0.05) 100%) !important;
+            border: 2px solid var(--primary) !important;
+        }
+
+        .dark-mode #pricing [class*="bg-primary/20"],
+        .dark-mode #pricing [class*="bg-info/20"],
+        .dark-mode #pricing [class*="bg-tertiary/20"] {
+            background: rgba(96, 165, 250, 0.2) !important;
+            color: var(--primary) !important;
+            border: 1px solid rgba(96, 165, 250, 0.3) !important;
+        }
+
+        /* Testimonials Section */
+        .dark-mode #testimonials,
+        .dark-mode section:has(#testimonials) {
+            background: var(--bg-secondary) !important;
+        }
+
+        .dark-mode #testimonials .bg-background,
+        .dark-mode #testimonials .card {
+            background: var(--bg-tertiary) !important;
+            border: 1px solid var(--border-light) !important;
+        }
+
+        /* Feedback Section */
+        .dark-mode #feedback,
+        .dark-mode section:has(#feedback) {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%) !important;
+        }
+
+        .dark-mode #feedback .bg-background {
+            background: var(--bg-secondary) !important;
+            border: 1px solid var(--border-light) !important;
+        }
+
+        /* CTA Final Section */
+        .dark-mode section:has([class*="Quer ser"]),
+        .dark-mode section:has([class*="Apoiador"]) {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%) !important;
+            border-top: 1px solid var(--border-light) !important;
+        }
+
+        /* Tecnologia Section */
+        .dark-mode section:has([class*="Tecnologia"]),
+        .dark-mode section:has([class*="Segurança"]) {
+            background: var(--bg-primary) !important;
+        }
+
+        /* ============================================
+           COMPONENT-SPECIFIC ENHANCEMENTS
+           ============================================ */
+
+        /* Cards with gradients */
+        .dark-mode .bg-gradient-to-br.from-primary-50.to-white {
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, var(--bg-secondary) 100%) !important;
+        }
+
+        .dark-mode .bg-gradient-to-br.from-success-50.to-white {
+            background: linear-gradient(135deg, rgba(110, 231, 183, 0.15) 0%, var(--bg-secondary) 100%) !important;
+        }
+
+        .dark-mode .bg-gradient-to-br.from-warning-50.to-white {
+            background: linear-gradient(135deg, rgba(252, 211, 77, 0.15) 0%, var(--bg-secondary) 100%) !important;
+        }
+
+        /* Floating badges */
+        .dark-mode [class*="absolute"][class*="bg-success"] {
+            background: rgba(110, 231, 183, 0.2) !important;
+            border: 1px solid rgba(110, 231, 183, 0.3) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .dark-mode [class*="absolute"][class*="bg-primary"] {
+            background: rgba(96, 165, 250, 0.2) !important;
+            border: 1px solid rgba(96, 165, 250, 0.3) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .dark-mode [class*="absolute"][class*="bg-warning"] {
+            background: rgba(252, 211, 77, 0.2) !important;
+            border: 1px solid rgba(252, 211, 77, 0.3) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Buttons - Complete override */
+        .dark-mode button[class*="bg-primary"],
+        .dark-mode .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+            color: var(--bg-primary) !important;
+            border: 1px solid var(--primary) !important;
+        }
+
+        .dark-mode button[class*="bg-primary"]:hover,
+        .dark-mode .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%) !important;
+        }
+
+        .dark-mode button[class*="bg-accent"],
+        .dark-mode button[class*="bg-warning"] {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%) !important;
+            color: var(--bg-primary) !important;
+        }
+
+        .dark-mode button[class*="bg-secondary"],
+        .dark-mode button[class*="bg-success"] {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%) !important;
+            color: var(--bg-primary) !important;
+        }
+
+        .dark-mode button[class*="border-2"] {
+            background: transparent !important;
+            border-color: var(--border-medium) !important;
+            color: var(--text-primary) !important;
+        }
+
+        .dark-mode button[class*="border-2"]:hover {
+            background: var(--bg-tertiary) !important;
+            border-color: var(--primary) !important;
+        }
+
+        /* Specific button overrides for text color */
+        .dark-mode button[class*="text-white"] {
+            color: var(--bg-primary) !important;
+        }
+
+        /* Screenshots and images */
+        .dark-mode img[alt*="iPhone"],
+        .dark-mode img[alt*="Mockup"],
+        .dark-mode .screenshot,
+        .dark-mode .mockup {
+            opacity: 0.92;
+            filter: brightness(0.95) contrast(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+            border: 1px solid var(--border-light);
+        }
+
+        .dark-mode img[alt*="iPhone"]:hover,
+        .dark-mode img[alt*="Mockup"]:hover {
+            opacity: 1;
+            filter: brightness(1) contrast(1);
+        }
+
+        /* Countdown timer */
+        .dark-mode .countdown-digit {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%) !important;
+            color: var(--bg-primary) !important;
+        }
+
+        /* ============================================
+           ADDITIONAL TAILWIND CLASS OVERRIDES
+           ============================================ */
+
+        .dark-mode [class*="bg-blue-50"] {
+            background-color: rgba(96, 165, 250, 0.1) !important;
+        }
+
+        .dark-mode [class*="bg-green-50"] {
+            background-color: rgba(110, 231, 183, 0.1) !important;
+        }
+
+        .dark-mode [class*="bg-yellow-50"] {
+            background-color: rgba(252, 211, 77, 0.1) !important;
+        }
+
+        .dark-mode [class*="text-blue-600"],
+        .dark-mode [class*="text-primary-600"] {
+            color: var(--primary) !important;
+        }
+
+        .dark-mode [class*="text-green-600"],
+        .dark-mode [class*="text-success-600"] {
+            color: var(--secondary) !important;
+        }
+
+        .dark-mode [class*="text-yellow-600"],
+        .dark-mode [class*="text-warning-600"] {
+            color: var(--accent) !important;
+        }
+
+        .dark-mode [class*="border-blue-200"],
+        .dark-mode [class*="border-primary-200"] {
+            border-color: rgba(96, 165, 250, 0.3) !important;
+        }
+
+        .dark-mode [class*="border-green-200"],
+        .dark-mode [class*="border-success-200"] {
+            border-color: rgba(110, 231, 183, 0.3) !important;
+        }
+
+        .dark-mode [class*="border-yellow-200"],
+        .dark-mode [class*="border-warning-200"] {
+            border-color: rgba(252, 211, 77, 0.3) !important;
+        }
+
+        /* Gradient overlays */
+        .dark-mode .bg-gradient-to-b {
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, var(--bg-secondary) 100%) !important;
+        }
+
+        .dark-mode .bg-gradient-to-r {
+            background: linear-gradient(to right,
+                rgba(96, 165, 250, 0.1) 0%,
+                rgba(110, 231, 183, 0.1) 50%,
+                rgba(252, 211, 77, 0.1) 100%) !important;
+        }
+
         /* Image optimization styles */
         img[loading="lazy"] {
             opacity: 0;
@@ -744,6 +992,284 @@
         /* Improved spacing for sections */
         section + section {
             margin-top: 0;
+        }
+
+        /* ============================================
+           DARK MODE - SPECIFIC FIXES FOR INDEX.HTML
+           ============================================ */
+
+        /* Section backgrounds alternating */
+        .dark-mode section:nth-child(odd) {
+            background: var(--bg-primary);
+        }
+
+        .dark-mode section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
+        /* Override for specific sections */
+        .dark-mode .bg-surface\/30 {
+            background: var(--bg-secondary) !important;
+        }
+
+        .dark-mode section.py-20.px-6 {
+            background: var(--bg-primary);
+        }
+
+        .dark-mode section.py-20.px-6.bg-surface\/30 {
+            background: var(--bg-secondary) !important;
+        }
+
+        /* Gradient text keep visible in dark mode */
+        .dark-mode .gradient-text {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Warning/Success/Info badges in dark mode */
+        .dark-mode [class*="bg-warning-50"] {
+            background: rgba(252, 211, 77, 0.15) !important;
+        }
+
+        .dark-mode [class*="border-warning-200"],
+        .dark-mode [class*="border-warning-500"] {
+            border-color: rgba(252, 211, 77, 0.3) !important;
+        }
+
+        .dark-mode [class*="bg-warning-100"] {
+            background: rgba(252, 211, 77, 0.2) !important;
+        }
+
+        /* SVG icons visibility */
+        .dark-mode svg {
+            opacity: 1;
+        }
+
+        /* Navbar badge fix */
+        .dark-mode nav [class*="bg-warning"] {
+            background: rgba(252, 211, 77, 0.2) !important;
+        }
+
+        /* Language dropdown dark mode */
+        .dark-mode #languageMenu {
+            background: var(--bg-elevated) !important;
+            border-color: var(--border-medium) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .dark-mode .language-option {
+            color: var(--text-secondary) !important;
+            border-color: var(--border-light) !important;
+        }
+
+        .dark-mode .language-option:hover {
+            background: var(--bg-tertiary) !important;
+            color: var(--primary) !important;
+        }
+
+        /* Price card with gradient in dark mode */
+        .dark-mode .bg-gradient-to-br.from-primary\/20 {
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.2) 0%, rgba(96, 165, 250, 0.05) 100%) !important;
+        }
+
+        .dark-mode .bg-gradient-to-br.from-warning-50 {
+            background: linear-gradient(135deg, rgba(252, 211, 77, 0.15) 0%, var(--bg-secondary) 100%) !important;
+        }
+
+        /* Pricing badge "MAIS POPULAR" */
+        .dark-mode #pricing .absolute.bg-primary {
+            background: var(--primary) !important;
+            color: var(--text-inverse) !important;
+        }
+
+        /* Steps circles */
+        .dark-mode [class*="bg-primary\/20"][class*="rounded-full"] {
+            background: rgba(96, 165, 250, 0.2) !important;
+        }
+
+        .dark-mode [class*="bg-secondary\/20"][class*="rounded-full"] {
+            background: rgba(110, 231, 183, 0.2) !important;
+        }
+
+        .dark-mode [class*="bg-tertiary\/20"][class*="rounded-full"],
+        .dark-mode [class*="bg-accent\/20"][class*="rounded-full"] {
+            background: rgba(252, 211, 77, 0.2) !important;
+        }
+
+        /* Feedback section gradients */
+        .dark-mode .bg-gradient-to-r.from-secondary\/20 {
+            background: linear-gradient(to right,
+                rgba(110, 231, 183, 0.1) 0%,
+                rgba(96, 165, 250, 0.1) 50%,
+                rgba(252, 211, 77, 0.1) 100%) !important;
+        }
+
+        /* Backdrop blur backgrounds */
+        .dark-mode [class*="backdrop-blur"] {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Technology cards specific styles */
+        .dark-mode section:has(.bg-background.border-primary\/30) {
+            background: var(--bg-secondary) !important;
+        }
+
+        .dark-mode .bg-background.border-primary\/30,
+        .dark-mode .bg-background.border-success\/30,
+        .dark-mode .bg-background.border-info\/30,
+        .dark-mode .bg-background.border-warning\/30 {
+            background: var(--bg-tertiary) !important;
+        }
+
+        /* Testimonials avatars */
+        .dark-mode img[class*="rounded-full"][class*="border-2"] {
+            border-color: var(--border-medium) !important;
+        }
+
+        /* Stats and numbers */
+        .dark-mode [data-stat] {
+            color: var(--text-secondary) !important;
+        }
+
+        /* CTA section */
+        .dark-mode section:last-of-type {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%) !important;
+        }
+
+        /* Beta badge */
+        .dark-mode [class*="bg-accent\/20"]:has(+ .text-accent) {
+            background: rgba(252, 211, 77, 0.2) !important;
+            border-color: rgba(252, 211, 77, 0.3) !important;
+        }
+
+        /* Floating elements adjustments */
+        .dark-mode .absolute[class*="bg-success\/20"] {
+            background: rgba(110, 231, 183, 0.15) !important;
+            border-color: rgba(110, 231, 183, 0.3) !important;
+        }
+
+        .dark-mode .absolute[class*="bg-primary\/20"] {
+            background: rgba(96, 165, 250, 0.15) !important;
+            border-color: rgba(96, 165, 250, 0.3) !important;
+        }
+
+        /* Demo screenshots */
+        .dark-mode .demo-image-container img,
+        .dark-mode img[alt*="demonstração"],
+        .dark-mode img[alt*="demo"] {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+            border-radius: 12px;
+        }
+
+        /* Stars rating */
+        .dark-mode .fa-star {
+            color: var(--warning) !important;
+        }
+
+        /* Modal overlay dark mode */
+        .dark-mode .modal-overlay {
+            background: rgba(10, 14, 20, 0.95) !important;
+        }
+
+        .dark-mode .modal-content {
+            background: var(--bg-elevated) !important;
+            color: var(--text-primary) !important;
+            border: 1px solid var(--border-light) !important;
+        }
+
+        .dark-mode .modal-close {
+            color: var(--text-secondary) !important;
+        }
+
+        .dark-mode .modal-close:hover {
+            color: var(--error) !important;
+        }
+
+        /* Image viewer dark mode */
+        .dark-mode .image-viewer {
+            background: rgba(10, 14, 20, 0.98) !important;
+        }
+
+        .dark-mode .image-viewer-close {
+            background: rgba(252, 211, 77, 0.2) !important;
+            border-color: rgba(252, 211, 77, 0.4) !important;
+            color: var(--accent) !important;
+        }
+
+        .dark-mode .expand-icon {
+            background: rgba(10, 14, 20, 0.9) !important;
+            border-color: rgba(252, 211, 77, 0.4) !important;
+            color: var(--accent) !important;
+        }
+
+        /* Professional card hover states */
+        .dark-mode .card:hover,
+        .dark-mode .feature-card:hover {
+            border-color: var(--primary) !important;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* Ensure proper text hierarchy */
+        .dark-mode strong {
+            color: var(--text-primary) !important;
+            font-weight: 700;
+        }
+
+        .dark-mode blockquote {
+            color: var(--text-secondary) !important;
+            border-left-color: var(--border-medium) !important;
+        }
+
+        /* Icon colors in dark mode */
+        .dark-mode .fa-check {
+            color: var(--success) !important;
+        }
+
+        .dark-mode .fa-times {
+            color: var(--error) !important;
+        }
+
+        /* Smooth transitions on theme change */
+        body.theme-transitioning * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+        }
+
+        /* Fix for inline styles override */
+        .dark-mode [style*="background"] {
+            /* Will be overridden by theme-styles.css using !important */
+        }
+
+        /* Ensure nav is always on top and visible */
+        .dark-mode nav {
+            z-index: 9999;
+            background: rgba(10, 14, 20, 0.95) !important;
+        }
+
+        /* Responsive dark mode adjustments */
+        @media (max-width: 768px) {
+            .dark-mode nav {
+                background: rgba(10, 14, 20, 0.98) !important;
+            }
+
+            .dark-mode section {
+                padding: 60px 16px;
+            }
+        }
+
+        /* Print mode - force light theme */
+        @media print {
+            .dark-mode {
+                background: white !important;
+                color: black !important;
+            }
+
+            .dark-mode * {
+                background: white !important;
+                color: black !important;
+            }
         }
     </style>
 </head>
