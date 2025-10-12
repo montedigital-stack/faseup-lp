@@ -1665,3 +1665,297 @@ nav a:hover {
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
 }
+
+/* ============================================
+   CORREÇÃO ULTRA-ESPECÍFICA POR PÁGINA
+   Forçar Dark Mode em elementos problemáticos
+   ============================================ */
+
+/* PÁGINA SUPORTE - NAV/HEADER FORÇADO */
+body.text-textPrimary.dark-mode nav,
+body.gradient-bg.dark-mode nav {
+    background: rgba(10, 14, 20, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(55, 65, 81, 0.5) !important;
+}
+
+body.text-textPrimary.dark-mode nav .logo-text-combo div,
+body.gradient-bg.dark-mode nav .logo-text-combo div {
+    color: #f9fafb !important;
+}
+
+body.text-textPrimary.dark-mode nav button,
+body.text-textPrimary.dark-mode nav a,
+body.gradient-bg.dark-mode nav button,
+body.gradient-bg.dark-mode nav a {
+    color: #d1d5db !important;
+}
+
+body.text-textPrimary.dark-mode nav button:hover,
+body.text-textPrimary.dark-mode nav a:hover,
+body.gradient-bg.dark-mode nav button:hover,
+body.gradient-bg.dark-mode nav a:hover {
+    color: #60a5fa !important;
+}
+
+body.text-textPrimary.dark-mode nav .bg-warning-50,
+body.gradient-bg.dark-mode nav .bg-warning-50 {
+    background-color: rgba(251, 146, 60, 0.15) !important;
+}
+
+body.text-textPrimary.dark-mode nav .text-warning-600,
+body.gradient-bg.dark-mode nav .text-warning-600 {
+    color: #fb923c !important;
+}
+
+body.text-textPrimary.dark-mode nav .bg-warning-500,
+body.gradient-bg.dark-mode nav .bg-warning-500 {
+    background-color: #f97316 !important;
+}
+
+body.text-textPrimary.dark-mode nav #languageDropdown,
+body.gradient-bg.dark-mode nav #languageDropdown {
+    background: #2d3748 !important;
+    border: 1px solid #4b5563 !important;
+}
+
+body.text-textPrimary.dark-mode nav #languageDropdown button,
+body.gradient-bg.dark-mode nav #languageDropdown button {
+    color: #f9fafb !important;
+}
+
+body.text-textPrimary.dark-mode nav #languageDropdown button:hover,
+body.gradient-bg.dark-mode nav #languageDropdown button:hover {
+    background: #1f2937 !important;
+    color: #60a5fa !important;
+}
+
+/* PÁGINA SUPORTE - FOOTER FORÇADO */
+body.text-textPrimary.dark-mode footer,
+body.gradient-bg.dark-mode footer {
+    background-color: #151922 !important;
+    border-top: 1px solid #374151 !important;
+}
+
+body.text-textPrimary.dark-mode footer h3,
+body.gradient-bg.dark-mode footer h3 {
+    color: #f9fafb !important;
+}
+
+body.text-textPrimary.dark-mode footer p,
+body.text-textPrimary.dark-mode footer span,
+body.gradient-bg.dark-mode footer p,
+body.gradient-bg.dark-mode footer span {
+    color: #d1d5db !important;
+}
+
+body.text-textPrimary.dark-mode footer a,
+body.gradient-bg.dark-mode footer a {
+    color: #60a5fa !important;
+}
+
+body.text-textPrimary.dark-mode footer a:hover,
+body.gradient-bg.dark-mode footer a:hover {
+    color: #93c5fd !important;
+}
+
+body.text-textPrimary.dark-mode footer .bg-accent\/20,
+body.gradient-bg.dark-mode footer .bg-accent\/20 {
+    background-color: rgba(252, 211, 77, 0.15) !important;
+}
+
+body.text-textPrimary.dark-mode footer .text-accent,
+body.gradient-bg.dark-mode footer .text-accent {
+    color: #fcd34d !important;
+}
+
+/* PÁGINA DESIGN SYSTEM - FOOTER FORÇADO */
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode footer {
+    background-color: #151922 !important;
+    border-top: 1px solid #374151 !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode footer h3,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode footer .gradient-text {
+    background: linear-gradient(135deg, #60a5fa 0%, #6ee7b7 50%, #fcd34d 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode footer p,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode footer span:not(.gradient-text) {
+    color: #d1d5db !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode footer a {
+    color: #60a5fa !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode footer a:hover {
+    color: #93c5fd !important;
+}
+
+/* PÁGINA DESIGN SYSTEM - SEÇÕES ESPECÍFICAS */
+
+/* Seção Paleta de Cores */
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#colors h2,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#colors h3,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#colors h4 {
+    color: #f9fafb !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#colors p {
+    color: #d1d5db !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#colors .color-swatch {
+    background-color: #151922 !important;
+    border: 1px solid #374151 !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#colors .color-swatch h4 {
+    color: #f9fafb !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#colors .color-swatch p {
+    color: #d1d5db !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#colors .color-swatch code {
+    color: #60a5fa !important;
+}
+
+/* Seção Typography */
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography {
+    background-color: rgba(21, 25, 34, 0.5) !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography h2,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography h3 {
+    color: #f9fafb !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography p {
+    color: #d1d5db !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography .bg-background {
+    background-color: #0a0e14 !important;
+    border: 1px solid #374151 !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography .bg-background h1,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography .bg-background h2,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography .bg-background h3,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography .bg-background h4,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography .bg-background h5,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography .bg-background h6,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography .bg-background p {
+    color: #f9fafb !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography .bg-background code {
+    color: #d1d5db !important;
+}
+
+/* Seção Components */
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components {
+    background-color: rgba(21, 25, 34, 0.5) !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components h2,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components h3,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components h4 {
+    color: #f9fafb !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components p,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components div:not(.gradient-text) {
+    color: #d1d5db !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components .bg-background {
+    background-color: #0a0e14 !important;
+    border: 1px solid #374151 !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components .bg-surface {
+    background-color: #151922 !important;
+    border: 1px solid #374151 !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components .text-textPrimary {
+    color: #f9fafb !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components .text-textSecondary {
+    color: #d1d5db !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components label {
+    color: #d1d5db !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components input,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components select,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components textarea {
+    background-color: #151922 !important;
+    border: 1px solid #374151 !important;
+    color: #f9fafb !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components input::placeholder,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#components textarea::placeholder {
+    color: #9ca3af !important;
+}
+
+/* Seção Mockups/Aplicação na Interface */
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section h2,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section h3 {
+    color: #f9fafb !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section p:not(.gradient-text) {
+    color: #d1d5db !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .bg-surface {
+    background-color: #151922 !important;
+    border: 1px solid #374151 !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .bg-background {
+    background-color: #0a0e14 !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .text-textPrimary {
+    color: #f9fafb !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .text-textSecondary {
+    color: #d1d5db !important;
+}
+
+/* Seção CTA "Seja parte da revolução" */
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .bg-gradient-to-r {
+    background: linear-gradient(to right,
+        rgba(110, 231, 183, 0.12) 0%,
+        rgba(96, 165, 250, 0.12) 50%,
+        rgba(252, 211, 77, 0.12) 100%) !important;
+    border: 1px solid rgba(96, 165, 250, 0.3) !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section h2,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section h2 span {
+    color: #f9fafb !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section p strong {
+    color: #60a5fa !important;
+}
+
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .text-success,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .text-info,
+body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .text-tertiary {
+    color: inherit !important;
+}
