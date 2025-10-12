@@ -1320,3 +1320,197 @@ nav a:hover {
         background: rgba(21, 25, 34, 0.9) !important;
     }
 }
+
+/* ============================================
+   TAILWIND CUSTOM CLASSES - DARK MODE FIX
+   Correção para classes personalizadas do Tailwind
+   nas páginas Suporte e Design System
+   ============================================ */
+
+/* Text Colors - Suporte & Design System Pages */
+.dark-mode .text-textPrimary,
+.dark-mode body.text-textPrimary {
+    color: var(--text-primary) !important;
+}
+
+.dark-mode .text-textSecondary {
+    color: var(--text-secondary) !important;
+}
+
+/* Background Colors - Custom Tailwind Classes */
+.dark-mode .bg-background {
+    background-color: var(--bg-primary) !important;
+}
+
+.dark-mode .bg-surface {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Gradient Backgrounds - Body Override */
+.dark-mode body.gradient-bg {
+    background: linear-gradient(135deg, #0F1419 0%, #1a1f2e 50%, #232a31 100%) !important;
+}
+
+/* Primary/Secondary/Tertiary Text Colors from Tailwind Config */
+.dark-mode .text-primary:not(.bg-primary):not(.border-primary) {
+    color: var(--primary) !important;
+}
+
+.dark-mode .text-secondary:not(.bg-secondary):not(.border-secondary) {
+    color: var(--secondary) !important;
+}
+
+.dark-mode .text-tertiary {
+    color: var(--accent) !important;
+}
+
+.dark-mode .text-accent {
+    color: var(--accent) !important;
+}
+
+.dark-mode .text-info {
+    color: var(--info) !important;
+}
+
+.dark-mode .text-success {
+    color: var(--success) !important;
+}
+
+.dark-mode .text-warning {
+    color: var(--warning) !important;
+}
+
+.dark-mode .text-error {
+    color: var(--error) !important;
+}
+
+/* Button Backgrounds - Respeitando cores originais do Design System */
+.dark-mode button.bg-primary.text-secondary {
+    background: linear-gradient(135deg, #E7CFA9 0%, #F0D9B8 100%) !important;
+    color: #09455B !important;
+}
+
+.dark-mode button.bg-primary.text-secondary:hover {
+    background: linear-gradient(135deg, #F0D9B8 0%, #F5E4C7 100%) !important;
+}
+
+.dark-mode button.bg-secondary.text-textPrimary {
+    background: #09455B !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-mode button.bg-secondary.text-textPrimary:hover {
+    background: #073A47 !important;
+}
+
+.dark-mode button.bg-tertiary.text-textPrimary {
+    background: #F4A261 !important;
+    color: var(--text-primary) !important;
+}
+
+/* Background Colors para divs/sections (não buttons) */
+.dark-mode div.bg-primary:not(button),
+.dark-mode section.bg-primary:not(button),
+.dark-mode span.bg-primary:not(button) {
+    background-color: var(--primary) !important;
+}
+
+.dark-mode .bg-primaryLight {
+    background-color: var(--primary-light) !important;
+}
+
+.dark-mode div.bg-secondary:not(button),
+.dark-mode section.bg-secondary:not(button),
+.dark-mode span.bg-secondary:not(button) {
+    background-color: var(--secondary) !important;
+}
+
+.dark-mode .bg-secondaryDark {
+    background-color: var(--secondary-dark) !important;
+}
+
+.dark-mode div.bg-tertiary:not(button),
+.dark-mode section.bg-tertiary:not(button),
+.dark-mode span.bg-tertiary:not(button) {
+    background-color: var(--accent) !important;
+}
+
+.dark-mode .bg-accent {
+    background-color: var(--accent) !important;
+}
+
+.dark-mode .bg-info {
+    background-color: var(--info) !important;
+}
+
+.dark-mode .bg-success {
+    background-color: var(--success) !important;
+}
+
+.dark-mode .bg-warning {
+    background-color: var(--warning) !important;
+}
+
+.dark-mode .bg-error {
+    background-color: var(--error) !important;
+}
+
+/* Border Colors - Custom Classes */
+.dark-mode .border-primary {
+    border-color: var(--primary) !important;
+}
+
+.dark-mode .border-secondary {
+    border-color: var(--secondary) !important;
+}
+
+.dark-mode .border-tertiary {
+    border-color: var(--accent) !important;
+}
+
+.dark-mode .border-accent {
+    border-color: var(--accent) !important;
+}
+
+.dark-mode .border-textSecondary {
+    border-color: var(--text-secondary) !important;
+}
+
+/* Placeholder Colors */
+.dark-mode .placeholder-textSecondary::placeholder,
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: var(--text-tertiary) !important;
+}
+
+/* Focus States for Form Elements */
+.dark-mode input:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus {
+    border-color: var(--primary) !important;
+}
+
+/* Specific fixes for hardcoded Tailwind colors */
+.dark-mode .bg-white {
+    background-color: var(--bg-elevated) !important;
+}
+
+.dark-mode .text-gray-900,
+.dark-mode .text-neutral-900 {
+    color: var(--text-primary) !important;
+}
+
+.dark-mode .text-gray-600,
+.dark-mode .text-gray-700 {
+    color: var(--text-secondary) !important;
+}
+
+.dark-mode .border-gray-200,
+.dark-mode .border-neutral-200 {
+    border-color: var(--border-light) !important;
+}
+
+.dark-mode .bg-gray-50,
+.dark-mode .bg-neutral-50 {
+    background-color: var(--bg-tertiary) !important;
+}
