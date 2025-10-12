@@ -599,6 +599,54 @@
             border-left-color: var(--primary);
         }
 
+        /* ============================================
+           CORREÇÕES ESPECÍFICAS - SuperDesign.dev
+           Cards com background inline que não adaptam
+           ============================================ */
+
+        /* SLIDE 6: Agentic Flow - Container exemplo */
+        .dark-mode #slide6 .card[style*="background: #f8fafc"] {
+            background: var(--neutral-100) !important;
+        }
+
+        /* SLIDE 9: Quem Atendemos - Cards com gradientes */
+        .dark-mode #slide9 .card[style*="linear-gradient"] {
+            background: var(--neutral-100) !important;
+            border: 2px solid var(--neutral-300) !important;
+        }
+
+        /* SLIDE 10: Potencial de Receita - Cards com gradientes */
+        .dark-mode #slide10 .card[style*="linear-gradient"] {
+            background: var(--neutral-100) !important;
+            border: 2px solid var(--neutral-300) !important;
+        }
+
+        /* Cards especiais com bordas coloridas - manter cores no dark */
+        .dark-mode #slide10 .card[style*="border: 2px solid var(--accent)"] {
+            border-color: var(--accent) !important;
+            background: linear-gradient(to bottom, rgba(251, 191, 36, 0.15), var(--neutral-100)) !important;
+        }
+
+        .dark-mode #slide10 .card[style*="border: 2px solid var(--primary)"] {
+            border-color: var(--primary) !important;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.1)) !important;
+        }
+
+        /* Backgrounds internos dos cards com gradientes */
+        .dark-mode #slide10 .card div[style*="linear-gradient(135deg, #f0fdf4, #dcfce7)"] {
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(16, 185, 129, 0.1)) !important;
+        }
+
+        .dark-mode #slide10 .card div[style*="linear-gradient(135deg, #fef3c7, #fde68a)"] {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.15)) !important;
+        }
+
+        /* Stats Highlight e cards com background branco */
+        .dark-mode .stats-highlight[style*="background: white"],
+        .dark-mode .card[style*="background: white"] {
+            background: var(--neutral-100) !important;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .slide {
