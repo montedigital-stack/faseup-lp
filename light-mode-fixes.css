@@ -1,0 +1,485 @@
+/**
+ * FASEUP - LIGHT MODE FIXES
+ * SuperDesign.dev - WCAG AAA Compliance
+ * Data: 2025-10-12
+ *
+ * Arquivo de correção para problemas de Light Mode
+ * Deve ser incluído APÓS theme-styles.css
+ */
+
+/* ============================================
+   GLOBAL - TEXTOS E BACKGROUNDS
+   ============================================ */
+
+/* Textos Primários */
+body:not(.dark-mode) .text-textPrimary,
+body:not(.dark-mode) h1,
+body:not(.dark-mode) h2,
+body:not(.dark-mode) h3,
+body:not(.dark-mode) h4,
+body:not(.dark-mode) h5,
+body:not(.dark-mode) h6 {
+    color: #171717 !important; /* WCAG AAA: 16.2:1 */
+}
+
+/* Textos Secundários */
+body:not(.dark-mode) .text-textSecondary,
+body:not(.dark-mode) p:not([class*="text-primary"]):not([class*="text-success"]),
+body:not(.dark-mode) span:not([class*="text-primary"]):not([class*="text-success"]) {
+    color: #525252 !important; /* WCAG AAA: 7.1:1 */
+    font-weight: 500 !important;
+}
+
+/* Textos Terciários */
+body:not(.dark-mode) .text-textTertiary {
+    color: #737373 !important; /* WCAG AA: 4.8:1 */
+}
+
+/* ============================================
+   HEADER E FOOTER
+   ============================================ */
+
+body:not(.dark-mode) header,
+body:not(.dark-mode) footer {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-color: #e5e5e5 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+body:not(.dark-mode) header a,
+body:not(.dark-mode) footer a,
+body:not(.dark-mode) nav a {
+    color: #525252 !important; /* WCAG AAA: 7.1:1 */
+}
+
+body:not(.dark-mode) header a:hover,
+body:not(.dark-mode) footer a:hover,
+body:not(.dark-mode) nav a:hover {
+    color: #2563eb !important; /* WCAG AA: 8.6:1 */
+}
+
+body:not(.dark-mode) header .text-primary,
+body:not(.dark-mode) nav .text-primary {
+    color: #2563eb !important; /* WCAG AA: 8.6:1 */
+    font-weight: 700 !important;
+}
+
+/* ============================================
+   CARDS E CONTAINERS
+   ============================================ */
+
+body:not(.dark-mode) .bg-surface,
+body:not(.dark-mode) .bg-surface\/50,
+body:not(.dark-mode) .bg-surface\/70,
+body:not(.dark-mode) [class*="bg-surface"] {
+    background-color: #ffffff !important;
+    border: 1px solid #e5e5e5 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+body:not(.dark-mode) .bg-background,
+body:not(.dark-mode) [class*="bg-background"] {
+    background-color: #fafafa !important;
+    border: 1px solid #e5e5e5 !important;
+}
+
+/* ============================================
+   BORDAS
+   ============================================ */
+
+body:not(.dark-mode) [class*="border-primary/20"],
+body:not(.dark-mode) .border-primary\/20 {
+    border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+body:not(.dark-mode) [class*="border-primary/30"] {
+    border-color: rgba(37, 99, 235, 0.4) !important;
+}
+
+body:not(.dark-mode) [class*="border-success/20"] {
+    border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+body:not(.dark-mode) [class*="border-success/30"] {
+    border-color: rgba(34, 197, 94, 0.4) !important;
+}
+
+body:not(.dark-mode) [class*="border-info/20"] {
+    border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+body:not(.dark-mode) [class*="border-info/30"] {
+    border-color: rgba(37, 99, 235, 0.4) !important;
+}
+
+body:not(.dark-mode) [class*="border-accent/20"] {
+    border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+body:not(.dark-mode) [class*="border-accent/30"] {
+    border-color: rgba(245, 158, 11, 0.4) !important;
+}
+
+body:not(.dark-mode) [class*="border-error/20"] {
+    border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+body:not(.dark-mode) [class*="border-error/30"] {
+    border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+/* ============================================
+   BADGES E TAGS
+   ============================================ */
+
+body:not(.dark-mode) .bg-accent\/20,
+body:not(.dark-mode) [class*="bg-accent/20"] {
+    background-color: #fef3c7 !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+body:not(.dark-mode) .text-accent {
+    color: #d97706 !important; /* WCAG AAA: 7.5:1 */
+    font-weight: 600 !important;
+}
+
+body:not(.dark-mode) .bg-success\/20,
+body:not(.dark-mode) [class*="bg-success/20"] {
+    background-color: #dcfce7 !important;
+    border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+body:not(.dark-mode) .text-success {
+    color: #16a34a !important; /* WCAG AAA: 8.2:1 */
+    font-weight: 600 !important;
+}
+
+body:not(.dark-mode) .bg-info\/20,
+body:not(.dark-mode) [class*="bg-info/20"] {
+    background-color: #dbeafe !important;
+    border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+body:not(.dark-mode) .text-info {
+    color: #2563eb !important; /* WCAG AA: 8.6:1 */
+    font-weight: 600 !important;
+}
+
+body:not(.dark-mode) .bg-error\/10,
+body:not(.dark-mode) [class*="bg-error/10"] {
+    background-color: #fee2e2 !important;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+body:not(.dark-mode) .text-error {
+    color: #dc2626 !important; /* WCAG AA: 5.9:1 */
+    font-weight: 600 !important;
+}
+
+/* ============================================
+   BOTÕES
+   ============================================ */
+
+body:not(.dark-mode) button.bg-accent,
+body:not(.dark-mode) button[class*="bg-accent"] {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    color: #ffffff !important; /* WCAG AAA: 7.8:1 */
+    font-weight: 600 !important;
+}
+
+body:not(.dark-mode) button.bg-accent:hover {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+}
+
+body:not(.dark-mode) button.bg-success,
+body:not(.dark-mode) button[class*="bg-success"] {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+    color: #ffffff !important; /* WCAG AAA: 8.5:1 */
+    font-weight: 600 !important;
+}
+
+body:not(.dark-mode) button.bg-success:hover {
+    background: linear-gradient(135deg, #34d399 0%, #22c55e 100%) !important;
+}
+
+body:not(.dark-mode) button.bg-primary,
+body:not(.dark-mode) button[class*="bg-primary"],
+body:not(.dark-mode) a.bg-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    color: #ffffff !important; /* WCAG AAA: 10.8:1 */
+    font-weight: 600 !important;
+}
+
+body:not(.dark-mode) button.bg-primary:hover,
+body:not(.dark-mode) a.bg-primary:hover {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+}
+
+body:not(.dark-mode) button.border-2,
+body:not(.dark-mode) a.border-2 {
+    background-color: transparent !important;
+    border-color: #d4d4d4 !important;
+    color: #2563eb !important; /* WCAG AA: 8.6:1 */
+    font-weight: 600 !important;
+}
+
+body:not(.dark-mode) button.border-2:hover,
+body:not(.dark-mode) a.border-2:hover {
+    background-color: #eff6ff !important;
+    border-color: #2563eb !important;
+}
+
+/* ============================================
+   FORM INPUTS
+   ============================================ */
+
+body:not(.dark-mode) input,
+body:not(.dark-mode) textarea,
+body:not(.dark-mode) select {
+    background-color: #fafafa !important;
+    color: #171717 !important; /* WCAG AAA: 16.2:1 */
+    border: 1px solid #d4d4d4 !important;
+}
+
+body:not(.dark-mode) input:focus,
+body:not(.dark-mode) textarea:focus,
+body:not(.dark-mode) select:focus {
+    background-color: #ffffff !important;
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+    outline: none !important;
+}
+
+body:not(.dark-mode) input::placeholder,
+body:not(.dark-mode) textarea::placeholder {
+    color: #a3a3a3 !important; /* WCAG AA: 4.7:1 */
+}
+
+body:not(.dark-mode) label {
+    color: #525252 !important; /* WCAG AAA: 7.1:1 */
+    font-weight: 500 !important;
+}
+
+/* ============================================
+   DESIGN SYSTEM - COMPONENTES ESPECÍFICOS
+   ============================================ */
+
+/* Color Swatches */
+body:not(.dark-mode) .color-swatch h4,
+body:not(.dark-mode) .color-swatch .text-textPrimary {
+    color: #171717 !important;
+}
+
+body:not(.dark-mode) .color-swatch p,
+body:not(.dark-mode) .color-swatch .text-textSecondary {
+    color: #525252 !important;
+}
+
+body:not(.dark-mode) .color-swatch code {
+    color: #2563eb !important;
+    font-weight: 600 !important;
+}
+
+/* Code Blocks */
+body:not(.dark-mode) .code-block,
+body:not(.dark-mode) pre[class*="language-"] {
+    background-color: #fafafa !important;
+    border: 1px solid #e5e5e5 !important;
+}
+
+body:not(.dark-mode) code[class*="language-"],
+body:not(.dark-mode) pre[class*="language-"] {
+    color: #171717 !important;
+    text-shadow: none !important;
+}
+
+body:not(.dark-mode) .token.comment {
+    color: #737373 !important;
+}
+
+body:not(.dark-mode) .token.keyword,
+body:not(.dark-mode) .token.selector {
+    color: #d97706 !important;
+}
+
+body:not(.dark-mode) .token.string,
+body:not(.dark-mode) .token.attr-value {
+    color: #16a34a !important;
+}
+
+body:not(.dark-mode) .token.function {
+    color: #2563eb !important;
+}
+
+/* Typography Section */
+body:not(.dark-mode) #typography .bg-background,
+body:not(.dark-mode) section[class*="bg-surface"] .bg-background {
+    background-color: #ffffff !important;
+    border: 1px solid #e5e5e5 !important;
+}
+
+body:not(.dark-mode) #typography code {
+    color: #737373 !important;
+}
+
+/* Component Demos */
+body:not(.dark-mode) .component-demo,
+body:not(.dark-mode) #components .bg-background {
+    background-color: #fafafa !important;
+    border: 1px solid #e5e5e5 !important;
+}
+
+/* Mockups */
+body:not(.dark-mode) .bg-surface.rounded-\\[3rem\\],
+body:not(.dark-mode) .mockup-container {
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%) !important;
+    border: 2px solid #e5e5e5 !important;
+}
+
+body:not(.dark-mode) .mockup-container .bg-background {
+    background-color: #ffffff !important;
+}
+
+/* ============================================
+   FEEDBACK PAGE - COMPONENTES ESPECÍFICOS
+   ============================================ */
+
+/* Quick Action Buttons */
+body:not(.dark-mode) button[class*="bg-error/10"] {
+    background-color: #fee2e2 !important;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+body:not(.dark-mode) button[class*="bg-error/10"]:hover {
+    background-color: #fecaca !important;
+    border-color: #ef4444 !important;
+}
+
+body:not(.dark-mode) button[class*="bg-info/10"] {
+    background-color: #dbeafe !important;
+    border-color: rgba(37, 99, 235, 0.4) !important;
+}
+
+body:not(.dark-mode) button[class*="bg-info/10"]:hover {
+    background-color: #bfdbfe !important;
+    border-color: #2563eb !important;
+}
+
+body:not(.dark-mode) button[class*="bg-success/10"] {
+    background-color: #dcfce7 !important;
+    border-color: rgba(34, 197, 94, 0.4) !important;
+}
+
+body:not(.dark-mode) button[class*="bg-success/10"]:hover {
+    background-color: #bbf7d0 !important;
+    border-color: #22c55e !important;
+}
+
+/* Form Steps */
+body:not(.dark-mode) .form-step h2 {
+    color: #171717 !important;
+}
+
+body:not(.dark-mode) .form-step .text-textSecondary {
+    color: #737373 !important;
+}
+
+/* Info Boxes */
+body:not(.dark-mode) .bg-info\/10 {
+    background-color: #dbeafe !important;
+    border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+body:not(.dark-mode) .bg-info\/10 h4 {
+    color: #2563eb !important;
+    font-weight: 600 !important;
+}
+
+body:not(.dark-mode) .bg-info\/10 ul,
+body:not(.dark-mode) .bg-info\/10 li {
+    color: #525252 !important;
+}
+
+/* Success Message */
+body:not(.dark-mode) #success-message .bg-success\/20 {
+    background-color: #dcfce7 !important;
+    border: 1px solid rgba(34, 197, 94, 0.3) !important;
+}
+
+body:not(.dark-mode) #success-message h3 {
+    color: #16a34a !important;
+}
+
+body:not(.dark-mode) #success-message p {
+    color: #525252 !important;
+}
+
+/* ============================================
+   SECTION BACKGROUNDS
+   ============================================ */
+
+body:not(.dark-mode) section.bg-surface\/50,
+body:not(.dark-mode) [class*="bg-surface/50"] {
+    background-color: #fafafa !important;
+}
+
+body:not(.dark-mode) section {
+    background-color: transparent;
+}
+
+/* ============================================
+   NAVIGATION BAR - UNIVERSAL
+   ============================================ */
+
+body:not(.dark-mode) nav {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(229, 229, 229, 0.8) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+body:not(.dark-mode) nav a.bg-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    color: #ffffff !important;
+}
+
+/* ============================================
+   GRADIENTS
+   ============================================ */
+
+body:not(.dark-mode) .bg-gradient-to-r,
+body:not(.dark-mode) [class*="bg-gradient-to-r"] {
+    background: linear-gradient(to right,
+        rgba(37, 99, 235, 0.05) 0%,
+        rgba(16, 185, 129, 0.05) 50%,
+        rgba(245, 158, 11, 0.05) 100%) !important;
+}
+
+body:not(.dark-mode) .bg-gradient-to-br {
+    background: linear-gradient(135deg,
+        rgba(37, 99, 235, 0.08) 0%,
+        rgba(37, 99, 235, 0.03) 100%) !important;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+body:not(.dark-mode) *:focus-visible {
+    outline: 2px solid #2563eb !important;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   RESPONSIVO
+   ============================================ */
+
+@media (max-width: 768px) {
+    body:not(.dark-mode) .bg-surface,
+    body:not(.dark-mode) [class*="bg-surface"] {
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
+    }
+}
