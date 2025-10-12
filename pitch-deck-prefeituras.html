@@ -647,6 +647,78 @@
             background: var(--neutral-100) !important;
         }
 
+        /* ============================================
+           CORREÇÕES DARK MODE - ELEMENTOS INTERNOS
+           SuperDesign.dev | WCAG AAA (7:1+ contraste)
+           ============================================ */
+
+        /* SLIDE 9: Containers internos brancos - Modelo A e B */
+        .dark-mode #slide9 .card div[style*="background: white"] {
+            background: var(--neutral-100) !important;
+            border-color: var(--neutral-300) !important;
+        }
+
+        .dark-mode #slide9 .card div[style*="border: 1px solid var(--primary)"] {
+            background: var(--neutral-100) !important;
+            border-color: var(--primary) !important;
+        }
+
+        /* SLIDE 10: Card "Antes" - Todos os containers internos */
+        .dark-mode #slide10 .card[style*="linear-gradient(to bottom, #fee2e2, white)"] div[style*="background: white"] {
+            background: var(--neutral-100) !important;
+        }
+
+        .dark-mode #slide10 .card div[style*="background: #dc2626"] {
+            background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+        }
+
+        .dark-mode #slide10 .card p[style*="color: #dc2626"] {
+            color: #f87171 !important;
+        }
+
+        /* SLIDE 10: Card "Depois" - Todos os containers internos */
+        .dark-mode #slide10 .card[style*="linear-gradient(to bottom, #d1fae5, white)"] div[style*="background: white"] {
+            background: var(--neutral-100) !important;
+        }
+
+        .dark-mode #slide10 .card div[style*="linear-gradient(135deg, var(--secondary), #059669)"] {
+            background: linear-gradient(135deg, var(--secondary), #047857) !important;
+        }
+
+        .dark-mode #slide10 .stats-highlight[style*="linear-gradient(135deg, var(--accent), #d97706)"] {
+            background: linear-gradient(135deg, var(--accent), #b45309) !important;
+        }
+
+        .dark-mode #slide10 .quote-box {
+            background: var(--neutral-100) !important;
+        }
+
+        /* Textos com cores inline */
+        .dark-mode #slide9 p[style*="color: var(--neutral-900)"],
+        .dark-mode #slide10 p[style*="color: var(--neutral-900)"] {
+            color: var(--neutral-900) !important;
+        }
+
+        .dark-mode #slide9 p[style*="color: var(--neutral-700)"],
+        .dark-mode #slide10 p[style*="color: var(--neutral-700)"] {
+            color: var(--neutral-700) !important;
+        }
+
+        .dark-mode #slide10 .card div[style*="background: #dc2626"] p,
+        .dark-mode #slide10 .card div[style*="linear-gradient(135deg, var(--secondary)"] p,
+        .dark-mode #slide10 .card div[style*="linear-gradient(135deg, var(--accent)"] p {
+            color: white !important;
+        }
+
+        /* Bordas coloridas */
+        .dark-mode #slide9 .card[style*="border: 2px solid var(--primary)"] {
+            border-color: var(--primary) !important;
+        }
+
+        .dark-mode #slide10 .card[style*="border: 2px solid #dc2626"] {
+            border-color: #f87171 !important;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .slide {

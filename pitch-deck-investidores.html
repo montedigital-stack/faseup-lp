@@ -648,6 +648,68 @@
             background: var(--neutral-100) !important;
         }
 
+        /* ============================================
+           CORREÇÕES DARK MODE - ELEMENTOS INTERNOS
+           SuperDesign.dev | WCAG AAA (7:1+ contraste)
+           ============================================ */
+
+        /* SLIDE 10: Card Ano 2 - Container interno com gradient verde */
+        .dark-mode #slide10 .card div[style*="linear-gradient(135deg, #f0fdf4, #dcfce7)"] {
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.2), rgba(16, 185, 129, 0.15)) !important;
+        }
+
+        /* SLIDE 10: Card Ano 3 - Container interno com gradient amarelo */
+        .dark-mode #slide10 .card div[style*="linear-gradient(135deg, #fef3c7, transparent)"] {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), transparent) !important;
+        }
+
+        /* SLIDE 10: Card Ano 3 - Container final com gradient laranja */
+        .dark-mode #slide10 .card div[style*="linear-gradient(135deg, var(--accent), #d97706)"] {
+            background: linear-gradient(135deg, var(--accent), #b45309) !important;
+        }
+
+        /* SLIDE 10: Quote-box ao final - Gradient verde claro */
+        .dark-mode #slide10 .quote-box[style*="linear-gradient(135deg, #f0fdf4, white)"] {
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), var(--neutral-100)) !important;
+            border-left-color: var(--secondary) !important;
+        }
+
+        /* Textos com cores inline */
+        .dark-mode #slide10 p[style*="color: var(--neutral-900)"] {
+            color: var(--neutral-900) !important;
+        }
+
+        .dark-mode #slide10 p[style*="color: var(--neutral-700)"] {
+            color: var(--neutral-700) !important;
+        }
+
+        .dark-mode #slide10 p[style*="color: var(--secondary)"] {
+            color: var(--secondary) !important;
+        }
+
+        .dark-mode #slide10 p[style*="color: var(--accent)"] {
+            color: var(--accent) !important;
+        }
+
+        /* Textos em containers escuros precisam ser brancos */
+        .dark-mode #slide10 .card div[style*="linear-gradient(135deg, var(--secondary)"] p,
+        .dark-mode #slide10 .card div[style*="linear-gradient(135deg, var(--accent)"] p {
+            color: white !important;
+        }
+
+        .dark-mode #slide10 .stats-highlight[style*="linear-gradient"] * {
+            color: white !important;
+        }
+
+        /* Bordas coloridas dos cards */
+        .dark-mode #slide10 .card[style*="border: 2px solid var(--accent)"] {
+            border-color: var(--accent) !important;
+        }
+
+        .dark-mode #slide10 .card[style*="border: 2px solid var(--secondary)"] {
+            border-color: var(--secondary) !important;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .slide {
