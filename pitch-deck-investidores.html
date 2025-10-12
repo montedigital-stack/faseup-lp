@@ -36,6 +36,21 @@
             --bg: #ffffff;
         }
 
+        /* DARK MODE VARIABLES */
+        .dark-mode {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #34d399;
+            --accent: #fbbf24;
+            --neutral-50: #1a1f2e;
+            --neutral-100: #252b3b;
+            --neutral-200: #2d3548;
+            --neutral-300: #3d4763;
+            --neutral-700: #d1d5db;
+            --neutral-900: #f3f4f6;
+            --bg: #0f1419;
+        }
+
         /* FULL SCREEN BASE */
         html, body {
             width: 100%;
@@ -223,6 +238,9 @@
             border-radius: 16px;
             max-width: 400px;
             width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
         }
 
         .menu-content h3 {
@@ -520,6 +538,77 @@
             font-size: 14px;
         }
 
+        /* DARK MODE STYLES */
+        .dark-mode .menu-content,
+        .dark-mode .menu-modal {
+            background: var(--bg);
+        }
+
+        .dark-mode .menu-modal {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .dark-mode .menu-content h3 {
+            color: var(--neutral-900);
+        }
+
+        .dark-mode .menu-link {
+            background: var(--neutral-100);
+            border-color: var(--neutral-300);
+            color: var(--neutral-900);
+        }
+
+        .dark-mode .menu-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .dark-mode .menu-close {
+            background: var(--neutral-200);
+            color: var(--neutral-900);
+        }
+
+        .dark-mode .menu-close:hover {
+            background: var(--neutral-300);
+        }
+
+        .dark-mode .pitch-nav {
+            background: rgba(15, 20, 25, 0.95);
+            border-top-color: var(--neutral-300);
+        }
+
+        .dark-mode .nav-btn,
+        .dark-mode .menu-btn {
+            border-color: var(--neutral-300);
+            color: var(--neutral-700);
+        }
+
+        .dark-mode .nav-btn:hover:not(:disabled),
+        .dark-mode .menu-btn:hover {
+            background: var(--neutral-100);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .dark-mode .slide-counter {
+            background: var(--neutral-100);
+            color: var(--neutral-700);
+        }
+
+        .dark-mode .card {
+            background: var(--neutral-100);
+            border-color: var(--neutral-300);
+        }
+
+        .dark-mode .card:hover {
+            border-color: var(--primary);
+        }
+
+        .dark-mode .quote-box {
+            background: var(--neutral-100);
+            border-left-color: var(--primary);
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .slide {
@@ -561,6 +650,7 @@
 
             .pitch-nav {
                 padding: 0 20px;
+                height: 65px;
             }
 
             .nav-controls {
@@ -571,11 +661,48 @@
             .menu-btn {
                 padding: 8px 12px;
                 font-size: 12px;
+                min-height: 44px;
+                min-width: 44px;
             }
 
             .slide-counter {
                 font-size: 12px;
                 padding: 8px 12px;
+            }
+
+            /* MODAL MOBILE FIXES */
+            .menu-content {
+                width: 95%;
+                max-height: 85vh;
+                padding: 30px 20px;
+                padding-bottom: 100px;
+            }
+
+            .menu-links {
+                gap: 10px;
+                margin-bottom: 80px;
+            }
+
+            .menu-link {
+                padding: 14px 16px;
+                font-size: 15px;
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+            }
+
+            .menu-close {
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100% - 40px);
+                max-width: 400px;
+                padding: 14px;
+                font-size: 16px;
+                min-height: 50px;
+                z-index: 3000;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
             }
         }
     </style>
@@ -1547,14 +1674,19 @@
             </button>
         </div>
 
-        <button class="menu-btn" onclick="toggleMenu()">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            Menu
-        </button>
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <button class="nav-btn" id="darkModeToggle" onclick="toggleDarkMode()" title="Alternar Dark Mode">
+                <span id="darkModeIcon">🌙</span>
+            </button>
+            <button class="menu-btn" onclick="toggleMenu()">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                Menu
+            </button>
+        </div>
     </nav>
 
     <!-- Modal de Menu -->
@@ -1673,6 +1805,27 @@
         document.getElementById('menuModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 toggleMenu();
+            }
+        });
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('darkModeIcon');
+            const isDark = document.body.classList.contains('dark-mode');
+
+            icon.textContent = isDark ? '☀️' : '🌙';
+
+            // Salvar preferência
+            localStorage.setItem('pitchDeckDarkMode', isDark ? 'enabled' : 'disabled');
+        }
+
+        // Verificar preferência salva ao carregar
+        window.addEventListener('DOMContentLoaded', function() {
+            const darkModePreference = localStorage.getItem('pitchDeckDarkMode');
+            if (darkModePreference === 'enabled') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('darkModeIcon').textContent = '☀️';
             }
         });
 
