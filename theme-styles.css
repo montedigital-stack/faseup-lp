@@ -230,6 +230,26 @@ select {
 }
 
 /* ============================================
+   LOGO COMPONENT - HORIZONTAL LAYOUT
+   ============================================ */
+.logo-text-combo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* 12px */
+}
+
+.logo-text-combo img {
+    flex-shrink: 0;
+}
+
+.logo-text-combo .gradient-text,
+.logo-text-combo > div {
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================
    NAVBAR - PADRÃO UNIVERSAL PARA TODAS AS PÁGINAS
    ============================================ */
 nav {
@@ -272,6 +292,25 @@ nav a:hover {
 }
 
 .dark-mode nav button:hover {
+    color: var(--primary) !important;
+}
+
+/* Language Dropdown - Dark Mode */
+.dark-mode #languageDropdown,
+.dark-mode [id*="languageDropdown"] {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border-medium) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-mode #languageDropdown button,
+.dark-mode [id*="languageDropdown"] button {
+    color: var(--text-primary) !important;
+}
+
+.dark-mode #languageDropdown button:hover,
+.dark-mode [id*="languageDropdown"] button:hover {
+    background: var(--bg-tertiary) !important;
     color: var(--primary) !important;
 }
 
@@ -382,6 +421,25 @@ nav a:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4) !important;
 }
 
+/* Cards with backdrop-blur and gradient backgrounds */
+.dark-mode .bg-surface\/50.backdrop-blur-md,
+.dark-mode .bg-surface\/70.backdrop-blur-md,
+.dark-mode [class*="bg-surface/"][class*="backdrop-blur"] {
+    background: rgba(21, 25, 34, 0.7) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.dark-mode .bg-gradient-to-r.backdrop-blur-md,
+.dark-mode [class*="bg-gradient"][class*="backdrop-blur"] {
+    background: linear-gradient(to right,
+        rgba(96, 165, 250, 0.15) 0%,
+        rgba(110, 231, 183, 0.15) 50%,
+        rgba(252, 211, 77, 0.15) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+}
+
 /* Price Cards */
 .dark-mode .price-card,
 .dark-mode #pricing .bg-surface {
@@ -406,6 +464,32 @@ nav a:hover {
 .dark-mode #feedback .bg-background {
     background: var(--bg-secondary) !important;
     border-color: var(--border-light) !important;
+}
+
+/* FAQ and info cards with colored backgrounds */
+.dark-mode .bg-primary\/10,
+.dark-mode [class*="bg-primary/10"] {
+    background: rgba(96, 165, 250, 0.15) !important;
+}
+
+.dark-mode .bg-info\/10,
+.dark-mode [class*="bg-info/10"] {
+    background: rgba(147, 197, 253, 0.15) !important;
+}
+
+.dark-mode .bg-tertiary\/10,
+.dark-mode [class*="bg-tertiary/10"] {
+    background: rgba(252, 211, 77, 0.15) !important;
+}
+
+.dark-mode .bg-accent\/20,
+.dark-mode [class*="bg-accent/20"] {
+    background: rgba(252, 211, 77, 0.2) !important;
+}
+
+.dark-mode .bg-warning\/10,
+.dark-mode [class*="bg-warning/10"] {
+    background: rgba(252, 211, 77, 0.15) !important;
 }
 
 /* ============================================
@@ -744,6 +828,13 @@ nav a:hover {
     color: var(--primary);
 }
 
+.dark-mode footer .gradient-text {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 50%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 /* ============================================
    SPECIAL ELEMENTS
    ============================================ */
@@ -851,6 +942,43 @@ nav a:hover {
 /* Prevent transition on theme toggle */
 .dark-mode.no-transition * {
     transition: none !important;
+}
+
+/* ============================================
+   DESIGN SYSTEM PAGE - SPECIFIC STYLES
+   ============================================ */
+.dark-mode .color-swatch {
+    background: var(--bg-secondary) !important;
+    border-color: var(--border-medium) !important;
+}
+
+.dark-mode .color-swatch:hover {
+    border-color: var(--primary) !important;
+    box-shadow: 0 8px 20px rgba(96, 165, 250, 0.3) !important;
+}
+
+.dark-mode .component-demo {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-medium) !important;
+}
+
+.dark-mode .code-block {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-medium) !important;
+}
+
+.dark-mode code {
+    color: var(--primary) !important;
+}
+
+/* Design System - Hero mockup */
+.dark-mode .w-80.h-96.bg-surface {
+    background: var(--bg-secondary) !important;
+    border-color: var(--border-light) !important;
+}
+
+.dark-mode .w-80.h-96.bg-surface .bg-background {
+    background: var(--bg-primary) !important;
 }
 
 /* ============================================
