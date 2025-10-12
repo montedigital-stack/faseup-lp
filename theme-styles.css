@@ -982,6 +982,327 @@ nav a:hover {
 }
 
 /* ============================================
+   SUPORTE PAGE - COMPLETE DARK MODE FIX
+   SuperDesign.dev - 2025-10-12
+   ============================================ */
+
+/* Language Dropdown - CRITICAL FIX */
+.dark-mode #languageDropdown.bg-white,
+.dark-mode .language-option:hover.bg-neutral-50 {
+    background: var(--bg-elevated) !important;
+}
+
+.dark-mode #languageDropdown {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border-medium) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-mode #languageDropdown button {
+    color: var(--text-primary) !important;
+}
+
+.dark-mode #languageDropdown button:hover,
+.dark-mode .language-option:hover {
+    background: var(--bg-tertiary) !important;
+    color: var(--primary) !important;
+}
+
+/* Hero Icon Containers */
+.dark-mode .bg-primary\/20.backdrop-blur-md {
+    background: rgba(96, 165, 250, 0.2) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+/* Contact Method Cards - Enhanced */
+.dark-mode .bg-surface\/50.backdrop-blur-md,
+.dark-mode .bg-surface\/70.backdrop-blur-md {
+    background: rgba(21, 25, 34, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid var(--border-medium) !important;
+}
+
+.dark-mode .bg-surface\/50:hover,
+.dark-mode .bg-surface\/70:hover {
+    background: rgba(21, 25, 34, 0.95) !important;
+    border-color: var(--border-dark) !important;
+}
+
+/* Icon Containers in Cards */
+.dark-mode .bg-primary\/20:not(.backdrop-blur-md) {
+    background: rgba(96, 165, 250, 0.15) !important;
+}
+
+.dark-mode .bg-accent\/20 {
+    background: rgba(252, 211, 77, 0.15) !important;
+}
+
+.dark-mode .bg-info\/20 {
+    background: rgba(147, 197, 253, 0.15) !important;
+}
+
+/* Status Badge */
+.dark-mode .bg-success\/20.backdrop-blur-md {
+    background: rgba(110, 231, 183, 0.2) !important;
+    border: 1px solid rgba(110, 231, 183, 0.4) !important;
+}
+
+/* Info Banner with Gradient */
+.dark-mode .bg-gradient-to-r.from-primary\/20.to-tertiary\/20 {
+    background: linear-gradient(to right,
+        rgba(96, 165, 250, 0.15) 0%,
+        rgba(252, 211, 77, 0.15) 100%) !important;
+}
+
+/* CTA Section Gradient */
+.dark-mode .bg-gradient-to-r.from-accent\/20.to-primary\/20 {
+    background: linear-gradient(to right,
+        rgba(252, 211, 77, 0.15) 0%,
+        rgba(96, 165, 250, 0.15) 100%) !important;
+}
+
+/* Warning Badge Colors (Pré-lançamento) */
+.dark-mode .bg-warning-50 {
+    background: rgba(252, 211, 77, 0.15) !important;
+}
+
+.dark-mode .border-warning-200 {
+    border-color: rgba(252, 211, 77, 0.3) !important;
+}
+
+.dark-mode .text-warning-600 {
+    color: var(--warning) !important;
+}
+
+.dark-mode .bg-warning-500 {
+    background: var(--warning) !important;
+}
+
+/* ============================================
+   DESIGN SYSTEM PAGE - COMPLETE DARK MODE FIX
+   SuperDesign.dev - 2025-10-12
+   ============================================ */
+
+/* Navigation Bar - Fixed Background */
+.dark-mode nav.fixed.bg-background\/80 {
+    background: rgba(10, 14, 20, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid var(--border-light) !important;
+}
+
+/* Values Banner Section */
+.dark-mode .bg-gradient-to-r.from-secondary\/20.via-primary\/10.to-tertiary\/20 {
+    background: linear-gradient(to right,
+        rgba(110, 231, 183, 0.12) 0%,
+        rgba(96, 165, 250, 0.10) 50%,
+        rgba(252, 211, 77, 0.12) 100%) !important;
+}
+
+/* Typography Section Background */
+.dark-mode section#typography,
+.dark-mode section.bg-surface\/50 {
+    background: rgba(21, 25, 34, 0.5) !important;
+}
+
+/* Typography Demo Cards */
+.dark-mode #typography .bg-background,
+.dark-mode section[id*="typography"] .bg-background {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-medium) !important;
+}
+
+/* Spacing Section Cards */
+.dark-mode .bg-surface.rounded-xl {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-light) !important;
+}
+
+/* Components Section */
+.dark-mode section#components,
+.dark-mode section.py-20.px-6.bg-surface\/50 {
+    background: rgba(21, 25, 34, 0.5) !important;
+}
+
+/* Button Demo Cards */
+.dark-mode #components .bg-background {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-medium) !important;
+}
+
+/* Demo Buttons - Preserve Original Colors */
+.dark-mode button.bg-primary.text-secondary {
+    background: linear-gradient(135deg, #E7CFA9 0%, #F0D9B8 100%) !important;
+    color: #09455B !important;
+}
+
+.dark-mode button.bg-secondary.text-textPrimary {
+    background: linear-gradient(135deg, #09455B 0%, #073A47 100%) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-mode button.bg-tertiary.text-textPrimary {
+    background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Outline Button Demos */
+.dark-mode button.border-2.border-primary {
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+    background: transparent !important;
+}
+
+.dark-mode button.border-2.border-primary:hover {
+    background: var(--primary) !important;
+    color: var(--bg-primary) !important;
+}
+
+.dark-mode button.border-2.border-secondary {
+    border-color: var(--secondary) !important;
+    color: var(--secondary) !important;
+    background: transparent !important;
+}
+
+.dark-mode button.border-2.border-textSecondary {
+    border-color: var(--text-secondary) !important;
+    color: var(--text-secondary) !important;
+    background: transparent !important;
+}
+
+/* Card Component Demos */
+.dark-mode #components .bg-surface.rounded-xl {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-light) !important;
+}
+
+.dark-mode #components .bg-gradient-to-br {
+    background: linear-gradient(135deg,
+        rgba(96, 165, 250, 0.15) 0%,
+        rgba(252, 211, 77, 0.15) 100%) !important;
+}
+
+/* Icon System Cards */
+.dark-mode .bg-primary\/20.rounded-xl {
+    background: rgba(96, 165, 250, 0.15) !important;
+}
+
+.dark-mode .bg-tertiary\/20 {
+    background: rgba(252, 211, 77, 0.15) !important;
+}
+
+.dark-mode .bg-success\/20.rounded-xl {
+    background: rgba(110, 231, 183, 0.15) !important;
+}
+
+.dark-mode .bg-accent\/20.rounded-xl {
+    background: rgba(252, 211, 77, 0.15) !important;
+}
+
+/* Form Elements - Inputs */
+.dark-mode input.bg-surface,
+.dark-mode select.bg-surface,
+.dark-mode textarea.bg-surface {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-medium) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: var(--text-tertiary) !important;
+}
+
+.dark-mode input:focus,
+.dark-mode select:focus,
+.dark-mode textarea:focus {
+    border-color: var(--primary) !important;
+    background: var(--bg-tertiary) !important;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2) !important;
+}
+
+/* Form Labels */
+.dark-mode label.text-textSecondary {
+    color: var(--text-secondary) !important;
+}
+
+/* Mobile & Desktop Mockups */
+.dark-mode .w-80.h-96.bg-surface.rounded-\\[3rem\\] {
+    background: var(--bg-secondary) !important;
+    border: 2px solid var(--border-light) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark-mode .bg-surface.rounded-xl.p-8.border.shadow-strong {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-light) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Progress Bars in Mockups */
+.dark-mode .bg-gradient-to-r.from-primary.to-tertiary {
+    background: linear-gradient(to right, var(--primary) 0%, var(--accent) 100%) !important;
+}
+
+/* Status Indicators in Mockups */
+.dark-mode .bg-success\/10 {
+    background: rgba(110, 231, 183, 0.15) !important;
+    border-color: rgba(110, 231, 183, 0.3) !important;
+}
+
+.dark-mode .bg-tertiary\/10 {
+    background: rgba(252, 211, 77, 0.15) !important;
+    border-color: rgba(252, 211, 77, 0.3) !important;
+}
+
+/* CTA Section - Final */
+.dark-mode .bg-gradient-to-r.from-secondary\/20.via-primary\/20.to-tertiary\/20 {
+    background: linear-gradient(to right,
+        rgba(110, 231, 183, 0.12) 0%,
+        rgba(96, 165, 250, 0.12) 50%,
+        rgba(252, 211, 77, 0.12) 100%) !important;
+}
+
+/* CTA Buttons - Design System Specific */
+.dark-mode button[onclick*="window.open"],
+.dark-mode button[onclick*="openWhatsApp"] {
+    transition: all 0.3s ease;
+}
+
+.dark-mode button.bg-primary.text-secondary[onclick] {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+    color: var(--bg-primary) !important;
+}
+
+.dark-mode button.bg-primary.text-secondary[onclick]:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%) !important;
+    box-shadow: 0 8px 20px rgba(96, 165, 250, 0.4) !important;
+}
+
+/* Icon Badges in CTA */
+.dark-mode .bg-primary\/20.p-6.rounded-2xl {
+    background: rgba(96, 165, 250, 0.2) !important;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+/* ============================================
+   PLACEHOLDER AND INPUT COLORS
+   ============================================ */
+.dark-mode input.placeholder-textSecondary::placeholder,
+.dark-mode textarea.placeholder-textSecondary::placeholder {
+    color: var(--text-tertiary) !important;
+    opacity: 0.8;
+}
+
+/* ============================================
+   OPACITY AND TRANSPARENCY ADJUSTMENTS
+   ============================================ */
+.dark-mode .opacity-60 {
+    opacity: 0.7 !important;
+}
+
+/* ============================================
    RESPONSIVE ADJUSTMENTS
    ============================================ */
 @media (max-width: 768px) {
@@ -992,5 +1313,10 @@ nav a:hover {
     .dark-mode .card,
     .dark-mode .feature-card {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .dark-mode .bg-surface\/50,
+    .dark-mode .bg-surface\/70 {
+        background: rgba(21, 25, 34, 0.9) !important;
     }
 }
