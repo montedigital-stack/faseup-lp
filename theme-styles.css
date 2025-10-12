@@ -1514,3 +1514,154 @@ nav a:hover {
 .dark-mode .bg-neutral-50 {
     background-color: var(--bg-tertiary) !important;
 }
+
+/* ============================================
+   CORREÇÃO DEFINITIVA - MÁXIMA ESPECIFICIDADE
+   Header, Footer, Cards, Títulos - TUDO
+   ============================================ */
+
+/* HEADER/NAV - FORÇAR DARK MODE COMPLETO */
+.dark-mode nav,
+.dark-mode nav *,
+.dark-mode header,
+.dark-mode header * {
+    border-color: var(--border-light) !important;
+}
+
+.dark-mode nav {
+    background-color: rgba(10, 14, 20, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+}
+
+.dark-mode nav .container,
+.dark-mode nav .container * {
+    color: var(--text-primary) !important;
+}
+
+.dark-mode nav button,
+.dark-mode nav a:not(.bg-accent):not(.bg-primary) {
+    color: var(--text-secondary) !important;
+}
+
+.dark-mode nav button:hover,
+.dark-mode nav a:hover {
+    color: var(--primary) !important;
+}
+
+/* FOOTER - FORÇAR DARK MODE COMPLETO */
+.dark-mode footer {
+    background-color: var(--bg-secondary) !important;
+    border-top-color: var(--border-light) !important;
+}
+
+.dark-mode footer *:not(.gradient-text) {
+    color: var(--text-secondary) !important;
+}
+
+.dark-mode footer h3,
+.dark-mode footer h4,
+.dark-mode footer strong {
+    color: var(--text-primary) !important;
+}
+
+.dark-mode footer a {
+    color: var(--primary) !important;
+}
+
+.dark-mode footer a:hover {
+    color: var(--primary-light) !important;
+}
+
+.dark-mode footer .bg-accent\/20 {
+    background-color: rgba(252, 211, 77, 0.15) !important;
+}
+
+/* TODAS AS HEADINGS - FORÇAR CORES CORRETAS */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode h1 *,
+.dark-mode h2 *,
+.dark-mode h3 *,
+.dark-mode h4 *,
+.dark-mode h5 *,
+.dark-mode h6 * {
+    color: var(--text-primary) !important;
+}
+
+/* TODOS OS PARÁGRAFOS E TEXTOS */
+.dark-mode p:not(.gradient-text):not(.text-primary):not(.text-secondary):not(.text-accent),
+.dark-mode span:not(.gradient-text):not(.text-primary):not(.text-secondary):not(.text-accent),
+.dark-mode div:not(.gradient-text) {
+    color: var(--text-secondary) !important;
+}
+
+/* TODOS OS CARDS - BACKGROUNDS ESCUROS */
+.dark-mode .rounded-xl,
+.dark-mode .rounded-2xl,
+.dark-mode .rounded-lg {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-light) !important;
+}
+
+/* Cards específicos com classes bg- */
+.dark-mode [class*="bg-surface"],
+.dark-mode [class*="bg-background"],
+.dark-mode .bg-white,
+.dark-mode .bg-gray-50,
+.dark-mode .bg-neutral-50 {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Sections com backgrounds */
+.dark-mode section {
+    background-color: transparent !important;
+}
+
+.dark-mode section[class*="bg-"] {
+    background-color: rgba(21, 25, 34, 0.5) !important;
+}
+
+/* Main content area */
+.dark-mode main {
+    background-color: transparent !important;
+}
+
+/* LABELS E SMALL TEXT */
+.dark-mode label,
+.dark-mode .text-sm,
+.dark-mode .text-xs,
+.dark-mode code:not(.text-primary) {
+    color: var(--text-secondary) !important;
+}
+
+/* STRONG E EMPHASIS */
+.dark-mode strong:not(.text-primary):not(.text-accent):not(.text-secondary) {
+    color: var(--text-primary) !important;
+}
+
+/* ICON CONTAINERS */
+.dark-mode [class*="bg-primary/"],
+.dark-mode [class*="bg-accent/"],
+.dark-mode [class*="bg-info/"],
+.dark-mode [class*="bg-success/"],
+.dark-mode [class*="bg-tertiary/"] {
+    opacity: 1 !important;
+}
+
+/* DIVIDERS E BORDERS */
+.dark-mode hr,
+.dark-mode [class*="border-"] {
+    border-color: var(--border-light) !important;
+}
+
+/* GARANTIR QUE GRADIENTS FUNCIONEM */
+.dark-mode .gradient-text {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
