@@ -120,29 +120,113 @@
         * {
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
+
+        /* Navigation styles */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .dark-mode nav {
+            background-color: rgba(15, 20, 25, 0.95);
+        }
+
+        /* Warning colors for badge */
+        .bg-warning-50 {
+            background-color: rgba(251, 146, 60, 0.1);
+        }
+
+        .border-warning-200 {
+            border-color: rgba(251, 146, 60, 0.3);
+        }
+
+        .text-warning-600 {
+            color: #ea580c;
+        }
+
+        .bg-warning-500 {
+            background-color: #f97316;
+        }
+
+        /* Neutral colors for logo text */
+        .text-neutral-900 {
+            color: #171717;
+        }
+
+        .dark-mode .text-neutral-900 {
+            color: #fafafa;
+        }
+
+        .border-neutral-200 {
+            border-color: #e5e5e5;
+        }
+
+        .dark-mode .border-neutral-200 {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .bg-neutral-50 {
+            background-color: #fafafa;
+        }
+
+        .dark-mode .bg-neutral-50 {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
     </style>
 </head>
 <body class="gradient-bg min-h-screen text-textPrimary">
     <!-- Header -->
-    <header class="py-6 px-4 border-b border-primary/20">
-        <div class="container mx-auto max-w-6xl">
+    <nav class="fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="../" class="flex items-center space-x-3">
-                    <div class="text-3xl font-black gradient-text">FaseUp</div>
-                    <div class="bg-accent/20 px-2 py-1 rounded text-accent text-xs font-medium">BETA</div>
-                </a>
-                <nav class="hidden md:flex items-center space-x-6">
-                    <a href="../" class="text-textSecondary hover:text-primary transition-colors">Início</a>
-                    <a href="./" class="text-primary font-medium">Privacidade</a>
-                    <a href="../suporte/" class="text-textSecondary hover:text-primary transition-colors">Suporte</a>
-                    <a href="../design-system.html" class="text-textSecondary hover:text-primary transition-colors">Design System</a>
-                </nav>
+                <div class="flex items-center space-x-4">
+                    <div class="logo-text-combo">
+                        <img src="../Assets/Logo-FaseUp-without-background.png" alt="FaseUp - Logotipo oficial" class="h-8 md:h-10 w-auto" loading="eager" />
+                        <div class="text-2xl md:text-3xl font-black text-neutral-900">FaseUp</div>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1 bg-warning-50 px-3 py-1 rounded-full border border-warning-200">
+                        <span class="w-2 h-2 bg-warning-500 rounded-full animate-pulse"></span>
+                        <span class="text-warning-600 text-sm font-medium">Pré-lançamento</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <!-- Language Selector -->
+                    <div class="relative">
+                        <button id="languageButton" class="flex items-center space-x-2 text-textSecondary hover:text-primary transition-colors">
+                            <span class="flag-icon">🇧🇷</span>
+                            <span class="language-text">PT</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="languageDropdown" class="hidden absolute right-0 mt-2 py-2 w-40 bg-white rounded-lg shadow-xl border border-neutral-200">
+                            <button onclick="changeLanguage('pt')" class="language-option w-full text-left px-4 py-2 hover:bg-neutral-50 flex items-center space-x-2">
+                                <span class="flag-icon">🇧🇷</span>
+                                <span>Português</span>
+                            </button>
+                            <button onclick="changeLanguage('en')" class="language-option w-full text-left px-4 py-2 hover:bg-neutral-50 flex items-center space-x-2">
+                                <span class="flag-icon">🇺🇸</span>
+                                <span>English</span>
+                            </button>
+                            <button onclick="changeLanguage('es')" class="language-option w-full text-left px-4 py-2 hover:bg-neutral-50 flex items-center space-x-2">
+                                <span class="flag-icon">🇪🇸</span>
+                                <span>Español</span>
+                            </button>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='../'" class="hidden md:block text-textSecondary hover:text-primary transition-colors">Demo</button>
+                    <button onclick="window.location.href='../'" class="hidden md:block text-textSecondary hover:text-primary transition-colors">Planos</button>
+                    <button onclick="window.location.href='../'" class="hidden md:block text-textSecondary hover:text-primary transition-colors">Depoimentos</button>
+                    <button onclick="window.location.href='../feedback/'" class="hidden lg:block text-textSecondary hover:text-info transition-colors">
+                        <i class="fas fa-comments mr-1"></i>Feedback
+                    </button>
+                    <button onclick="openApoiador()" class="bg-accent hover:bg-accent/90 text-white px-6 py-2 rounded-xl font-semibold transition-colors animate-pulse-slow">Ser Apoiador</button>
+                </div>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Main Content -->
-    <main class="py-16 px-4">
+    <main class="py-16 px-4 mt-20">
         <div class="container mx-auto max-w-4xl">
             <div class="bg-surface/50 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-primary/20 shadow-strong">
                 <div class="text-center mb-12 fade-in">
@@ -472,6 +556,40 @@
     </footer>
 
     <script>
+        // Language functionality
+        let currentLang = localStorage.getItem('faseup-language') || 'pt';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('faseup-language', lang);
+            toggleLanguageDropdown();
+            // Reload page to apply language change
+            window.location.reload();
+        }
+
+        // Toggle language dropdown
+        const languageButton = document.getElementById('languageButton');
+        const languageDropdown = document.getElementById('languageDropdown');
+
+        if (languageButton) {
+            languageButton.addEventListener('click', function() {
+                languageDropdown.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!languageButton.contains(event.target) && !languageDropdown.contains(event.target)) {
+                    languageDropdown.classList.add('hidden');
+                }
+            });
+        }
+
+        function toggleLanguageDropdown() {
+            if (languageDropdown) {
+                languageDropdown.classList.add('hidden');
+            }
+        }
+
         // CTA Functions
         function openApoiador() {
             const telefone = '5582993869090';
