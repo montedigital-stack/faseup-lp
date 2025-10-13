@@ -2539,3 +2539,336 @@ body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .text-tertiary 
 }
 
 /* END OF SURGICAL BUG FIXES */
+
+/* ============================================
+   DESIGN SYSTEM - ADDITIONAL DARK MODE ENHANCEMENTS
+   SuperDesign.dev - 2025-10-12 - FINAL REVIEW
+   Complete coverage for all remaining edge cases
+   ============================================ */
+
+/* ===== ESPAÇAMENTO E LAYOUT SECTION ===== */
+/* Ensure spacing demo bars are visible */
+.dark-mode section .bg-primary.rounded {
+    background-color: var(--primary) !important;
+    opacity: 1 !important;
+}
+
+.dark-mode section .bg-tertiary.rounded-sm {
+    background-color: #fcd34d !important;
+    opacity: 1 !important;
+}
+
+.dark-mode section .bg-accent.rounded-md {
+    background-color: #fcd34d !important;
+    opacity: 1 !important;
+}
+
+.dark-mode section .bg-info.rounded-lg {
+    background-color: #93c5fd !important;
+    opacity: 1 !important;
+}
+
+.dark-mode section .bg-success.rounded-xl {
+    background-color: #6ee7b7 !important;
+    opacity: 1 !important;
+}
+
+/* Spacing section cards */
+.dark-mode section .bg-surface.rounded-xl.p-8.border.border-primary\\/20 {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+}
+
+/* Text within spacing section */
+.dark-mode section .bg-surface.rounded-xl span.text-textPrimary {
+    color: #f9fafb !important;
+}
+
+/* ===== TYPOGRAPHY SECTION - COMPLETE OVERRIDE ===== */
+/* Force all typography demos to be visible */
+.dark-mode section#typography h1.text-5xl.font-black.text-textPrimary,
+.dark-mode section#typography h2.text-4xl.font-bold.text-textPrimary,
+.dark-mode section#typography h3.text-3xl.font-bold.text-textPrimary,
+.dark-mode section#typography h4.text-2xl.font-semibold.text-textPrimary,
+.dark-mode section#typography h5.text-xl.font-semibold.text-textPrimary,
+.dark-mode section#typography h6.text-lg.font-medium.text-textPrimary {
+    color: #f9fafb !important;
+}
+
+/* Body text samples in typography */
+.dark-mode section#typography p.text-lg.text-textPrimary,
+.dark-mode section#typography p.text-base.text-textPrimary {
+    color: #f9fafb !important;
+}
+
+.dark-mode section#typography p.text-sm.text-textSecondary,
+.dark-mode section#typography p.text-xs.text-textSecondary {
+    color: #d1d5db !important;
+}
+
+/* Code samples in typography */
+.dark-mode section#typography code.text-primary.font-mono {
+    color: #60a5fa !important;
+}
+
+/* ===== HERO SECTION - GRADIENT TEXT ===== */
+/* Ensure gradient text is bright and visible */
+.dark-mode section h1.gradient-text {
+    background: linear-gradient(135deg, #60a5fa 0%, #6ee7b7 50%, #fcd34d 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* Strong text with brand colors in hero */
+.dark-mode section p strong.text-primary {
+    color: #60a5fa !important;
+    font-weight: 600;
+}
+
+.dark-mode section p strong.text-tertiary {
+    color: #fcd34d !important;
+    font-weight: 600;
+}
+
+.dark-mode section p strong.text-accent {
+    color: #fcd34d !important;
+    font-weight: 600;
+}
+
+/* ===== VALUES BANNER - EMOJI SECTION ===== */
+.dark-mode section .bg-gradient-to-r.from-secondary\\/20.via-primary\\/10.to-tertiary\\/20 h3.text-primary {
+    color: #60a5fa !important;
+}
+
+.dark-mode section .bg-gradient-to-r.from-secondary\\/20.via-primary\\/10.to-tertiary\\/20 p.text-textSecondary {
+    color: #d1d5db !important;
+}
+
+/* ===== BUTTON DEMOS - ENSURE VISIBILITY ===== */
+/* Primary button with gradient */
+.dark-mode section#components button.bg-primary.text-secondary.px-6.py-3 {
+    background: linear-gradient(135deg, #E7CFA9 0%, #F0D9B8 100%) !important;
+    color: #09455B !important;
+}
+
+.dark-mode section#components button.bg-primary.text-secondary:hover {
+    background: linear-gradient(135deg, #F0D9B8 0%, #F5E4C7 100%) !important;
+}
+
+/* Secondary button */
+.dark-mode section#components button.bg-secondary.text-textPrimary.px-6.py-3 {
+    background: #09455B !important;
+    color: #f9fafb !important;
+}
+
+.dark-mode section#components button.bg-secondary.text-textPrimary:hover {
+    background: #073A47 !important;
+}
+
+/* Tertiary button */
+.dark-mode section#components button.bg-tertiary.text-textPrimary.px-6.py-3 {
+    background: #F4A261 !important;
+    color: #f9fafb !important;
+}
+
+/* ===== CARD DEMOS - GRADIENT BACKGROUNDS ===== */
+.dark-mode section#components .bg-gradient-to-br.from-primary\\/10.to-tertiary\\/10 {
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(252, 211, 77, 0.15) 100%) !important;
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+/* ===== MOCKUP SECTION - PROGRESS BARS ===== */
+/* Mobile mockup progress bar */
+.dark-mode section .w-full.h-3.bg-surface.rounded-full {
+    background-color: #1f2937 !important;
+}
+
+.dark-mode section .w-3\\/4.h-full.bg-gradient-to-r.from-primary.to-tertiary,
+.dark-mode section .w-4\\/5.h-full.bg-gradient-to-r.from-primary.to-tertiary,
+.dark-mode section .w-3\\/5.h-full.bg-gradient-to-r.from-tertiary.to-accent {
+    background: linear-gradient(to right, #60a5fa 0%, #fcd34d 100%) !important;
+}
+
+/* Desktop mockup progress bars */
+.dark-mode section .w-16.h-2.bg-surface.rounded-full {
+    background-color: #1f2937 !important;
+}
+
+/* ===== STATUS INDICATORS IN MOCKUPS ===== */
+.dark-mode section .bg-success\\/10.rounded-lg {
+    background: rgba(110, 231, 183, 0.15) !important;
+    border-color: rgba(110, 231, 183, 0.3) !important;
+}
+
+.dark-mode section .border-success\\/20 {
+    border-color: rgba(110, 231, 183, 0.3) !important;
+}
+
+.dark-mode section .bg-tertiary\\/10.rounded-lg {
+    background: rgba(252, 211, 77, 0.15) !important;
+    border-color: rgba(252, 211, 77, 0.3) !important;
+}
+
+.dark-mode section .border-tertiary\\/20 {
+    border-color: rgba(252, 211, 77, 0.3) !important;
+}
+
+.dark-mode section .border-textSecondary\\/20 {
+    border-color: rgba(209, 213, 219, 0.3) !important;
+}
+
+/* ===== ICON COLORS IN MOCKUPS ===== */
+.dark-mode section .text-success {
+    color: #6ee7b7 !important;
+}
+
+.dark-mode section .text-tertiary {
+    color: #fcd34d !important;
+}
+
+.dark-mode section .text-accent {
+    color: #fcd34d !important;
+}
+
+.dark-mode section .text-secondary:not(.bg-secondary) {
+    color: #6ee7b7 !important;
+}
+
+/* ===== BOTTOM NAVIGATION IN MOBILE MOCKUP ===== */
+.dark-mode section .w-10.h-10.bg-primary\\/20.rounded-lg {
+    background: rgba(96, 165, 250, 0.2) !important;
+}
+
+.dark-mode section .w-10.h-10.bg-secondary\\/20.rounded-lg {
+    background: rgba(110, 231, 183, 0.2) !important;
+}
+
+.dark-mode section .w-10.h-10.bg-accent\\/20.rounded-lg {
+    background: rgba(252, 211, 77, 0.2) !important;
+}
+
+/* User avatar circle in mobile mockup */
+.dark-mode section .w-8.h-8.bg-primary.rounded-full {
+    background: var(--primary) !important;
+}
+
+.dark-mode section .w-8.h-8.bg-primary.rounded-full .text-secondary {
+    color: #09455B !important;
+}
+
+/* ===== CTA SECTION - FINAL CALL TO ACTION ===== */
+.dark-mode section .bg-gradient-to-r.from-secondary\\/20.via-primary\\/20.to-tertiary\\/20.backdrop-blur-md {
+    background: linear-gradient(to right,
+        rgba(110, 231, 183, 0.12) 0%,
+        rgba(96, 165, 250, 0.12) 50%,
+        rgba(252, 211, 77, 0.12) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+/* CTA title with gradient */
+.dark-mode section h2.text-4xl.font-bold.text-textPrimary span.gradient-text {
+    background: linear-gradient(135deg, #60a5fa 0%, #6ee7b7 50%, #fcd34d 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* Icon features at bottom of CTA */
+.dark-mode section .text-success {
+    color: #6ee7b7 !important;
+}
+
+.dark-mode section .text-info {
+    color: #93c5fd !important;
+}
+
+/* ===== FOOTER - FINAL SECTION ===== */
+.dark-mode footer.py-8.px-6.border-t {
+    background-color: #0a0e14 !important;
+    border-top-color: #374151 !important;
+}
+
+.dark-mode footer h3.text-2xl.font-bold.gradient-text {
+    background: linear-gradient(135deg, #60a5fa 0%, #6ee7b7 50%, #fcd34d 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.dark-mode footer p.text-textSecondary {
+    color: #d1d5db !important;
+}
+
+.dark-mode footer a.text-primary {
+    color: #60a5fa !important;
+}
+
+.dark-mode footer a.text-primary:hover {
+    color: #93c5fd !important;
+}
+
+.dark-mode footer span.text-textSecondary {
+    color: #9ca3af !important;
+}
+
+/* ===== SCROLL BEHAVIOR AND ANIMATIONS ===== */
+/* Ensure animations work smoothly in dark mode */
+.dark-mode .animate-fade-up,
+.dark-mode .animate-float {
+    opacity: 1 !important;
+}
+
+/* ===== CODE BLOCKS AND PRE ELEMENTS ===== */
+.dark-mode code,
+.dark-mode pre {
+    background-color: #1f2937 !important;
+    color: #d1d5db !important;
+    border: 1px solid #374151 !important;
+}
+
+.dark-mode .code-block {
+    background-color: #1f2937 !important;
+    border-color: #374151 !important;
+}
+
+/* ===== ACCESSIBILITY - FOCUS STATES ===== */
+.dark-mode button:focus,
+.dark-mode a:focus,
+.dark-mode input:focus,
+.dark-mode select:focus,
+.dark-mode textarea:focus {
+    outline: 2px solid var(--primary) !important;
+    outline-offset: 2px !important;
+}
+
+/* ===== BACKDROP BLUR ELEMENTS ===== */
+.dark-mode .backdrop-blur-md {
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* ===== FINAL SAFETY NET ===== */
+/* Catch-all for any remaining light backgrounds */
+.dark-mode section[class*="bg-surface"],
+.dark-mode div[class*="bg-surface"]:not(button) {
+    background-color: #151922 !important;
+}
+
+.dark-mode section[class*="bg-background"],
+.dark-mode div[class*="bg-background"]:not(button) {
+    background-color: #0a0e14 !important;
+}
+
+/* Ensure all text is readable */
+.dark-mode [class*="text-textPrimary"] {
+    color: #f9fafb !important;
+}
+
+.dark-mode [class*="text-textSecondary"] {
+    color: #d1d5db !important;
+}
+
+/* END OF ADDITIONAL DARK MODE ENHANCEMENTS */
