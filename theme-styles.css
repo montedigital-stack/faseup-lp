@@ -2327,4 +2327,215 @@ body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .text-tertiary 
     background-clip: text !important;
 }
 
-/* END OF FINAL FIXES */
+/* ============================================
+   DESIGN SYSTEM PAGE - SURGICAL BUG FIXES
+   SuperDesign.dev - 2025-10-12
+   Ticket: 4 Critical Dark Mode Bugs
+   ============================================ */
+
+/* ===== BUG 1 FIX: Color Swatches - Keep preview boxes VISIBLE ===== */
+/* Problem: Color preview boxes disappearing in dark mode
+   Solution: Ensure inline colored divs remain visible with original colors */
+
+.dark-mode section#colors .color-swatch > div[style*="background-color"] {
+    /* Preserve the inline background colors */
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+/* Ensure card backgrounds are dark, but not the color preview boxes */
+.dark-mode section#colors .color-swatch.bg-surface {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+}
+
+.dark-mode section#colors .color-swatch.bg-surface:hover {
+    border-color: #60a5fa !important;
+    box-shadow: 0 8px 20px rgba(96, 165, 250, 0.3) !important;
+}
+
+/* Text within color swatches */
+.dark-mode section#colors .color-swatch h4.font-bold {
+    color: #f9fafb !important;
+}
+
+.dark-mode section#colors .color-swatch p.text-textSecondary.text-sm {
+    color: #d1d5db !important;
+}
+
+.dark-mode section#colors .color-swatch code.text-primary {
+    color: #60a5fa !important;
+}
+
+/* ===== BUG 2 FIX: Typography Section - Complete Dark Mode ===== */
+/* Problem: Section and cards still showing light mode colors
+   Solution: Force dark backgrounds and proper text colors */
+
+/* Section background with opacity */
+.dark-mode section#typography.py-20.px-6.bg-surface\\/50 {
+    background-color: rgba(21, 25, 34, 0.5) !important;
+}
+
+/* Typography demo cards */
+.dark-mode section#typography .bg-background.rounded-xl.p-8 {
+    background-color: #0a0e14 !important;
+    border-color: #374151 !important;
+}
+
+/* All headings within typography cards */
+.dark-mode section#typography .bg-background h1,
+.dark-mode section#typography .bg-background h2,
+.dark-mode section#typography .bg-background h3,
+.dark-mode section#typography .bg-background h4,
+.dark-mode section#typography .bg-background h5,
+.dark-mode section#typography .bg-background h6 {
+    color: #f9fafb !important;
+}
+
+/* Body text samples */
+.dark-mode section#typography .bg-background p {
+    color: #f9fafb !important;
+}
+
+/* Code blocks showing class names */
+.dark-mode section#typography .bg-background code.text-textSecondary {
+    color: #d1d5db !important;
+}
+
+/* Monospace text sample */
+.dark-mode section#typography .bg-background code.text-primary.font-mono {
+    color: #60a5fa !important;
+}
+
+/* Section titles */
+.dark-mode section#typography h2.text-textPrimary {
+    color: #f9fafb !important;
+}
+
+.dark-mode section#typography h3.text-xl.font-bold.text-primary {
+    color: #60a5fa !important;
+}
+
+/* ===== BUG 3 FIX: Components Section - Remove White Line ===== */
+/* Problem: Unwanted white line/border appearing
+   Solution: Ensure proper border colors and section background */
+
+/* Section background */
+.dark-mode section#components.py-20.px-6.bg-surface\\/50 {
+    background-color: rgba(21, 25, 34, 0.5) !important;
+    border: none !important;
+}
+
+/* Component demo cards */
+.dark-mode section#components .bg-background.rounded-xl.p-8 {
+    background-color: #0a0e14 !important;
+    border-color: #374151 !important;
+}
+
+.dark-mode section#components .bg-surface.rounded-xl {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+}
+
+/* Remove any stray borders */
+.dark-mode section#components .border {
+    border-color: #374151 !important;
+}
+
+/* Ensure no white borders on cards */
+.dark-mode section#components .border-primary\\/20 {
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+.dark-mode section#components .border-accent\\/40 {
+    border-color: rgba(252, 211, 77, 0.4) !important;
+}
+
+/* ===== BUG 4 FIX: Dashboard Executivo - Force Dark Mode ===== */
+/* Problem: Desktop dashboard preview still in light mode
+   Solution: Target the specific card structure with high specificity */
+
+/* Outer card container */
+.dark-mode section .bg-surface.rounded-xl.p-8.border.border-primary\\/20.shadow-strong {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Inner dashboard background */
+.dark-mode section .bg-surface.rounded-xl.p-8 > .bg-background.rounded-lg.p-6 {
+    background-color: #0a0e14 !important;
+}
+
+/* Dashboard title */
+.dark-mode section .bg-background.rounded-lg h3.text-lg.font-bold.text-primary {
+    color: #60a5fa !important;
+}
+
+/* Dashboard text */
+.dark-mode section .bg-background.rounded-lg .text-textPrimary {
+    color: #f9fafb !important;
+}
+
+.dark-mode section .bg-background.rounded-lg .text-textSecondary {
+    color: #d1d5db !important;
+}
+
+/* Dashboard stat cards with gradient backgrounds */
+.dark-mode section .bg-background.rounded-lg .bg-gradient-to-br.from-primary\\/10.to-primary\\/20 {
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(96, 165, 250, 0.25) 100%) !important;
+    border-color: rgba(96, 165, 250, 0.4) !important;
+}
+
+.dark-mode section .bg-background.rounded-lg .bg-gradient-to-br.from-success\\/10.to-success\\/20 {
+    background: linear-gradient(135deg, rgba(110, 231, 183, 0.15) 0%, rgba(110, 231, 183, 0.25) 100%) !important;
+    border-color: rgba(110, 231, 183, 0.4) !important;
+}
+
+/* Dashboard project list items */
+.dark-mode section .bg-background.rounded-lg .bg-surface.rounded-lg.border.border-primary\\/20 {
+    background-color: #151922 !important;
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+/* Icon containers within dashboard */
+.dark-mode section .bg-background.rounded-lg .bg-primary\\/20 {
+    background-color: rgba(96, 165, 250, 0.15) !important;
+}
+
+.dark-mode section .bg-background.rounded-lg .bg-tertiary\\/20 {
+    background-color: rgba(252, 211, 77, 0.15) !important;
+}
+
+/* Success badge in dashboard header */
+.dark-mode section .bg-background.rounded-lg .bg-success.rounded-full {
+    background-color: #6ee7b7 !important;
+    color: #0a0e14 !important;
+}
+
+/* ===== ADDITIONAL FIXES: Mobile Preview (Left side) ===== */
+/* Ensure mobile mockup is also properly styled */
+
+.dark-mode section .w-80.h-96.bg-surface.rounded-\\[3rem\\] {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark-mode section .w-80.h-96.bg-surface .bg-background.rounded-\\[2rem\\] {
+    background-color: #0a0e14 !important;
+}
+
+.dark-mode section .w-80.h-96 .text-textPrimary {
+    color: #f9fafb !important;
+}
+
+.dark-mode section .w-80.h-96 .text-textSecondary {
+    color: #d1d5db !important;
+}
+
+.dark-mode section .w-80.h-96 .text-primary {
+    color: #60a5fa !important;
+}
+
+/* END OF SURGICAL BUG FIXES */
