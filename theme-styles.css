@@ -2871,4 +2871,288 @@ body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .text-tertiary 
     color: #d1d5db !important;
 }
 
+/* ============================================
+   DESIGN SYSTEM PAGE - COMPLETE BORDER FIXES
+   Date: 2025-10-12
+   Issue: All borders showing Light Mode colors in Dark Mode
+   Solution: Ultra-high specificity overrides for all border variants
+   ============================================ */
+
+/* === NAVIGATION BORDERS === */
+.dark-mode nav.border-b {
+    border-bottom-color: rgba(55, 65, 81, 0.8) !important;
+}
+
+/* === DEFAULT BORDER CLASS (border without color) === */
+.dark-mode section .border:not([class*="border-primary"]):not([class*="border-secondary"]):not([class*="border-accent"]):not([class*="border-success"]):not([class*="border-tertiary"]):not([class*="border-textSecondary"]) {
+    border-color: #374151 !important;
+}
+
+/* === PRIMARY BORDER VARIANTS === */
+/* border-primary/20 - Most common in design-system.html */
+.dark-mode .border-primary\/20,
+.dark-mode section .border-primary\/20,
+.dark-mode .border.border-primary\/20,
+.dark-mode section .border.border-primary\/20,
+.dark-mode div.border.border-primary\/20,
+.dark-mode .bg-primary\/10.border.border-primary\/20,
+.dark-mode .bg-surface.border.border-primary\/20,
+.dark-mode .bg-background.border.border-primary\/20,
+.dark-mode .rounded-xl.border.border-primary\/20,
+.dark-mode .color-swatch.border.border-primary\/20 {
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+/* border-primary/30 - Used in dashboard cards */
+.dark-mode .border-primary\/30,
+.dark-mode section .border-primary\/30,
+.dark-mode .border.border-primary\/30,
+.dark-mode section .border.border-primary\/30,
+.dark-mode div.border.border-primary\/30,
+.dark-mode .bg-gradient-to-br.border.border-primary\/30 {
+    border-color: rgba(96, 165, 250, 0.4) !important;
+}
+
+/* border-primary/40 - Hover states */
+.dark-mode .border-primary\/40,
+.dark-mode .hover\:border-primary\/40:hover {
+    border-color: rgba(96, 165, 250, 0.5) !important;
+}
+
+/* border-primary - Solid primary borders */
+.dark-mode .border-primary,
+.dark-mode section .border-primary {
+    border-color: #60a5fa !important;
+}
+
+/* === ACCENT BORDER VARIANTS === */
+.dark-mode .border-accent\/20,
+.dark-mode section .border-accent\/20 {
+    border-color: rgba(252, 211, 77, 0.3) !important;
+}
+
+.dark-mode .border-accent\/40,
+.dark-mode section .border-accent\/40,
+.dark-mode .border.border-accent\/40 {
+    border-color: rgba(252, 211, 77, 0.4) !important;
+}
+
+/* === SUCCESS BORDER VARIANTS === */
+.dark-mode .border-success\/20,
+.dark-mode section .border-success\/20,
+.dark-mode .border.border-success\/20 {
+    border-color: rgba(110, 231, 183, 0.3) !important;
+}
+
+.dark-mode .border-success\/30,
+.dark-mode section .border-success\/30,
+.dark-mode .border.border-success\/30 {
+    border-color: rgba(110, 231, 183, 0.4) !important;
+}
+
+/* === TERTIARY BORDER VARIANTS === */
+.dark-mode .border-tertiary\/20,
+.dark-mode section .border-tertiary\/20,
+.dark-mode .border.border-tertiary\/20 {
+    border-color: rgba(252, 211, 77, 0.3) !important;
+}
+
+.dark-mode .border-tertiary\/30,
+.dark-mode section .border-tertiary\/30 {
+    border-color: rgba(252, 211, 77, 0.4) !important;
+}
+
+/* === TEXT SECONDARY BORDERS === */
+.dark-mode .border-textSecondary,
+.dark-mode section .border-textSecondary {
+    border-color: #9ca3af !important;
+}
+
+.dark-mode .border-textSecondary\/20,
+.dark-mode section .border-textSecondary\/20,
+.dark-mode .border.border-textSecondary\/20 {
+    border-color: rgba(156, 163, 175, 0.3) !important;
+}
+
+/* === SECONDARY BORDERS === */
+.dark-mode .border-secondary,
+.dark-mode section .border-secondary {
+    border-color: #6ee7b7 !important;
+}
+
+/* === OUTLINE BUTTONS WITH border-2 === */
+.dark-mode button.border-2.border-primary,
+.dark-mode .border-2.border-primary {
+    border-color: #60a5fa !important;
+    border-width: 2px !important;
+}
+
+.dark-mode button.border-2.border-primary:hover {
+    border-color: #60a5fa !important;
+    background-color: #60a5fa !important;
+}
+
+.dark-mode button.border-2.border-secondary,
+.dark-mode .border-2.border-secondary {
+    border-color: #6ee7b7 !important;
+    border-width: 2px !important;
+}
+
+.dark-mode button.border-2.border-textSecondary,
+.dark-mode .border-2.border-textSecondary {
+    border-color: #9ca3af !important;
+    border-width: 2px !important;
+}
+
+.dark-mode button.border-2.border-primary\/30,
+.dark-mode .border-2.border-primary\/30 {
+    border-color: rgba(96, 165, 250, 0.4) !important;
+    border-width: 2px !important;
+}
+
+/* === FORM ELEMENT BORDERS === */
+.dark-mode input.border.border-primary\/20,
+.dark-mode select.border.border-primary\/20,
+.dark-mode textarea.border.border-primary\/20 {
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+.dark-mode input:focus.border-primary,
+.dark-mode select:focus.border-primary,
+.dark-mode textarea:focus.border-primary {
+    border-color: #60a5fa !important;
+}
+
+.dark-mode input.focus\:border-primary:focus,
+.dark-mode select.focus\:border-primary:focus,
+.dark-mode textarea.focus\:border-primary:focus {
+    border-color: #60a5fa !important;
+}
+
+/* === CARD HOVER STATES === */
+.dark-mode .hover\:border-primary\/40:hover,
+.dark-mode section .hover\:border-primary\/40:hover {
+    border-color: rgba(96, 165, 250, 0.5) !important;
+}
+
+/* === COLOR SWATCH SPECIFIC === */
+.dark-mode .color-swatch {
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+.dark-mode .color-swatch:hover {
+    border-color: rgba(96, 165, 250, 0.5) !important;
+}
+
+/* === COMPONENT DEMO BORDERS === */
+.dark-mode .component-demo {
+    border-color: #374151 !important;
+}
+
+/* === CODE BLOCK BORDERS === */
+.dark-mode .code-block {
+    border-color: #374151 !important;
+}
+
+/* === MOBILE MOCKUP BORDERS === */
+.dark-mode .rounded-\[3rem\].border.border-primary\/20 {
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+/* === FOOTER BORDER === */
+.dark-mode footer.border-t,
+.dark-mode footer.border-t.border-primary\/20 {
+    border-top-color: rgba(55, 65, 81, 0.8) !important;
+}
+
+/* === BORDER-B (bottom borders) === */
+.dark-mode .border-b {
+    border-bottom-color: #374151 !important;
+}
+
+.dark-mode .border-b.border-primary\/20 {
+    border-bottom-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+/* === BORDER-T (top borders) === */
+.dark-mode .border-t {
+    border-top-color: #374151 !important;
+}
+
+.dark-mode .border-t.border-primary\/20 {
+    border-top-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+/* === BORDER-L and BORDER-R === */
+.dark-mode .border-l {
+    border-left-color: #374151 !important;
+}
+
+.dark-mode .border-r {
+    border-right-color: #374151 !important;
+}
+
+/* === ULTRA-SPECIFIC CATCHES FOR STUBBORN CASES === */
+/* Catch any .border class that doesn't have a specific color modifier */
+.dark-mode [class*="border"]:not([class*="rounded"]):not([class*="border-0"]):not([class*="border-none"]) {
+    border-color: #374151 !important;
+}
+
+/* But override with specific colors when they exist */
+.dark-mode [class*="border-primary/20"] {
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+.dark-mode [class*="border-primary/30"] {
+    border-color: rgba(96, 165, 250, 0.4) !important;
+}
+
+.dark-mode [class*="border-primary/40"] {
+    border-color: rgba(96, 165, 250, 0.5) !important;
+}
+
+.dark-mode [class*="border-accent/20"] {
+    border-color: rgba(252, 211, 77, 0.3) !important;
+}
+
+.dark-mode [class*="border-accent/40"] {
+    border-color: rgba(252, 211, 77, 0.4) !important;
+}
+
+.dark-mode [class*="border-success/20"] {
+    border-color: rgba(110, 231, 183, 0.3) !important;
+}
+
+.dark-mode [class*="border-success/30"] {
+    border-color: rgba(110, 231, 183, 0.4) !important;
+}
+
+.dark-mode [class*="border-tertiary/20"] {
+    border-color: rgba(252, 211, 77, 0.3) !important;
+}
+
+.dark-mode [class*="border-textSecondary/20"] {
+    border-color: rgba(156, 163, 175, 0.3) !important;
+}
+
+/* === FINAL CATCH-ALL WITH MAXIMUM SPECIFICITY === */
+/* For any remaining borders that slip through */
+.dark-mode body section .border,
+.dark-mode body section div.border,
+.dark-mode body div.border,
+.dark-mode body .border {
+    border-color: #374151 !important;
+}
+
+/* But ensure colored borders override the catch-all */
+.dark-mode body [class*="border-primary"] {
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+.dark-mode body button[class*="border-2"][class*="border-primary"] {
+    border-color: #60a5fa !important;
+}
+
+/* END OF DESIGN SYSTEM BORDER FIXES */
+
 /* END OF ADDITIONAL DARK MODE ENHANCEMENTS */
