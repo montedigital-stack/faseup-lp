@@ -1825,6 +1825,27 @@ body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#colors .color-s
     color: #60a5fa !important;
 }
 
+/* ULTRA-SPECIFIC FIX: Color swatches in ALL sections */
+body.dark-mode .color-swatch,
+body.dark-mode .rounded-xl.p-6.border {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+}
+
+body.dark-mode .color-swatch h4,
+body.dark-mode .color-swatch .font-bold {
+    color: #f9fafb !important;
+}
+
+body.dark-mode .color-swatch p,
+body.dark-mode .color-swatch .text-textSecondary {
+    color: #d1d5db !important;
+}
+
+body.dark-mode .color-swatch code {
+    color: #60a5fa !important;
+}
+
 /* Seção Typography */
 body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section#typography {
     background-color: rgba(21, 25, 34, 0.5) !important;
@@ -1959,3 +1980,351 @@ body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .text-info,
 body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .text-tertiary {
     color: inherit !important;
 }
+
+/* ============================================
+   CORREÇÃO FINAL DEFINITIVA - MÁXIMA PRIORIDADE
+   SuperDesign.dev - 2025-10-12 17:30
+
+   Esta seção DEVE ser a última no arquivo.
+   Usa !important em TUDO para garantir que sobrescreva
+   qualquer inline style ou Tailwind class.
+
+   IMPORTANT: dark-mode class is on <html>, not <body>
+   ============================================ */
+
+/* SUPORTE PAGE - NAV - Sobrescrever inline styles */
+.dark-mode body.gradient-bg.min-h-screen.text-textPrimary nav.fixed,
+.dark-mode nav.fixed {
+    background-color: rgba(10, 14, 20, 0.98) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom-color: rgba(55, 65, 81, 0.6) !important;
+}
+
+/* Logo text - FaseUp */
+.dark-mode nav .logo-text-combo div.text-neutral-900,
+.dark-mode nav div.text-2xl.font-black.text-neutral-900,
+.dark-mode nav .text-neutral-900 {
+    color: #f9fafb !important;
+}
+
+/* Nav buttons e links */
+.dark-mode nav button:not(.bg-accent),
+.dark-mode nav a:not(.bg-accent):not(.bg-primary) {
+    color: #d1d5db !important;
+}
+
+.dark-mode nav button:hover:not(.bg-accent),
+.dark-mode nav a:hover:not(.bg-accent):not(.bg-primary) {
+    color: #60a5fa !important;
+}
+
+/* Language dropdown - CRITICAL */
+.dark-mode nav #languageDropdown.bg-white,
+.dark-mode nav div[id*="language"].bg-white,
+.dark-mode nav #languageDropdown {
+    background-color: #2d3748 !important;
+    border-color: #4b5563 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark-mode nav #languageDropdown button,
+.dark-mode nav #languageDropdown .language-option {
+    color: #f9fafb !important;
+}
+
+.dark-mode nav #languageDropdown button:hover,
+.dark-mode nav #languageDropdown .language-option:hover,
+.dark-mode nav #languageDropdown button.hover\\:bg-neutral-50:hover {
+    background-color: #1f2937 !important;
+    color: #60a5fa !important;
+}
+
+/* Warning badge */
+.dark-mode nav .bg-warning-50 {
+    background-color: rgba(251, 146, 60, 0.15) !important;
+}
+
+.dark-mode nav .border-warning-200 {
+    border-color: rgba(251, 146, 60, 0.3) !important;
+}
+
+.dark-mode nav .text-warning-600 {
+    color: #fb923c !important;
+}
+
+.dark-mode nav .bg-warning-500 {
+    background-color: #f97316 !important;
+}
+
+/* SUPORTE PAGE - FOOTER */
+.dark-mode footer.py-8.px-4,
+.dark-mode footer {
+    background-color: #151922 !important;
+    border-top-color: #374151 !important;
+}
+
+.dark-mode footer h3,
+.dark-mode footer h3.gradient-text {
+    background: linear-gradient(135deg, #60a5fa 0%, #6ee7b7 50%, #fcd34d 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.dark-mode footer p.text-textSecondary,
+.dark-mode footer .text-textSecondary {
+    color: #d1d5db !important;
+}
+
+.dark-mode footer a.text-primary,
+.dark-mode footer a {
+    color: #60a5fa !important;
+}
+
+.dark-mode footer a:hover {
+    color: #93c5fd !important;
+}
+
+.dark-mode footer .bg-accent\/20 {
+    background-color: rgba(252, 211, 77, 0.15) !important;
+}
+
+.dark-mode footer .text-accent {
+    color: #fcd34d !important;
+}
+
+/* DESIGN SYSTEM PAGE - NAV */
+.dark-mode body.gradient-bg.min-h-screen.text-textPrimary nav.fixed.bg-background\/80,
+.dark-mode nav.bg-background\/80 {
+    background-color: rgba(10, 14, 20, 0.98) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom-color: rgba(55, 65, 81, 0.6) !important;
+}
+
+/* DESIGN SYSTEM PAGE - FOOTER */
+.dark-mode footer.py-8.px-6 {
+    background-color: #151922 !important;
+    border-top-color: #374151 !important;
+}
+
+/* DESIGN SYSTEM - Seção Paleta de Cores - TODOS os cards */
+.dark-mode section#colors .color-swatch.bg-surface,
+.dark-mode section#colors .color-swatch {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+}
+
+.dark-mode section#colors .color-swatch h4.font-bold.text-textPrimary,
+.dark-mode section#colors .color-swatch h4 {
+    color: #f9fafb !important;
+}
+
+.dark-mode section#colors .color-swatch p.text-textSecondary,
+.dark-mode section#colors .color-swatch p {
+    color: #d1d5db !important;
+}
+
+.dark-mode section#colors .color-swatch code.text-primary,
+.dark-mode section#colors .color-swatch code {
+    color: #60a5fa !important;
+}
+
+/* DESIGN SYSTEM - Cores de Destaque */
+.dark-mode section#colors .grid .color-swatch {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+}
+
+/* DESIGN SYSTEM - Cores do Sistema */
+.dark-mode section#colors div[class*="color-swatch"] {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+}
+
+/* DESIGN SYSTEM - Seção Components */
+.dark-mode section#components h2.text-textPrimary,
+.dark-mode section#components h3.text-textPrimary,
+.dark-mode section#components h4 {
+    color: #f9fafb !important;
+}
+
+.dark-mode section#components p.text-textSecondary {
+    color: #d1d5db !important;
+}
+
+.dark-mode section#components .bg-background.rounded-xl {
+    background-color: #0a0e14 !important;
+    border-color: #374151 !important;
+}
+
+.dark-mode section#components .bg-surface.rounded-xl {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+}
+
+/* Icon system cards */
+.dark-mode section#components .bg-primary\/20.rounded-xl {
+    background-color: rgba(96, 165, 250, 0.15) !important;
+}
+
+.dark-mode section#components .bg-tertiary\/20 {
+    background-color: rgba(252, 211, 77, 0.15) !important;
+}
+
+.dark-mode section#components .bg-success\/20.rounded-xl {
+    background-color: rgba(110, 231, 183, 0.15) !important;
+}
+
+.dark-mode section#components .bg-accent\/20.rounded-xl {
+    background-color: rgba(252, 211, 77, 0.15) !important;
+}
+
+/* Form labels */
+.dark-mode section#components label.text-textSecondary {
+    color: #d1d5db !important;
+}
+
+/* Form inputs */
+.dark-mode section#components input.bg-surface,
+.dark-mode section#components select.bg-surface,
+.dark-mode section#components textarea.bg-surface {
+    background-color: #1f2937 !important;
+    border-color: #4b5563 !important;
+    color: #f9fafb !important;
+}
+
+.dark-mode section#components input::placeholder,
+.dark-mode section#components textarea::placeholder {
+    color: #9ca3af !important;
+}
+
+.dark-mode section#components input.placeholder-textSecondary::placeholder,
+.dark-mode section#components textarea.placeholder-textSecondary::placeholder {
+    color: #9ca3af !important;
+}
+
+/* DESIGN SYSTEM - Aplicação na Interface Section */
+.dark-mode section .bg-surface.rounded-xl.p-8.border.shadow-strong {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark-mode section .w-80.h-96.bg-surface {
+    background-color: #151922 !important;
+    border-color: #374151 !important;
+}
+
+.dark-mode section .bg-background.rounded-lg,
+.dark-mode section .bg-background.rounded-\\[2rem\\] {
+    background-color: #0a0e14 !important;
+}
+
+/* DESIGN SYSTEM - CTA Section "Seja parte da revolução" */
+.dark-mode section .bg-gradient-to-r.from-secondary\/20.via-primary\/20.to-tertiary\/20 {
+    background: linear-gradient(to right,
+        rgba(110, 231, 183, 0.12) 0%,
+        rgba(96, 165, 250, 0.12) 50%,
+        rgba(252, 211, 77, 0.12) 100%) !important;
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+.dark-mode section h2.text-textPrimary {
+    color: #f9fafb !important;
+}
+
+.dark-mode section p.text-textSecondary {
+    color: #d1d5db !important;
+}
+
+.dark-mode section p strong.text-primary {
+    color: #60a5fa !important;
+}
+
+.dark-mode section .bg-primary\/20.p-6.rounded-2xl {
+    background-color: rgba(96, 165, 250, 0.2) !important;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+/* UNIVERSAL FIXES - Apply to ALL pages */
+
+/* All text colors */
+.dark-mode h1.text-textPrimary,
+.dark-mode h2.text-textPrimary,
+.dark-mode h3.text-textPrimary,
+.dark-mode h4.text-textPrimary,
+.dark-mode h5.text-textPrimary,
+.dark-mode h6.text-textPrimary {
+    color: #f9fafb !important;
+}
+
+.dark-mode p.text-textSecondary,
+.dark-mode span.text-textSecondary,
+.dark-mode div.text-textSecondary {
+    color: #d1d5db !important;
+}
+
+/* All backgrounds */
+.dark-mode .bg-surface,
+.dark-mode div.bg-surface,
+.dark-mode section.bg-surface {
+    background-color: #151922 !important;
+}
+
+.dark-mode .bg-background,
+.dark-mode div.bg-background {
+    background-color: #0a0e14 !important;
+}
+
+/* All borders */
+.dark-mode .border-primary\/20,
+.dark-mode [class*="border-primary/20"] {
+    border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+.dark-mode .border-primary\/30,
+.dark-mode [class*="border-primary/30"] {
+    border-color: rgba(96, 165, 250, 0.4) !important;
+}
+
+/* Brand colors */
+.dark-mode .text-primary:not(.bg-primary) {
+    color: #60a5fa !important;
+}
+
+.dark-mode .text-secondary:not(.bg-secondary) {
+    color: #6ee7b7 !important;
+}
+
+.dark-mode .text-tertiary,
+.dark-mode .text-accent {
+    color: #fcd34d !important;
+}
+
+.dark-mode .text-info {
+    color: #93c5fd !important;
+}
+
+.dark-mode .text-success {
+    color: #6ee7b7 !important;
+}
+
+.dark-mode .text-warning {
+    color: #fcd34d !important;
+}
+
+.dark-mode .text-error {
+    color: #fca5a5 !important;
+}
+
+/* Gradient text */
+.dark-mode .gradient-text {
+    background: linear-gradient(135deg, #60a5fa 0%, #6ee7b7 50%, #fcd34d 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* END OF FINAL FIXES */
