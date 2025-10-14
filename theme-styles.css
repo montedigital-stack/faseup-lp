@@ -3155,4 +3155,23 @@ body.gradient-bg.min-h-screen.text-textPrimary.dark-mode section .text-tertiary 
 
 /* END OF DESIGN SYSTEM BORDER FIXES */
 
+/* ============================================
+   BOTÃO APOIADOR FUNDADOR - Dark Mode Fix
+   ============================================ */
+.dark-mode button[onclick*="openApoiador"] {
+    background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%) !important;
+    color: #0a0e14 !important;
+    font-weight: 800 !important;
+}
+
+.dark-mode button[onclick*="openApoiador"]:hover {
+    background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%) !important;
+    color: #0a0e14 !important;
+}
+
+.dark-mode button[onclick*="openApoiador"] i,
+.dark-mode button[onclick*="openApoiador"] span {
+    color: #0a0e14 !important;
+}
+
 /* END OF ADDITIONAL DARK MODE ENHANCEMENTS */
