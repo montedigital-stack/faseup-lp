@@ -1,0 +1,26 @@
+{
+  "name": "faseup-lp",
+  "version": "1.0.0",
+  "description": "Gestão de obra. Etapa por etapa.",
+  "main": "feedback-api.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./tailwind-input.css -o ./tailwind-output.css --minify",
+    "watch:css": "tailwindcss -i ./tailwind-input.css -o ./tailwind-output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/montedigital-stack/faseup-lp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/montedigital-stack/faseup-lp/issues"
+  },
+  "homepage": "https://github.com/montedigital-stack/faseup-lp#readme",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "tailwindcss": "^3.4.18"
+  }
+}
