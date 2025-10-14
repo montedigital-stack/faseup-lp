@@ -11,25 +11,35 @@
 4. ❌ JavaScript não minificado: 3 KiB
 5. ❌ 8 tarefas longas da thread principal
 
-## Otimizações Implementadas
+## Otimizações Implementadas - Phase 1 ✅
 
-### 1. Recursos Externos Otimizados
-- ✅ Preconnect para CDNs adicionado
-- ✅ DNS-prefetch configurado
-- ✅ Font-display: swap implementado
-- ✅ Preload de recursos críticos
+### 1. Recursos Externos Otimizados (TODAS AS PÁGINAS)
+- ✅ Preconnect para cdn.tailwindcss.com
+- ✅ Preconnect para fonts.googleapis.com
+- ✅ Preconnect para fonts.gstatic.com
+- ✅ DNS-prefetch para cdnjs.cloudflare.com
+- ✅ DNS-prefetch para google-analytics.com
+- **Páginas**: index.html, design-system.html, suporte/index.html
 
-### 2. CSS Otimizado
-- ✅ theme-styles.css: 91KB (pode ser minificado)
-- ✅ light-mode-fixes.css: 13KB
-- ⚠️ Tailwind CDN: Carregar apenas classes usadas
+### 2. Fontes Otimizadas
+- ✅ Reduzido weights: 300,400,500,600,700,800,900 → 400,600,700,800 (save ~15KB)
+- ✅ Adicionado subset=latin (save ~8KB)
+- ✅ Font-display: swap já configurado
+- **Páginas**: index.html, design-system.html, suporte/index.html
 
 ### 3. JavaScript Otimizado
-- ✅ Google Analytics com defer loading
-- ✅ theme-toggle.js: 5.6KB
-- ✅ Scripts não críticos com async/defer
+- ✅ feedback-api.js: defer adicionado
+- ✅ Prism.js: defer adicionado (design-system)
+- ✅ Google Analytics: defer loading (já existia)
+- ✅ Font Awesome: preload com async
+- **Páginas**: index.html, design-system.html, suporte/index.html
 
-### 4. Imagens
+### 4. CSS
+- ✅ theme-styles.css: 91KB (3158 linhas, 271 comentários)
+- ✅ light-mode-fixes.css: 13KB
+- ⚠️ Pendente: Minificação via build tool
+
+### 5. Imagens
 - ✅ Lazy loading implementado
 - ✅ Fetchpriority="high" em hero image
 - ✅ Formatos modernos (WebP) recomendado
