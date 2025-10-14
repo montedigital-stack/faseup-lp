@@ -684,29 +684,116 @@
             border-color: var(--primary) !important;
         }
 
-        /* 5. BOTÃO "SIM, QUERO SER APOIADOR FUNDADOR" - Corrigir contraste */
-        .dark-mode button.bg-accent.text-white,
-        .dark-mode button[onclick*="openApoiador"] {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%) !important;
+        /* 5. BOTÃO "SIM, QUERO SER APOIADOR FUNDADOR" - SuperDesign.dev */
+        /* LIGHT MODE: Garantir fundo amarelo visível e texto preto */
+        html body button[onclick*="openApoiador"],
+        html body button[onclick*="openApoiador"].bg-accent,
+        html body button.bg-accent[onclick*="openApoiador"],
+        html body .bg-accent[onclick*="openApoiador"] {
+            background: #f59e0b !important; /* Amarelo sólido garantido */
             color: #0a0e14 !important;
             font-weight: 800 !important;
         }
 
-        .dark-mode button.bg-accent.text-white:hover,
-        .dark-mode button[onclick*="openApoiador"]:hover {
-            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%) !important;
+        html body button[onclick*="openApoiador"]:hover,
+        html body button[onclick*="openApoiador"].bg-accent:hover {
+            background: #fbbf24 !important; /* Amarelo mais claro no hover */
             color: #0a0e14 !important;
         }
 
-        /* Forçar texto preto no ícone e span do botão apoiador */
-        .dark-mode button[onclick*="openApoiador"] i,
-        .dark-mode button[onclick*="openApoiador"] span {
+        /* Forçar texto preto no ícone e span do botão apoiador - LIGHT MODE */
+        html body button[onclick*="openApoiador"] i,
+        html body button[onclick*="openApoiador"] span,
+        html body button[onclick*="openApoiador"] * {
+            color: #0a0e14 !important;
+        }
+
+        /* DARK MODE: Texto preto em fundo amarelo mais escuro */
+        html.dark-mode body button[onclick*="openApoiador"],
+        html.dark-mode body button[onclick*="openApoiador"].bg-accent,
+        .dark-mode button[onclick*="openApoiador"],
+        .dark-mode button.bg-accent[onclick*="openApoiador"] {
+            background: linear-gradient(135deg, #d4a54f 0%, #b88a3f 100%) !important;
+            color: #0a0e14 !important;
+        }
+
+        html.dark-mode body button[onclick*="openApoiador"]:hover,
+        html.dark-mode body button[onclick*="openApoiador"].bg-accent:hover,
+        .dark-mode button[onclick*="openApoiador"]:hover,
+        .dark-mode button.bg-accent[onclick*="openApoiador"]:hover {
+            background: linear-gradient(135deg, #e0b55f 0%, #d4a54f 100%) !important;
+            color: #0a0e14 !important;
+        }
+
+        html.dark-mode body button[onclick*="openApoiador"] *,
+        .dark-mode button[onclick*="openApoiador"] * {
             color: #0a0e14 !important;
         }
 
         /* 6. CENTRAL DE FEEDBACK - Remover componente desnecessário acima do título */
         .dark-mode #feedback .bg-info\/20 {
             background: rgba(147, 197, 253, 0.2) !important;
+        }
+
+        /* 7. CORREÇÃO COMPLETA - Todos elementos com text-warning/text-accent problemáticos */
+        /* MÁXIMA ESPECIFICIDADE - sobrescreve Tailwind */
+
+        /* A. STATUS "EM ANÁLISE" no Feedback - SuperDesign.dev */
+        /* LIGHT MODE: Texto amarelo escuro em fundo claro - ALTA VISIBILIDADE */
+        html body #feedback .text-warning,
+        html body #feedback span.text-warning,
+        html body #feedback .bg-warning\/20 span,
+        html body .bg-warning\/20 .text-warning,
+        html body [data-translate*="analysis"],
+        html body span[data-translate*="analysis"] {
+            color: #92400e !important; /* Amarelo muito escuro para excelente contraste no Light Mode */
+        }
+
+        /* DARK MODE: Texto preto em fundo amarelo claro - ALTA VISIBILIDADE */
+        html.dark-mode body #feedback .text-warning,
+        html.dark-mode body #feedback span.text-warning,
+        html.dark-mode body #feedback .bg-warning\/20 span,
+        html.dark-mode body .bg-warning\/20 .text-warning,
+        html.dark-mode body [data-translate*="analysis"],
+        html.dark-mode body span[data-translate*="analysis"],
+        .dark-mode #feedback .text-warning,
+        .dark-mode #feedback span.text-warning {
+            color: #0a0e14 !important; /* Texto preto em fundo amarelo no Dark Mode */
+        }
+
+        /* B. Textos text-accent e text-warning na seção Final CTA */
+        html body section strong.text-accent,
+        html body section strong.text-warning,
+        html body [data-translate*="final.pricing"] strong.text-accent,
+        html body [data-translate*="final.pricing"] strong.text-warning {
+            color: #0a0e14 !important;
+        }
+
+        html.dark-mode body section strong.text-accent,
+        html.dark-mode body section strong.text-warning,
+        .dark-mode section strong.text-accent,
+        .dark-mode section strong.text-warning {
+            color: #0a0e14 !important;
+        }
+
+        /* C. STATUS "implementadas" no Feedback - SuperDesign.dev */
+        /* LIGHT MODE: Texto verde escuro em fundo claro - ALTA VISIBILIDADE */
+        html body #feedback .text-tertiary,
+        html body #feedback span.text-tertiary,
+        html body #feedback .bg-tertiary\/20 span,
+        html body .bg-tertiary\/20 .text-tertiary,
+        html body [data-translate*="implemented"] {
+            color: #064e3b !important; /* Verde muito escuro para excelente contraste no Light Mode */
+        }
+
+        /* DARK MODE: Texto preto em fundo verde claro - ALTA VISIBILIDADE */
+        html.dark-mode body #feedback .text-tertiary,
+        html.dark-mode body #feedback span.text-tertiary,
+        html.dark-mode body #feedback .bg-tertiary\/20 span,
+        html.dark-mode body .bg-tertiary\/20 .text-tertiary,
+        .dark-mode #feedback .text-tertiary,
+        .dark-mode #feedback span.text-tertiary {
+            color: #0a0e14 !important; /* Texto preto em fundo verde no Dark Mode */
         }
 
         /* 7. FOOTER - Padronizar cores dos links */
@@ -1430,7 +1517,7 @@
                     <button onclick="scrollToFeedback()" class="hidden lg:block text-textSecondary hover:text-info transition-colors">
                         <i class="fas fa-comments mr-1"></i><span data-translate="nav.feedback">Feedback</span>
                     </button>
-                    <button onclick="openApoiador()" class="bg-accent hover:bg-accent/90 text-white px-6 py-2 rounded-xl font-semibold transition-colors animate-pulse-slow" data-translate="nav.supporter">
+                    <button onclick="openApoiador()" class="bg-accent hover:bg-accent/90 px-6 py-2 rounded-xl font-semibold transition-colors animate-pulse-slow" data-translate="nav.supporter">
                         Ser Apoiador
                     </button>
                 </div>
@@ -2713,7 +2800,7 @@
                 </div>
                 
                 <div class="flex flex-col lg:flex-row gap-6 justify-center mb-8">
-                    <button onclick="openApoiador()" class="bg-accent hover:bg-accent/90 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all duration-300 shadow-medium hover:shadow-strong hover:scale-105 flex items-center justify-center">
+                    <button onclick="openApoiador()" class="bg-accent hover:bg-accent/90 px-12 py-6 rounded-2xl font-bold text-xl transition-all duration-300 shadow-medium hover:shadow-strong hover:scale-105 flex items-center justify-center">
                         <i class="fas fa-crown mr-3"></i>
                         <span data-translate="final.cta">SIM, QUERO SER APOIADOR FUNDADOR</span>
                     </button>
