@@ -42,7 +42,7 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" as="image" href="./Assets/HeroSection-HeroVisual-Mockup-iPhone-Realism.png" fetchpriority="high">
-    <link rel="preload" as="image" href="./Assets/Logo-FaseUp-without-background.png" fetchpriority="high">
+    <link rel="preload" as="image" href="./Assets/Logo-FaseUp-optimized.jpg" fetchpriority="high">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
     <link rel="preconnect" href="https://www.googletagmanager.com">
@@ -183,9 +183,14 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <script src="./feedback-api.js" defer></script>
 
-    <!-- Theme System - Dark Mode Support -->
-    <link rel="stylesheet" href="./theme-styles.css">
-    <script src="./theme-toggle.js"></script>
+    <!-- Critical CSS Inline - Theme Variables -->
+    <style>:root{--primary:#2563eb;--secondary:#10b981;--accent:#f59e0b;--bg-primary:#fff;--bg-secondary:#fafafa;--bg-tertiary:#f5f5f5;--text-primary:#171717;--text-secondary:#525252;--text-tertiary:#737373;--border-light:#e5e5e5;--border-medium:#d4d4d4;--shadow-md:0 4px 6px -1px rgba(0,0,0,.1);--transition-fast:150ms ease}.dark-mode{--primary:#60a5fa;--secondary:#6ee7b7;--accent:#fcd34d;--bg-primary:#0a0e14;--bg-secondary:#151922;--bg-tertiary:#1f2937;--text-primary:#f9fafb;--text-secondary:#d1d5db;--text-tertiary:#9ca3af;--border-light:#374151;--border-medium:#4b5563;--shadow-md:0 4px 6px -1px rgba(0,0,0,.4)}</style>
+    <!-- Inline critical theme detection to prevent FOUC -->
+    <script>(function(){const t=localStorage.getItem('faseup-theme');const d=window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(t||d)){document.documentElement.classList.add('dark-mode')}})();</script>
+    <!-- Non-critical CSS and JS deferred -->
+    <link rel="preload" href="./theme-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./theme-styles.min.css"></noscript>
+    <script src="./theme-toggle.js" defer></script>
 
     <style>
         @keyframes fadeInUp {
@@ -1453,7 +1458,7 @@
                 <div class="flex items-center space-x-4">
                     <div class="logo-text-combo">
                         <img
-                            src="./Assets/Logo-FaseUp-without-background.png"
+                            src="./Assets/Logo-FaseUp-optimized.jpg"
                             alt="FaseUp - Logotipo oficial"
                             class="h-8 md:h-10 w-auto"
                             loading="eager"
@@ -2088,7 +2093,7 @@
                             <div class="bg-surface rounded-xl p-6 overflow-hidden">
                                 <div class="demo-image-container">
                                     <img
-                                        src="./Assets/DemoSection-01-screenshot-da-interface-do-gestor.jpg"
+                                        src="./Assets/DemoSection-01-screenshot-da-interface-do-gestor-optimized.jpg"
                                         alt="Interface completa do gestor FaseUp - Dashboard com visão de todas as obras"
                                         class="w-full h-auto rounded-lg border border-primary/20 shadow-medium cursor-pointer"
                                         loading="lazy"
@@ -2120,7 +2125,7 @@
                             <div class="bg-surface rounded-xl p-6 overflow-hidden">
                                 <div class="demo-image-container">
                                     <img
-                                        src="./Assets/DemoSection-02-screenshot-da-interface-mobile-otimizada.jpg"
+                                        src="./Assets/DemoSection-02-screenshot-da-interface-mobile-otimizada-optimized.jpg"
                                         alt="Interface mobile otimizada para operários - Tarefas claras e captura de fotos"
                                         class="w-full h-auto rounded-lg border border-tertiary/20 shadow-medium cursor-pointer"
                                         loading="lazy"
@@ -2152,7 +2157,7 @@
                             <div class="bg-surface rounded-xl p-6 overflow-hidden">
                                 <div class="demo-image-container">
                                     <img
-                                        src="./Assets/DemoSection-03-screenshot-da-interface-app-dedicado-para-clientes.jpg"
+                                        src="./Assets/DemoSection-03-screenshot-da-interface-app-dedicado-para-clientes-optimized.jpg"
                                         alt="App dedicado para clientes - Transparência total com acompanhamento em tempo real"
                                         class="w-full h-auto rounded-lg border border-success/20 shadow-medium cursor-pointer"
                                         loading="lazy"
@@ -2184,7 +2189,7 @@
                             <div class="bg-surface rounded-xl p-6 overflow-hidden">
                                 <div class="demo-image-container">
                                     <img
-                                        src="./Assets/DemoSection-04-screenshot-da-interface-dashboard-de-analytics.jpg"
+                                        src="./Assets/DemoSection-04-screenshot-da-interface-dashboard-de-analytics-optimized.jpg"
                                         alt="Dashboard de analytics e insights - Métricas inteligentes e relatórios avançados"
                                         class="w-full h-auto rounded-lg border border-info/20 shadow-medium cursor-pointer"
                                         loading="lazy"
@@ -2954,7 +2959,7 @@
                     <div class="flex items-center space-x-3 mb-4">
                         <div class="logo-text-combo">
                             <img 
-                                src="./Assets/Logo-FaseUp-without-background.png" 
+                                src="./Assets/Logo-FaseUp-optimized.jpg" 
                                 alt="FaseUp - Logotipo oficial"
                                 class="h-10 md:h-12 w-auto"
                                 loading="lazy"
