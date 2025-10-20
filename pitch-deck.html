@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaseUp - Escolha a Apresentação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+            padding: 40px;
+        }
+
+        .logo {
+            width: 180px;
+            margin: 0 auto 40px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 50px;
+            opacity: 0.95;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 32px 48px;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            min-width: 280px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .btn-prefeituras {
+            background: white;
+            color: #2563eb;
+        }
+
+        .btn-prefeituras:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 50px rgba(255,255,255,0.4);
+        }
+
+        .btn-investidores {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-investidores:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 50px rgba(16,185,129,0.5);
+        }
+
+        .btn-construtoras {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .btn-construtoras:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 50px rgba(245,158,11,0.5);
+        }
+
+        .btn-label {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .btn-subtitle {
+            font-size: 16px;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 32px; }
+            p { font-size: 18px; }
+            .buttons { flex-direction: column; align-items: center; }
+            .btn { min-width: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./Assets/Logo-FaseUp-without-background.png" alt="FaseUp Logo" class="logo">
+        <h1>Pitch Deck FaseUp</h1>
+        <p>Escolha a versão da apresentação:</p>
+
+        <div class="buttons">
+            <a href="pitch-deck-prefeituras.html" class="btn btn-prefeituras">
+                <div class="btn-label">Prefeituras</div>
+                <div class="btn-subtitle">8 slides - 15-17 minutos</div>
+            </a>
+
+            <a href="pitch-deck-investidores.html" class="btn btn-investidores">
+                <div class="btn-label">Investidores</div>
+                <div class="btn-subtitle">19 slides - 25-30 minutos</div>
+            </a>
+
+            <a href="pitch-deck-construtoras.html" class="btn btn-construtoras">
+                <div class="btn-label">Construtoras</div>
+                <div class="btn-subtitle">15 slides - 20-25 minutos</div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
